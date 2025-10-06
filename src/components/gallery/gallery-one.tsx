@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 // images
@@ -20,25 +20,21 @@ const gallery_images = [
 const imgStyle:CSSProperties = {height: "auto"};
 
 export default function GalleryOne() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const openLightbox = (index: number) => {
-    setCurrentImage(index);
-    setLightboxOpen(true);
-  };
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-  };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % gallery_images.length);
-  };
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + gallery_images.length) % gallery_images.length);
-  };
+  // Show only first image on mobile, all images on desktop/tablet
+  const imagesToShow = isMobile ? [gallery_images[0]] : gallery_images;
 
   return (
     <div className="tp-gallery-area fix p-relative">
@@ -55,153 +51,66 @@ export default function GalleryOne() {
           <div className="col-xl-12">
             <div className="tp-gallery-slider-wrap">
               <div className="swiper-container tp-gallery-slider-active">
-                <Marquee className="tp-gallery-titming" speed={100} direction='left'>
-
-                  {gallery_images.map((g, i) => (
-
-                    <div key={i}>
-                      <div className="tp-gallery-item mr-30 gallery-image-wrapper" onClick={() => openLightbox(i)}>
-                        <div className="gallery-overlay"></div>
-                        <Image
-                          src={g}
-                          alt="gallery-img"
-                          height={600}
-                          width={500}
-                          style={{ 
-                            objectFit: 'contain'
-                          }}
-                          className="gallery-responsive-img"
-                        />
-                      </div>
+                {isMobile ? (
+                  // Mobile view: Show only first image, no marquee
+                  <div className="mobile-single-image">
+                    <div className="tp-gallery-item">
+                      <Image
+                        src={imagesToShow[0]}
+                        alt="gallery-img"
+                        height={600}
+                        width={500}
+                        style={{ 
+                          objectFit: 'contain'
+                        }}
+                        className="gallery-responsive-img"
+                      />
                     </div>
-                  ))}
-
-                </Marquee>
+                  </div>
+                ) : (
+                  // Desktop/Tablet view: Show all images with marquee
+                  <Marquee className="tp-gallery-titming" speed={100} direction='left'>
+                    {imagesToShow.map((g, i) => (
+                      <div key={i}>
+                        <div className="tp-gallery-item mr-30">
+                          <Image
+                            src={g}
+                            alt="gallery-img"
+                            height={600}
+                            width={500}
+                            style={{ 
+                              objectFit: 'contain'
+                            }}
+                            className="gallery-responsive-img"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </Marquee>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Lightbox Modal */}
-      {lightboxOpen && (
-        <div className="lightbox-overlay" onClick={closeLightbox}>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={closeLightbox}>×</button>
-            <button className="lightbox-prev" onClick={prevImage}>‹</button>
-            <Image
-              src={gallery_images[currentImage]}
-              alt="gallery-img-fullscreen"
-              width={1200}
-              height={800}
-              style={{ objectFit: 'contain', maxWidth: '90vw', maxHeight: '90vh' }}
-            />
-            <button className="lightbox-next" onClick={nextImage}>›</button>
-          </div>
-        </div>
-      )}
-
       <style jsx>{`
-        .gallery-image-wrapper {
-          position: relative;
-          cursor: pointer;
-          overflow: hidden;
-          border-radius: 8px;
-        }
-
-        .gallery-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: rgba(0, 0, 0, 0.1);
-          z-index: 1;
-          transition: background-color 0.3s ease;
-        }
-
-        .gallery-image-wrapper:hover .gallery-overlay {
-          background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .lightbox-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: rgba(0, 0, 0, 0.9);
+        .mobile-single-image {
           display: flex;
           justify-content: center;
           align-items: center;
-          z-index: 9999;
-        }
-
-        .lightbox-content {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .lightbox-close {
-          position: absolute;
-          top: -50px;
-          right: 0;
-          background: none;
-          border: none;
-          color: white;
-          font-size: 40px;
-          cursor: pointer;
-          z-index: 10001;
-        }
-
-        .lightbox-prev,
-        .lightbox-next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(255, 255, 255, 0.2);
-          border: none;
-          color: white;
-          font-size: 30px;
-          padding: 10px 15px;
-          cursor: pointer;
-          border-radius: 50%;
-          transition: background-color 0.3s ease;
-        }
-
-        .lightbox-prev {
-          left: -60px;
-        }
-
-        .lightbox-next {
-          right: -60px;
-        }
-
-        .lightbox-prev:hover,
-        .lightbox-next:hover {
-          background: rgba(255, 255, 255, 0.4);
+          width: 100%;
         }
 
         @media (max-width: 768px) {
           .gallery-responsive-img {
-            max-width: 100vw !important;
-            width: auto !important;
+            max-width: 90% !important;
+            width: 90% !important;
             height: auto !important;
           }
 
-          .lightbox-prev {
-            left: 10px;
-          }
-
-          .lightbox-next {
-            right: 10px;
-          }
-
-          .lightbox-close {
-            top: 20px;
-            right: 20px;
+          .mobile-single-image .tp-gallery-item {
+            margin-right: 0;
           }
         }
       `}</style>

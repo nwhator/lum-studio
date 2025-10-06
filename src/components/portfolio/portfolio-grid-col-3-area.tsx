@@ -296,9 +296,9 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                 <Image
                   src={portfolio_data[currentImage].img}
                   alt="portfolio-img-fullscreen"
-                  width={1200}
-                  height={800}
-                  style={{ objectFit: 'contain', maxWidth: '90vw', maxHeight: '90vh' }}
+                  width={800}
+                  height={600}
+                  style={{ objectFit: 'contain', maxWidth: '85vw', maxHeight: '70vh' }}
                 />
                 <div className="lightbox-info">
                   <span className="lightbox-category">{portfolio_data[currentImage].category}</span>
@@ -375,8 +375,8 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 95vw;
-            max-height: 95vh;
+            max-width: 90vw;
+            max-height: 80vh;
           }
 
           .lightbox-image-container {
@@ -386,7 +386,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
 
           .lightbox-info {
             position: absolute;
-            bottom: -60px;
+            bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
