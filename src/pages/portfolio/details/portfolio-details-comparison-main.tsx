@@ -1,7 +1,11 @@
 "use client";
 import { gsap } from "gsap";
 import React from "react";
-import ReactCompareImage from 'react-compare-image';
+import dynamic from "next/dynamic";
+
+const ReactCompareImage = dynamic(() => import('react-compare-image'), {
+  ssr: false,
+});
 
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
