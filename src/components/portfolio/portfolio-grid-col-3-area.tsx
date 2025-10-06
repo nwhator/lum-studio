@@ -165,26 +165,24 @@ type IProps = {
 };
 export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   const { initIsotop, isotopContainer } = useIsotop();
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const openLightbox = (index: number, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImage(index);
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-  };
-
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % portfolio_data.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + portfolio_data.length) % portfolio_data.length);
+  // Function to get package route based on category
+  const getPackageRoute = (category: string) => {
+    switch (category.toLowerCase()) {
+      case 'baby shoot':
+        return '/packages/baby-shoot';
+      case 'wedding shoot':
+        return '/packages/wedding';
+      case 'call to bar':
+        return '/packages/call-to-bar';
+      case 'convocation':
+        return '/packages/convocation';
+      case 'family portraits':
+        return '/packages/family-portraits';
+      case 'maternity portrait':
+        return '/packages/maternity';
+      default:
+        return '/packages/general';
+    }
   };
 
   useEffect(() => {
@@ -238,21 +236,16 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
               key={item.id}
               className={`col-xl-4 col-lg-6 col-md-6 grid-item ${item.show}`}
             >
-              <div className="tp-project-5-2-thumb mb-30 p-relative not-hide-cursor portfolio-image-wrapper" data-cursor="View<br>Picture">
-                <div className="portfolio-overlay" onClick={(e) => openLightbox(item.id - 1, e)}>
-                  <div className="overlay-content">
-                    <span className="view-text">View Picture</span>
-                  </div>
-                </div>
-                <Link href="#" className="cursor-hide">
-                    <Image
-                      className="anim-zoomin"
-                      src={item.img}
-                      alt="port-img"
-                      width={style_2 ? 573 : 486}
-                      height={style_2 ? 683 : 576}
-                      style={{ height: "100%" }}
-                    />
+              <div className="tp-project-5-2-thumb mb-30 p-relative portfolio-item-wrapper">
+                <div className="portfolio-image-container">
+                  <Image
+                    className="anim-zoomin"
+                    src={item.img}
+                    alt="port-img"
+                    width={style_2 ? 573 : 486}
+                    height={style_2 ? 683 : 576}
+                    style={{ height: "100%", objectFit: "cover" }}
+                  />
                   <div className="tp-project-5-2-category tp-fade-anim">
                     <span>{item.category}</span>
                   </div>
@@ -260,7 +253,12 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                     <span className="tp-project-5-2-meta">{item.year}</span>
                     <h4 className="tp-project-5-2-title-sm">{item.title}</h4>
                   </div>
-                </Link>
+                </div>
+                <div className="portfolio-package-section">
+                  <Link href={getPackageRoute(item.category)} className="view-package-btn">
+                    View Package
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
@@ -286,206 +284,57 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           </div>
         </div>
 
-        {/* Lightbox Modal */}
-        {lightboxOpen && (
-          <div className="lightbox-overlay" onClick={closeLightbox}>
-            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <button className="lightbox-close" onClick={closeLightbox}>×</button>
-              <button className="lightbox-prev" onClick={prevImage}>‹</button>
-              <div className="lightbox-image-container">
-                <Image
-                  src={portfolio_data[currentImage].img}
-                  alt="portfolio-img-fullscreen"
-                  width={800}
-                  height={600}
-                  style={{ objectFit: 'contain', maxWidth: '85vw', maxHeight: '70vh' }}
-                />
-                <div className="lightbox-info">
-                  <span className="lightbox-category">{portfolio_data[currentImage].category}</span>
-                  <h3 className="lightbox-title">{portfolio_data[currentImage].title}</h3>
-                  <span className="lightbox-year">{portfolio_data[currentImage].year}</span>
-                </div>
-              </div>
-              <button className="lightbox-next" onClick={nextImage}>›</button>
-            </div>
-          </div>
-        )}
-
         <style jsx>{`
-          .portfolio-image-wrapper {
-            position: relative;
-            overflow: hidden;
+          .portfolio-item-wrapper {
             border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
           }
 
-          .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
+          .portfolio-item-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
           }
 
-          .portfolio-image-wrapper:hover .portfolio-overlay {
-            opacity: 1;
-            background-color: rgba(0, 0, 0, 0.6);
+          .portfolio-image-container {
+            position: relative;
           }
 
-          .overlay-content {
+          .portfolio-package-section {
+            padding: 20px;
+            background: #f8f9fa;
             text-align: center;
+          }
+
+          .view-package-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2c3e50;
             color: white;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-          }
-
-          .portfolio-image-wrapper:hover .overlay-content {
-            transform: translateY(0);
-          }
-
-          .view-text {
-            font-size: 18px;
+            text-decoration: none;
+            border-radius: 6px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #2c3e50;
           }
 
-          .lightbox-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.95);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-          }
-
-          .lightbox-content {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 90vw;
-            max-height: 80vh;
-          }
-
-          .lightbox-image-container {
-            position: relative;
-            text-align: center;
-          }
-
-          .lightbox-info {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            text-align: center;
-            width: 100%;
-          }
-
-          .lightbox-category {
-            font-size: 14px;
-            color: #ccc;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-          }
-
-          .lightbox-title {
-            font-size: 24px;
-            margin: 8px 0;
-            color: white;
-          }
-
-          .lightbox-year {
-            font-size: 16px;
-            color: #999;
-          }
-
-          .lightbox-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            z-index: 10001;
-            transition: color 0.3s ease;
-          }
-
-          .lightbox-close:hover {
-            color: #ccc;
-          }
-
-          .lightbox-prev,
-          .lightbox-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 30px;
-            padding: 15px 20px;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-          }
-
-          .lightbox-prev {
-            left: -80px;
-          }
-
-          .lightbox-next {
-            right: -80px;
-          }
-
-          .lightbox-prev:hover,
-          .lightbox-next:hover {
-            background: rgba(255, 255, 255, 0.4);
+          .view-package-btn:hover {
+            background: transparent;
+            color: #2c3e50;
+            text-decoration: none;
           }
 
           @media (max-width: 768px) {
-            .lightbox-prev {
-              left: 10px;
-              padding: 10px 15px;
-              font-size: 24px;
+            .portfolio-package-section {
+              padding: 15px;
             }
 
-            .lightbox-next {
-              right: 10px;
-              padding: 10px 15px;
-              font-size: 24px;
-            }
-
-            .lightbox-close {
-              top: 20px;
-              right: 20px;
-              font-size: 30px;
-            }
-
-            .lightbox-info {
-              bottom: -80px;
-            }
-
-            .lightbox-title {
-              font-size: 20px;
-            }
-
-            .view-text {
-              font-size: 16px;
+            .view-package-btn {
+              padding: 10px 20px;
+              font-size: 14px;
             }
           }
         `}</style>

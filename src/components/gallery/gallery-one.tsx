@@ -33,8 +33,10 @@ export default function GalleryOne() {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Show only first image on mobile, all images on desktop/tablet
-  const imagesToShow = isMobile ? [gallery_images[0]] : gallery_images;
+  // Show only first image repeated on mobile for animation, all images on desktop/tablet
+  const imagesToShow = isMobile ? 
+    Array(8).fill(gallery_images[0]) : // Repeat first image 8 times for smooth mobile animation
+    gallery_images;
 
   return (
     <div className="tp-gallery-area fix p-relative">
@@ -51,43 +53,24 @@ export default function GalleryOne() {
           <div className="col-xl-12">
             <div className="tp-gallery-slider-wrap">
               <div className="swiper-container tp-gallery-slider-active">
-                {isMobile ? (
-                  // Mobile view: Show only first image, no marquee
-                  <div className="mobile-single-image">
-                    <div className="tp-gallery-item">
-                      <Image
-                        src={imagesToShow[0]}
-                        alt="gallery-img"
-                        height={600}
-                        width={500}
-                        style={{ 
-                          objectFit: 'contain'
-                        }}
-                        className="gallery-responsive-img"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  // Desktop/Tablet view: Show all images with marquee
-                  <Marquee className="tp-gallery-titming" speed={100} direction='left'>
-                    {imagesToShow.map((g, i) => (
-                      <div key={i}>
-                        <div className="tp-gallery-item mr-30">
-                          <Image
-                            src={g}
-                            alt="gallery-img"
-                            height={600}
-                            width={500}
-                            style={{ 
-                              objectFit: 'contain'
-                            }}
-                            className="gallery-responsive-img"
-                          />
-                        </div>
+                <Marquee className="tp-gallery-titming" speed={100} direction='left'>
+                  {imagesToShow.map((g, i) => (
+                    <div key={i}>
+                      <div className="tp-gallery-item mr-30">
+                        <Image
+                          src={g}
+                          alt="gallery-img"
+                          height={600}
+                          width={500}
+                          style={{ 
+                            objectFit: 'contain'
+                          }}
+                          className="gallery-responsive-img"
+                        />
                       </div>
-                    ))}
-                  </Marquee>
-                )}
+                    </div>
+                  ))}
+                </Marquee>
               </div>
             </div>
           </div>
@@ -95,22 +78,11 @@ export default function GalleryOne() {
       </div>
 
       <style jsx>{`
-        .mobile-single-image {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-        }
-
         @media (max-width: 768px) {
           .gallery-responsive-img {
             max-width: 90% !important;
             width: 90% !important;
             height: auto !important;
-          }
-
-          .mobile-single-image .tp-gallery-item {
-            margin-right: 0;
           }
         }
       `}</style>
