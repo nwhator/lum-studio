@@ -78,7 +78,7 @@ export const mobile_menu_data = [
     id: 3,
     title: 'Gallery',
     link: '/gallery',
-    home_menus: galleryCategories,
+    dropdown_menus: [],
   },
   {
     id: 4,

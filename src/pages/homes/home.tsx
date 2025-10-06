@@ -8,14 +8,10 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother, SplitText);
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import Header from "@/layouts/headers/header-four";
 import HeroBannerFour from "@/components/hero-banner/hero-banner-four";
 import GalleryOne from "@/components/gallery/gallery-one";
 import AboutThree from "@/components/about/about-three";
 import ProjectFour from "@/components/project/project-four";
-import VideoThree from "@/components/video/video-three";
-import ServiceFour from "@/components/service/service-four";
-import ContactOne from "@/components/contact/contact-one";
 import FooterTwo from "@/layouts/footers/footer-two";
 import { textInvert } from "@/utils/text-invert";
 import { fadeAnimation, revelAnimationOne } from "@/utils/title-animation";
@@ -69,10 +65,6 @@ const HomeLum = () => {
             {/* project area start */}
             <ProjectFour />
             {/* project area end */}
-
-            {/* contact area start */}
-            <ContactOne />
-            {/* contact area end */}
 
           </main>
 

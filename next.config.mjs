@@ -18,7 +18,18 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['gsap', 'three', 'react-slick'],
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
+  
+  // Development optimizations
+  swcMinify: true,
   
   // Compression
   compress: true,
