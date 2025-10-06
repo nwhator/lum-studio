@@ -42,7 +42,7 @@ const ContactMain = () => {
           >
             <main>
               {/* hero area start */}
-              <div className="tm-hero-area tm-hero-ptb p-relative">
+              <div className="tm-hero-area tm-hero-ptb p-relative pt-190">
                 <div className="container">
                   <div className="row">
                     <div className="col-xl-12">

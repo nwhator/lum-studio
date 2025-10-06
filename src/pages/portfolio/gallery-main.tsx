@@ -60,7 +60,7 @@ const PortfolioGridColThreeMain = () => {
         <div id="smooth-content">
           <main>
             {/* portfolio hero */}
-            <div className="tm-hero-area tm-hero-ptb">
+            <div className="tm-hero-area tm-hero-ptb pt-190">
               <div className="container">
                 <div className="row">
                   <div className="col-xl-12">
