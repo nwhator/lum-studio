@@ -1,10 +1,11 @@
 "use client";
 import { gsap } from "gsap";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 const ReactCompareImage = dynamic(() => import('react-compare-image'), {
   ssr: false,
+  loading: () => <div className="text-center p-4">Loading comparison...</div>
 });
 
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
@@ -20,6 +21,11 @@ import { Dots } from "@/components/svg";
 // animation
 
 const PortfolioDetailsComparisonMain = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useScrollSmooth();
 
@@ -38,7 +44,13 @@ const PortfolioDetailsComparisonMain = () => {
                   <div className="row">
                      <div className="col-xl-12">
                        <div className="project-details-img-comparison">
-                           <ReactCompareImage leftImage="/assets/img/inner-project/portfolio-details-2/slide-5.jpg" rightImage="/assets/img/inner-project/portfolio-details-2/slide-4.jpg" handleSize={60} />
+                           {isClient && (
+                             <ReactCompareImage 
+                               leftImage="/assets/img/inner-project/portfolio-details-2/slide-5.jpg" 
+                               rightImage="/assets/img/inner-project/portfolio-details-2/slide-4.jpg" 
+                               handleSize={60} 
+                             />
+                           )}
                        </div>
                      </div>
                   </div>
