@@ -16,13 +16,11 @@ export default function AboutThree() {
             <div className="tp-about-3-title-box">
               <span className="tp-section-subtitle-2 tp_fade_bottom">
                 <span>
-                  <FirstBracket />
                 </span>
                 <span className="tp-subtitle-text tp_text_invert">
                   What we do
                 </span>
                 <span>
-                  <FirstBracketTwo />
                 </span>
               </span>
               <h4 className="tp-section-title-90 tp_text_invert tp_fade_bottom">
