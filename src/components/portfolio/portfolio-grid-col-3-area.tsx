@@ -290,6 +290,10 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
           }
 
           .portfolio-item-wrapper:hover {
@@ -299,12 +303,22 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
 
           .portfolio-image-container {
             position: relative;
+            flex: 1;
+            width: 100%;
+            overflow: hidden;
+          }
+
+          .portfolio-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .portfolio-package-section {
             padding: 20px;
             background: #f8f9fa;
             text-align: center;
+            margin-top: auto;
           }
 
           .view-package-btn {
@@ -319,6 +333,8 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             letter-spacing: 1px;
             transition: all 0.3s ease;
             border: 2px solid #2c3e50;
+            width: 100%;
+            box-sizing: border-box;
           }
 
           .view-package-btn:hover {
@@ -328,13 +344,56 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           }
 
           @media (max-width: 768px) {
+            .portfolio-item-wrapper {
+              margin-bottom: 20px;
+              height: auto;
+              min-height: 300px;
+            }
+
+            .portfolio-image-container {
+              min-height: 200px;
+            }
+
             .portfolio-package-section {
-              padding: 15px;
+              padding: 12px 15px;
+              flex-shrink: 0;
             }
 
             .view-package-btn {
-              padding: 10px 20px;
+              padding: 10px 16px;
+              font-size: 12px;
+              letter-spacing: 0.5px;
+              width: 100%;
+              display: block;
+            }
+
+            .tp-project-5-2-category,
+            .tp-project-5-2-content {
               font-size: 14px;
+            }
+
+            .tp-project-5-2-title-sm {
+              font-size: 16px !important;
+            }
+          }
+
+          @media (max-width: 576px) {
+            .portfolio-item-wrapper {
+              margin-bottom: 15px;
+              min-height: 280px;
+            }
+
+            .portfolio-image-container {
+              min-height: 180px;
+            }
+
+            .portfolio-package-section {
+              padding: 10px 12px;
+            }
+
+            .view-package-btn {
+              padding: 8px 12px;
+              font-size: 11px;
             }
           }
         `}</style>
