@@ -23,6 +23,7 @@ interface PackageData {
 export default function CheckoutPage() {
   const [packageData, setPackageData] = useState<PackageData | null>(null);
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const searchParams = useSearchParams();
   
   useScrollSmooth();
@@ -35,8 +36,12 @@ export default function CheckoutPage() {
   });
 
   useEffect(() => {
-    // Get package data from URL parameters
-    if (!searchParams) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // Only run on client side after mounting
+    if (!mounted || !searchParams) return;
     
     const name = searchParams.get('name') || '';
     const category = searchParams.get('category') || '';
@@ -53,7 +58,7 @@ export default function CheckoutPage() {
         description: decodeURIComponent(description)
       });
     }
-  }, [searchParams]);
+  }, [mounted, searchParams]);
 
   const copyAccountNumber = () => {
     navigator.clipboard.writeText('2087654321');
@@ -61,7 +66,7 @@ export default function CheckoutPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (!packageData) {
+  if (!mounted || !packageData) {
     return (
       <Wrapper>
         <HeaderOne />
