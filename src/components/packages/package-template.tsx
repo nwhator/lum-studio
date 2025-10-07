@@ -129,7 +129,7 @@ export default function PackageTemplate({
                         <div className="package-content">
                           <h3 className="package-name">{pkg.name}</h3>
                           <p className="package-description">{pkg.description}</p>
-                          <Link 
+                          <a 
                             href={`/checkout?name=${encodeURIComponent(pkg.name)}&category=${encodeURIComponent(categoryName)}&price=${encodeURIComponent(pkg.price)}&image=${encodeURIComponent(pkg.image)}&description=${encodeURIComponent(pkg.description)}`}
                             className="get-package-btn"
                             onClick={(e) => {
@@ -139,10 +139,11 @@ export default function PackageTemplate({
                                 price: pkg.price,
                                 image: pkg.image
                               });
+                              console.log('Full URL:', e.currentTarget.href);
                             }}
                           >
                             Get Package
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -257,11 +258,11 @@ export default function PackageTemplate({
 
         .book-now-btn {
           display: inline-block;
-          background: white;
-          color: #2c3e50;
+          background: white !important;
+          color: #2c3e50 !important;
           padding: 15px 40px;
           border-radius: 30px;
-          text-decoration: none;
+          text-decoration: none !important;
           font-weight: 600;
           font-size: 16px;
           text-transform: uppercase;
@@ -269,12 +270,14 @@ export default function PackageTemplate({
           transition: all 0.3s ease;
           border: 3px solid white;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          z-index: 10;
+          position: relative;
         }
 
         .book-now-btn:hover {
-          background: transparent;
-          color: white;
-          text-decoration: none;
+          background: #2c3e50 !important;
+          color: white !important;
+          text-decoration: none !important;
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
