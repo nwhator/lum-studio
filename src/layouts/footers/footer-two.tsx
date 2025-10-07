@@ -4,6 +4,7 @@ import Link from "next/link";
 import logo from "@/assets/img/logo/logo-white.png";
 import logo_2 from "@/assets/img/logo/logo.png";
 import { RightArrow } from "@/components/svg";
+import { Instagram, Threads, WhatsApp } from "@/components/svg/social";
 
 // prop type
 type IProps = {
@@ -122,9 +123,36 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
             </div>
             <div className="col-xl-8 col-lg-7">
               <div className="tp-copyright-2-social text-center text-lg-end">
-                <a className="mb-10" href="https://www.instagram.com/lum_studios/" target="_blank">Instagram</a>
-                <a className="mb-10" href="https://www.threads.com/@lum_studios/" target="_blank">Threads</a>
-                <a className="mb-10" href="#" target="_blank">WhatsApp</a>
+                <a 
+                  className="social-icon-link mb-10" 
+                  href="https://www.instagram.com/lum_studios/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Follow us on Instagram"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram />
+                </a>
+                <a 
+                  className="social-icon-link mb-10" 
+                  href="https://www.threads.com/@lum_studios/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Follow us on Threads"
+                  aria-label="Follow us on Threads"
+                >
+                  <Threads />
+                </a>
+                <a 
+                  className="social-icon-link mb-10" 
+                  href="https://wa.me/2348145538164" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Contact us on WhatsApp"
+                  aria-label="Contact us on WhatsApp"
+                >
+                  <WhatsApp />
+                </a>
               </div>
             </div>
           </div>

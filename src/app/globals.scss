@@ -2,3 +2,335 @@
 @import 'node_modules/react-modal-video/scss/modal-video.scss';
 @import "swiper/css/bundle"; 
 @import '../../public/assets/scss/main.scss';
+
+// Custom social media icon styles
+.tp-copyright-2-social .social-icon-link {
+  height: 35px;
+  width: 35px;
+  line-height: 35px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tp-common-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  &:hover {
+    background-color: var(--tp-common-white);
+    border-color: var(--tp-common-white);
+    color: var(--tp-common-black);
+    transform: translateY(-2px);
+    
+    svg {
+      color: var(--tp-common-black);
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .tp-copyright-2-social .social-icon-link {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .tp-copyright-2-social .social-icon-link {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+// White footer theme
+.tp-copyright-white .tp-copyright-2-social .social-icon-link {
+  color: var(--tp-common-black);
+  border-color: rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    background-color: var(--tp-common-black);
+    border-color: var(--tp-common-black);
+    color: var(--tp-common-white);
+    
+    svg {
+      color: var(--tp-common-white);
+    }
+  }
+}
+
+// Transparent header styles
+.tp-header-transparent {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  // White text for navigation
+  .tp-main-menu-content {
+    ul li a {
+      color: var(--tp-common-white) !important;
+      
+      &:hover {
+        color: var(--tp-theme-1) !important;
+      }
+    }
+    
+    // Dropdown menu items
+    ul li ul li a {
+      color: var(--tp-common-black) !important;
+      
+      &:hover {
+        color: var(--tp-theme-1) !important;
+      }
+    }
+  }
+  
+  // Mobile menu button
+  .tp-offcanvas-open-btn {
+    span {
+      background-color: var(--tp-common-white);
+    }
+  }
+  
+  // Sticky state
+  &.header-sticky {
+    background: var(--tp-common-white);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    
+    .tp-main-menu-content {
+      ul li a {
+        color: var(--tp-common-black) !important;
+      }
+    }
+    
+    .tp-offcanvas-open-btn {
+      span {
+        background-color: var(--tp-common-black);
+      }
+    }
+    
+    .tp-header-logo {
+      .logo-1 {
+        display: block !important;
+      }
+      
+      .logo-2 {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// Package Details Tabs Styles
+.package-details-area {
+  background: #f8f9fa;
+}
+
+.package-details-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.package-tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.package-tab-btn {
+  background: none;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px 8px 0 0;
+  
+  &:hover {
+    color: var(--tp-theme-1);
+    background: rgba(var(--tp-theme-rgb), 0.05);
+  }
+  
+  &.active {
+    color: var(--tp-theme-1);
+    background: white;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--tp-theme-1);
+      border-radius: 3px 3px 0 0;
+    }
+  }
+}
+
+.package-tabs-content {
+  position: relative;
+  min-height: 300px;
+}
+
+.package-tab-pane {
+  display: none;
+  animation: fadeInUp 0.4s ease-in-out;
+  
+  &.active {
+    display: block;
+  }
+}
+
+.package-details-box {
+  text-align: center;
+}
+
+.package-details-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--tp-common-black);
+  margin-bottom: 30px;
+}
+
+.package-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.package-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(var(--tp-theme-rgb), 0.05);
+    transform: translateY(-2px);
+  }
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--tp-theme-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.feature-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--tp-common-black);
+  line-height: 1.4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive design for package details
+@media (max-width: 768px) {
+  .package-details-wrapper {
+    padding: 30px 20px;
+  }
+  
+  .package-tabs-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .package-tab-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .package-features-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .package-details-title {
+    font-size: 24px;
+  }
+}
+
+// 404 Error page styles
+.tp-error-big-title {
+  font-size: 120px;
+  font-weight: 900;
+  color: var(--tp-theme-1);
+  line-height: 1;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 767px) {
+    font-size: 80px;
+  }
+}
+
+.tp-error-number {
+  margin-bottom: 30px;
+}
+
+.tp-error-btn-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 15px;
+    
+    .mr-20 {
+      margin-right: 0 !important;
+    }
+  }
+}

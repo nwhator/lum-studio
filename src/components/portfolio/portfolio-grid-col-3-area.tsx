@@ -246,6 +246,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                     height={style_2 ? 683 : 576}
                     style={{ height: "100%", objectFit: "cover" }}
                   />
+                  <div className="portfolio-hover-overlay"></div>
                   <div className="tp-project-5-2-category tp-fade-anim">
                     <span>{item.category}</span>
                   </div>
@@ -306,12 +307,34 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             flex: 1;
             width: 100%;
             overflow: hidden;
+            cursor: pointer;
           }
 
           .portfolio-image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+
+          .portfolio-hover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          .portfolio-image-container:hover .portfolio-hover-overlay {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+
+          .portfolio-image-container:hover img {
+            transform: scale(1.05);
           }
 
           .portfolio-package-section {

@@ -57,16 +57,19 @@ export default function GalleryOne() {
                   {imagesToShow.map((g, i) => (
                     <div key={i}>
                       <div className="tp-gallery-item mr-30">
-                        <Image
-                          src={g}
-                          alt="gallery-img"
-                          height={600}
-                          width={500}
-                          style={{ 
-                            objectFit: 'contain'
-                          }}
-                          className="gallery-responsive-img"
-                        />
+                        <div className="gallery-image-wrapper">
+                          <Image
+                            src={g}
+                            alt="gallery-img"
+                            height={600}
+                            width={500}
+                            style={{ 
+                              objectFit: 'contain'
+                            }}
+                            className="gallery-responsive-img"
+                          />
+                          <div className="gallery-hover-overlay"></div>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -78,11 +81,49 @@ export default function GalleryOne() {
       </div>
 
       <style jsx>{`
+        .gallery-image-wrapper {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+        
+        .gallery-hover-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0);
+          transition: background-color 0.3s ease;
+          pointer-events: none;
+          border-radius: 8px;
+        }
+        
+        .gallery-image-wrapper:hover .gallery-hover-overlay {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-image-wrapper:hover .gallery-responsive-img {
+          transform: scale(1.05);
+          transition: transform 0.3s ease;
+        }
+        
+        .gallery-responsive-img {
+          transition: transform 0.3s ease;
+          border-radius: 8px;
+        }
+        
         @media (max-width: 768px) {
           .gallery-responsive-img {
             max-width: 90% !important;
             width: 90% !important;
             height: auto !important;
+          }
+          
+          .gallery-image-wrapper:hover .gallery-responsive-img {
+            transform: scale(1.02);
           }
         }
       `}</style>

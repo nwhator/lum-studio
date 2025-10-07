@@ -8,7 +8,7 @@ import { charAnimation, fadeAnimation } from "@/utils/title-animation";
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import HeaderOne from "@/layouts/headers/header-one";
+import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 
 // types
@@ -41,6 +41,114 @@ interface PackageTemplateProps {
   heroBackgroundImage?: string;
 }
 
+// Package Details Component
+const PackageDetailsTabs = ({ categoryName }: { categoryName: string }) => {
+  const [activeTab, setActiveTab] = React.useState<'classic' | 'walkin'>('classic');
+
+  const getPackageDetails = (type: 'classic' | 'walkin') => {
+    const details = {
+      classic: {
+        title: 'Classic Package',
+        features: [
+          '2-3 hours photography session',
+          '50-100 high-resolution edited photos',
+          'Professional lighting setup',
+          'Multiple outfit changes',
+          'Online gallery for sharing',
+          'Print release included',
+          'Basic retouching on all photos'
+        ]
+      },
+      walkin: {
+        title: 'Walk-in Package',
+        features: [
+          '30-45 minutes quick session',
+          '15-25 high-resolution edited photos',
+          'Studio lighting setup',
+          '1-2 outfit options',
+          'Same-day online gallery',
+          'Print release included',
+          'Standard editing on all photos'
+        ]
+      }
+    };
+
+    return details[type];
+  };
+
+  return (
+    <div className="package-details-area pt-90 pb-60">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-xl-10">
+            <div className="package-details-wrapper">
+              <div className="package-details-header text-center mb-50">
+                <h2 className="tp-section-title mb-20">What's Included</h2>
+                <p>Choose between our Classic full session or quick Walk-in options</p>
+              </div>
+              
+              {/* Tab Navigation */}
+              <div className="package-tabs-nav">
+                <button 
+                  className={`package-tab-btn ${activeTab === 'classic' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('classic')}
+                >
+                  Classic Package
+                </button>
+                <button 
+                  className={`package-tab-btn ${activeTab === 'walkin' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('walkin')}
+                >
+                  Walk-in Package
+                </button>
+              </div>
+
+              {/* Tab Content */}
+              <div className="package-tabs-content">
+                <div className={`package-tab-pane ${activeTab === 'classic' ? 'active' : ''}`}>
+                  <div className="package-details-box">
+                    <h3 className="package-details-title">{getPackageDetails('classic').title}</h3>
+                    <div className="package-features-grid">
+                      {getPackageDetails('classic').features.map((feature, index) => (
+                        <div key={index} className="package-feature-item">
+                          <div className="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                              <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <span className="feature-text">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`package-tab-pane ${activeTab === 'walkin' ? 'active' : ''}`}>
+                  <div className="package-details-box">
+                    <h3 className="package-details-title">{getPackageDetails('walkin').title}</h3>
+                    <div className="package-features-grid">
+                      {getPackageDetails('walkin').features.map((feature, index) => (
+                        <div key={index} className="package-feature-item">
+                          <div className="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                              <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <span className="feature-text">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function PackageTemplate({
   heroTitle,
   heroDescription,
@@ -69,7 +177,7 @@ export default function PackageTemplate({
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderOne />
+      <HeaderTransparent />
       {/* header area end */}
 
       <div id="smooth-wrapper">
@@ -100,6 +208,9 @@ export default function PackageTemplate({
                 </div>
               </div>
             </div>
+
+            {/* Package Details Tabs Section */}
+            <PackageDetailsTabs categoryName={categoryName} />
 
             {/* Packages Section */}
             <div className="package-options-area pt-120 pb-90">

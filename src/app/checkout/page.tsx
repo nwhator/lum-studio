@@ -9,7 +9,7 @@ import { fadeAnimation } from "@/utils/title-animation";
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import HeaderOne from "@/layouts/headers/header-one";
+import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 
 interface PackageData {
@@ -69,7 +69,7 @@ function CheckoutContent() {
   if (!mounted || !packageData) {
     return (
       <Wrapper>
-        <HeaderOne />
+        <HeaderTransparent />
         <div className="checkout-loading pt-190 pb-130">
           <div className="container">
             <div className="row justify-content-center">
@@ -93,7 +93,7 @@ function CheckoutContent() {
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderOne />
+      <HeaderTransparent />
       {/* header area end */}
 
       <div id="smooth-wrapper">
@@ -540,7 +540,7 @@ export default function CheckoutPage() {
   return (
     <Suspense fallback={
       <Wrapper>
-        <HeaderOne />
+        <HeaderTransparent />
         <div className="checkout-loading pt-190 pb-130">
           <div className="container">
             <div className="row justify-content-center">

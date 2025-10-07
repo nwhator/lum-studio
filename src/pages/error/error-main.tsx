@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import HeaderEleven from "@/layouts/headers/header-eleven";
+import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 import error from '@/assets/img/error/error.png';
 
@@ -19,8 +19,8 @@ const ErrorMain = () => {
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderEleven />
-      {/* header area end */}
+      <HeaderTransparent />
+      {/* header area end */
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
@@ -31,16 +31,23 @@ const ErrorMain = () => {
                 <div className="row">
                   <div className="col-xl-12">
                     <div className="tp-error-wrapper text-center">
-                      <h4 className="tp-error-title">Oops!</h4>
+                      <div className="tp-error-number">
+                        <h1 className="tp-error-big-title">404</h1>
+                      </div>
                       <Image src={error} alt="error-img" style={{ height: 'auto' }} />
                       <div className="tp-error-content">
                         <h4 className="tp-error-title-sm">
-                          Something went Wrong...
+                          Page Not Found
                         </h4>
-                        <p>Sorry, we {"couldn't"} find your page.</p>
-                        <Link className="tp-btn-black-2" href="/">
-                          Back to Home
-                        </Link>
+                        <p>The page you are looking for doesn't exist or has been moved.</p>
+                        <div className="tp-error-btn-wrapper">
+                          <Link className="tp-btn-black-2 mr-20" href="/">
+                            Back to Home
+                          </Link>
+                          <Link className="tp-btn-circle style-2" href="/gallery">
+                            View Gallery
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

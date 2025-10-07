@@ -208,3 +208,66 @@ export function Youtube() {
     </svg>
   );
 }
+
+export function WhatsApp() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 14.5c3.59 0 6.5-2.91 6.5-6.5S11.59 1.5 8 1.5 1.5 4.41 1.5 8c0 1.13.29 2.19.8 3.12L1.5 14.5l3.38-.8c.93.51 1.99.8 3.12.8z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M11.2 5.8c-.4-.4-.9-.6-1.4-.6s-1 .2-1.4.6c-.4.4-.6.9-.6 1.4s.2 1 .6 1.4l.8.8.8-.8c.4-.4.6-.9.6-1.4s-.2-1-.6-1.4z"
+        fill="currentColor"
+      />
+      <path
+        d="M6.5 10.5c.8.4 1.7.4 2.5 0"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function Threads() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 1C4.7 1 2 3.7 2 7v2c0 3.3 2.7 6 6 6s6-2.7 6-6V7c0-3.3-2.7-6-6-6z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 5.5c-.8 0-1.5.7-1.5 1.5v2c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle
+        cx="8"
+        cy="7"
+        r="1"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
