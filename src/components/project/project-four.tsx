@@ -2,73 +2,56 @@ import React from "react";
 import Image from "next/image";
 
 import { ProjectShape, RightArrow } from "../svg";
-// Portfolio images from gallery - Using first 2 from each category for Classic and Walk-in
-// Baby Shoot images (cat1)
-import babyClassic from '/assets/img/inner-project/portfolio-col-2/port-1.jpg';
-import babyWalkin from '/assets/img/inner-project/portfolio-col-2/port-2.jpg';
-// Wedding Shoot images (cat2)
-import weddingClassic from '/assets/img/inner-project/portfolio-col-2/port-4.jpg';
-import weddingWalkin from '/assets/img/inner-project/portfolio-col-2/port-5.jpg';
-// Call to Bar images (cat3)
-import callToBarClassic from '/assets/img/inner-project/portfolio-col-2/port-7.jpg';
-import callToBarWalkin from '/assets/img/inner-project/portfolio-col-2/port-8.jpg';
-// Convocation images (cat4)
-import convocationClassic from '/assets/img/inner-project/portfolio-col-2/port-10.jpg';
-import convocationWalkin from '/assets/img/inner-project/portfolio-col-2/port-11.jpg';
-// Family Portraits images (cat5)
-import familyClassic from '/assets/img/inner-project/portfolio-col-2/port-13.jpg';
-import familyWalkin from '/assets/img/inner-project/portfolio-col-2/port-14.jpg';
-// Maternity Portrait images (cat6)
-import maternityClassic from '/assets/img/inner-project/portfolio-col-2/port-16.jpg';
-import maternityWalkin from '/assets/img/inner-project/portfolio-col-2/port-17.jpg';
+// Portfolio images from gallery - Using string paths for public folder images
+// These will be used as src strings for Next.js Image component
 import Link from "next/link";
 
-// portfolio data - Using first 2 images from each category
+// portfolio data - Using string paths from public folder
 const project_data = [
   {
     id: 1,
-    img_1: babyClassic,
-    img_2: babyWalkin,
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+    img_2: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
     meta: "Newborn Photography",
     title: "Baby Shoots",
     category: "Active"
   },
   {
     id: 2,
-    img_1: weddingClassic,
-    img_2: weddingWalkin,
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+    img_2: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
     meta: "Wedding Photography",
     title: "Wedding Shoots",
     category: "Active"
   },
   {
     id: 3,
-    img_1: callToBarClassic,
-    img_2: callToBarWalkin,
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-7.jpg",
+    img_2: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
     meta: "Legal Milestone",
     title: "Call to Bar",
     category: "Active"
   },
   {
     id: 4,
-    img_1: convocationClassic,
-    img_2: convocationWalkin,
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
+    img_2: "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
     meta: "Academic Achievement",
     title: "Convocation",
     category: "Active"
   },
   {
     id: 5,
-    img_1: familyClassic,
-    img_2: familyWalkin,
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+    img_2: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
     meta: "Portrait Photography",
     title: "Family Portraits",
     category: "Active"
   },
   {
     id: 6,
-    img_1: maternityClassic,
-    img_2: maternityWalkin,
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
+    img_2: "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
     meta: "Maternity Photography", 
     title: "Maternity Portraits",
     category: "Active"
