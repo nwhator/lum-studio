@@ -392,52 +392,73 @@
   }
 }
 
-// Package label overlays - clickable and animated
+// Our Photoshoots title font size fix
+.photoshoots-title {
+  font-size: 80px !important;
+  
+  @media (max-width: 1199px) {
+    font-size: 60px !important;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 40px !important;
+  }
+}
+
+// Package label overlays - always visible with better UX
 .package-label-overlay {
   position: absolute;
   top: 20px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 12px;
   font-weight: 600;
   z-index: 3;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   
   span {
     color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 11px;
+    font-weight: 600;
   }
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
     
     span {
       color: white;
+      text-decoration: none;
     }
   }
   
   &.classic-overlay {
     left: 20px;
-    background: var(--tp-theme-1);
+    background: rgba(var(--tp-theme-rgb), 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     
     &:hover {
       background: var(--tp-theme-1);
-      filter: brightness(1.1);
+      border-color: rgba(255, 255, 255, 0.3);
     }
   }
   
   &.walkin-overlay {
     right: 20px;
-    background: #666;
+    background: rgba(102, 102, 102, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     
     &:hover {
       background: #555;
+      border-color: rgba(255, 255, 255, 0.3);
     }
   }
 }
