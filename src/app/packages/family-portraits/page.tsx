@@ -16,7 +16,7 @@ const FamilyPortraitPackagePage = () => {
       description: "Perfect for families of all sizes. Includes 1-hour session, 20 edited photos, and digital gallery access."
     },
     {
-      name: "Premium Family Package",
+      name: "Walk-In Family Package",
       image: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
       price: "$699",
       description: "Complete family experience with 2-hour session, 40 edited photos, prints package, and custom family album."

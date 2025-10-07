@@ -16,7 +16,7 @@ const WeddingPackagePage = () => {
       description: "Perfect for intimate weddings. Includes 6-hour coverage, 200 edited photos, and online gallery."
     },
     {
-      name: "Premium Wedding Package",
+      name: "Walk-In Wedding Package",
       image: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
       price: "$2,499",
       description: "Complete wedding experience with 8-hour coverage, 400+ edited photos, engagement session, and wedding album."

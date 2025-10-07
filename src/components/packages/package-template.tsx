@@ -87,9 +87,8 @@ export default function PackageTemplate({
                       <p className="package-hero-description text-white mb-40">
                         {heroDescription}
                       </p>
-                      <Link href="/contact" className="tp-btn-circle style-2">
-                        <span className="tp-btn-circle-text">Book Now</span>
-                        <i className="tp-btn-circle-dot"></i>
+                      <Link href="/contact" className="book-now-btn">
+                        Book Now
                       </Link>
                     </div>
                   </div>
@@ -125,7 +124,10 @@ export default function PackageTemplate({
                         <div className="package-content">
                           <h3 className="package-name">{pkg.name}</h3>
                           <p className="package-description">{pkg.description}</p>
-                          <Link href="/contact" className="get-package-btn">
+                          <Link 
+                            href={`/checkout?name=${encodeURIComponent(pkg.name)}&category=${encodeURIComponent(categoryName)}&price=${encodeURIComponent(pkg.price)}&image=${encodeURIComponent(pkg.image)}&description=${encodeURIComponent(pkg.description)}`}
+                            className="get-package-btn"
+                          >
                             Get Package
                           </Link>
                         </div>
@@ -238,6 +240,30 @@ export default function PackageTemplate({
         .package-hero-description {
           font-size: 18px;
           line-height: 1.6;
+        }
+
+        .book-now-btn {
+          display: inline-block;
+          background: white;
+          color: #2c3e50;
+          padding: 15px 40px;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+          border: 3px solid white;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-now-btn:hover {
+          background: transparent;
+          color: white;
+          text-decoration: none;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .package-card {

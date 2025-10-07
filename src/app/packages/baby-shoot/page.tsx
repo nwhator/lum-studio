@@ -16,7 +16,7 @@ const BabyShootPackagePage = () => {
       description: "Perfect for newborns and infants. Includes 1-hour session, 15 edited photos, and digital gallery access."
     },
     {
-      name: "Premium Baby Package",
+      name: "Walk-In Baby Package",
       image: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
       price: "$499",
       description: "Complete baby photography experience with 2-hour session, 30 edited photos, prints, and custom album."
