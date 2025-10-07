@@ -39,7 +39,7 @@ const ErrorMain = () => {
                         <h4 className="tp-error-title-sm">
                           Page Not Found
                         </h4>
-                        <p>The page you are looking for doesn't exist or has been moved.</p>
+                        <p>The page you are looking for doesn&apos;t exist or has been moved.</p>
                         <div className="tp-error-btn-wrapper">
                           <Link className="tp-btn-black-2 mr-20" href="/">
                             Back to Home

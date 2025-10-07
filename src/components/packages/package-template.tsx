@@ -83,7 +83,7 @@ const PackageDetailsTabs = ({ categoryName }: { categoryName: string }) => {
           <div className="col-xl-10">
             <div className="package-details-wrapper">
               <div className="package-details-header text-center mb-50">
-                <h2 className="tp-section-title mb-20">What's Included</h2>
+                <h2 className="tp-section-title mb-20">What&apos;s Included</h2>
                 <p>Choose between our Classic full session or quick Walk-in options</p>
               </div>
               
