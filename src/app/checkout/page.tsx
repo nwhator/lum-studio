@@ -179,7 +179,7 @@ export default function CheckoutPage() {
                               <li>Transfer the exact amount to the account above</li>
                               <li>Use your full name as the transfer reference</li>
                               <li>Call us to confirm your payment</li>
-                              <li>We'll contact you within 24 hours to schedule your session</li>
+                              <li>We&apos;ll contact you within 24 hours to schedule your session</li>
                             </ol>
                           </div>
 
