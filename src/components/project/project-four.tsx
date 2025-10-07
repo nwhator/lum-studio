@@ -69,8 +69,8 @@ export default function ProjectFour({ style_2 = false }: IProps) {
           <div className="row justify-content-center">
             <div className="col-xl-7">
               <div className="tp-project-3-title-box p-relative mb-150">
-                <h4 className="tp-section-title-200 tp_reveal_anim photoshoots-title">
-                  Our <span>Photoshoots</span>
+                <h4 className="tp-section-title-200 tp_reveal_anim">
+                  Our <span>Pictures</span>
                 </h4>
                 <div className="tp-project-3-btn-box">
                   <Link

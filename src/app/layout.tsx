@@ -66,8 +66,8 @@ const marcellus = Marcellus({
 });
 
 export const metadata: Metadata = {
-  title: "Lum Studios - We illumunate you",
-  description: "Photo studio",
+  title: "Lum Studios - We illuminate you",
+  description: "Professional photography studio specializing in weddings, portraits, maternity, baby shoots, and special events",
 };
 
 export default function RootLayout({
