@@ -26,7 +26,7 @@ const project_data = [
   },
   {
     id: 3,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-7.jpg",
+    img_1: "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
     img_2: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
     meta: "Legal Milestone",
     title: "Call to Bar",
@@ -98,23 +98,21 @@ export default function ProjectFour({ style_2 = false }: IProps) {
                       <Image
                         src={item.img_1}
                         alt="port-img"
-                        height={600} // Fixed height
-                        style={{ objectFit: 'contain' }} // Maintain aspect ratio
+                        width={400}
+                        height={600}
+                        style={{ objectFit: 'cover' }}
                       />
+                      <Link href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="package-label-overlay classic-overlay">
+                        <span>Classic Package</span>
+                      </Link>
                     </div>
                   </div>
                   <div className="col-xl-4 col-lg-4 col-md-12 order-1 order-lg-0">
                     <div className="tp-project-3-content text-center">
-                      <span className="tp-project-3-category">{item.category} Categories</span>
                       <span className="tp-project-3-meta">{item.meta}</span>
-                      <h4 className="tp-project-3-title-sm">
+                      <h4 className="tp-project-3-title-sm" style={{color: 'var(--tp-theme-1)'}}>
                         <Link href="/gallery">{item.title}</Link>
                       </h4>
-                      <div className="tp-project-3-package-types">
-                        <span className="package-type classic">Classic</span>
-                        <span className="package-divider">|</span>
-                        <span className="package-type walkin">Walk-in</span>
-                      </div>
                       <Link
                         className="tp-btn-project-sm"
                         href="/gallery"
@@ -131,9 +129,13 @@ export default function ProjectFour({ style_2 = false }: IProps) {
                       <Image
                         src={item.img_2}
                         alt="port-img"
-                        height={600} // Fixed height
-                        style={{ objectFit: 'contain' }} // Maintain aspect ratio
+                        width={400}
+                        height={600}
+                        style={{ objectFit: 'cover' }}
                       />
+                      <Link href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="package-label-overlay walkin-overlay">
+                        <span>Walk-in Package</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
