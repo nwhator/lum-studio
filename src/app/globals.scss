@@ -334,3 +334,127 @@
     }
   }
 }
+
+// Project Four (Photoshoots) styling
+.tp-project-3-category {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tp-theme-1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.tp-project-3-package-types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  
+  .package-type {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tp-text-3);
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: rgba(var(--tp-theme-rgb), 0.1);
+    transition: all 0.3s ease;
+    
+    &.classic {
+      color: var(--tp-theme-1);
+      background: rgba(var(--tp-theme-rgb), 0.15);
+    }
+    
+    &.walkin {
+      color: #666;
+      background: #f5f5f5;
+    }
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .package-divider {
+    color: #ddd;
+    font-weight: 300;
+  }
+}
+
+// Enhanced meta styling
+.tp-project-3-meta {
+  font-size: 13px;
+  color: var(--tp-text-3);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 10px;
+}
+
+// Image hover effects for Classic vs Walk-in
+.tp-project-3-wrap {
+  .tp-project-3-thumb {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    
+    &.pro-img-1::before {
+      content: 'Classic Package';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--tp-theme-1);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    &.pro-img-2::before {
+      content: 'Walk-in Package';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #666;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+      
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
