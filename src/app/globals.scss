@@ -19,9 +19,10 @@ body {
   line-height: 1.6;
 }
 
-/* Reduce spacing between ProjectFour and Footer */
+/* Remove spacing between ProjectFour and Footer */
 .tp-project-3-area {
   margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .tp-project-3-area + .tp-footer-2-area {

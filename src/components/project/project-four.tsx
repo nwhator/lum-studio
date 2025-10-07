@@ -63,7 +63,7 @@ type IProps = {
 };
 export default function ProjectFour({ style_2 = false }: IProps) {
   return (
-    <div className={`tp-project-3-area ${style_2 ? "pt-60 pw-project-style" : "pt-130 pb-60 black-bg"}`}>
+    <div className={`tp-project-3-area ${style_2 ? "pt-60 pw-project-style" : "pt-130 black-bg"}`} style={{paddingBottom: 0}}>
       <div className="container container-1720">
         {!style_2 && (
           <div className="row justify-content-center">
