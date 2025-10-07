@@ -20,7 +20,7 @@ const ErrorMain = () => {
     <Wrapper>
       {/* header area start */}
       <HeaderTransparent />
-      {/* header area end */
+      {/* header area end */}
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
