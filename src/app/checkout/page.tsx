@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -20,7 +20,7 @@ interface PackageData {
   description: string;
 }
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const [packageData, setPackageData] = useState<PackageData | null>(null);
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -533,5 +533,30 @@ export default function CheckoutPage() {
         }
       `}</style>
     </Wrapper>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <Wrapper>
+        <HeaderOne />
+        <div className="checkout-loading pt-190 pb-130">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-6">
+                <div className="text-center">
+                  <h2>Loading checkout...</h2>
+                  <p>Please wait while we prepare your package details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <FooterTwo topCls="" />
+      </Wrapper>
+    }>
+      <CheckoutContent />
+    </Suspense>
   );
 }
