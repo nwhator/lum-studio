@@ -36,6 +36,8 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     // Get package data from URL parameters
+    if (!searchParams) return;
+    
     const name = searchParams.get('name') || '';
     const category = searchParams.get('category') || '';
     const price = searchParams.get('price') || '';
