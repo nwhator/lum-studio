@@ -157,7 +157,7 @@ export default function PackageTemplate({
                             </span>
                           ))}
                         </div>
-                        <p className="review-comment">"{review.comment}"</p>
+                        <p className="review-comment">&ldquo;{review.comment}&rdquo;</p>
                         <div className="review-author">
                           <h4>{review.name}</h4>
                           <span>{review.date}</span>
