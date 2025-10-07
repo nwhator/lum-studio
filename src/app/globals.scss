@@ -19,6 +19,16 @@ body {
   line-height: 1.6;
 }
 
+/* Reduce spacing between ProjectFour and Footer */
+.tp-project-3-area {
+  margin-bottom: 0 !important;
+}
+
+.tp-project-3-area + .tp-footer-2-area {
+  margin-top: 0 !important;
+  padding-top: 60px !important;
+}
+
 // Custom social media icon styles
 .tp-copyright-2-social .social-icon-link {
   height: 35px;

@@ -16,7 +16,7 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
   return (
     <footer className={`${topCls}`}>
       <div
-        className={`tp-footer-2-area pt-100 pb-20 ${
+        className={`tp-footer-2-area pt-60 pb-20 ${
           whiteFooter ? "tp-footer-white" : "black-bg"
         }`}
       >
