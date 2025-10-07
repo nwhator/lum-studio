@@ -2,54 +2,75 @@ import React from "react";
 import Image from "next/image";
 
 import { ProjectShape, RightArrow } from "../svg";
-// images
-import port_1 from '@/assets/img/home-03/gallery/gal-1.jpg';
-import port_2 from '@/assets/img/home-03/gallery/gal-2.jpg';
-import port_3 from '@/assets/img/home-03/gallery/gal-3.jpg';
-import port_4 from '@/assets/img/home-03/gallery/gal-4.jpg';
-// Classic and Walk-in images
-import classic_1 from '@/assets/img/home-01/project/project-1-1.jpg';
-import classic_2 from '@/assets/img/home-01/project/project-1-2.jpg';
-import classic_3 from '@/assets/img/home-01/project/project-1-3.jpg';
-import classic_4 from '@/assets/img/home-01/project/project-1-4.jpg';
-import walkin_1 from '@/assets/img/home-01/project/project-1-5.jpg';
-import walkin_2 from '@/assets/img/home-01/project/project-1-6.jpg';
-import walkin_3 from '@/assets/img/home-02/project/project-2-1.jpg';
-import walkin_4 from '@/assets/img/home-02/project/project-2-2.jpg';
+// Portfolio images from gallery - Using first 2 from each category for Classic and Walk-in
+// Baby Shoot images (cat1)
+import babyClassic from '/assets/img/inner-project/portfolio-col-2/port-1.jpg';
+import babyWalkin from '/assets/img/inner-project/portfolio-col-2/port-2.jpg';
+// Wedding Shoot images (cat2)
+import weddingClassic from '/assets/img/inner-project/portfolio-col-2/port-4.jpg';
+import weddingWalkin from '/assets/img/inner-project/portfolio-col-2/port-5.jpg';
+// Call to Bar images (cat3)
+import callToBarClassic from '/assets/img/inner-project/portfolio-col-2/port-7.jpg';
+import callToBarWalkin from '/assets/img/inner-project/portfolio-col-2/port-8.jpg';
+// Convocation images (cat4)
+import convocationClassic from '/assets/img/inner-project/portfolio-col-2/port-10.jpg';
+import convocationWalkin from '/assets/img/inner-project/portfolio-col-2/port-11.jpg';
+// Family Portraits images (cat5)
+import familyClassic from '/assets/img/inner-project/portfolio-col-2/port-13.jpg';
+import familyWalkin from '/assets/img/inner-project/portfolio-col-2/port-14.jpg';
+// Maternity Portrait images (cat6)
+import maternityClassic from '/assets/img/inner-project/portfolio-col-2/port-16.jpg';
+import maternityWalkin from '/assets/img/inner-project/portfolio-col-2/port-17.jpg';
 import Link from "next/link";
 
-// portfolio data
+// portfolio data - Using first 2 images from each category
 const project_data = [
   {
     id: 1,
-    img_1: classic_1,
-    img_2: walkin_1,
-    meta: "Wedding Photography",
-    title: "Elegant Wedding Shoots",
-    category: "Active"
-  },
-  {
-    id: 2,
-    img_1: classic_2,
-    img_2: walkin_2,
-    meta: "Portrait Photography",
-    title: "Family Portraits",
-    category: "Active"
-  },
-  {
-    id: 3,
-    img_1: classic_3,
-    img_2: walkin_3,
+    img_1: babyClassic,
+    img_2: babyWalkin,
     meta: "Newborn Photography",
     title: "Baby Shoots",
     category: "Active"
   },
   {
+    id: 2,
+    img_1: weddingClassic,
+    img_2: weddingWalkin,
+    meta: "Wedding Photography",
+    title: "Wedding Shoots",
+    category: "Active"
+  },
+  {
+    id: 3,
+    img_1: callToBarClassic,
+    img_2: callToBarWalkin,
+    meta: "Legal Milestone",
+    title: "Call to Bar",
+    category: "Active"
+  },
+  {
     id: 4,
-    img_1: classic_4,
-    img_2: walkin_4,
-    meta: "Maternity Photography",
-    title: "Maternity Shoots",
+    img_1: convocationClassic,
+    img_2: convocationWalkin,
+    meta: "Academic Achievement",
+    title: "Convocation",
+    category: "Active"
+  },
+  {
+    id: 5,
+    img_1: familyClassic,
+    img_2: familyWalkin,
+    meta: "Portrait Photography",
+    title: "Family Portraits",
+    category: "Active"
+  },
+  {
+    id: 6,
+    img_1: maternityClassic,
+    img_2: maternityWalkin,
+    meta: "Maternity Photography", 
+    title: "Maternity Portraits",
     category: "Active"
   },
 ];
