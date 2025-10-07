@@ -50,6 +50,11 @@ export default function PackageTemplate({
   faqs,
   heroBackgroundImage = "/assets/img/inner-project/portfolio-col-2/port-1.jpg"
 }: PackageTemplateProps) {
+  const [openFAQ, setOpenFAQ] = React.useState<number | null>(null);
+  
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
   
   useScrollSmooth();
 
@@ -127,6 +132,14 @@ export default function PackageTemplate({
                           <Link 
                             href={`/checkout?name=${encodeURIComponent(pkg.name)}&category=${encodeURIComponent(categoryName)}&price=${encodeURIComponent(pkg.price)}&image=${encodeURIComponent(pkg.image)}&description=${encodeURIComponent(pkg.description)}`}
                             className="get-package-btn"
+                            onClick={(e) => {
+                              console.log('Navigating to checkout with:', {
+                                name: pkg.name,
+                                category: categoryName,
+                                price: pkg.price,
+                                image: pkg.image
+                              });
+                            }}
                           >
                             Get Package
                           </Link>
@@ -185,10 +198,10 @@ export default function PackageTemplate({
                   <div className="col-xl-8 col-lg-10">
                     <div className="faq-accordion">
                       {faqs.map((faq, index) => (
-                        <div key={index} className="faq-item">
-                          <div className="faq-question">
+                        <div key={index} className={`faq-item ${openFAQ === index ? 'active' : ''}`}>
+                          <div className="faq-question" onClick={() => toggleFAQ(index)}>
                             <h4>{faq.question}</h4>
-                            <span className="faq-toggle">+</span>
+                            <span className="faq-toggle">{openFAQ === index ? '−' : '+'}</span>
                           </div>
                           <div className="faq-answer">
                             <p>{faq.answer}</p>
@@ -423,8 +436,15 @@ export default function PackageTemplate({
         }
 
         .faq-answer {
+          padding: 0 20px;
+          max-height: 0;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
           padding: 20px;
-          display: none;
+          max-height: 200px;
         }
 
         .faq-answer p {
