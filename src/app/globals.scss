@@ -600,3 +600,92 @@ body {
     }
   }
 }
+
+// UX Improvements - Smooth Transitions and Accessibility
+a, button {
+  transition: all 0.3s ease;
+}
+
+// Focus states for accessibility
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--tp-theme-1);
+  outline-offset: 2px;
+}
+
+// Smooth scroll behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Better image loading
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Loading states
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+// Disabled states
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+// Mobile touch improvements
+@media (hover: none) and (pointer: coarse) {
+  // Better tap targets for mobile
+  button,
+  a.tp-btn-circle,
+  a.view-package-btn,
+  .package-label-overlay {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+}
+
+// Responsive typography improvements for better readability
+@media (max-width: 768px) {
+  .tp-section-title,
+  .tp-section-title-200 {
+    font-size: clamp(28px, 5vw, 40px) !important;
+    line-height: 1.2;
+  }
+  
+  .checkout-title {
+    font-size: 32px !important;
+  }
+  
+  .package-hero-title {
+    font-size: 36px !important;
+  }
+}
+
+// Better spacing for small screens
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .tp-section-title,
+  .tp-section-title-200 {
+    font-size: clamp(24px, 6vw, 32px) !important;
+  }
+  
+  .checkout-title,
+  .package-hero-title {
+    font-size: 28px !important;
+  }
+}
