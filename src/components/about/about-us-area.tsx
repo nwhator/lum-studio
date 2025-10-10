@@ -6,43 +6,60 @@ import { Hand } from "../svg";
 // images
 import shape from "@/assets/img/inner-about/about/shape-1.png";
 import ab_1 from "@/assets/img/inner-about/about/about-1.jpg";
-import ab_2 from "@/assets/img/inner-about/about/about-3.jpg";
+import ab_2 from "@/assets/img/home-01/project/project-1-1.jpg";
 import ab_3 from "@/assets/img/inner-about/about/about-2.jpg";
+import ab_4 from "@/assets/img/home-01/project/project-1-2.jpg";
 
 export default function AboutUsArea() {
   return (
     <div className="ab-about-area ab-about-mt pb-90 z-index-5">
       <div className="container container-1480">
         <div className="ab-about-thumb-wrap mb-180">
-          <div className="row align-items-end">
-            <div className="col-xl-6 col-lg-6 col-md-6">
+          <div className="row align-items-center">
+            <div className="col-xl-6 col-lg-6 col-md-6 mb-30">
               <div className="ab-about-left-thumb">
-                <div data-speed=".7" style={{ position: 'relative', height: 600, width: '100%' }}>
+                <div data-speed=".7" style={{ position: 'relative', height: 500, width: '100%' }}>
                  <Image
                     src={ab_1}
                     alt="about-img"
                     fill
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'cover', borderRadius: '8px' }}
                   />
                 </div>
               </div>
             </div>
-            <div className="col-xl-6 col-lg-6 col-md-6">
-              <div className="ab-about-right-thumb p-relative">
-                <div data-speed="1.1" className="inner-img z-index-5" style={{ position: 'relative', height: 600, width: '100%' }}>
+            <div className="col-xl-6 col-lg-6 col-md-6 mb-30">
+              <div className="ab-about-right-thumb">
+                <div data-speed="1.1" style={{ position: 'relative', height: 500, width: '100%' }}>
                   <Image
                     src={ab_2}
                     alt="about-img"
                     fill
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'cover', borderRadius: '8px' }}
                   />
                 </div>
-                <div data-speed="0.9" style={{ position: 'relative', height: 600, width: '100%' }}>
+              </div>
+            </div>
+            <div className="col-xl-6 col-lg-6 col-md-6 mb-30">
+              <div className="ab-about-left-thumb">
+                <div data-speed="0.9" style={{ position: 'relative', height: 500, width: '100%' }}>
                   <Image
                     src={ab_3}
                     alt="about-img"
                     fill
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'cover', borderRadius: '8px' }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-6 col-lg-6 col-md-6 mb-30">
+              <div className="ab-about-right-thumb">
+                <div data-speed="1.2" style={{ position: 'relative', height: 500, width: '100%' }}>
+                  <Image
+                    src={ab_4}
+                    alt="about-img"
+                    fill
+                    style={{ objectFit: 'cover', borderRadius: '8px' }}
                   />
                 </div>
               </div>
