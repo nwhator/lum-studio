@@ -112,6 +112,7 @@ export default function GalleryOne() {
         }
         
         .gallery-responsive-img {
+          display: block;
           transition: transform 0.3s ease;
           border-radius: 8px;
           pointer-events: none;
@@ -119,15 +120,23 @@ export default function GalleryOne() {
           -webkit-user-drag: none;
           -webkit-touch-callout: none;
           width: 500px;
-          height: auto;
+          height: 600px;
           object-fit: cover;
+        }
+        
+        @media (max-width: 992px) {
+          .gallery-responsive-img {
+            width: 400px !important;
+            height: 480px !important;
+          }
         }
         
         @media (max-width: 768px) {
           .gallery-responsive-img {
-            max-width: 45vw !important;
             width: 45vw !important;
-            height: auto !important;
+            height: 50vh !important;
+            min-height: 280px !important;
+            max-height: 400px !important;
             object-fit: cover !important;
           }
           
@@ -150,9 +159,10 @@ export default function GalleryOne() {
         
         @media (max-width: 480px) {
           .gallery-responsive-img {
-            max-width: 44vw !important;
-            width: 44vw !important;
-            height: auto !important;
+            width: 45vw !important;
+            height: 45vh !important;
+            min-height: 250px !important;
+            max-height: 350px !important;
           }
           
           .tp-gallery-item {
