@@ -19,6 +19,27 @@ body {
   line-height: 1.6;
 }
 
+/* Site-wide padding for desktop */
+.container,
+.container-fluid {
+  @media (min-width: 1200px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+/* Navbar logo and hamburger alignment */
+.tp-header-3-area,
+.tp-header-transparent,
+.tp-header-2-area {
+  @media (min-width: 1200px) {
+    .container-fluid {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+}
+
 /* Prevent image downloads and right-click save across the site */
 img {
   user-select: none;

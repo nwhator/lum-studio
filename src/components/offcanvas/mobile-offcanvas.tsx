@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { CloseTwo, InstagramTwo } from "../svg";
-import { Threads, WhatsApp } from "../svg/social";
+import { Threads, WhatsApp, Facebook, TikTok } from "../svg/social";
 
 // images
 import logo from "@/assets/img/logo/logo.png";
@@ -79,17 +79,22 @@ export default function MobileOffcanvas({openOffcanvas,setOpenOffcanvas}: IProps
               <h3 className="tp-offcanvas-title sm">Follow Us</h3>
               <ul>
                 <li>
-                  <a href="https://www.instagram.com/lum_studios/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <a href="https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <Facebook />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/lumphotographystudios/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <InstagramTwo />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.threads.net/@lum_studios" target="_blank" rel="noopener noreferrer" aria-label="Threads">
-                    <Threads />
+                  <a href="https://www.tiktok.com/@lumphotographystudios?_t=ZS-90R6iHGoSt0&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <TikTok />
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/2348145538164" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <a href="https://wa.me/2348107095827" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                     <WhatsApp />
                   </a>
                 </li>

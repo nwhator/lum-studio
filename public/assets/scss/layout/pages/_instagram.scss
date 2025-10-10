@@ -5,15 +5,15 @@
 /*----------------------------------------*/
 
 .footer-top{
-    margin-top: 400px;
+    margin-top: 0px;
     @media #{$lg,$md}{
-        margin-top: 170px;
+        margin-top: 0px;
     }
     @media #{$md}{
         margin-top: 0px;
     }
     @media #{$xs}{
-        margin-top: 100px;
+        margin-top: 0px;
     }
 }
 

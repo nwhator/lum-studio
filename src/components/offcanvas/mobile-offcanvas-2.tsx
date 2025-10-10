@@ -75,9 +75,10 @@ export default function MobileOffcanvasTwo({openOffcanvas,setOpenOffcanvas}:IPro
             </div>
             <div className="tpoffcanvas__social-link">
               <ul>
-                <li><a href="https://www.instagram.com/lum_studios/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://www.threads.net/@lum_studios" target="_blank" rel="noopener noreferrer">Threads</a></li>
-                <li><a href="https://wa.me/2348145538164" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                <li><a href="https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.instagram.com/lumphotographystudios/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@lumphotographystudios?_t=ZS-90R6iHGoSt0&_r=1" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                <li><a href="https://wa.me/2348107095827" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
               </ul>
             </div>
           </div>

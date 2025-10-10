@@ -271,3 +271,20 @@ export function Threads() {
     </svg>
   );
 }
+
+export function TikTok() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13 4.5C12.2 3.7 11.7 2.6 11.7 1.4H9.3V10.7C9.3 11.9 8.3 12.9 7 12.9C5.7 12.9 4.7 11.9 4.7 10.6C4.7 9.3 5.7 8.3 7 8.3C7.2 8.3 7.4 8.3 7.6 8.4V6C7.4 6 7.2 6 7 6C4.2 6 2 8.2 2 11C2 13.8 4.2 16 7 16C9.8 16 12 13.8 12 11V6.2C12.9 6.8 14 7.2 15 7.2V4.8C14.3 4.8 13.6 4.7 13 4.5Z"
+        fill="currentcolor"
+      />
+    </svg>
+  );
+}
