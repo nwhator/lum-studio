@@ -90,6 +90,8 @@ export default function GalleryOne() {
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
+          width: 400px;
+          height: 500px;
         }
         
         .gallery-hover-overlay {
@@ -115,31 +117,28 @@ export default function GalleryOne() {
         
         .gallery-responsive-img {
           display: block;
+          width: 100% !important;
+          height: 100% !important;
           transition: transform 0.3s ease;
           border-radius: 8px;
           pointer-events: none;
           user-select: none;
           -webkit-user-drag: none;
           -webkit-touch-callout: none;
-          width: auto !important;
-          height: 500px !important;
-          max-width: 400px !important;
-          object-fit: cover;
+          object-fit: cover !important;
         }
         
         @media (max-width: 992px) {
-          .gallery-responsive-img {
-            height: 450px !important;
-            max-width: 360px !important;
+          .gallery-image-wrapper {
+            width: 360px;
+            height: 450px;
           }
         }
         
         @media (max-width: 768px) {
-          .gallery-responsive-img {
-            width: auto !important;
-            height: 280px !important;
-            max-width: 200px !important;
-            object-fit: cover !important;
+          .gallery-image-wrapper {
+            width: 42vw;
+            height: 280px;
           }
           
           .tp-gallery-item {
@@ -160,9 +159,9 @@ export default function GalleryOne() {
         }
         
         @media (max-width: 480px) {
-          .gallery-responsive-img {
-            height: 240px !important;
-            max-width: 180px !important;
+          .gallery-image-wrapper {
+            width: 40vw;
+            height: 240px;
           }
           
           .tp-gallery-item {

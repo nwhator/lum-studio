@@ -1164,19 +1164,61 @@ a[href="/contact"],
   }
 
   .section-title {
-    font-size: 22px;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .package-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .package-card {
+    padding: 15px;
+    
+    h4 {
+      font-size: 13px;
+    }
+  }
+
+  .package-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 
   .calendar-wrapper {
-    padding: 15px;
+    padding: 15px 10px;
+    max-width: 100%;
+  }
+
+  .calendar-header h3 {
+    font-size: 18px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day-name {
+    padding: 6px 2px;
+    font-size: 11px;
+  }
+
+  .calendar-day {
+    font-size: 13px;
+    min-height: 40px;
   }
 
   .time-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .time-slot {
+    padding: 12px 8px;
+    font-size: 13px;
   }
 
   .contact-info-grid {
@@ -1194,5 +1236,43 @@ a[href="/contact"],
     .value {
       text-align: left;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-title {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .package-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .package-card {
+    padding: 12px;
+    
+    h4 {
+      font-size: 12px;
+    }
+  }
+
+  .package-icon {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .calendar-day {
+    font-size: 12px;
+    min-height: 36px;
+  }
+
+  .time-slot {
+    padding: 10px 6px;
+    font-size: 12px;
   }
 }
