@@ -57,8 +57,8 @@ export default function AboutUsHero() {
               <p>
                 Lum Studios develops, designs & delivers visual stories with precision and heart.
               </p>
-              <a className="tp-btn-white-sm border-style" href="/about-us">
-                Our Story
+              <a className="tp-btn-white-sm border-style" href="/booking">
+                Book Now
               </a>
             </div>
           </div>
