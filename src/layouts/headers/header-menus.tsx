@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import menu_data from "@/data/menu-data";
 
-const imgStyle:CSSProperties = { width: "100%", height: "auto", objectFit: "cover" };
+const imgStyle:CSSProperties = { width: "100%", height: "235px", objectFit: "cover" };
 const HeaderMenus = () => {
   return (
     <ul>
