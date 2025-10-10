@@ -61,6 +61,8 @@ export default function GalleryOne() {
                           <Image
                             src={g}
                             alt="gallery-img"
+                            width={400}
+                            height={500}
                             className="gallery-responsive-img"
                             draggable={false}
                             onContextMenu={(e) => e.preventDefault()}
@@ -119,27 +121,29 @@ export default function GalleryOne() {
           user-select: none;
           -webkit-user-drag: none;
           -webkit-touch-callout: none;
-          width: 500px !important;
-          height: 600px !important;
+          width: auto !important;
+          height: 500px !important;
+          max-width: 400px !important;
           object-fit: cover;
         }
         
         @media (max-width: 992px) {
           .gallery-responsive-img {
-            width: 500px !important;
-            height: 600px !important;
+            height: 450px !important;
+            max-width: 360px !important;
           }
         }
         
         @media (max-width: 768px) {
           .gallery-responsive-img {
-            width: 200px !important;
-            height: auto !important;
+            width: auto !important;
+            height: 280px !important;
+            max-width: 200px !important;
             object-fit: cover !important;
           }
           
           .tp-gallery-item {
-            margin-right: 12px !important;
+            margin-right: 15px !important;
           }
           
           .gallery-image-wrapper {
@@ -157,12 +161,12 @@ export default function GalleryOne() {
         
         @media (max-width: 480px) {
           .gallery-responsive-img {
-            width: 200px !important;
-            height: auto !important;
+            height: 240px !important;
+            max-width: 180px !important;
           }
           
           .tp-gallery-item {
-            margin-right: 10px !important;
+            margin-right: 12px !important;
           }
         }
       `}</style>
