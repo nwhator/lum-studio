@@ -4,7 +4,8 @@ import PackageTemplate from "@/components/packages/package-template";
 
 export const metadata: Metadata = {
   title: "Baby Shoot Packages - Lum Studios",
-  description: "Professional baby photography packages to capture your little one's precious moments",
+  description: "Professional baby photography packages to capture your little one's precious moments. Book a classic studio session or walk-in shoot for your baby.",
+  keywords: ["baby photography", "newborn photography", "baby photoshoot Nigeria", "baby portrait packages", "infant photography"],
 };
 
 const BabyShootPackagePage = () => {

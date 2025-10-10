@@ -4,7 +4,8 @@ import PackageTemplate from "@/components/packages/package-template";
 
 export const metadata: Metadata = {
   title: "Family Portrait Packages - Lum Studios",
-  description: "Professional family photography packages to capture your family's love and connection",
+  description: "Professional family photography packages to capture your family's love and connection. Classic and walk-in family portrait sessions available.",
+  keywords: ["family portraits", "family photography", "family photoshoot Nigeria", "family portrait packages", "family photo session"],
 };
 
 const FamilyPortraitPackagePage = () => {

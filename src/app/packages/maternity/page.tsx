@@ -4,7 +4,8 @@ import PackageTemplate from "@/components/packages/package-template";
 
 export const metadata: Metadata = {
   title: "Maternity Photography Packages - Lum Studios",
-  description: "Beautiful maternity photography packages to celebrate your pregnancy journey",
+  description: "Beautiful maternity photography packages to celebrate your pregnancy journey. Professional studio and walk-in maternity photoshoot options available.",
+  keywords: ["maternity photography", "pregnancy photoshoot", "maternity portraits Nigeria", "pregnancy photography packages", "expecting mother photos"],
 };
 
 const MaternityPackagePage = () => {

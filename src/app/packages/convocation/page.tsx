@@ -4,7 +4,8 @@ import PackageTemplate from "@/components/packages/package-template";
 
 export const metadata: Metadata = {
   title: "Convocation Photography Packages - Lum Studios",
-  description: "Professional graduation photography packages to celebrate your academic achievement",
+  description: "Professional graduation photography packages to celebrate your academic achievement. Capture your convocation day with classic or walk-in sessions.",
+  keywords: ["graduation photography", "convocation photoshoot", "graduation portraits Nigeria", "academic ceremony photography", "graduation photo packages"],
 };
 
 const ConvocationPackagePage = () => {

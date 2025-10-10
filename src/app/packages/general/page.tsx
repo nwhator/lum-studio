@@ -4,7 +4,8 @@ import PackageTemplate from "@/components/packages/package-template";
 
 export const metadata: Metadata = {
   title: "Photography Packages - Lum Studios",
-  description: "Professional photography packages for all your special moments and occasions",
+  description: "Professional photography packages for all your special moments and occasions. Classic studio sessions and walk-in options for events, portraits, and celebrations.",
+  keywords: ["photography packages Nigeria", "professional photoshoot", "event photography", "portrait photography", "photography services"],
 };
 
 const GeneralPackagePage = () => {

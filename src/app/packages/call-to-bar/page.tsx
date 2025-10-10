@@ -4,7 +4,8 @@ import PackageTemplate from "@/components/packages/package-template";
 
 export const metadata: Metadata = {
   title: "Call to Bar Photography Packages - Lum Studios",
-  description: "Professional photography packages to celebrate your call to bar ceremony and achievement",
+  description: "Professional photography packages to celebrate your call to bar ceremony and achievement. Classic and walk-in sessions for lawyers being called to the Nigerian Bar.",
+  keywords: ["call to bar photography", "lawyer ceremony photography", "Nigerian bar call photography", "legal profession photography", "barrister photoshoot"],
 };
 
 const CallToBarPackagePage = () => {
