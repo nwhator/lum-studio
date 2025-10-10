@@ -1,24 +1,30 @@
 import React from "react";
 import { Instagram } from "../svg";
-import { Threads, WhatsApp } from "../svg/social";
+import { Facebook, TikTok, Threads, WhatsApp } from "../svg/social";
 
 const social_data = [
   {
     id: 1,
-    icon: <Instagram />,
-    link: "https://www.instagram.com/lum_studios/",
-    label: "Instagram"
+    icon: <Facebook />,
+    link: "https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr",
+    label: "Facebook"
   },
   {
     id: 2,
-    icon: <Threads />,
-    link: "https://www.threads.com/@lum_studios/",
-    label: "Threads"
+    icon: <Instagram />,
+    link: "https://www.instagram.com/lumphotographystudios/",
+    label: "Instagram"
   },
   {
     id: 3,
+    icon: <TikTok />,
+    link: "https://www.tiktok.com/@lumphotographystudios?_t=ZS-90R6iHGoSt0&_r=1",
+    label: "TikTok"
+  },
+  {
+    id: 4,
     icon: <WhatsApp />,
-    link: "https://wa.me/2348145538164",
+    link: "https://wa.me/2348107095827",
     label: "WhatsApp"
   },
 ];

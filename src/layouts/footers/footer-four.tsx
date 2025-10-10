@@ -74,9 +74,10 @@ export default function Footer() {
                 <div className="tp-footer-3-widget">
                   <h4 className="tp-footer-3-title">Follow</h4>
                   <div className="tp-footer-3-social">
-                    <a href="#"><i className="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.threads.com/@lum_studios/"><i className="fa-brands fa-threads"></i></a>
-                    <a href="https://www.instagram.com/lum_studios/"><i className="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr" target="_blank"><i className="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/lumphotographystudios/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@lumphotographystudios?_t=ZS-90R6iHGoSt0&_r=1" target="_blank"><i className="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/2348107095827" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
                   </div>
                 </div>
               </div>

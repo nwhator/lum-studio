@@ -4,7 +4,7 @@ import Link from "next/link";
 import logo from "@/assets/img/logo/logo-white.png";
 import logo_2 from "@/assets/img/logo/logo.png";
 import { RightArrow } from "@/components/svg";
-import { Instagram, Threads, WhatsApp } from "@/components/svg/social";
+import { Facebook, Instagram, TikTok, Threads, WhatsApp } from "@/components/svg/social";
 
 // prop type
 type IProps = {
@@ -125,7 +125,17 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
               <div className="tp-copyright-2-social text-center text-lg-end">
                 <a 
                   className="social-icon-link mb-10" 
-                  href="https://www.instagram.com/lum_studios/" 
+                  href="https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Follow us on Facebook"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook />
+                </a>
+                <a 
+                  className="social-icon-link mb-10" 
+                  href="https://www.instagram.com/lumphotographystudios/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   title="Follow us on Instagram"
@@ -135,17 +145,17 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                 </a>
                 <a 
                   className="social-icon-link mb-10" 
-                  href="https://www.threads.com/@lum_studios/" 
+                  href="https://www.tiktok.com/@lumphotographystudios?_t=ZS-90R6iHGoSt0&_r=1" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  title="Follow us on Threads"
-                  aria-label="Follow us on Threads"
+                  title="Follow us on TikTok"
+                  aria-label="Follow us on TikTok"
                 >
-                  <Threads />
+                  <TikTok />
                 </a>
                 <a 
                   className="social-icon-link mb-10" 
-                  href="https://wa.me/2348145538164" 
+                  href="https://wa.me/2348107095827" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   title="Contact us on WhatsApp"
