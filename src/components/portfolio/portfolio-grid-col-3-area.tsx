@@ -194,47 +194,43 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
         {!style_2 && (
           <div className="row justify-content-center">
-            <div className="col-xl-8">
-              <div className="portfolio-filter masonary-menu d-flex justify-content-center mb-60">
-                <button data-filter="*" className="active">
-                  <span>SHOW ALL</span>
-                </button>
-                <button data-filter=".cat1">
-                  <span>Baby Shoot</span>
-                </button>
-                <button data-filter=".cat2">
-                  <span>Wedding Shoot</span>
-                </button>
-                <button data-filter=".cat3">
-                  <span>Call to Bar</span>
-                </button>
-                <button data-filter=".cat4">
-                  <span>Convocation</span>
-                </button>
-                <button data-filter=".cat5">
-                  <span>Family Portraits</span>
-                </button>
-                <button data-filter=".cat6">
-                  <span>Maternity Portrait</span>
-                </button>
-                <button data-filter=".cat7">
-                  <span>Naming</span>
-                </button>
-                <button data-filter=".cat8">
-                  <span>Portraits</span>
-                </button>
-                <button data-filter=".cat9">
-                  <span>Product Shoot</span>
-                </button>
+            <div className="col-xl-10">
+              <div className="portfolio-filter-wrapper mb-60">
+                <div className="portfolio-filter-title text-center mb-30">
+                  <h5>Filter by Category</h5>
+                </div>
+                <div className="portfolio-filter masonary-menu">
+                  <button data-filter="*" className="active">
+                    <span>All</span>
+                  </button>
+                  <button data-filter=".cat1">
+                    <span>Baby Shoot</span>
+                  </button>
+                  <button data-filter=".cat2">
+                    <span>Wedding</span>
+                  </button>
+                  <button data-filter=".cat3">
+                    <span>Call to Bar</span>
+                  </button>
+                  <button data-filter=".cat4">
+                    <span>Convocation</span>
+                  </button>
+                  <button data-filter=".cat5">
+                    <span>Family</span>
+                  </button>
+                  <button data-filter=".cat6">
+                    <span>Maternity</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         )}
-        <div className="row grid" ref={isotopContainer}>
+        <div className="row grid gx-3 gy-3" ref={isotopContainer}>
           {portfolio_data.map((item) => (
             <div
               key={item.id}
-              className={`col-xl-4 col-lg-6 col-md-6 grid-item ${item.show}`}
+              className={`col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item ${item.show}`}
             >
               <div className="tp-project-5-2-thumb mb-30 p-relative portfolio-item-wrapper">
                 <div className="portfolio-image-container">
@@ -368,13 +364,13 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
 
           @media (max-width: 768px) {
             .portfolio-item-wrapper {
-              margin-bottom: 20px;
+              margin-bottom: 0;
               height: auto;
-              min-height: 300px;
+              min-height: auto;
             }
 
             .portfolio-image-container {
-              min-height: 200px;
+              min-height: 250px;
             }
 
             .portfolio-package-section {
@@ -402,12 +398,12 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
 
           @media (max-width: 576px) {
             .portfolio-item-wrapper {
-              margin-bottom: 15px;
-              min-height: 280px;
+              margin-bottom: 0;
+              min-height: auto;
             }
 
             .portfolio-image-container {
-              min-height: 180px;
+              min-height: 200px;
             }
 
             .portfolio-package-section {

@@ -30,6 +30,117 @@ body {
   padding-top: 60px !important;
 }
 
+// Improved Portfolio Filter Design
+.portfolio-filter-wrapper {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-filter-title {
+  h5 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tp-common-black);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  }
+}
+
+.portfolio-filter.masonary-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  
+  button {
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    
+    span {
+      display: inline-block;
+    }
+    
+    &:hover {
+      background: rgba(var(--tp-theme-rgb), 0.1);
+      border-color: var(--tp-theme-1);
+      color: var(--tp-theme-1);
+      transform: translateY(-2px);
+    }
+    
+    &.active {
+      background: var(--tp-theme-1);
+      border-color: var(--tp-theme-1);
+      color: white;
+      
+      &:hover {
+        background: var(--tp-theme-1);
+        color: white;
+        filter: brightness(1.1);
+      }
+    }
+  }
+}
+
+// Grid spacing fixes for mobile
+.grid {
+  .grid-item {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-filter-wrapper {
+    padding: 20px 15px;
+  }
+  
+  .portfolio-filter-title {
+    h5 {
+      font-size: 16px;
+    }
+  }
+  
+  .portfolio-filter.masonary-menu {
+    gap: 8px;
+    
+    button {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  }
+  
+  .grid {
+    .grid-item {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-filter-wrapper {
+    padding: 15px 10px;
+  }
+  
+  .portfolio-filter.masonary-menu {
+    gap: 6px;
+    
+    button {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+}
+
 // Custom social media icon styles
 .tp-copyright-2-social .social-icon-link {
   height: 35px;
