@@ -62,23 +62,22 @@ export default function MobileOffcanvasTwo({openOffcanvas,setOpenOffcanvas}:IPro
           <div className="tp-offcanvas-2-right-inner d-flex flex-column justify-content-between h-100">
             <div className="tpoffcanvas__right-info">
               <div className="tpoffcanvas__tel">
-                <a href="tel:61404093954">+61404093 954</a>
+                <a href="tel:+2348145538164">+234 814 553 8164</a>
               </div>
               <div className="tpoffcanvas__mail">
-                <a href="mailto:hellocontact@diego.com">
-                  hello contact@diego.com
+                <a href="mailto:contact@thelumstudios.com">
+                  contact@thelumstudios.com
                 </a>
               </div>
               <div className="tpoffcanvas__text">
-                <p>If in doubt. reach out.</p>
+                <p>Capturing moments, creating stories.</p>
               </div>
             </div>
             <div className="tpoffcanvas__social-link">
               <ul>
-                <li><a href="#">Dribbble</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Linkedin</a></li>
-                <li><a href="#">Behance</a></li>
+                <li><a href="https://www.instagram.com/lum_studios/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.threads.net/@lum_studios" target="_blank" rel="noopener noreferrer">Threads</a></li>
+                <li><a href="https://wa.me/2348145538164" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
               </ul>
             </div>
           </div>

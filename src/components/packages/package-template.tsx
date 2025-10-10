@@ -550,7 +550,7 @@ export default function PackageTemplate({
         }
 
         .faq-answer {
-          padding: 0 20px;
+          padding: 0;
           max-height: 0;
           overflow: hidden;
           transition: all 0.3s ease;
@@ -558,7 +558,7 @@ export default function PackageTemplate({
 
         .faq-item.active .faq-answer {
           padding: 20px;
-          max-height: 200px;
+          max-height: 500px;
         }
 
         .faq-answer p {
@@ -594,10 +594,12 @@ export default function PackageTemplate({
 
           .faq-question h4 {
             font-size: 14px;
+            padding-right: 10px;
           }
 
-          .faq-answer {
+          .faq-item.active .faq-answer {
             padding: 15px;
+            max-height: 600px;
           }
         }
       `}</style>

@@ -496,39 +496,177 @@ function CheckoutContent() {
 
         @media (max-width: 768px) {
           .checkout-title {
-            font-size: 32px;
+            font-size: 28px;
+          }
+
+          .checkout-subtitle {
+            font-size: 16px;
           }
 
           .package-summary-section,
           .payment-info-section {
-            padding: 25px;
+            padding: 20px;
+          }
+
+          .section-title {
+            font-size: 20px;
           }
 
           .package-summary-card {
             flex-direction: column;
             text-align: center;
+            padding: 20px;
+            gap: 15px;
+          }
+
+          .package-image {
+            width: 100%;
+          }
+
+          .package-image img {
+            width: 100% !important;
+            height: auto !important;
+          }
+
+          .package-name {
+            font-size: 18px;
+            word-wrap: break-word;
+          }
+
+          .package-description {
+            font-size: 14px;
+            word-wrap: break-word;
           }
 
           .package-price {
             text-align: center;
+            width: 100%;
+          }
+
+          .price-value {
+            font-size: 24px;
+          }
+
+          .payment-card {
+            padding: 20px;
+          }
+
+          .bank-details h3,
+          .payment-instructions h4,
+          .contact-info h4 {
+            font-size: 16px;
+          }
+
+          .bank-info {
+            padding: 15px;
           }
 
           .info-row {
             flex-direction: column;
             align-items: flex-start;
-            gap: 5px;
+            gap: 8px;
+            padding: 10px 0;
+          }
+
+          .label {
+            font-size: 14px;
+          }
+
+          .value {
+            font-size: 14px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+          }
+
+          .account-number-container {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          .account-number {
+            font-size: 16px;
+          }
+
+          .payment-instructions ol {
+            padding-left: 18px;
+            font-size: 14px;
+          }
+
+          .payment-instructions li {
+            word-wrap: break-word;
+            margin-bottom: 10px;
+          }
+
+          .contact-details {
+            padding: 15px;
+          }
+
+          .contact-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 15px;
+          }
+
+          .contact-label {
+            min-width: auto;
+            font-size: 14px;
+          }
+
+          .contact-value {
+            font-size: 14px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
           }
 
           .checkout-actions {
             flex-direction: column;
             gap: 15px;
-            padding: 25px;
+            padding: 20px;
           }
 
           .back-btn,
           .confirm-payment-btn {
             width: 100%;
             text-align: center;
+            padding: 14px 20px;
+            font-size: 14px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .checkout-title {
+            font-size: 24px;
+          }
+
+          .package-summary-card {
+            padding: 15px;
+          }
+
+          .section-title {
+            font-size: 18px;
+          }
+
+          .package-name {
+            font-size: 16px;
+          }
+
+          .price-value {
+            font-size: 22px;
+          }
+
+          .payment-card {
+            padding: 15px;
+          }
+
+          .bank-info {
+            padding: 12px;
+          }
+
+          .contact-details {
+            padding: 12px;
           }
         }
       `}</style>

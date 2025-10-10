@@ -5,10 +5,10 @@ import { Threads, WhatsApp } from "../svg/social";
 
 // images
 import logo from "@/assets/img/logo/logo.png";
-import gallery_1 from "@/assets/img/menu/offcanvas/offcanvas-1.jpg";
-import gallery_2 from "@/assets/img/menu/offcanvas/offcanvas-2.jpg";
-import gallery_3 from "@/assets/img/menu/offcanvas/offcanvas-3.jpg";
-import gallery_4 from "@/assets/img/menu/offcanvas/offcanvas-4.jpg";
+import gallery_1 from "@/assets/img/home-03/gallery/gal-1.jpg";
+import gallery_2 from "@/assets/img/home-03/gallery/gal-2.jpg";
+import gallery_3 from "@/assets/img/home-03/gallery/gal-3.jpg";
+import gallery_4 from "@/assets/img/home-03/gallery/gal-4.jpg";
 import MobileMenus from "./mobile-menus";
 
 const gallery_images = [gallery_1, gallery_2, gallery_3, gallery_4];
@@ -79,7 +79,19 @@ export default function MobileOffcanvas({openOffcanvas,setOpenOffcanvas}: IProps
               <h3 className="tp-offcanvas-title sm">Follow Us</h3>
               <ul>
                 <li>
-                  <a href="https://www.instagram.com/lum_studios/" target="_blank"><InstagramTwo /></a>
+                  <a href="https://www.instagram.com/lum_studios/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <InstagramTwo />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.threads.net/@lum_studios" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+                    <Threads />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/2348145538164" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <WhatsApp />
+                  </a>
                 </li>
               </ul>
             </div>

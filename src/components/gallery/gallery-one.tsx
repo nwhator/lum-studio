@@ -35,7 +35,7 @@ export default function GalleryOne() {
 
   // Show only first image repeated on mobile for animation, all images on desktop/tablet
   const imagesToShow = isMobile ? 
-    Array(8).fill(gallery_images[0]) : // Repeat first image 8 times for smooth mobile animation
+    [g_1, g_2, g_3, g_4, g_5, g_1, g_2, g_3, g_4, g_5] : // Show all images cycling on mobile too
     gallery_images;
 
   return (
@@ -64,7 +64,7 @@ export default function GalleryOne() {
                             height={600}
                             width={500}
                             style={{ 
-                              objectFit: 'contain'
+                              objectFit: 'cover'
                             }}
                             className="gallery-responsive-img"
                           />
@@ -117,9 +117,14 @@ export default function GalleryOne() {
         
         @media (max-width: 768px) {
           .gallery-responsive-img {
-            max-width: 90% !important;
-            width: 90% !important;
-            height: auto !important;
+            max-width: 45vw !important;
+            width: 45vw !important;
+            height: 350px !important;
+            object-fit: cover !important;
+          }
+          
+          .tp-gallery-item {
+            margin-right: 15px !important;
           }
           
           .gallery-image-wrapper:hover .gallery-responsive-img {

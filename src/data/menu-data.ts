@@ -5,32 +5,32 @@ const galleryCategories = [
   {
     title: "Baby Shoot",
     link: "/gallery#cat1",
-    img: "/assets/img/inner-project/portfolio-col-2/port-1.jpg", // Baby Shoot
+    img: "/assets/img/home-03/gallery/gal-1.jpg",
   },
   {
     title: "Wedding Shoot",
     link: "/gallery#cat2",
-    img: "/assets/img/inner-project/portfolio-col-2/port-4.jpg", // Wedding Shoot
+    img: "/assets/img/home-03/gallery/gal-2.jpg",
   },
   {
     title: "Call to Bar",
     link: "/gallery#cat3",
-    img: "/assets/img/inner-project/portfolio-col-2/port-7.jpg", // Call to Bar
+    img: "/assets/img/home-03/gallery/gal-3.jpg",
   },
   {
     title: "Convocation",
     link: "/gallery#cat4",
-    img: "/assets/img/inner-project/portfolio-col-2/port-10.jpg", // Convocation
+    img: "/assets/img/home-03/gallery/gal-4.jpg",
   },
   {
     title: "Family Portraits",
     link: "/gallery#cat5",
-    img: "/assets/img/inner-project/portfolio-col-2/port-13.jpg", // Family Portraits
+    img: "/assets/img/home-03/gallery/gal-5.jpg",
   },
   {
     title: "Maternity Portrait",
     link: "/gallery#cat6",
-    img: "/assets/img/inner-project/portfolio-col-2/port-16.jpg", // Maternity Portrait
+    img: "/assets/img/home-03/gallery/gal-1.jpg",
   },
 ];
 

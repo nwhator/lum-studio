@@ -23,18 +23,24 @@ export default function MobileMenus() {
           {menu_data.map((menu) => (
             <li
               key={menu.id}
-              className={`has-dropdown ${
+              className={`${
                 menu.home_menus || menu.portfolio_mega_menus
-                  ? "has-homemenu"
+                  ? "has-dropdown has-homemenu"
                   : ""
               } ${menu.home_menus ? "dropdown-opened" : ""}`}
             >
-              <a className="pointer" onClick={() => openMobileMenu(menu.title)}>
-                {menu.title}
-                <button className="dropdown-toggle-btn">
-                  <i className="fa-light fa-plus"></i>
-                </button>
-              </a>
+              {menu.home_menus || menu.portfolio_mega_menus ? (
+                <a className="pointer" onClick={() => openMobileMenu(menu.title)}>
+                  {menu.title}
+                  <button className="dropdown-toggle-btn">
+                    <i className="fa-light fa-plus"></i>
+                  </button>
+                </a>
+              ) : (
+                <Link href={menu.link}>
+                  {menu.title}
+                </Link>
+              )}
               {menu.home_menus ? (
                 <div className="tp-submenu submenu tp-mega-menu" style={{ display: navTitle === menu.title ? "block" : "none"}}>
                   <div className="tp-menu-fullwidth">
