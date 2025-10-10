@@ -19,6 +19,21 @@ body {
   line-height: 1.6;
 }
 
+/* Prevent image downloads and right-click save across the site */
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  pointer-events: auto;
+}
+
+img::selection {
+  background: transparent;
+}
+
 /* Remove spacing between ProjectFour and Footer */
 .tp-project-3-area {
   margin-bottom: 0 !important;
@@ -753,40 +768,42 @@ a[href="/contact"],
 // ======================================
 
 .booking-hero-area {
-  background: linear-gradient(135deg, #2c3e50, #34495e);
-  color: white;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #2c3e50;
 }
 
 .booking-title {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 15px;
+  color: #2c3e50;
 }
 
 .booking-subtitle {
   font-size: 18px;
-  opacity: 0.9;
+  opacity: 0.8;
   margin-bottom: 20px;
+  color: #495057;
 }
 
 .view-packages-link {
   display: inline-block;
-  background: white;
-  color: #2c3e50;
+  background: #2c3e50;
+  color: white;
   padding: 12px 30px;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
   transition: all 0.3s ease;
-  border: 2px solid white;
+  border: 2px solid #2c3e50;
   margin-top: 10px;
 
   &:hover {
     background: transparent;
-    color: white;
+    color: #2c3e50;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
   }
 }
 

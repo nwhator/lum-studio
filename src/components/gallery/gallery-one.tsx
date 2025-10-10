@@ -67,6 +67,8 @@ export default function GalleryOne() {
                               objectFit: 'cover'
                             }}
                             className="gallery-responsive-img"
+                            draggable={false}
+                            onContextMenu={(e) => e.preventDefault()}
                           />
                           <div className="gallery-hover-overlay"></div>
                         </div>
@@ -87,6 +89,10 @@ export default function GalleryOne() {
           cursor: pointer;
           overflow: hidden;
           border-radius: 8px;
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
         }
         
         .gallery-hover-overlay {
@@ -113,18 +119,22 @@ export default function GalleryOne() {
         .gallery-responsive-img {
           transition: transform 0.3s ease;
           border-radius: 8px;
+          pointer-events: none;
+          user-select: none;
+          -webkit-user-drag: none;
+          -webkit-touch-callout: none;
         }
         
         @media (max-width: 768px) {
           .gallery-responsive-img {
-            max-width: 42vw !important;
-            width: 42vw !important;
-            height: 300px !important;
+            max-width: 45vw !important;
+            width: 45vw !important;
+            height: auto !important;
             object-fit: cover !important;
           }
           
           .tp-gallery-item {
-            margin-right: 10px !important;
+            margin-right: 12px !important;
           }
           
           .gallery-image-wrapper {
@@ -142,13 +152,13 @@ export default function GalleryOne() {
         
         @media (max-width: 480px) {
           .gallery-responsive-img {
-            max-width: 40vw !important;
-            width: 40vw !important;
-            height: 280px !important;
+            max-width: 44vw !important;
+            width: 44vw !important;
+            height: auto !important;
           }
           
           .tp-gallery-item {
-            margin-right: 8px !important;
+            margin-right: 10px !important;
           }
         }
       `}</style>

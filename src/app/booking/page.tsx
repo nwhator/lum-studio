@@ -144,7 +144,7 @@ export default function BookingPage() {
       package: selectedPackage,
       ...formData
     });
-    alert(`Booking Summary:\n\nPackage: ${selectedPackage}\nDate: ${selectedDate?.toLocaleDateString()}\nTime: ${sortedTimeSlots[0]} - ${sortedTimeSlots[sortedTimeSlots.length - 1]}\nDuration: ${selectedTimeSlots.length * 30} minutes\n\nCalendly integration will be activated once domain is connected!`);
+    alert(`Booking Summary:\n\nPackage: ${selectedPackage}\nDate: ${selectedDate?.toLocaleDateString()}\nTime: ${sortedTimeSlots[0]} - ${sortedTimeSlots[sortedTimeSlots.length - 1]}\nDuration: ${selectedTimeSlots.length * 30} minutes\n\nSoon connecting with Calendly!`);
   };
 
   // Generate calendar days
@@ -396,7 +396,7 @@ export default function BookingPage() {
                           Confirm Booking
                         </button>
                         <p className="calendly-note">
-                          📅 Calendly integration will be activated soon!
+                          📅 Soon connecting with Calendly
                         </p>
                       </div>
                     </form>

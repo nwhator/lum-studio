@@ -235,19 +235,21 @@ function CheckoutContent() {
 
       <style jsx>{`
         .checkout-hero-area {
-          background: linear-gradient(135deg, #2c3e50, #34495e);
-          color: white;
+          background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+          color: #2c3e50;
         }
 
         .checkout-title {
           font-size: 42px;
           font-weight: 700;
           margin-bottom: 15px;
+          color: #2c3e50;
         }
 
         .checkout-subtitle {
           font-size: 18px;
-          opacity: 0.9;
+          opacity: 0.8;
+          color: #495057;
         }
 
         .checkout-wrapper {
