@@ -61,11 +61,6 @@ export default function GalleryOne() {
                           <Image
                             src={g}
                             alt="gallery-img"
-                            height={600}
-                            width={500}
-                            style={{ 
-                              objectFit: 'cover'
-                            }}
                             className="gallery-responsive-img"
                             draggable={false}
                             onContextMenu={(e) => e.preventDefault()}
@@ -123,6 +118,9 @@ export default function GalleryOne() {
           user-select: none;
           -webkit-user-drag: none;
           -webkit-touch-callout: none;
+          width: 500px;
+          height: auto;
+          object-fit: cover;
         }
         
         @media (max-width: 768px) {
