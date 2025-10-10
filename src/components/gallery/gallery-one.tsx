@@ -117,18 +117,38 @@ export default function GalleryOne() {
         
         @media (max-width: 768px) {
           .gallery-responsive-img {
-            max-width: 45vw !important;
-            width: 45vw !important;
-            height: 350px !important;
+            max-width: 42vw !important;
+            width: 42vw !important;
+            height: 300px !important;
             object-fit: cover !important;
           }
           
           .tp-gallery-item {
-            margin-right: 15px !important;
+            margin-right: 10px !important;
+          }
+          
+          .gallery-image-wrapper {
+            border-radius: 6px;
+          }
+          
+          .gallery-hover-overlay {
+            border-radius: 6px;
           }
           
           .gallery-image-wrapper:hover .gallery-responsive-img {
             transform: scale(1.02);
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .gallery-responsive-img {
+            max-width: 40vw !important;
+            width: 40vw !important;
+            height: 280px !important;
+          }
+          
+          .tp-gallery-item {
+            margin-right: 8px !important;
           }
         }
       `}</style>
