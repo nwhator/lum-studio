@@ -1,0 +1,21 @@
+# LUM Studios - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.thelumstudios.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all image crawling
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow all crawling for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
