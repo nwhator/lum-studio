@@ -201,7 +201,7 @@ export default function PackageTemplate({
                         {heroDescription}
                       </p>
                       <Link href="/booking" className="book-now-btn">
-                        Book Package
+                        Book This Shoot
                       </Link>
                     </div>
                   </div>
@@ -253,7 +253,7 @@ export default function PackageTemplate({
                               console.log('Full URL:', e.currentTarget.href);
                             }}
                           >
-                            Get Package
+                            Select Package
                           </a>
                         </div>
                       </div>

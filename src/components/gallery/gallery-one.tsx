@@ -66,6 +66,10 @@ export default function GalleryOne() {
                             className="gallery-responsive-img"
                             draggable={false}
                             onContextMenu={(e) => e.preventDefault()}
+                            loading={i < 3 ? "eager" : "lazy"}
+                            priority={i < 3}
+                            placeholder="blur"
+                            sizes="(max-width: 768px) 100vw, 400px"
                           />
                           <div className="gallery-hover-overlay"></div>
                         </div>

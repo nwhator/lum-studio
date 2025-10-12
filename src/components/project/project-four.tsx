@@ -76,13 +76,13 @@ export default function ProjectFour({ style_2 = false }: IProps) {
             <div className="col-xl-8">
               <div className="tp-project-modern-header text-center">
                 <h4 className="tp-section-title-200 tp_reveal_anim">
-                  Our <span>Gallery</span>
+                  Our <span>Photoshoots</span>
                 </h4>
                 <p className="tp-project-modern-subtitle">
                   Explore our professional photography services tailored for your special moments
                 </p>
                 <Link className="tp-btn-modern" href="/gallery">
-                  View All Projects
+                  View Full Gallery
                   <RightArrow clr="#fff" />
                 </Link>
               </div>

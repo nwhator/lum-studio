@@ -8,34 +8,28 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   // Image optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
   // Performance optimizations
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['gsap', 'three', 'react-slick'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
+    optimizePackageImports: ['gsap', 'react-slick', '@gsap/react'],
+    webpackBuildWorker: true,
   },
   
-  // Development optimizations
+  // Production optimizations
   swcMinify: true,
-  
-  // Compression
   compress: true,
+  poweredByHeader: false,
   
   // Webpack optimizations
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -46,29 +40,66 @@ const nextConfig = {
     // Optimize bundle splitting
     config.optimization = {
       ...config.optimization,
+      moduleIds: 'deterministic',
+      runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
         cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+          default: false,
+          vendors: false,
+          // Framework bundle
+          framework: {
+            name: 'framework',
+            test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+            priority: 40,
+            enforce: true,
           },
+          // GSAP bundle (lazy loaded)
           gsap: {
             test: /[\\/]node_modules[\\/]gsap[\\/]/,
             name: 'gsap',
-            chunks: 'all',
+            priority: 30,
+            reuseExistingChunk: true,
           },
-          three: {
-            test: /[\\/]node_modules[\\/]three[\\/]/,
-            name: 'three',
-            chunks: 'all',
+          // Commons bundle
+          commons: {
+            name: 'commons',
+            minChunks: 2,
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          // Lib bundle
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'lib',
+            priority: 10,
+            reuseExistingChunk: true,
           },
         },
       },
     };
+
+    // Production optimizations
+    if (!dev) {
+      config.optimization.minimize = true;
+    }
     
     return config;
+  },
+
+  // Headers for caching
+  async headers() {
+    return [
+      {
+        source: '/:all*(svg|jpg|png|webp|avif|woff|woff2|ttf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
 };
 

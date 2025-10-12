@@ -418,10 +418,10 @@ export default function BookingPage() {
                           className="submit-btn"
                           disabled={!selectedPackage}
                         >
-                          View Package Details
+                          Continue to Package Selection
                         </button>
                         <p className="calendly-note">
-                          📅 Select a package to view details and pricing
+                          📅 Choose your date and time, then select your package
                         </p>
                       </div>
                     </form>

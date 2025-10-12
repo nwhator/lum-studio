@@ -21,7 +21,7 @@ export default function HeroBannerFour() {
                 We illuminate you.
               </span>
               <Link className="tp-btn-black-2" href="/gallery">
-                Book a Shoot{" "}
+                View Our Gallery{" "}
                 <span className="p-relative">
                   <RightArrowTwo />
                   <ArrowBg />
