@@ -202,31 +202,41 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           <div className="row justify-content-center">
             <div className="col-xl-10">
               <div className="portfolio-filter-wrapper mb-60">
-                <div className="portfolio-filter-title text-center mb-30">
-                  <h5>Filter by Category</h5>
+                <div className="portfolio-filter-title text-center mb-35">
+                  <span className="filter-label">Browse Our Work</span>
+                  <h3 className="filter-heading">Portfolio Categories</h3>
                 </div>
-                <div className="portfolio-filter masonary-menu">
-                  <button data-filter="*" className="active">
-                    <span>All</span>
-                  </button>
-                  <button data-filter=".cat1">
-                    <span>Baby Shoot</span>
-                  </button>
-                  <button data-filter=".cat2">
-                    <span>Wedding</span>
-                  </button>
-                  <button data-filter=".cat3">
-                    <span>Call to Bar</span>
-                  </button>
-                  <button data-filter=".cat4">
-                    <span>Convocation</span>
-                  </button>
-                  <button data-filter=".cat5">
-                    <span>Family</span>
-                  </button>
-                  <button data-filter=".cat6">
-                    <span>Maternity</span>
-                  </button>
+                <div className="portfolio-filter-scroll-container">
+                  <div className="portfolio-filter masonary-menu">
+                    <button data-filter="*" className="active filter-btn">
+                      <span className="filter-text">All Projects</span>
+                      <span className="filter-count">{portfolio_data.length}</span>
+                    </button>
+                    <button data-filter=".cat1" className="filter-btn">
+                      <span className="filter-text">Baby</span>
+                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat1').length}</span>
+                    </button>
+                    <button data-filter=".cat2" className="filter-btn">
+                      <span className="filter-text">Wedding</span>
+                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat2').length}</span>
+                    </button>
+                    <button data-filter=".cat3" className="filter-btn">
+                      <span className="filter-text">Call to Bar</span>
+                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat3').length}</span>
+                    </button>
+                    <button data-filter=".cat4" className="filter-btn">
+                      <span className="filter-text">Convocation</span>
+                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat4').length}</span>
+                    </button>
+                    <button data-filter=".cat5" className="filter-btn">
+                      <span className="filter-text">Family</span>
+                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat5').length}</span>
+                    </button>
+                    <button data-filter=".cat6" className="filter-btn">
+                      <span className="filter-text">Maternity</span>
+                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat6').length}</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,216 @@
+/* Gallery Filter - Enhanced Mobile Styles Demo */
+
+/*
+ * BEFORE vs AFTER Comparison
+ * 
+ * This file shows what changed in the gallery filter UI/UX enhancement
+ */
+
+/* ==========================================
+ * BEFORE - Old Design (Basic)
+ * ========================================== */
+
+.old-filter {
+  /* Simple wrapper */
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.old-filter button {
+  /* Plain buttons */
+  background: white;
+  border: 2px solid #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  
+  /* Wrapped on mobile */
+  flex-wrap: wrap;
+  
+  /* No icons, no counts */
+}
+
+/* ==========================================
+ * AFTER - New Design (Enhanced)
+ * ========================================== */
+
+.new-filter {
+  /* Gradient background */
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.new-filter button {
+  /* Pill-shaped with icons */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  /* Better touch targets */
+  min-height: 44px;
+  
+  /* Horizontal scroll on mobile */
+  flex-wrap: nowrap;
+  
+  /* Ripple animation */
+  position: relative;
+  overflow: hidden;
+}
+
+.new-filter button::before {
+  /* Ripple effect */
+  content: '';
+  position: absolute;
+  background: rgba(var(--tp-theme-rgb), 0.1);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.new-filter button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Icon animation */
+.new-filter .filter-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.new-filter button:hover .filter-icon {
+  transform: scale(1.15);
+}
+
+/* Count badge */
+.new-filter .filter-count {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.new-filter button:hover .filter-count {
+  background: var(--tp-theme-1);
+  color: white;
+}
+
+/* ==========================================
+ * MOBILE ENHANCEMENTS
+ * ========================================== */
+
+/* Horizontal scroll container */
+.portfolio-filter-scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Fade-out gradient (scroll indicator) */
+.portfolio-filter-scroll-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 40px;
+  background: linear-gradient(to left, #f8f9fa, transparent);
+}
+
+/* Mobile button sizing */
+@media (max-width: 768px) {
+  .new-filter button {
+    padding: 10px 16px;
+    font-size: 13px;
+    min-height: 42px;
+  }
+  
+  .new-filter .filter-icon {
+    font-size: 16px;
+  }
+  
+  .new-filter .filter-count {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 576px) {
+  .new-filter button {
+    padding: 9px 14px;
+    font-size: 12px;
+    min-height: 40px;
+  }
+  
+  .new-filter .filter-icon {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+ * KEY IMPROVEMENTS
+ * ========================================== */
+
+/*
+ * ✅ Horizontal scroll (no wrapping)
+ * ✅ Emoji icons for visual recognition
+ * ✅ Count badges showing items per category
+ * ✅ Larger touch targets (44px → 40px on mobile)
+ * ✅ Ripple animation on hover
+ * ✅ Gradient backgrounds
+ * ✅ Custom scrollbar styling
+ * ✅ Smooth transitions and animations
+ * ✅ Better mobile UX with scroll indicators
+ */
+
+/* ==========================================
+ * BUTTON STRUCTURE
+ * ========================================== */
+
+/*
+ * Old Structure:
+ * <button>
+ *   <span>All</span>
+ * </button>
+ * 
+ * New Structure:
+ * <button>
+ *   <span class="filter-icon">✨</span>
+ *   <span class="filter-text">All</span>
+ *   <span class="filter-count">18</span>
+ * </button>
+ */
+
+/* ==========================================
+ * PERFORMANCE
+ * ========================================== */
+
+/*
+ * ✅ CSS-only animations (GPU accelerated)
+ * ✅ No JavaScript for scroll (native)
+ * ✅ transform instead of top/left
+ * ✅ No additional dependencies
+ * ✅ Emojis instead of SVG icons
+ */
+
+/* ==========================================
+ * ACCESSIBILITY (To Be Improved)
+ * ========================================== */
+
+/*
+ * Future enhancements:
+ * - Add aria-label to buttons
+ * - Add aria-pressed for active state
+ * - Keyboard navigation
+ * - Focus visible styles
+ * - Screen reader announcements
+ * 
+ * Example:
+ * <button 
+ *   aria-label="Filter by all categories, 18 items"
+ *   aria-pressed="true"
+ * >
+ */

@@ -6,9 +6,11 @@
 ## What Was Added
 
 ### 1. ✅ Enhanced Error Boundary
+
 **File**: `src/components/error-boundary.tsx`
 
 **Features**:
+
 - Shows detailed error information on mobile
 - Displays error message, type, and page location
 - Includes expandable stack trace
@@ -17,6 +19,7 @@
 - Reload and "Go Home" buttons
 
 **What It Catches**:
+
 - Component rendering errors
 - React lifecycle errors  
 - Child component failures
@@ -24,14 +27,17 @@
 - GSAP animation errors
 
 ### 2. ✅ Client Error Boundary Wrapper
+
 **File**: `src/components/client-error-boundary.tsx`
 
 **Purpose**: Wraps server components with client-side error boundary
 
 ### 3. ✅ Error Debugger (Floating Debug Panel)
+
 **File**: `src/components/error-debugger.tsx`
 
 **Features**:
+
 - 🔴 Floating button (bottom-right corner)
 - Shows error count badge
 - Captures ALL JavaScript errors in real-time
@@ -42,15 +48,18 @@
 - Works in development AND production
 
 **How to Use**:
+
 1. Look for floating button in bottom-right corner
 2. If red with number = errors detected
 3. Click to see full error details
 4. Screenshot and send for debugging
 
 ### 4. ✅ Enhanced iOS-Safe GSAP
+
 **File**: `src/utils/ios-safe-gsap.ts`
 
 **Improvements**:
+
 - Better logging (console shows each step)
 - Client-side check before registration
 - DOM ready check before animations
@@ -59,6 +68,7 @@
 - Detailed console messages with emojis
 
 **Console Output**:
+
 ```
 [GSAP] ⚠️ Skipping ScrollSmoother on iOS/mobile for stability
 [GSAP] ✅ Registered plugins: ScrollTrigger, SplitText
@@ -67,9 +77,11 @@
 ```
 
 ### 5. ✅ App-Wide Error Tracking
+
 **File**: `src/app/layout.tsx`
 
 **Changes**:
+
 - Wrapped entire app with `ClientErrorBoundary`
 - Added `ErrorDebugger` component
 - All pages now protected
@@ -78,7 +90,7 @@
 
 ## How to Find the Error Now
 
-### On Mobile Device:
+### On Mobile Device
 
 1. **Open the affected page** (gallery, service, contact, or about)
 
@@ -104,7 +116,7 @@
    - Look for `[GSAP]` prefixed messages
    - Look for `=== ERROR DETAILS ===` blocks
 
-### On Desktop:
+### On Desktop
 
 1. **Open browser DevTools** (F12 or Cmd+Option+I)
 
@@ -124,25 +136,29 @@
 
 ## What to Look For
 
-### GSAP Errors:
+### GSAP Errors
+
 ```
 [GSAP] ❌ Error registering plugins: [error details]
 [GSAP] animation-name: ❌ Failed to initialize
 ```
 
-### Image Errors:
+### Image Errors
+
 ```
 Unhandled Runtime Error
 Error: Invalid src prop on `next/image`
 ```
 
-### Mobile-Specific Errors:
+### Mobile-Specific Errors
+
 ```
 TypeError: Cannot read property 'xxx' of undefined
 ReferenceError: xxx is not defined
 ```
 
-### iOS-Specific Errors:
+### iOS-Specific Errors
+
 ```
 Error in ScrollSmoother
 TypeError in animation
@@ -152,7 +168,7 @@ TypeError in animation
 
 ## Debugging Commands
 
-### In Browser Console:
+### In Browser Console
 
 ```javascript
 // Check for GSAP errors
@@ -176,13 +192,15 @@ console.log({
 
 ## Expected Errors vs Real Errors
 
-### Safe to Ignore:
+### Safe to Ignore
+
 - `[GSAP] Skipping ScrollSmoother on iOS/mobile` ✅ This is expected
 - `[GSAP] animation-name: Skipped (server side)` ✅ This is expected
 - Hydration warnings in development ⚠️ Usually harmless
 
-### Need to Fix:
-- `Application error: a client-side exception has occurred` 🔴 
+### Need to Fix
+
+- `Application error: a client-side exception has occurred` 🔴
 - `TypeError` or `ReferenceError` 🔴
 - `Cannot read property of undefined` 🔴
 - `Invalid src prop` on images 🔴
@@ -192,7 +210,8 @@ console.log({
 
 ## Test Procedure
 
-### 1. Open on Mobile:
+### 1. Open on Mobile
+
 ```
 1. Open gallery page on mobile
 2. Check floating debug button
@@ -201,7 +220,8 @@ console.log({
 5. Send screenshot
 ```
 
-### 2. Check Console:
+### 2. Check Console
+
 ```
 1. Connect mobile to desktop (USB debugging)
 2. Open Chrome DevTools
@@ -210,7 +230,8 @@ console.log({
 5. Copy error text
 ```
 
-### 3. Test Each Page:
+### 3. Test Each Page
+
 - [ ] Gallery (`/gallery`)
 - [ ] Service (`/service/wedding-photography`)
 - [ ] Contact (`/contact`)
@@ -222,7 +243,7 @@ console.log({
 
 ## What Happens Now
 
-### If Error Occurs:
+### If Error Occurs
 
 1. **Error Boundary Catches It**:
    - Shows nice error screen
@@ -302,6 +323,7 @@ console.log('Device:', {
 ✅ **Console Logging** - Detailed error info  
 
 **Now when error occurs, you'll see**:
+
 1. Floating red button with error count
 2. Detailed error panel with stack trace
 3. Console logs with full context

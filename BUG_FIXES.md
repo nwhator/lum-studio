@@ -11,11 +11,13 @@
 **Error:** Application error on gallery page (client-side exception)
 
 **Root Cause:**
+
 - Used `Suspense` wrapper in server component (`page.tsx`) around a client component
 - Next.js App Router doesn't support Suspense wrapping client components from server components
 - The `PortfolioGridColThreeMain` component uses hooks (`useScrollSmooth`, `useGSAP`, etc.)
 
 **Fix:**
+
 ```tsx
 // BEFORE (BROKEN):
 <Suspense fallback={<GallerySkeleton />}>
@@ -27,6 +29,7 @@
 ```
 
 **Files Modified:**
+
 - `src/app/gallery/page.tsx`
 
 ---
@@ -36,10 +39,12 @@
 **Error:** IntersectionObserver is not defined (build/server-side)
 
 **Root Cause:**
+
 - `IntersectionObserver` doesn't exist during server-side rendering
 - Only checked for `window` but not for `IntersectionObserver` itself
 
 **Fix:**
+
 ```typescript
 // BEFORE (BROKEN):
 if (typeof window === 'undefined') return;
@@ -51,6 +56,7 @@ const observer = new IntersectionObserver(...)
 ```
 
 **Files Modified:**
+
 - `src/utils/performance.ts`
 
 ---
@@ -60,11 +66,13 @@ const observer = new IntersectionObserver(...)
 **Error:** Invalid placeholder value for Next.js Image on mobile
 
 **Root Cause:**
+
 - Incorrect detection of remote vs local images
 - `/assets/...` paths were treated as remote (they're actually local static assets)
 - Blur placeholder was being applied incorrectly
 
 **Fix:**
+
 ```tsx
 // BEFORE (BROKEN):
 const isRemoteImage = typeof props.src === 'string' && props.src.startsWith('http');
@@ -84,6 +92,7 @@ if (!isRemoteImage && blurDataURL) {
 ```
 
 **Files Modified:**
+
 - `src/components/ui/optimized-image.tsx`
 
 ---
@@ -91,6 +100,7 @@ if (!isRemoteImage && blurDataURL) {
 ## Testing Checklist
 
 ### ✅ Verified
+
 - [x] Gallery page loads without errors
 - [x] About page loads without errors
 - [x] Package pages load without errors
@@ -98,7 +108,8 @@ if (!isRemoteImage && blurDataURL) {
 - [x] No console errors in browser
 - [x] Mobile view works correctly
 
-### Test on Mobile:
+### Test on Mobile
+
 - [ ] Open site on mobile device
 - [ ] Navigate to gallery page
 - [ ] Check images load properly
@@ -111,6 +122,7 @@ if (!isRemoteImage && blurDataURL) {
 ## What Was NOT Broken
 
 The optimization code itself was correct:
+
 - ✅ OptimizedImage component logic
 - ✅ Performance utilities (debounce, throttle, etc.)
 - ✅ Image sizing calculations
@@ -119,6 +131,7 @@ The optimization code itself was correct:
 - ✅ Cache headers
 
 The errors were due to:
+
 1. **Incorrect Suspense usage** (Next.js App Router limitation)
 2. **Missing SSR checks** (build-time error)
 3. **Image path detection** (mobile-specific issue)
@@ -128,6 +141,7 @@ The errors were due to:
 ## Summary
 
 **3 Bugs Fixed:**
+
 1. Removed incorrect Suspense wrapper from gallery page
 2. Added IntersectionObserver check in performance utils
 3. Fixed image placeholder logic for local static assets
@@ -135,6 +149,7 @@ The errors were due to:
 **0 Performance Optimizations Reverted**
 
 All performance improvements remain in place:
+
 - OptimizedImage component still active
 - Smart lazy loading still working
 - Priority loading still enabled
@@ -144,13 +159,15 @@ All performance improvements remain in place:
 
 ## Expected Behavior Now
 
-### Gallery Page:
+### Gallery Page
+
 - Loads without error overlay
 - Images load progressively (first 3 priority, rest lazy)
 - Smooth animations work correctly
 - Mobile performance improved
 
-### All Pages:
+### All Pages
+
 - No client-side exceptions
 - Images display correctly on all devices
 - Fast load times maintained
@@ -172,16 +189,19 @@ All performance improvements remain in place:
 
 ### Date: October 12, 2025 (Evening)
 
-### Error Found:
+### Error Found
+
 ```
 TypeError: g is not a function
 at ScrollSmoother.create
 ```
 
-### Root Cause:
+### Root Cause
+
 **`useScrollSmooth` hook** was calling `ScrollSmoother.create()` on mobile even though ScrollSmoother plugin wasn't registered for mobile devices.
 
-### Fix Applied:
+### Fix Applied
+
 Modified `src/hooks/use-scroll-smooth.ts` to check for mobile BEFORE trying to create ScrollSmoother:
 
 ```typescript
@@ -192,12 +212,14 @@ if (typeof window !== 'undefined' && (isIOSSafari() || isMobileDevice())) {
 }
 ```
 
-### Result:
+### Result
+
 - ✅ Mobile: Uses native scrolling (no error)
 - ✅ Desktop: Uses ScrollSmoother (smooth scrolling)
 - ✅ No crashes on any device
 
-### Affected Pages (NOW FIXED):
+### Affected Pages (NOW FIXED)
+
 - ✅ `/gallery`
 - ✅ `/service`
 - ✅ `/contact`
@@ -206,4 +228,3 @@ if (typeof window !== 'undefined' && (isIOSSafari() || isMobileDevice())) {
 ---
 
 *All fixes maintain performance optimizations while fixing mobile compatibility issues!*
-

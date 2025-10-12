@@ -160,64 +160,191 @@ button[type="submit"],
   }
 }
 
-// Improved Portfolio Filter Design
+// Professional Portfolio Filter Design for Photography Studio
 .portfolio-filter-wrapper {
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  padding: 50px 40px 45px;
+  border-radius: 0;
+  box-shadow: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .portfolio-filter-title {
-  h5 {
-    font-size: 18px;
+  margin-bottom: 35px;
+  
+  .filter-label {
+    display: block;
+    font-size: 12px;
     font-weight: 600;
-    color: var(--tp-common-black);
+    color: var(--tp-theme-1);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  
+  .filter-heading {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--tp-common-black);
+    letter-spacing: -0.5px;
+    margin: 0;
+    font-family: var(--tp-ff-primary);
+  }
+}
+
+.portfolio-filter-scroll-container {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  // Subtle fade indicators for scroll
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+  }
+  
+  &.has-scroll::after {
+    opacity: 1;
   }
 }
 
 .portfolio-filter.masonary-menu {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  padding: 4px 0;
+  min-width: min-content;
   
-  button {
-    background: white;
-    border: 2px solid #e0e0e0;
-    padding: 10px 20px;
-    border-radius: 25px;
+  .filter-btn {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 14px 28px;
+    border-radius: 0;
     font-size: 14px;
     font-weight: 500;
-    color: #666;
+    color: #333;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-height: 48px;
+    letter-spacing: 0.3px;
+    font-family: var(--tp-ff-primary);
     
-    span {
-      display: inline-block;
+    // Elegant hover line animation
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--tp-theme-1);
+      transform: translateX(-50%);
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .filter-text {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .filter-count {
+      background: rgba(0, 0, 0, 0.05);
+      color: #666;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 2px;
+      line-height: 1;
+      min-width: 26px;
+      text-align: center;
+      transition: all 0.35s ease;
+      position: relative;
+      z-index: 1;
     }
     
     &:hover {
-      background: rgba(var(--tp-theme-rgb), 0.1);
-      border-color: var(--tp-theme-1);
+      background: rgba(var(--tp-theme-rgb), 0.03);
+      border-color: rgba(var(--tp-theme-rgb), 0.3);
       color: var(--tp-theme-1);
       transform: translateY(-2px);
+      
+      &::after {
+        width: 100%;
+      }
+      
+      .filter-count {
+        background: rgba(var(--tp-theme-rgb), 0.1);
+        color: var(--tp-theme-1);
+      }
     }
     
     &.active {
       background: var(--tp-theme-1);
       border-color: var(--tp-theme-1);
-      color: white;
+      color: #ffffff;
+      
+      &::after {
+        display: none;
+      }
+      
+      .filter-count {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+      }
       
       &:hover {
         background: var(--tp-theme-1);
-        color: white;
-        filter: brightness(1.1);
+        border-color: var(--tp-theme-1);
+        color: #ffffff;
+        filter: brightness(1.05);
+        transform: translateY(-2px);
+        
+        .filter-count {
+          background: rgba(255, 255, 255, 0.3);
+          color: #ffffff;
+        }
       }
+    }
+    
+    &:active {
+      transform: translateY(0);
     }
   }
 }
@@ -229,23 +356,62 @@ button[type="submit"],
   }
 }
 
+@media (max-width: 1024px) {
+  .portfolio-filter.masonary-menu {
+    justify-content: flex-start;
+  }
+  
+  .portfolio-filter-scroll-container {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .portfolio-filter-wrapper {
-    padding: 20px 15px;
+    padding: 40px 25px 35px;
+    border-top: none;
   }
   
   .portfolio-filter-title {
-    h5 {
-      font-size: 16px;
+    margin-bottom: 30px;
+    
+    .filter-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+    
+    .filter-heading {
+      font-size: 26px;
+      letter-spacing: -0.3px;
     }
   }
   
+  .portfolio-filter-scroll-container {
+    margin: 0 -25px;
+    padding: 0 25px;
+  }
+  
   .portfolio-filter.masonary-menu {
-    gap: 8px;
+    gap: 10px;
+    padding: 4px 0 12px;
     
-    button {
-      padding: 8px 16px;
+    .filter-btn {
+      padding: 12px 22px;
       font-size: 13px;
+      min-height: 46px;
+      
+      .filter-text {
+        font-size: 13px;
+      }
+      
+      .filter-count {
+        font-size: 10px;
+        padding: 3px 8px;
+        min-width: 22px;
+      }
     }
   }
   
@@ -258,15 +424,52 @@ button[type="submit"],
 
 @media (max-width: 576px) {
   .portfolio-filter-wrapper {
-    padding: 15px 10px;
+    padding: 35px 20px 30px;
+  }
+  
+  .portfolio-filter-title {
+    margin-bottom: 25px;
+    
+    .filter-label {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+    }
+    
+    .filter-heading {
+      font-size: 22px;
+      font-weight: 400;
+    }
+  }
+  
+  .portfolio-filter-scroll-container {
+    margin: 0 -20px;
+    padding: 0 20px;
   }
   
   .portfolio-filter.masonary-menu {
-    gap: 6px;
+    gap: 8px;
     
-    button {
-      padding: 6px 12px;
+    .filter-btn {
+      padding: 11px 20px;
       font-size: 12px;
+      gap: 10px;
+      min-height: 44px;
+      
+      .filter-text {
+        font-size: 12px;
+      }
+      
+      .filter-count {
+        font-size: 9px;
+        padding: 3px 7px;
+        min-width: 20px;
+      }
+    }
+  }
+  
+  .grid {
+    .grid-item {
+      margin-bottom: 10px;
     }
   }
 }
