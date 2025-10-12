@@ -76,7 +76,7 @@ export default function ProjectFour({ style_2 = false }: IProps) {
             <div className="col-xl-8">
               <div className="tp-project-modern-header text-center">
                 <h4 className="tp-section-title-200 tp_reveal_anim">
-                  Our <span>Shoots</span>
+                  Our <span>Gallery</span>
                 </h4>
                 <p className="tp-project-modern-subtitle">
                   Explore our professional photography services tailored for your special moments
