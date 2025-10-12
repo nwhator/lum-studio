@@ -62,7 +62,7 @@ const MaternityBabyPage = () => {
                         Maternity & Baby Shoots
                       </h1>
                       <p className="service-detail-desc" style={{fontSize: '18px', color: '#333', lineHeight: 1.8, maxWidth: '800px', margin: '0 auto'}}>
-                        Celebrate the beauty of motherhood and your baby's precious early moments with our gentle, professional photography services.
+                        Celebrate the beauty of motherhood and your baby&apos;s precious early moments with our gentle, professional photography services.
                       </p>
                     </div>
                   </div>
@@ -132,7 +132,7 @@ const MaternityBabyPage = () => {
                         <div className="col-md-6">
                           <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Baby Milestones</h4>
-                            <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Document your baby's growth with milestone sessions at 3, 6, 9, and 12 months.</p>
+                            <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Document your baby&apos;s growth with milestone sessions at 3, 6, 9, and 12 months.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
@@ -177,7 +177,7 @@ const MaternityBabyPage = () => {
                             When is the best time for a maternity shoot?
                           </h5>
                           <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>
-                            The ideal time is between 28-34 weeks of pregnancy when your bump is beautifully round but you're still comfortable moving around.
+                            The ideal time is between 28-34 weeks of pregnancy when your bump is beautifully round but you&apos;re still comfortable moving around.
                           </p>
                         </div>
 
@@ -186,7 +186,7 @@ const MaternityBabyPage = () => {
                             Do you provide maternity gowns?
                           </h5>
                           <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>
-                            <strong style={{color: '#e74c3c'}}>No, we do not provide maternity gowns.</strong> We recommend bringing your own outfits that make you feel beautiful and comfortable. We suggest flowing dresses, fitted gowns, or casual outfits depending on your preferred style. We're happy to provide styling suggestions before your session.
+                            <strong style={{color: '#e74c3c'}}>No, we do not provide maternity gowns.</strong> We recommend bringing your own outfits that make you feel beautiful and comfortable. We suggest flowing dresses, fitted gowns, or casual outfits depending on your preferred style. We&apos;re happy to provide styling suggestions before your session.
                           </p>
                         </div>
 
@@ -195,7 +195,7 @@ const MaternityBabyPage = () => {
                             When should we schedule a newborn session?
                           </h5>
                           <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>
-                            Newborn sessions are best done within the first 5-14 days after birth when babies are still very sleepy and curly. We recommend booking your session during pregnancy and we'll schedule the exact date after your baby arrives.
+                            Newborn sessions are best done within the first 5-14 days after birth when babies are still very sleepy and curly. We recommend booking your session during pregnancy and we&apos;ll schedule the exact date after your baby arrives.
                           </p>
                         </div>
 
@@ -213,7 +213,7 @@ const MaternityBabyPage = () => {
                             What should I bring to the session?
                           </h5>
                           <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>
-                            For maternity: Bring 2-3 outfit changes, comfortable shoes, and any props or accessories you'd like to include. For newborn: Bring feeding supplies, extra diapers, and any special items like a family heirloom blanket. We provide all wraps, props, and backdrops for newborn sessions.
+                            For maternity: Bring 2-3 outfit changes, comfortable shoes, and any props or accessories you&apos;d like to include. For newborn: Bring feeding supplies, extra diapers, and any special items like a family heirloom blanket. We provide all wraps, props, and backdrops for newborn sessions.
                           </p>
                         </div>
 
@@ -222,7 +222,7 @@ const MaternityBabyPage = () => {
                             How long does a session take?
                           </h5>
                           <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>
-                            Maternity sessions typically last 1-2 hours. Newborn sessions can take 2 hours to allow for feeding, soothing, and multiple setups. We work at your baby's pace to ensure they're comfortable and we get those perfect shots.
+                            Maternity sessions typically last 1-2 hours. Newborn sessions can take 2 hours to allow for feeding, soothing, and multiple setups. We work at your baby&apos;s pace to ensure they&apos;re comfortable and we get those perfect shots.
                           </p>
                         </div>
                       </div>

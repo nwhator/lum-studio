@@ -62,7 +62,7 @@ const WeddingPhotographyPage = () => {
                         Wedding Photography
                       </h1>
                       <p className="service-detail-desc" style={{fontSize: '18px', color: '#333', lineHeight: 1.8, maxWidth: '800px', margin: '0 auto'}}>
-                        Capture the magic of your special day with our professional wedding photography services. We tell your love story through timeless images that you'll cherish forever.
+                        Capture the magic of your special day with our professional wedding photography services. We tell your love story through timeless images that you&apos;ll cherish forever.
                       </p>
                     </div>
                   </div>
