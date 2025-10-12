@@ -39,6 +39,12 @@ export const registerGSAPPlugins = (
   }
 ) => {
   try {
+    // Ensure we're on client side
+    if (typeof window === 'undefined') {
+      console.warn('[GSAP] registerGSAPPlugins called on server side, skipping');
+      return false;
+    }
+
     const { ScrollTrigger, ScrollSmoother, SplitText, ...otherPlugins } = plugins;
     
     // Always register ScrollTrigger and SplitText
@@ -48,10 +54,12 @@ export const registerGSAPPlugins = (
     if (SplitText) pluginsToRegister.push(SplitText);
     
     // Only register ScrollSmoother on desktop browsers (NOT on iOS/mobile)
-    if (ScrollSmoother && !isIOSSafari() && !isMobileDevice()) {
+    const shouldSkipScrollSmoother = isIOSSafari() || isMobileDevice();
+    if (ScrollSmoother && !shouldSkipScrollSmoother) {
       pluginsToRegister.push(ScrollSmoother);
-    } else if (ScrollSmoother) {
-      console.log('[GSAP] Skipping ScrollSmoother on iOS/mobile for stability');
+      console.log('[GSAP] ScrollSmoother enabled (desktop)');
+    } else if (ScrollSmoother && shouldSkipScrollSmoother) {
+      console.log('[GSAP] ⚠️ Skipping ScrollSmoother on iOS/mobile for stability');
     }
     
     // Register any other plugins
@@ -61,11 +69,16 @@ export const registerGSAPPlugins = (
     
     if (pluginsToRegister.length > 0) {
       gsap.registerPlugin(...pluginsToRegister);
+      console.log('[GSAP] ✅ Registered plugins:', pluginsToRegister.map(p => p.name || 'unnamed').join(', '));
     }
     
     return true;
   } catch (error) {
-    console.error('[GSAP] Error registering plugins:', error);
+    console.error('[GSAP] ❌ Error registering plugins:', error);
+    // Log to window for mobile debugging
+    if (typeof window !== 'undefined') {
+      (window as any).__gsapError = error;
+    }
     return false;
   }
 };
@@ -111,10 +124,38 @@ export const safeAnimationInit = async (
   name: string = 'animation'
 ): Promise<boolean> => {
   try {
+    // Ensure we're on client side
+    if (typeof window === 'undefined') {
+      console.warn(`[GSAP] ${name}: Skipped (server side)`);
+      return false;
+    }
+
+    // Ensure DOM is ready
+    if (document.readyState === 'loading') {
+      console.warn(`[GSAP] ${name}: Waiting for DOM ready`);
+      await new Promise(resolve => {
+        document.addEventListener('DOMContentLoaded', resolve, { once: true });
+      });
+    }
+
+    console.log(`[GSAP] ${name}: Initializing...`);
     await initFn();
+    console.log(`[GSAP] ${name}: ✅ Initialized successfully`);
     return true;
   } catch (error) {
+    console.error(`[GSAP] ${name}: ❌ Failed to initialize`, error);
     logError(error as Error, { animationName: name });
+    
+    // Store error for debugging
+    if (typeof window !== 'undefined') {
+      (window as any).__animationErrors = (window as any).__animationErrors || [];
+      (window as any).__animationErrors.push({
+        name,
+        error: error instanceof Error ? error.message : String(error),
+        timestamp: new Date().toISOString()
+      });
+    }
+    
     return false;
   }
 };
