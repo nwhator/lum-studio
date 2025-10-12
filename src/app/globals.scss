@@ -2297,3 +2297,186 @@ a[href="/contact"],
   padding: 5px 10px !important;
 }
 
+/* ===================================
+   REDESIGNED ABOUT SECTION - HOME PAGE
+   =================================== */
+
+.tp-about-3-area {
+  background: #fafafa;
+  overflow: hidden;
+  
+  /* Header Section */
+  .tp-section-subtitle-3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    color: #4CAF50;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    
+    .subtitle-line {
+      width: 40px;
+      height: 2px;
+      background: #4CAF50;
+    }
+  }
+  
+  .tp-section-title-lg {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #2c3e50;
+    
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+    
+    .title-highlight {
+      color: #4CAF50;
+      position: relative;
+    }
+  }
+  
+  /* Image Section */
+  .about-image-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+    .tp-about-3-shape {
+      position: relative;
+      text-align: center;
+      
+      img {
+        filter: brightness(0) saturate(100%) invert(58%) sepia(84%) saturate(377%) hue-rotate(76deg) brightness(95%) contrast(89%);
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+        animation: rotate 20s linear infinite;
+      }
+    }
+  }
+  
+  /* Content Section */
+  .about-content-section {
+    padding-left: 30px;
+    
+    @media (max-width: 992px) {
+      padding-left: 0;
+    }
+  }
+  
+  .about-text-lead {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #2c3e50;
+    font-weight: 500;
+  }
+  
+  .about-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+  }
+  
+  /* Stats Mini */
+  .about-stats-mini {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .stat-mini-item {
+    .stat-mini-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #4CAF50;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    
+    .stat-mini-label {
+      font-size: 13px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  /* Features List */
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .feature-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .feature-content {
+    flex: 1;
+  }
+  
+  .feature-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+  }
+  
+  .feature-desc {
+    font-size: 13px;
+    color: #888;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  /* CTA Button */
+  .about-cta-section {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .tp-btn-green {
+    display: inline-flex;
+    align-items: center;
+    background: #4CAF50;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    
+    &:hover {
+      background: #45a049;
+      color: white;
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    svg {
+      margin-left: 8px;
+    }
+  }
+}
+
