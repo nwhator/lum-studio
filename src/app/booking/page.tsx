@@ -160,28 +160,40 @@ function BookingContent() {
     );
     
     const message = `
-🎯 *New Booking Request*
+✨ *NEW BOOKING REQUEST* ✨
 
-📦 *Package Details:*
-Category: ${categoryName}
-Package: ${packageName}
-Type: ${selectedPackageType}
-${packagePrice ? `Price: ${packagePrice}` : ''}
+━━━━━━━━━━━━━━━━━━━━
 
-👤 *Customer Information:*
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
+📦 *PACKAGE DETAILS*
+━━━━━━━━━━━━━━━━━━━━
+• Category: ${categoryName}
+• Package: ${packageName}
+• Type: ${selectedPackageType}${packagePrice ? `
+• Price: ${packagePrice}` : ''}
 
-📅 *Schedule:*
-Date: ${formattedDate}
-Time: ${sortedTimeSlots.join(', ')}
 
-💬 *Message:*
+👤 *CUSTOMER INFORMATION*
+━━━━━━━━━━━━━━━━━━━━
+• Name: ${formData.name}
+• Email: ${formData.email}
+• Phone: ${formData.phone}
+
+
+📅 *SCHEDULE*
+━━━━━━━━━━━━━━━━━━━━
+• Date: ${formattedDate}
+• Time: ${sortedTimeSlots.join(' → ')}
+• Duration: ${selectedTimeSlots.length * 30} minutes
+
+
+💬 *ADDITIONAL MESSAGE*
+━━━━━━━━━━━━━━━━━━━━
 ${formData.message || 'No additional message'}
 
----
-Sent from LUM Studios Booking System
+
+━━━━━━━━━━━━━━━━━━━━
+📸 *Sent from LUM Studios Booking*
+www.thelumstudios.com
     `.trim();
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

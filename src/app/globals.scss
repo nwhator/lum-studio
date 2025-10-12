@@ -3,6 +3,39 @@
 @import "swiper/css/bundle"; 
 @import '../../public/assets/scss/main.scss';
 
+/* 
+==================================================
+FONT USAGE GUIDE FOR LUM STUDIOS
+==================================================
+
+1. SYNE (var(--tp-ff-syne) / var(--tp-ff-body))
+   - Main body text
+   - Navigation menus
+   - Buttons
+   - Form inputs
+   - General UI elements
+   - Most headings (h1-h6)
+   
+2. MARCELLUS (var(--tp-ff-marcellus))
+   - Elegant section subtitles
+   - Special decorative headings
+   - Quotes and testimonials
+   - Premium/luxury content sections
+   
+3. GALLERY MODERN (var(--tp-ff-gallery))
+   - Large display numbers
+   - Special decorative elements
+   - Hero section numbers/stats
+   - NOT for regular text
+
+Font weights available:
+- Syne: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
+- Marcellus: 400 (regular) only
+- Gallery: 400 (regular) only
+
+==================================================
+*/
+
 /* Global styles for Lum Studios */
 * {
   margin: 0;
@@ -1368,6 +1401,15 @@ a[href="/contact"],
 .tp-project-modern-header {
   margin-bottom: 80px;
 
+  h1.tp-section-title {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none !important;
+    color: var(--tp-common-white);
+    margin-bottom: 20px;
+  }
+
   .tp-section-title-200 {
     margin-bottom: 20px;
     color: var(--tp-common-white);
@@ -2208,5 +2250,45 @@ a[href="/contact"],
   text-align: center;
   margin-right: 10px;
   font-weight: 600;
+}
+
+/* About Area Fixes */
+.tp-about-3-area {
+  .row {
+    align-items: center;
+  }
+  
+  .tp-about-3-title-box {
+    margin-bottom: 40px;
+  }
+  
+  .tp-about-3-shape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    
+    img {
+      filter: brightness(0) saturate(100%) invert(58%) sepia(84%) saturate(377%) hue-rotate(76deg) brightness(95%) contrast(89%) !important;
+      max-width: 120px !important;
+      width: 120px !important;
+      height: auto !important;
+      animation: rotate 20s linear infinite;
+    }
+  }
+  
+  .tp-about-3-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
