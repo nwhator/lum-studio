@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import Wrapper from "@/layouts/wrapper";
@@ -17,7 +17,7 @@ const packageTypes = [
   { name: "Walk-in Package", description: "Quick professional session" }
 ];
 
-export default function BookingPage() {
+function BookingContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -399,5 +399,27 @@ Sent from LUM Studios Booking System
         </div>
       </div>
     </Wrapper>
+  );
+}
+
+export default function BookingPage() {
+  return (
+    <Suspense fallback={
+      <Wrapper>
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <main>
+              <HeaderTransparent />
+              <div className="booking-page" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <p>Loading booking form...</p>
+              </div>
+            </main>
+            <FooterTwo topCls="" />
+          </div>
+        </div>
+      </Wrapper>
+    }>
+      <BookingContent />
+    </Suspense>
   );
 }
