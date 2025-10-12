@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
@@ -14,45 +14,17 @@ const timeSlots = [
 ];
 
 const packageTypes = [
-  "Wedding Photography",
-  "Baby Shoot",
-  "Maternity Photography",
-  "Family Portraits",
-  "Convocation",
-  "Call to Bar",
-  "General Photography"
+  { name: "Classic Package", description: "Full session with extended time" },
+  { name: "Walk-in Package", description: "Quick professional session" }
 ];
-
-// Mock booked slots - This will be replaced with real data from Calendly/backend
-// Format: { date: "YYYY-MM-DD", times: ["09:00 AM", "09:30 AM"] }
-const mockBookedSlots: { [key: string]: string[] } = {
-  // Example: Some slots are already booked for demonstration
-  // In production, this will come from your Calendly API or backend
-  // Uncomment below to test booked slots functionality:
-  // "2025-10-15": ["10:00 AM", "10:30 AM", "02:00 PM"],
-  // "2025-10-20": ["09:00 AM", "09:30 AM", "01:00 PM", "01:30 PM"],
-};
-
-// Helper function to get booked slots for a specific date
-const getBookedSlotsForDate = (date: Date | null): string[] => {
-  if (!date) return [];
-  const dateKey = date.toISOString().split('T')[0]; // Format: YYYY-MM-DD
-  
-  // TODO: Replace with actual Calendly API call when integrated
-  // Example Calendly integration:
-  // const response = await fetch(`/api/calendly/booked-slots?date=${dateKey}`);
-  // const data = await response.json();
-  // return data.bookedSlots || [];
-  
-  return mockBookedSlots[dateKey] || [];
-};
 
 export default function BookingPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]);
-  const [selectedPackage, setSelectedPackage] = useState<string>("");
-  const [bookedSlots, setBookedSlots] = useState<string[]>([]);
+  const [selectedPackageType, setSelectedPackageType] = useState<string>("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,70 +32,43 @@ export default function BookingPage() {
     message: ""
   });
 
+  // Get package info from URL params (from package page)
+  const packageName = searchParams?.get('package') || '';
+  const categoryName = searchParams?.get('category') || '';
+  const packagePrice = searchParams?.get('price') || '';
+
+  useEffect(() => {
+    // Auto-select Classic if no type is selected
+    if (!selectedPackageType && packageTypes.length > 0) {
+      setSelectedPackageType(packageTypes[0].name);
+    }
+  }, [selectedPackageType]);
+
   const handleDateSelect = (date: Date) => {
     setSelectedDate(date);
     setSelectedTimeSlots([]); // Reset time selection when date changes
-    setBookedSlots(getBookedSlotsForDate(date)); // Load booked slots for this date
   };
 
   const handleTimeSelect = (time: string) => {
     const currentIndex = timeSlots.indexOf(time);
     const selectedIndices = selectedTimeSlots.map(t => timeSlots.indexOf(t)).sort((a, b) => a - b);
     
-    // If already selected, remove it and all slots after it
+    // If already selected, remove it
     if (selectedTimeSlots.includes(time)) {
-      const timeIndex = selectedTimeSlots.indexOf(time);
-      setSelectedTimeSlots(selectedTimeSlots.slice(0, timeIndex));
+      setSelectedTimeSlots(selectedTimeSlots.filter(t => t !== time));
       return;
     }
     
-    // If no slots selected, start new selection
-    if (selectedTimeSlots.length === 0) {
-      setSelectedTimeSlots([time]);
-      return;
-    }
-    
-    // Check if new selection is consecutive and within 2-hour limit (4 slots)
-    const lastIndex = selectedIndices[selectedIndices.length - 1];
-    const firstIndex = selectedIndices[0];
-    
-    // Must be consecutive (next slot) or previous slot
-    if (currentIndex === lastIndex + 1 && selectedTimeSlots.length < 4) {
-      setSelectedTimeSlots([...selectedTimeSlots, time]);
-    } else if (currentIndex === firstIndex - 1 && selectedTimeSlots.length < 4) {
-      setSelectedTimeSlots([time, ...selectedTimeSlots]);
-    } else {
-      // Start new selection
-      setSelectedTimeSlots([time]);
-    }
+    // Add to selection
+    setSelectedTimeSlots([...selectedTimeSlots, time]);
   };
 
   const isTimeSlotSelected = (time: string) => {
     return selectedTimeSlots.includes(time);
   };
 
-  const isTimeSlotBooked = (time: string) => {
-    return bookedSlots.includes(time);
-  };
-
-  const isTimeSlotDisabled = (time: string) => {
-    // Can't select already booked slots
-    if (isTimeSlotBooked(time)) return true;
-    
-    if (selectedTimeSlots.length === 0) return false;
-    if (selectedTimeSlots.length >= 4) return !selectedTimeSlots.includes(time);
-    
-    const currentIndex = timeSlots.indexOf(time);
-    const selectedIndices = selectedTimeSlots.map(t => timeSlots.indexOf(t)).sort((a, b) => a - b);
-    const firstIndex = selectedIndices[0];
-    const lastIndex = selectedIndices[selectedIndices.length - 1];
-    
-    // Can select if it's consecutive (before first or after last)
-    return currentIndex !== firstIndex - 1 && currentIndex !== lastIndex + 1 && !selectedTimeSlots.includes(time);
-  };
-
-  const handlePackageSelect = (pkg: string) => {
-    setSelectedPackage(pkg);
+  const handlePackageTypeSelect = (pkgType: string) => {
+    setSelectedPackageType(pkgType);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -136,40 +81,68 @@ export default function BookingPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!selectedPackage) {
-      alert('Please select a package to continue');
+    // Validation
+    if (!selectedDate) {
+      alert('Please select a date');
       return;
     }
     
-    // Map package names to their URLs
-    const packageUrlMap: { [key: string]: string } = {
-      "Wedding Photography": "/packages/wedding",
-      "Baby Shoot": "/packages/baby-shoot",
-      "Maternity Photography": "/packages/maternity",
-      "Family Portraits": "/packages/family-portraits",
-      "Convocation": "/packages/convocation",
-      "Call to Bar": "/packages/call-to-bar",
-      "General Photography": "/packages/general"
-    };
-    
-    const packageUrl = packageUrlMap[selectedPackage];
-    
-    if (packageUrl) {
-      // Store booking info in sessionStorage to persist across pages
-      sessionStorage.setItem('pendingBooking', JSON.stringify({
-        date: selectedDate,
-        timeSlots: selectedTimeSlots.sort((a, b) => 
-          timeSlots.indexOf(a) - timeSlots.indexOf(b)
-        ),
-        package: selectedPackage,
-        ...formData
-      }));
-      
-      // Redirect to package details page
-      router.push(packageUrl);
-    } else {
-      alert('Package page not found. Please try again.');
+    if (selectedTimeSlots.length === 0) {
+      alert('Please select at least one time slot');
+      return;
     }
+    
+    if (!formData.name || !formData.phone) {
+      alert('Please fill in your name and phone number');
+      return;
+    }
+    
+    // Create WhatsApp message
+    const whatsappNumber = "2349022292514"; // LUM Studios WhatsApp
+    
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    
+    const sortedTimeSlots = [...selectedTimeSlots].sort((a, b) => 
+      timeSlots.indexOf(a) - timeSlots.indexOf(b)
+    );
+    
+    const message = `
+🎯 *New Booking Request*
+
+📦 *Package Details:*
+Category: ${categoryName}
+Package: ${packageName}
+Type: ${selectedPackageType}
+${packagePrice ? `Price: ${packagePrice}` : ''}
+
+👤 *Customer Information:*
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+📅 *Schedule:*
+Date: ${formattedDate}
+Time: ${sortedTimeSlots.join(', ')}
+
+💬 *Message:*
+${formData.message || 'No additional message'}
+
+---
+Sent from LUM Studios Booking System
+    `.trim();
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Optionally, redirect to confirmation page or show success message
+    // router.push('/booking-confirmation');
   };
 
   // Generate calendar days
@@ -216,11 +189,14 @@ export default function BookingPage() {
                 <div className="row justify-content-center">
                   <div className="col-xl-8">
                     <div className="booking-hero-content text-center">
-                      <h1 className="booking-title">Choose Your Package</h1>
-                      <p className="booking-subtitle">Select a photography package to view details, pricing, and book your session</p>
-                      <Link href="/gallery" className="view-packages-link">
-                        📸 View Our Gallery
-                      </Link>
+                      <h1 className="booking-title">Book Your Session</h1>
+                      <p className="booking-subtitle">
+                        {packageName && categoryName ? (
+                          <>Selected: <strong>{packageName}</strong> - {categoryName}</>
+                        ) : (
+                          'Complete the form below to book your photography session'
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -234,21 +210,24 @@ export default function BookingPage() {
                   <div className="col-xl-10">
                     <form onSubmit={handleSubmit} className="booking-form">
                       
-                      {/* Package Selection */}
+                      {/* Package Type Selection */}
                       <div className="booking-section">
                         <h2 className="section-title">
                           <span className="step-number">1</span>
                           Select Package Type
                         </h2>
-                        <div className="package-grid">
+                        <div className="package-type-grid">
                           {packageTypes.map((pkg) => (
                             <div
-                              key={pkg}
-                              className={`package-card ${selectedPackage === pkg ? 'selected' : ''}`}
-                              onClick={() => handlePackageSelect(pkg)}
+                              key={pkg.name}
+                              className={`package-type-card ${selectedPackageType === pkg.name ? 'selected' : ''}`}
+                              onClick={() => handlePackageTypeSelect(pkg.name)}
                             >
-                              <div className="package-icon">📸</div>
-                              <h4>{pkg}</h4>
+                              <div className="package-icon">
+                                {pkg.name.includes('Classic') ? '⭐' : '⚡'}
+                              </div>
+                              <h4>{pkg.name}</h4>
+                              <p>{pkg.description}</p>
                             </div>
                           ))}
                         </div>
@@ -300,25 +279,20 @@ export default function BookingPage() {
                       <div className="booking-section">
                         <h2 className="section-title">
                           <span className="step-number">3</span>
-                          Select Time Slots (30 min intervals, up to 2 hours)
+                          Select Time Slots
                         </h2>
                         <p className="time-instruction">
-                          Click to select your start time, then select consecutive slots up to 2 hours maximum.
-                          Selected duration: <strong>{selectedTimeSlots.length * 30} minutes</strong>
-                          {bookedSlots.length > 0 && (
-                            <span className="booked-info"> • 🔴 Red slots are already booked</span>
-                          )}
+                          Click to select your preferred time slots.
+                          Selected: <strong>{selectedTimeSlots.length} slot(s)</strong> ({selectedTimeSlots.length * 30} minutes)
                         </p>
                         <div className="time-grid">
                           {timeSlots.map((time) => (
                             <div
                               key={time}
-                              className={`time-slot ${isTimeSlotSelected(time) ? 'selected' : ''} ${isTimeSlotBooked(time) ? 'booked' : ''} ${isTimeSlotDisabled(time) && !isTimeSlotBooked(time) ? 'disabled' : ''}`}
-                              onClick={() => !isTimeSlotDisabled(time) && handleTimeSelect(time)}
-                              title={isTimeSlotBooked(time) ? 'This time slot is already booked' : ''}
+                              className={`time-slot ${isTimeSlotSelected(time) ? 'selected' : ''}`}
+                              onClick={() => handleTimeSelect(time)}
                             >
                               {time}
-                              {isTimeSlotBooked(time) && <span className="booked-badge">Booked</span>}
                             </div>
                           ))}
                         </div>
@@ -383,7 +357,7 @@ export default function BookingPage() {
                         <div className="summary-details">
                           <div className="summary-item">
                             <span className="label">Package:</span>
-                            <span className="value">{selectedPackage || "Not selected"}</span>
+                            <span className="value">{packageName || "Not selected"}</span>
                           </div>
                           <div className="summary-item">
                             <span className="label">Date:</span>
@@ -397,18 +371,10 @@ export default function BookingPage() {
                             </span>
                           </div>
                           <div className="summary-item">
-                            <span className="label">Time:</span>
+                            <span className="label">Time Slots:</span>
                             <span className="value">
                               {selectedTimeSlots.length > 0 
-                                ? `${selectedTimeSlots[0]} - ${selectedTimeSlots[selectedTimeSlots.length - 1]} (${selectedTimeSlots.length * 30} mins)` 
-                                : "Not selected"}
-                            </span>
-                          </div>
-                          <div className="summary-item">
-                            <span className="label">Duration:</span>
-                            <span className="value">
-                              {selectedTimeSlots.length > 0 
-                                ? `${selectedTimeSlots.length * 30} minutes (${selectedTimeSlots.length} slots)` 
+                                ? `${selectedTimeSlots.length} slot(s) - ${selectedTimeSlots.length * 30} minutes` 
                                 : "Not selected"}
                             </span>
                           </div>
@@ -416,12 +382,11 @@ export default function BookingPage() {
                         <button
                           type="submit"
                           className="submit-btn"
-                          disabled={!selectedPackage}
                         >
-                          Continue to Package Selection
+                          📱 Confirm via WhatsApp
                         </button>
-                        <p className="calendly-note">
-                          📅 Choose your date and time, then select your package
+                        <p className="whatsapp-note">
+                          You'll be redirected to WhatsApp to confirm your booking with our team
                         </p>
                       </div>
                     </form>

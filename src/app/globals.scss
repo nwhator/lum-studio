@@ -30,7 +30,30 @@ body {
   }
 }
 
-/* Navbar logo and hamburger alignment */
+/* Navbar logo and hamburger alignment - 50px from edges */
+.tp-header-area {
+  .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .tp-header-logo {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .tp-header-bar {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  @media (max-width: 767px) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
 .tp-header-3-area,
 .tp-header-transparent,
 .tp-header-2-area {

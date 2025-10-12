@@ -53,11 +53,6 @@ const menu_data: IMenuDT[] = [
   },
   {
     id: 4,
-    title: 'Booking',
-    link: '/booking',
-  },
-  {
-    id: 5,
     title: 'Contact',
     link: '/contact',
   },

@@ -155,7 +155,7 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                 </a>
                 <a 
                   className="social-icon-link mb-10" 
-                  href="https://wa.me/2348107095827" 
+                  href="https://wa.me/2349022292514" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   title="Contact us on WhatsApp"

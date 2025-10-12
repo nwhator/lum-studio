@@ -19,12 +19,16 @@ const HeaderOne = () => {
       <header className="tp-header-height" ref={headerRef}>
         <div
           id="header-sticky"
-          className={`tp-header-area tp-header-mob-space tp-transparent pl-60 pr-60 z-index-9 ${sticky?'header-sticky':''}`}
+          className={`tp-header-area tp-header-mob-space tp-transparent z-index-9 ${sticky?'header-sticky':''}`}
+          style={{
+            paddingLeft: '50px',
+            paddingRight: '50px'
+          }}
         >
-          <div className="container">
+          <div className="container-fluid">
             <div className="row align-items-center">
               <div className="col-xl-2 col-lg-2 col-6">
-                <div className="tp-header-logo">
+                <div className="tp-header-logo" style={{ marginLeft: 0 }}>
                   <Link className="logo-1" href="/">
                     <Image
                       src="/assets/img/logo/logo.png"
@@ -53,7 +57,7 @@ const HeaderOne = () => {
                 </div>
               </div>
               <div className="col-xl-2 col-lg col-6">
-                <div className="tp-header-bar text-end">
+                <div className="tp-header-bar text-end" style={{ marginRight: 0 }}>
                   <button className="tp-offcanvas-open-btn" onClick={() => setOpenOffCanvas(true)}>
                     <span></span>
                     <span></span>

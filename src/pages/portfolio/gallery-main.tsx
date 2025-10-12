@@ -75,16 +75,6 @@ const PortfolioGridColThreeMain = () => {
                         Explore our favorite moments—weddings, portraits, events, and creative shoots. Each image tells a story, captured with passion and artistry by the LUM Studio team.
                       </p>
                     </div>
-                    <div className="tm-hero-btn-wrapper text-center mt-40">
-                      <a href="/packages/general" className="tp-btn-black-2">
-                        View Our Packages
-                        <span className="p-relative">
-                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </span>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>

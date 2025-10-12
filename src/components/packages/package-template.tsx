@@ -240,21 +240,12 @@ export default function PackageTemplate({
                         <div className="package-content">
                           <h3 className="package-name">{pkg.name}</h3>
                           <p className="package-description">{pkg.description}</p>
-                          <a 
-                            href={`/checkout?name=${encodeURIComponent(pkg.name)}&category=${encodeURIComponent(categoryName)}&price=${encodeURIComponent(pkg.price)}&image=${encodeURIComponent(pkg.image)}&description=${encodeURIComponent(pkg.description)}`}
+                          <Link 
+                            href={`/booking?package=${encodeURIComponent(pkg.name)}&category=${encodeURIComponent(categoryName)}&price=${encodeURIComponent(pkg.price)}`}
                             className="get-package-btn"
-                            onClick={(e) => {
-                              console.log('Navigating to checkout with:', {
-                                name: pkg.name,
-                                category: categoryName,
-                                price: pkg.price,
-                                image: pkg.image
-                              });
-                              console.log('Full URL:', e.currentTarget.href);
-                            }}
                           >
-                            Select Package
-                          </a>
+                            Get Package
+                          </Link>
                         </div>
                       </div>
                     </div>

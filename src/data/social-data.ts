@@ -18,7 +18,7 @@ const social_data = [
   {
     id:4,
     icon:"fa-brands fa-whatsapp",
-    link:"https://wa.me/2348107095827"
+    link:"https://wa.me/2349022292514"
   }
 ];
 

@@ -24,7 +24,7 @@ const social_data = [
   {
     id: 4,
     icon: <WhatsApp />,
-    link: "https://wa.me/2348107095827",
+    link: "https://wa.me/2349022292514",
     label: "WhatsApp"
   },
 ];

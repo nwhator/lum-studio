@@ -72,11 +72,11 @@ export default function ProjectFour({ style_2 = false }: IProps) {
     <div className={`tp-project-modern-area ${style_2 ? "pt-60" : "pt-130 black-bg pb-130"}`}>
       <div className="container">
         {!style_2 && (
-          <div className="row justify-content-center mb-80">
+          <div className="row justify-content-center mb-60">
             <div className="col-xl-8">
               <div className="tp-project-modern-header text-center">
-                <h4 className="tp-section-title-200 tp_reveal_anim">
-                  Our <span>Photoshoots</span>
+                <h4 className="tp-section-title-180 tp_reveal_anim">
+                  Our <span>Shoots</span>
                 </h4>
                 <p className="tp-project-modern-subtitle">
                   Explore our professional photography services tailored for your special moments
