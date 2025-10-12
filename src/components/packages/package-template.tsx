@@ -243,6 +243,7 @@ export default function PackageTemplate({
                           <Link 
                             href={`/booking?package=${encodeURIComponent(pkg.name)}&category=${encodeURIComponent(categoryName)}&price=${encodeURIComponent(pkg.price)}`}
                             className="get-package-btn"
+                            prefetch={false}
                           >
                             Get Package
                           </Link>
@@ -360,8 +361,8 @@ export default function PackageTemplate({
 
         .book-now-btn {
           display: inline-block;
-          background: white !important;
-          color: #2c3e50 !important;
+          background: #4CAF50 !important;
+          color: white !important;
           padding: 15px 40px;
           border-radius: 30px;
           text-decoration: none !important;
@@ -370,18 +371,18 @@ export default function PackageTemplate({
           text-transform: uppercase;
           letter-spacing: 1px;
           transition: all 0.3s ease;
-          border: 3px solid white;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          border: 3px solid #4CAF50;
+          box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
           z-index: 10;
           position: relative;
         }
 
         .book-now-btn:hover {
-          background: #2c3e50 !important;
-          color: white !important;
+          background: transparent !important;
+          color: #4CAF50 !important;
           text-decoration: none !important;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
         }
 
         .package-card {
@@ -395,7 +396,7 @@ export default function PackageTemplate({
 
         .package-card:hover {
           transform: translateY(-10px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
         }
 
         .package-image-container {
@@ -446,20 +447,26 @@ export default function PackageTemplate({
 
         .get-package-btn {
           display: inline-block;
-          background: #2c3e50;
+          background: #4CAF50;
           color: white;
           padding: 12px 30px;
           border-radius: 25px;
           text-decoration: none;
           font-weight: 500;
           transition: all 0.3s ease;
-          border: 2px solid #2c3e50;
+          border: 2px solid #4CAF50;
+          position: relative;
+          z-index: 10;
+          cursor: pointer;
+          box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
         .get-package-btn:hover {
           background: transparent;
-          color: #2c3e50;
+          color: #4CAF50;
           text-decoration: none;
+          box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+          transform: translateY(-2px);
         }
 
         .review-card {

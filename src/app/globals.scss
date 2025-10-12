@@ -91,6 +91,41 @@ img::selection {
   padding-top: 60px !important;
 }
 
+/* Brand Green Glow Effects - Site-wide */
+/* Main Buttons */
+.tp-btn, 
+.tp-btn-white,
+.tp-btn-modern,
+.tp-btn-circle,
+.tp-btn-white-sm,
+button[type="submit"],
+.submit-btn,
+.contact-form button,
+.booking-form button {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+    transform: translateY(-2px);
+  }
+}
+
+/* Cards */
+.tp-portfolio-item,
+.tp-project-item,
+.package-card,
+.tp-service-item,
+.portfolio-item,
+.gallery-item,
+.tp-blog-item {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.25) !important;
+    transform: translateY(-5px);
+  }
+}
+
 // Improved Portfolio Filter Design
 .portfolio-filter-wrapper {
   background: #f8f9fa;
