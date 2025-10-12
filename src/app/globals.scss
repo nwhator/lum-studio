@@ -31,7 +31,8 @@ body {
 }
 
 /* Navbar logo and hamburger alignment - 50px from edges */
-.tp-header-area {
+.tp-header-area,
+.tp-header-transparent {
   .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -2097,5 +2098,115 @@ a[href="/contact"],
       }
     }
   }
+}
+
+/* Booking Page Styles with Brand Green */
+.package-type-card {
+  cursor: pointer;
+  padding: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: center;
+  background: white;
+  
+  h4 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  &:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  &.selected {
+    border-color: #4CAF50;
+    background: #f1f8f4;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+    
+    h4 {
+      color: #4CAF50;
+    }
+  }
+}
+
+.time-slot {
+  cursor: pointer;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: white;
+  font-weight: 500;
+  
+  &:hover:not(.disabled) {
+    border-color: #4CAF50;
+    background: #f1f8f4;
+    transform: translateY(-2px);
+  }
+  
+  &.selected {
+    border-color: #4CAF50;
+    background: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  }
+  
+  &.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #f5f5f5;
+    
+    &:hover {
+      transform: none;
+      border-color: #e0e0e0;
+    }
+  }
+}
+
+.calendar-day {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  
+  &:hover:not(.disabled):not(.other-month) {
+    background: #f1f8f4;
+    color: #4CAF50;
+  }
+  
+  &.selected {
+    background: #4CAF50;
+    color: white;
+    font-weight: 600;
+  }
+  
+  &.today {
+    border: 2px solid #4CAF50;
+  }
+}
+
+.step-number {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  line-height: 35px;
+  text-align: center;
+  margin-right: 10px;
+  font-weight: 600;
 }
 

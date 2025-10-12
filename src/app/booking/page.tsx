@@ -36,13 +36,6 @@ function BookingContent() {
   const categoryName = searchParams?.get('category') || '';
   const packagePrice = searchParams?.get('price') || '';
 
-  useEffect(() => {
-    // Auto-select Classic if no type is selected
-    if (!selectedPackageType && packageTypes.length > 0) {
-      setSelectedPackageType(packageTypes[0].name);
-    }
-  }, [selectedPackageType]);
-
   const handleDateSelect = (date: Date) => {
     setSelectedDate(date);
     setSelectedTimeSlots([]); // Reset time selection when date changes
@@ -50,16 +43,67 @@ function BookingContent() {
 
   const handleTimeSelect = (time: string) => {
     const currentIndex = timeSlots.indexOf(time);
-    const selectedIndices = selectedTimeSlots.map(t => timeSlots.indexOf(t)).sort((a, b) => a - b);
     
-    // If already selected, remove it
+    // If already selected, remove it and all slots after it
     if (selectedTimeSlots.includes(time)) {
-      setSelectedTimeSlots(selectedTimeSlots.filter(t => t !== time));
+      const timeIndex = selectedTimeSlots.indexOf(time);
+      setSelectedTimeSlots(selectedTimeSlots.slice(0, timeIndex));
       return;
     }
     
-    // Add to selection
-    setSelectedTimeSlots([...selectedTimeSlots, time]);
+    // If no slots selected, start new selection
+    if (selectedTimeSlots.length === 0) {
+      setSelectedTimeSlots([time]);
+      return;
+    }
+    
+    // Max 4 slots (2 hours)
+    if (selectedTimeSlots.length >= 4) {
+      alert('Maximum of 4 consecutive 30-minute slots (2 hours) can be selected');
+      return;
+    }
+    
+    // Get indices of selected slots
+    const selectedIndices = selectedTimeSlots.map(t => timeSlots.indexOf(t)).sort((a, b) => a - b);
+    const lastSelectedIndex = selectedIndices[selectedIndices.length - 1];
+    
+    // Must be consecutive - next slot after the last selected
+    if (currentIndex === lastSelectedIndex + 1) {
+      setSelectedTimeSlots([...selectedTimeSlots, time]);
+    } else {
+      alert('Please select consecutive time slots');
+    }
+  };
+
+  const isTimeSlotDisabled = (time: string) => {
+    const currentIndex = timeSlots.indexOf(time);
+    
+    // If no slots selected, all are enabled
+    if (selectedTimeSlots.length === 0) {
+      return false;
+    }
+    
+    // If max slots reached, disable all unselected
+    if (selectedTimeSlots.length >= 4 && !selectedTimeSlots.includes(time)) {
+      return true;
+    }
+    
+    // Get the last selected index
+    const selectedIndices = selectedTimeSlots.map(t => timeSlots.indexOf(t)).sort((a, b) => a - b);
+    const lastSelectedIndex = selectedIndices[selectedIndices.length - 1];
+    
+    // Only enable the next consecutive slot
+    if (currentIndex === lastSelectedIndex + 1) {
+      return false;
+    }
+    
+    // Already selected slots are enabled (for deselection)
+    if (selectedTimeSlots.includes(time)) {
+      return false;
+    }
+    
+    // All other slots are disabled
+    return true;
   };
 
   const isTimeSlotSelected = (time: string) => {
@@ -81,6 +125,11 @@ function BookingContent() {
     e.preventDefault();
     
     // Validation
+    if (!selectedPackageType) {
+      alert('Please select a package type');
+      return;
+    }
+    
     if (!selectedDate) {
       alert('Please select a date');
       return;
@@ -222,9 +271,6 @@ Sent from LUM Studios Booking System
                               className={`package-type-card ${selectedPackageType === pkg.name ? 'selected' : ''}`}
                               onClick={() => handlePackageTypeSelect(pkg.name)}
                             >
-                              <div className="package-icon">
-                                {pkg.name.includes('Classic') ? '⭐' : '⚡'}
-                              </div>
                               <h4>{pkg.name}</h4>
                               <p>{pkg.description}</p>
                             </div>
@@ -281,15 +327,15 @@ Sent from LUM Studios Booking System
                           Select Time Slots
                         </h2>
                         <p className="time-instruction">
-                          Click to select your preferred time slots.
+                          Select up to 4 consecutive 30-minute slots (max 2 hours).
                           Selected: <strong>{selectedTimeSlots.length} slot(s)</strong> ({selectedTimeSlots.length * 30} minutes)
                         </p>
                         <div className="time-grid">
                           {timeSlots.map((time) => (
                             <div
                               key={time}
-                              className={`time-slot ${isTimeSlotSelected(time) ? 'selected' : ''}`}
-                              onClick={() => handleTimeSelect(time)}
+                              className={`time-slot ${isTimeSlotSelected(time) ? 'selected' : ''} ${isTimeSlotDisabled(time) ? 'disabled' : ''}`}
+                              onClick={() => !isTimeSlotDisabled(time) && handleTimeSelect(time)}
                             >
                               {time}
                             </div>
