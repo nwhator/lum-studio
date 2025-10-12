@@ -168,4 +168,42 @@ All performance improvements remain in place:
 
 ---
 
+## 🎯 LATEST FIX - ScrollSmoother Mobile Error
+
+### Date: October 12, 2025 (Evening)
+
+### Error Found:
+```
+TypeError: g is not a function
+at ScrollSmoother.create
+```
+
+### Root Cause:
+**`useScrollSmooth` hook** was calling `ScrollSmoother.create()` on mobile even though ScrollSmoother plugin wasn't registered for mobile devices.
+
+### Fix Applied:
+Modified `src/hooks/use-scroll-smooth.ts` to check for mobile BEFORE trying to create ScrollSmoother:
+
+```typescript
+// Added mobile check
+if (typeof window !== 'undefined' && (isIOSSafari() || isMobileDevice())) {
+  console.log('[ScrollSmooth] ⚠️ Skipped on mobile/iOS device');
+  return; // Don't try to create ScrollSmoother on mobile
+}
+```
+
+### Result:
+- ✅ Mobile: Uses native scrolling (no error)
+- ✅ Desktop: Uses ScrollSmoother (smooth scrolling)
+- ✅ No crashes on any device
+
+### Affected Pages (NOW FIXED):
+- ✅ `/gallery`
+- ✅ `/service`
+- ✅ `/contact`
+- ✅ `/about`
+
+---
+
 *All fixes maintain performance optimizations while fixing mobile compatibility issues!*
+
