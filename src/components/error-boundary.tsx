@@ -97,7 +97,7 @@ class ErrorBoundary extends Component<Props, State> {
               Oops! Something went wrong
             </h1>
             <p style={{ color: "#666", marginBottom: "30px", lineHeight: "1.6" }}>
-              We're sorry, but something unexpected happened. Our team has been notified and we're working to fix it.
+              We&apos;re sorry, but something unexpected happened. Our team has been notified and we&apos;re working to fix it.
             </p>
             <button
               onClick={() => {

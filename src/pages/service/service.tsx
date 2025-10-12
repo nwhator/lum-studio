@@ -4,11 +4,14 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+import { registerGSAPPlugins, safeAnimationInit } from "@/utils/ios-safe-gsap";
+
+// Register plugins safely (skips ScrollSmoother on iOS)
+registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import HeaderEleven from "@/layouts/headers/header-eleven";
+import HeaderOne from "@/layouts/headers/header-one";
 import { ServiceItems } from "@/components/service/service-five";
 import ServiceHero from "@/components/service/service-hero";
 import ServiceSix from "@/components/service/service-six";
@@ -26,9 +29,11 @@ const ServiceMain = () => {
 
   useGSAP(() => {
     const timer = setTimeout(() => {
-      charAnimation();
-      fadeAnimation();
-      servicePanel();
+      safeAnimationInit(() => {
+        charAnimation();
+        fadeAnimation();
+        servicePanel();
+      }, 'service-animations');
     }, 100);
     return () => clearTimeout(timer);
   });
@@ -36,7 +41,7 @@ const ServiceMain = () => {
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderEleven />
+      <HeaderOne />
       {/* header area end */}
 
       <div id="smooth-wrapper">
@@ -54,12 +59,11 @@ const ServiceMain = () => {
                     <div className="tp-service-5-title-box mb-90">
                       <span className="ab-inner-subtitle mb-20">
                         <Leaf />
-                        Services
+                        Our Services
                       </span>
                       <h4 className="tp-service-5-title">
-                        We strongly believe that only design reinforced by{" "}
-                        <br />
-                        strategy can provide real results.
+                        At LUM Studios, we believe that every photograph tells a story. <br />
+                        We capture moments that become cherished memories.
                       </h4>
                     </div>
                   </div>

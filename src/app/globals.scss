@@ -2865,3 +2865,264 @@ a[href="/contact"],
   }
 }
 
+/* ==========================================
+   SERVICE PAGE CUSTOM STYLES - LUM STUDIOS
+   ========================================== */
+
+/* Service Hero Section */
+.sv-hero-area {
+  .sv-hero-title {
+    span, strong {
+      color: #4CAF50;
+      text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+    }
+  }
+  
+  .tp_fade_bottom {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+  }
+}
+
+/* Service Title Section */
+.tp-service-5-title-box {
+  .ab-inner-subtitle {
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    
+    svg {
+      fill: #4CAF50;
+      filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+    }
+  }
+  
+  .tp-service-5-title {
+    color: #2c3e50;
+    line-height: 1.4;
+    margin-top: 15px;
+  }
+}
+
+/* Service Items Grid */
+.tp-service-5-item {
+  padding: 35px 30px;
+  background: #fff;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+  height: 100%;
+  
+  &:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+    transform: translateY(-5px);
+    
+    .tp-service-4-title-sm {
+      color: #4CAF50;
+    }
+  }
+  
+  .tp-service-4-icon {
+    margin-bottom: 25px;
+    
+    img {
+      filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.2));
+      transition: all 0.3s ease;
+    }
+  }
+  
+  &:hover .tp-service-4-icon img {
+    filter: drop-shadow(0 0 15px rgba(76, 175, 80, 0.4));
+    transform: scale(1.05);
+  }
+  
+  .tp-service-4-content {
+    .tp-service-4-title-sm {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+    
+    p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+  }
+}
+
+/* Service Six - Full Width Panels */
+.sv-service-item {
+  .sv-service-subtitle {
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    display: block;
+    
+    i {
+      color: #4CAF50;
+      font-style: normal;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+  }
+  
+  .sv-service-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .sv-service-text p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+  
+  .sv-service-list ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    
+    li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #555;
+      font-size: 15px;
+      
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #4CAF50;
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+  }
+  
+  .sv-service-btn {
+    .tp-btn-zikzak {
+      background: #4CAF50;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+      
+      &:hover {
+        background: #45a049;
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+        transform: translateY(-2px);
+      }
+      
+      .zikzak-content {
+        color: white;
+      }
+    }
+  }
+  
+  .sv-service-content-wrap {
+    padding: 60px;
+    
+    @media (max-width: 991px) {
+      padding: 40px 30px;
+    }
+  }
+}
+
+/* Big Text CTA Section */
+.sv-big-text-area {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 80px 0;
+  
+  .sv-small-text-box {
+    margin-bottom: 30px;
+    
+    span {
+      color: #4CAF50;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+  
+  .sv-big-text {
+    font-size: clamp(40px, 8vw, 120px);
+    font-weight: 700;
+    line-height: 1.1;
+    transition: all 0.3s ease;
+    
+    a {
+      color: #2c3e50;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 0;
+        height: 6px;
+        background: #4CAF50;
+        transition: width 0.5s ease;
+        border-radius: 3px;
+      }
+      
+      &:hover {
+        color: #4CAF50;
+        
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+  .sv-service-item .sv-service-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tp-service-5-item {
+    padding: 25px 20px;
+  }
+  
+  .sv-service-item .sv-service-title {
+    font-size: 28px;
+  }
+  
+  .sv-big-text-area .sv-small-text-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+

@@ -13,25 +13,25 @@ const service_data = [
   {
     id: 1,
     title: "VIDEO CREATION",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    desc: "Professional video production that captures your story with cinematic quality and creative storytelling excellence.",
     icon: s_1,
   },
   {
     id: 2,
     title: "ART DIRECTION",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    desc: "Creative direction that brings your vision to life with stunning visual concepts and cohesive brand aesthetics.",
     icon: s_2,
   },
   {
     id: 3,
     title: "MOTION DESIGN",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    desc: "Dynamic motion graphics and animations that engage your audience with smooth, eye-catching visual experiences.",
     icon: s_3,
   },
   {
     id: 4,
     title: "BRAND STRATEGY",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    desc: "Strategic brand development that defines your identity and positions you for success in the market.",
     icon: s_4,
   },
 ];
@@ -44,12 +44,12 @@ const ServiceOne = () => {
           <div className="col-xl-6 col-lg-6">
             <div className="tp-service-title-box p-relative">
               <span className="tp-section-subtitle subtitle-position tp_fade_bottom">
-                I Think a lot
+                What We Offer
               </span>
               <h4 className="tp-section-title tp_fade_bottom">
-                Thoughtful
+                Our Creative
                 <br />
-                <span>Process</span>
+                <span>Services</span>
               </h4>
             </div>
             <div className="tp-service-left-btn tp-btn-bounce">

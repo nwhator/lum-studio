@@ -9,20 +9,20 @@ import s_3 from "@/assets/img/home-01/service/service-icon-3.png";
 const service_data = [
   {
     id: 1,
-    title: "Branding",
-    desc: "Branding is one of the most important ingredients for the success of any business.",
+    title: "Wedding Photography",
+    desc: "Capturing the magic of your special day with timeless elegance and artistic storytelling that you'll cherish forever.",
     icon: s_2,
   },
   {
     id: 2,
-    title: "Website design",
-    desc: "The perfect cocktail should still look and taste perfect no matter the size of the glass you serve it in.",
+    title: "Portrait Sessions",
+    desc: "Professional portraits that capture your personality and essence, from maternity to family and individual sessions.",
     icon: s_1,
   },
   {
     id: 3,
-    title: "Marketing",
-    desc: "We take that same approach with the apps & websites we create. you go there because of the overall experience.",
+    title: "Event Coverage",
+    desc: "Comprehensive event photography for all occasions - from corporate events to celebrations, we capture every moment.",
     icon: s_3,
   },
 ];
@@ -64,8 +64,8 @@ export default function ServiceFive() {
                   SERVICES
                 </span>
                 <span className="text-space"></span>
-                Nullam posuere rhoncus elementum. Nullam lacinia <br />
-                urna blandit iaculis sagittis
+                Exceptional Photography Services <br />
+                Tailored to Your Vision
               </h4>
             </div>
           </div>

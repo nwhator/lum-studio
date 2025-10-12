@@ -13,10 +13,10 @@ export default function ServiceHero() {
           <div className="col-xl-10">
             <div className="sv-hero-title-box">
               <h4 className="sv-hero-title tp-char-animation">
-                Experience <br /> the best services.
+                Capturing Moments, <br /> Creating Memories.
               </h4>
               <p className="tp_fade_bottom">
-                Fulfilled direction use continual set him propriety continued.
+                Professional photography services tailored to bring your vision to life with stunning imagery and creative excellence.
               </p>
             </div>
           </div>

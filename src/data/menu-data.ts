@@ -47,12 +47,17 @@ const menu_data: IMenuDT[] = [
   },
   {
     id: 3,
+    title: 'Services',
+    link: '/service',
+  },
+  {
+    id: 4,
     title: 'Gallery',
     link: '/gallery',
     home_menus: galleryCategories,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Contact',
     link: '/contact',
   },
@@ -76,12 +81,18 @@ export const mobile_menu_data = [
   },
   {
     id: 3,
+    title: 'Services',
+    link: '/service',
+    dropdown_menus: [],
+  },
+  {
+    id: 4,
     title: 'Gallery',
     link: '/gallery',
     dropdown_menus: [],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Contact',
     link: '/contact',
     dropdown_menus: [],

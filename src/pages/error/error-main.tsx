@@ -5,7 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+import { registerGSAPPlugins } from "@/utils/ios-safe-gsap";
+
+// Register plugins safely (skips ScrollSmoother on iOS)
+registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
