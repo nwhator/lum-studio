@@ -386,7 +386,7 @@ Sent from LUM Studios Booking System
                           📱 Confirm via WhatsApp
                         </button>
                         <p className="whatsapp-note">
-                          You'll be redirected to WhatsApp to confirm your booking with our team
+                          You&apos;ll be redirected to WhatsApp to confirm your booking with our team
                         </p>
                       </div>
                     </form>
