@@ -16,7 +16,6 @@ import { ServiceItems } from "@/components/service/service-five";
 import ServiceHero from "@/components/service/service-hero";
 import ServiceSix from "@/components/service/service-six";
 
-import LineImgSlider from "@/components/line-text/line-img-slider";
 import BigText from "@/components/big-text";
 import { Leaf } from "@/components/svg";
 import FooterTwo from "@/layouts/footers/footer-two";
@@ -78,10 +77,6 @@ const ServiceMain = () => {
             {/* service area */}
             <ServiceSix />
             {/* service area */}
-
-            {/* line image slider  */}
-            <LineImgSlider />
-            {/* line image slider  */}
 
             {/* big text */}
             <BigText />

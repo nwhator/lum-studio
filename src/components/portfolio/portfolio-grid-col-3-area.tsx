@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { UpArrow } from "../svg";
 import { useIsotop } from "@/hooks/use-isotop";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 
 // data
@@ -234,12 +234,15 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             >
               <div className="tp-project-5-2-thumb mb-30 p-relative portfolio-item-wrapper">
                 <div className="portfolio-image-container">
-                  <Image
+                  <OptimizedImage
                     className="anim-zoomin"
                     src={item.img}
-                    alt="port-img"
+                    alt={`${item.title} - ${item.category}`}
                     width={style_2 ? 573 : 486}
                     height={style_2 ? 683 : 576}
+                    imageType="gallery"
+                    index={item.id - 1}
+                    totalImages={portfolio_data.length}
                     style={{ height: "100%", objectFit: "cover" }}
                   />
                   <div className="portfolio-hover-overlay"></div>
