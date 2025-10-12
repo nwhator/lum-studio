@@ -4,7 +4,10 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+import { registerGSAPPlugins, safeAnimationInit } from "@/utils/ios-safe-gsap";
+
+// Register plugins safely (skips ScrollSmoother on iOS)
+registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
@@ -20,9 +23,11 @@ const PortfolioDetailsShowcaseTwoMain = () => {
 
   useGSAP(() => {
     const timer = setTimeout(() => {
-      charAnimation();
-      titleAnimation();
-      movingImageSlider();
+      safeAnimationInit(() => {
+        charAnimation();
+        titleAnimation();
+        movingImageSlider();
+      }, 'portfolio-showcase-2-animations');
     }, 100);
     return () => clearTimeout(timer);
   });

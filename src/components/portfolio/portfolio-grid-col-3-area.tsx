@@ -186,7 +186,13 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   };
 
   useEffect(() => {
-    initIsotop();
+    // Only initialize on client side
+    if (typeof window !== 'undefined') {
+      const timer = setTimeout(() => {
+        initIsotop();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, [initIsotop]);
 
   return (
