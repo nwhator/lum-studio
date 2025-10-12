@@ -4,7 +4,10 @@ import React, { useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText, cursorAnimation } from "@/plugins";
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+import { registerGSAPPlugins, safeAnimationInit } from "@/utils/ios-safe-gsap";
+
+// Register plugins safely (skips ScrollSmoother on iOS)
+registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
@@ -28,17 +31,21 @@ const PortfolioGridColThreeMain = () => {
 
   useEffect(() => {
     if(typeof window !== 'undefined' && document.querySelector('.tp-magic-cursor')) {
-      cursorAnimation();
+      safeAnimationInit(() => {
+        cursorAnimation();
+      }, 'cursor-animation');
     }
   },[]);
 
   useGSAP(() => {
     const timer = setTimeout(() => {
-      charAnimation();
-      titleAnimation();
-      hoverBtn();
-      zoomAnimation();
-      fadeAnimation();
+      safeAnimationInit(() => {
+        charAnimation();
+        titleAnimation();
+        hoverBtn();
+        zoomAnimation();
+        fadeAnimation();
+      }, 'gallery-animations');
     }, 100);
     return () => clearTimeout(timer);
   });

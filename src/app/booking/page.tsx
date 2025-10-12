@@ -17,12 +17,72 @@ const packageTypes = [
   { name: "Walk-in Package", description: "Quick professional session" }
 ];
 
+const shootCategories = [
+  { 
+    id: "wedding", 
+    name: "Wedding", 
+    description: "Capture your special day",
+    classicPrice: "₦450,000",
+    walkinPrice: "₦250,000",
+    icon: "💒"
+  },
+  { 
+    id: "baby-shoot", 
+    name: "Baby Shoot", 
+    description: "Precious moments with your little one",
+    classicPrice: "₦80,000",
+    walkinPrice: "₦45,000",
+    icon: "👶"
+  },
+  { 
+    id: "maternity", 
+    name: "Maternity", 
+    description: "Beautiful expecting mother moments",
+    classicPrice: "₦100,000",
+    walkinPrice: "₦60,000",
+    icon: "🤰"
+  },
+  { 
+    id: "family-portraits", 
+    name: "Family Portraits", 
+    description: "Timeless family memories",
+    classicPrice: "₦120,000",
+    walkinPrice: "₦70,000",
+    icon: "👨‍👩‍👧‍👦"
+  },
+  { 
+    id: "convocation", 
+    name: "Convocation", 
+    description: "Celebrate your achievement",
+    classicPrice: "₦60,000",
+    walkinPrice: "₦35,000",
+    icon: "🎓"
+  },
+  { 
+    id: "call-to-bar", 
+    name: "Call to Bar", 
+    description: "Professional milestone photography",
+    classicPrice: "₦80,000",
+    walkinPrice: "₦50,000",
+    icon: "⚖️"
+  },
+  { 
+    id: "general", 
+    name: "General Photography", 
+    description: "Events, portraits & more",
+    classicPrice: "₦70,000",
+    walkinPrice: "₦40,000",
+    icon: "📸"
+  }
+];
+
 function BookingContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedPackageType, setSelectedPackageType] = useState<string>("");
   const [formData, setFormData] = useState({
     name: "",
@@ -32,9 +92,52 @@ function BookingContent() {
   });
 
   // Get package info from URL params (from package page)
-  const packageName = searchParams?.get('package') || '';
-  const categoryName = searchParams?.get('category') || '';
-  const packagePrice = searchParams?.get('price') || '';
+  const urlPackage = searchParams?.get('package') || '';
+  const urlCategory = searchParams?.get('category') || '';
+  const urlPrice = searchParams?.get('price') || '';
+
+  // Set initial category from URL if available
+  useEffect(() => {
+    if (urlCategory) {
+      const category = shootCategories.find(cat => 
+        cat.name.toLowerCase() === urlCategory.toLowerCase()
+      );
+      if (category) {
+        setSelectedCategory(category.id);
+      }
+    }
+  }, [urlCategory]);
+
+  // Get current price based on selections
+  const getCurrentPrice = () => {
+    if (urlPrice) return urlPrice;
+    
+    if (selectedCategory && selectedPackageType) {
+      const category = shootCategories.find(cat => cat.id === selectedCategory);
+      if (category) {
+        return selectedPackageType === "Classic Package" 
+          ? category.classicPrice 
+          : category.walkinPrice;
+      }
+    }
+    return "";
+  };
+
+  // Get current category name
+  const getCurrentCategoryName = () => {
+    if (urlCategory) return urlCategory;
+    
+    if (selectedCategory) {
+      const category = shootCategories.find(cat => cat.id === selectedCategory);
+      return category?.name || "";
+    }
+    return "";
+  };
+
+  // Get current package name
+  const getCurrentPackageName = () => {
+    return urlPackage || selectedPackageType;
+  };
 
   const handleDateSelect = (date: Date) => {
     setSelectedDate(date);
@@ -125,6 +228,11 @@ function BookingContent() {
     e.preventDefault();
     
     // Validation
+    if (!selectedCategory) {
+      alert('Please select a shoot category');
+      return;
+    }
+    
     if (!selectedPackageType) {
       alert('Please select a package type');
       return;
@@ -166,10 +274,9 @@ function BookingContent() {
 
 📦 *PACKAGE DETAILS*
 ━━━━━━━━━━━━━━━━━━━━
-• Category: ${categoryName}
-• Package: ${packageName}
-• Type: ${selectedPackageType}${packagePrice ? `
-• Price: ${packagePrice}` : ''}
+• Category: ${getCurrentCategoryName()}
+• Package: ${getCurrentPackageName()}${getCurrentPrice() ? `
+• Price: ${getCurrentPrice()}` : ''}
 
 
 👤 *CUSTOMER INFORMATION*
@@ -251,12 +358,18 @@ www.thelumstudios.com
                     <div className="booking-hero-content text-center">
                       <h1 className="booking-title">Book Your Session</h1>
                       <p className="booking-subtitle">
-                        {packageName && categoryName ? (
-                          <>Selected: <strong>{packageName}</strong> - {categoryName}</>
+                        {urlPackage && urlCategory ? (
+                          <>Selected: <strong>{urlPackage}</strong> - {urlCategory}</>
                         ) : (
-                          'Complete the form below to book your photography session'
+                          'Choose your shoot category and complete the form below'
                         )}
                       </p>
+                      {getCurrentPrice() && (
+                        <div className="selected-price-display">
+                          <span className="price-label">Price:</span>
+                          <span className="price-value">{getCurrentPrice()}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -270,30 +383,86 @@ www.thelumstudios.com
                   <div className="col-xl-10">
                     <form onSubmit={handleSubmit} className="booking-form">
                       
+                      {/* Shoot Category Selection */}
+                      {!urlCategory && (
+                        <div className="booking-section">
+                          <h2 className="section-title">
+                            <span className="step-number">1</span>
+                            Choose Shoot Category
+                          </h2>
+                          <div className="shoot-category-grid">
+                            {shootCategories.map((category) => (
+                              <div
+                                key={category.id}
+                                className={`shoot-category-card ${selectedCategory === category.id ? 'selected' : ''}`}
+                                onClick={() => setSelectedCategory(category.id)}
+                              >
+                                <div className="category-icon">{category.icon}</div>
+                                <h4>{category.name}</h4>
+                                <p className="category-description">{category.description}</p>
+                                <div className="category-pricing">
+                                  <div className="price-item">
+                                    <span className="price-type">Classic:</span>
+                                    <span className="price-amount">{category.classicPrice}</span>
+                                  </div>
+                                  <div className="price-item">
+                                    <span className="price-type">Walk-in:</span>
+                                    <span className="price-amount">{category.walkinPrice}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
                       {/* Package Type Selection */}
                       <div className="booking-section">
                         <h2 className="section-title">
-                          <span className="step-number">1</span>
+                          <span className="step-number">{urlCategory ? '1' : '2'}</span>
                           Select Package Type
                         </h2>
+                        {selectedCategory && !urlCategory && (
+                          <div className="current-price-info">
+                            <p>
+                              Selected Category: <strong>{shootCategories.find(c => c.id === selectedCategory)?.name}</strong>
+                            </p>
+                          </div>
+                        )}
                         <div className="package-type-grid">
-                          {packageTypes.map((pkg) => (
-                            <div
-                              key={pkg.name}
-                              className={`package-type-card ${selectedPackageType === pkg.name ? 'selected' : ''}`}
-                              onClick={() => handlePackageTypeSelect(pkg.name)}
-                            >
-                              <h4>{pkg.name}</h4>
-                              <p>{pkg.description}</p>
-                            </div>
-                          ))}
+                          {packageTypes.map((pkg) => {
+                            const currentCategory = shootCategories.find(c => c.id === selectedCategory);
+                            const displayPrice = currentCategory 
+                              ? (pkg.name === "Classic Package" ? currentCategory.classicPrice : currentCategory.walkinPrice)
+                              : null;
+                            
+                            return (
+                              <div
+                                key={pkg.name}
+                                className={`package-type-card ${selectedPackageType === pkg.name ? 'selected' : ''} ${!selectedCategory && !urlCategory ? 'disabled' : ''}`}
+                                onClick={() => {
+                                  if (selectedCategory || urlCategory) {
+                                    handlePackageTypeSelect(pkg.name);
+                                  }
+                                }}
+                              >
+                                <h4>{pkg.name}</h4>
+                                <p>{pkg.description}</p>
+                                {displayPrice && (
+                                  <div className="package-price-badge">
+                                    <span className="price">{displayPrice}</span>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
 
                       {/* Calendar Section */}
                       <div className="booking-section">
                         <h2 className="section-title">
-                          <span className="step-number">2</span>
+                          <span className="step-number">{urlCategory ? '2' : '3'}</span>
                           Choose Your Date
                         </h2>
                         <div className="calendar-wrapper">
@@ -335,7 +504,7 @@ www.thelumstudios.com
                       {/* Time Selection */}
                       <div className="booking-section">
                         <h2 className="section-title">
-                          <span className="step-number">3</span>
+                          <span className="step-number">{urlCategory ? '3' : '4'}</span>
                           Select Time Slots
                         </h2>
                         <p className="time-instruction">
@@ -413,9 +582,19 @@ www.thelumstudios.com
                         <h3>Booking Summary</h3>
                         <div className="summary-details">
                           <div className="summary-item">
-                            <span className="label">Package:</span>
-                            <span className="value">{packageName || "Not selected"}</span>
+                            <span className="label">Category:</span>
+                            <span className="value">{getCurrentCategoryName() || "Not selected"}</span>
                           </div>
+                          <div className="summary-item">
+                            <span className="label">Package:</span>
+                            <span className="value">{getCurrentPackageName() || "Not selected"}</span>
+                          </div>
+                          {getCurrentPrice() && (
+                            <div className="summary-item highlight">
+                              <span className="label">Price:</span>
+                              <span className="value price-highlight">{getCurrentPrice()}</span>
+                            </div>
+                          )}
                           <div className="summary-item">
                             <span className="label">Date:</span>
                             <span className="value">
