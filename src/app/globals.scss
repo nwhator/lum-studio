@@ -1789,7 +1789,178 @@ a[href="/contact"],
   }
 }
 
-/* About Us Page */
+/* ========================================
+   ABOUT US PAGE REDESIGN - Brand Green Theme
+   ======================================== */
+
+.ab-about-area-redesign {
+  .ab-about-image-box {
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-8px);
+    }
+  }
+
+  .ab-about-content-redesign {
+    .ab-about-main-title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
+    }
+
+    .ab-about-description {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #666;
+      max-width: 900px;
+      margin: 0 auto;
+      
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .ab-stats-wrapper {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 16px;
+    padding: 40px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    .ab-stat-card {
+      text-align: center;
+      padding: 20px;
+      
+      .stat-number {
+        font-size: 56px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
+        
+        @media (max-width: 768px) {
+          font-size: 42px;
+        }
+      }
+
+      .stat-label {
+        font-size: 16px;
+        color: #666;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+  }
+
+  .ab-services-section {
+    .ab-services-title {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
+    }
+
+    .ab-services-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 0;
+    }
+
+    .ab-service-card {
+      background: #ffffff;
+      border: 2px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      height: 100%;
+
+      &:hover {
+        border-color: #4CAF50;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
+
+        .service-icon-wrapper svg circle {
+          fill: #4CAF50;
+        }
+
+        .service-icon-wrapper svg path {
+          stroke: #ffffff;
+        }
+      }
+
+      .service-icon-wrapper {
+        flex-shrink: 0;
+        
+        svg {
+          transition: all 0.3s ease;
+        }
+      }
+
+      .service-content {
+        flex: 1;
+
+        h4 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: #1a1a1a;
+        }
+
+        p {
+          font-size: 15px;
+          color: #666;
+          margin: 0;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  .ab-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #4CAF50;
+    color: #ffffff;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+
+    &:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+      color: #ffffff;
+
+      svg {
+        transform: translateX(5px);
+      }
+    }
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+/* OLD ABOUT STYLES - Keep for backwards compatibility */
 .ab-about-content {
   text-align: center !important;
   
