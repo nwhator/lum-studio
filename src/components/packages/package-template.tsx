@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { charAnimation, fadeAnimation } from "@/utils/title-animation";
-import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
@@ -227,13 +227,11 @@ export default function PackageTemplate({
                     <div key={index} className="col-xl-5 col-lg-6 col-md-8 mb-40">
                       <div className="package-card">
                         <div className="package-image-container">
-                          <OptimizedImage
+                          <Image
                             src={pkg.image}
                             alt={pkg.name}
                             width={500}
                             height={400}
-                            imageType="thumbnail"
-                            priority={index === 0}
                             style={{ objectFit: 'cover' }}
                             className="package-image"
                           />

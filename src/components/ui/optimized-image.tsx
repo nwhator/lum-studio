@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 import { getImageSizes, getImagePriority } from '@/utils/performance';
 
@@ -16,6 +16,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'sizes'> {
  * - Smart priority loading for above-fold images
  * - Lazy loading for below-fold images
  * - Optimized formats (AVIF/WebP)
+ * - Error handling for mobile devices
  */
 export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   imageType = 'gallery',
@@ -25,50 +26,86 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   priority,
   loading,
   quality = 85,
-  placeholder = 'blur',
+  placeholder,
   blurDataURL,
   ...props
 }) => {
+  const [hasError, setHasError] = useState(false);
+
+  // Handle image load errors
+  const handleError = () => {
+    setHasError(true);
+    console.warn('Image failed to load:', props.src);
+  };
+
   // Determine if image should be priority loaded
   const isPriority = eager || priority || getImagePriority(index, totalImages);
   
-  // Get responsive sizes based on image type
-  const responsiveSizes = getImageSizes(imageType);
+  // Get responsive sizes based on image type - only if not using fill
+  const responsiveSizes = props.fill ? undefined : getImageSizes(imageType);
   
   // Determine loading strategy
   const loadingStrategy = isPriority ? 'eager' : (loading || 'lazy');
   
   // Check if src is a remote URL (string) or local import (object)
-  const isRemoteImage = typeof props.src === 'string' && (props.src.startsWith('http') || props.src.startsWith('/'));
+  const isRemoteImage = typeof props.src === 'string' && 
+    (props.src.startsWith('http') || props.src.startsWith('/'));
   
-  // Don't set sizes if using fill prop (it handles its own sizing)
-  const imageSizes = props.fill ? undefined : responsiveSizes;
-  
-  // Only use blur placeholder for local static imports with blurDataURL
+  // Simplified placeholder logic - only use blur for static imports
   let imagePlaceholder: 'blur' | 'empty' = 'empty';
-  if (!isRemoteImage && blurDataURL) {
+  if (!isRemoteImage && typeof props.src === 'object' && 'blurDataURL' in props.src) {
     imagePlaceholder = 'blur';
-  } else if (!isRemoteImage && typeof props.src === 'object') {
-    // Static import has built-in blur data
+  } else if (blurDataURL) {
     imagePlaceholder = 'blur';
   }
   
-  return (
-    <Image
-      {...props}
-      sizes={imageSizes}
-      priority={isPriority}
-      loading={loadingStrategy}
-      quality={quality}
-      placeholder={imagePlaceholder}
-      blurDataURL={blurDataURL}
-      style={{
-        ...props.style,
-        maxWidth: '100%',
-        height: 'auto',
-      }}
-    />
-  );
+  // If error occurred, show fallback
+  if (hasError) {
+    return (
+      <div 
+        style={{
+          ...props.style,
+          background: '#f0f0f0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#999',
+          fontSize: '14px',
+        }}
+      >
+        Image unavailable
+      </div>
+    );
+  }
+
+  try {
+    return (
+      <Image
+        {...props}
+        sizes={responsiveSizes}
+        priority={isPriority}
+        loading={loadingStrategy}
+        quality={quality}
+        placeholder={imagePlaceholder}
+        blurDataURL={imagePlaceholder === 'blur' ? blurDataURL : undefined}
+        onError={handleError}
+        style={{
+          ...props.style,
+          maxWidth: '100%',
+          height: 'auto',
+        }}
+      />
+    );
+  } catch (error) {
+    console.error('OptimizedImage error:', error);
+    // Fallback to standard Next.js Image without optimizations
+    return (
+      <Image
+        {...props}
+        onError={handleError}
+      />
+    );
+  }
 };
 
 export default OptimizedImage;

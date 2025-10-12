@@ -3038,6 +3038,23 @@ a[href="/contact"],
       display: inline-block;
       font-weight: 600;
       font-size: 16px;
+      position: relative;
+      min-width: 180px;
+      text-align: center;
+      
+      @media (max-width: 767px) {
+        padding: 14px 30px;
+        font-size: 14px;
+        min-width: 150px;
+      }
+      
+      @media (max-width: 575px) {
+        padding: 12px 24px;
+        font-size: 14px;
+        min-width: 140px;
+        width: 100%;
+        max-width: 200px;
+      }
       
       &:hover {
         background: #45a049;
@@ -3050,7 +3067,32 @@ a[href="/contact"],
         font-size: 16px;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
+        position: relative;
+        top: auto;
+        left: auto;
+        padding: 0;
+        
+        @media (max-width: 767px) {
+          font-size: 14px;
+          gap: 8px;
+        }
+        
+        svg {
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+          
+          @media (max-width: 767px) {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+      
+      svg.anim {
+        display: none;
       }
     }
   }
@@ -3128,6 +3170,42 @@ a[href="/contact"],
   }
 }
 
+/* Toast Notification Styles */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  pointer-events: none;
+  
+  @media (max-width: 767px) {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+  
+  .toast-notification {
+    pointer-events: all;
+    
+    @media (max-width: 767px) {
+      min-width: auto !important;
+      max-width: none !important;
+      width: 100%;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 767px) {
   .tp-service-5-item {
     padding: 25px 20px;
@@ -3137,10 +3215,53 @@ a[href="/contact"],
     font-size: 28px;
   }
   
-  .sv-big-text-area .sv-small-text-box {
-    flex-direction: column;
-    gap: 10px;
+  .sv-big-text-area {
+    padding: 50px 0;
+    
+    .sv-small-text-box {
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      
+      span {
+        font-size: 11px;
+        text-align: center;
+      }
+    }
+    
+    .sv-big-text {
+      font-size: clamp(32px, 10vw, 50px) !important;
+      text-align: center;
+      word-break: break-word;
+      
+      a {
+        display: block;
+        padding: 10px 0;
+        
+        &:after {
+          bottom: 5px;
+          height: 4px;
+        }
+      }
+    }
   }
 }
+
+@media (max-width: 576px) {
+  .sv-big-text-area {
+    .sv-big-text {
+      font-size: clamp(28px, 12vw, 42px) !important;
+      line-height: 1.3;
+      
+      a {
+        &:after {
+          height: 3px;
+        }
+      }
+    }
+  }
+}
+
+
 
 

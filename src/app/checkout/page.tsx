@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { fadeAnimation } from "@/utils/title-animation";
-import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
@@ -125,13 +125,11 @@ function CheckoutContent() {
                         <h2 className="section-title">Package Summary</h2>
                         <div className="package-summary-card">
                           <div className="package-image">
-                            <OptimizedImage
+                            <Image
                               src={packageData.image}
                               alt={packageData.name}
                               width={200}
                               height={150}
-                              imageType="thumbnail"
-                              priority
                               style={{ objectFit: 'cover' }}
                             />
                           </div>

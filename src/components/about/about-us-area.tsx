@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { OptimizedImage } from "@/components/ui/optimized-image";
+import Image from "next/image";
 
 // images
 import ab_1 from "@/assets/img/inner-about/about/about-1.jpg";
@@ -26,11 +26,10 @@ export default function AboutUsArea() {
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
                 <div data-speed=".7" style={{ position: 'relative', height: 500, width: '100%' }}>
-                 <OptimizedImage
+                 <Image
                     src={ab_1}
                     alt="Lum Studio Photography"
                     fill
-                    imageType="portrait"
                     priority
                     style={{ objectFit: 'cover', borderRadius: '12px' }}
                   />
@@ -40,11 +39,10 @@ export default function AboutUsArea() {
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
                 <div data-speed="1.1" style={{ position: 'relative', height: 500, width: '100%' }}>
-                  <OptimizedImage
+                  <Image
                     src={ab_2}
                     alt="Professional Photography Services"
                     fill
-                    imageType="portrait"
                     style={{ objectFit: 'cover', borderRadius: '12px' }}
                   />
                 </div>
@@ -53,11 +51,10 @@ export default function AboutUsArea() {
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
                 <div data-speed="0.9" style={{ position: 'relative', height: 500, width: '100%' }}>
-                  <OptimizedImage
+                  <Image
                     src={ab_3}
                     alt="Wedding Photography Nigeria"
                     fill
-                    imageType="portrait"
                     style={{ objectFit: 'cover', borderRadius: '12px' }}
                   />
                 </div>
@@ -66,11 +63,10 @@ export default function AboutUsArea() {
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
                 <div data-speed="1.2" style={{ position: 'relative', height: 500, width: '100%' }}>
-                  <OptimizedImage
+                  <Image
                     src={ab_4}
                     alt="Event Photography Services"
                     fill
-                    imageType="portrait"
                     style={{ objectFit: 'cover', borderRadius: '12px' }}
                   />
                 </div>
