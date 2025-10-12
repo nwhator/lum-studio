@@ -17,91 +17,73 @@ const HomeLum = () => {
   const [animationsLoaded, setAnimationsLoaded] = useState(false);
 
   useEffect(() => {
+    // Detect iOS Safari - skip heavy animations to prevent crashes
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isIOSSafari = isIOS && isSafari;
+    
+    if (isIOSSafari) {
+      console.log('iOS Safari detected - using lightweight mode');
+      setAnimationsLoaded(true);
+      return;
+    }
+
     document.body.classList.add("tp-smooth-scroll");
     
     // Lazy load GSAP and animations after initial paint
     const loadAnimations = async () => {
-      // Wait for critical content to render first
       if (typeof window === 'undefined') return;
       
-      // Use requestIdleCallback for non-blocking load
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(async () => {
-          try {
-            const [
-              { gsap },
-              { ScrollTrigger },
-              { ScrollSmoother },
-              { SplitText },
-              { useGSAP }
-            ] = await Promise.all([
-              import('gsap'),
-              import('gsap/ScrollTrigger'),
-              import('gsap/ScrollSmoother'),
-              import('gsap/SplitText'),
-              import('@gsap/react')
-            ]);
+      try {
+        // Add timeout protection to prevent hanging
+        const loadWithTimeout = (promise: Promise<any>, timeout = 5000) => {
+          return Promise.race([
+            promise,
+            new Promise((_, reject) => 
+              setTimeout(() => reject(new Error('Load timeout')), timeout)
+            )
+          ]);
+        };
 
-            // Register plugins
-            gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother, SplitText);
+        // Load core GSAP modules (SKIP ScrollSmoother - causes iOS crashes)
+        const [
+          { gsap },
+          { ScrollTrigger },
+          { SplitText },
+        ] = await Promise.all([
+          loadWithTimeout(import('gsap')),
+          loadWithTimeout(import('gsap/ScrollTrigger')),
+          loadWithTimeout(import('gsap/SplitText')),
+        ]);
 
-            // Initialize animations
-            const { fadeAnimation, revelAnimationOne } = await import('@/utils/title-animation');
-            const { projectThreeAnimation } = await import('@/utils/project-anim');
-            const { ctaAnimation } = await import('@/utils/cta-anim');
-            const { textInvert } = await import('@/utils/text-invert');
+        // Register plugins (NO ScrollSmoother)
+        gsap.registerPlugin(ScrollTrigger, SplitText);
 
-            fadeAnimation();
-            revelAnimationOne();
-            projectThreeAnimation();
-            ctaAnimation();
-            textInvert();
+        // Load and initialize animations
+        const { fadeAnimation, revelAnimationOne } = await loadWithTimeout(import('@/utils/title-animation'));
+        const { projectThreeAnimation } = await loadWithTimeout(import('@/utils/project-anim'));
+        const { ctaAnimation } = await loadWithTimeout(import('@/utils/cta-anim'));
+        const { textInvert } = await loadWithTimeout(import('@/utils/text-invert'));
 
-            setAnimationsLoaded(true);
-          } catch (error) {
-            console.error('Failed to load animations:', error);
-          }
-        });
-      } else {
-        // Fallback for browsers without requestIdleCallback
-        setTimeout(async () => {
-          try {
-            const [
-              { gsap },
-              { ScrollTrigger },
-              { ScrollSmoother },
-              { SplitText },
-              { useGSAP }
-            ] = await Promise.all([
-              import('gsap'),
-              import('gsap/ScrollTrigger'),
-              import('gsap/ScrollSmoother'),
-              import('gsap/SplitText'),
-              import('@gsap/react')
-            ]);
+        fadeAnimation();
+        revelAnimationOne();
+        projectThreeAnimation();
+        ctaAnimation();
+        textInvert();
 
-            gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother, SplitText);
-
-            const { fadeAnimation, revelAnimationOne } = await import('@/utils/title-animation');
-            const { projectThreeAnimation } = await import('@/utils/project-anim');
-            const { ctaAnimation } = await import('@/utils/cta-anim');
-            const { textInvert } = await import('@/utils/text-invert');
-
-            fadeAnimation();
-            revelAnimationOne();
-            projectThreeAnimation();
-            ctaAnimation();
-            textInvert();
-
-            setAnimationsLoaded(true);
-          } catch (error) {
-            console.error('Failed to load animations:', error);
-          }
-        }, 500); // Delay to allow initial paint
+        setAnimationsLoaded(true);
+      } catch (error) {
+        console.error('Error loading animations (site will work without them):', error);
+        setAnimationsLoaded(true); // Site works without animations
       }
     };
 
-    loadAnimations();
+    // Use requestIdleCallback if available, otherwise setTimeout
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => loadAnimations());
+    } else {
+      setTimeout(() => loadAnimations(), 500);
+    }
 
     return () => {
       document.body.classList.remove("tp-smooth-scroll");

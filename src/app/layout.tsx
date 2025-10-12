@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 import { Syne, Marcellus } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.scss";
@@ -214,10 +215,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
       </head>
       <body
         id="body"
@@ -225,6 +223,12 @@ export default function RootLayout({
         className={`${gellery.variable} ${syne.variable} ${marcellus.variable}`}
       >
       {children}
+      <Script
+        id="schema-org"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Analytics mode="production" />
       <SpeedInsights />
       </body>
