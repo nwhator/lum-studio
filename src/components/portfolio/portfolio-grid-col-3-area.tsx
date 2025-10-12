@@ -260,26 +260,6 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             </div>
           ))}
         </div>
-        <div className="row">
-          <div className="col-xl-12">
-            <div className="tp-projct-5-2-btn-box mt-50 d-flex justify-content-center">
-              <div className="tp-hover-btn-wrapper">
-                <Link
-                  className="tp-btn-circle style-2 tp-hover-btn-item tp-hover-btn"
-                  href="/portfolio-grid-col-4"
-                >
-                  <span className="tp-btn-circle-text">
-                    More <br /> Projects
-                  </span>
-                  <span className="tp-btn-circle-icon">
-                    <UpArrow />
-                  </span>
-                  <i className="tp-btn-circle-dot"></i>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <style jsx>{`
           .portfolio-item-wrapper {
