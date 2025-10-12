@@ -2966,6 +2966,12 @@ a[href="/contact"],
 
 /* Service Six - Full Width Panels */
 .sv-service-item {
+  background: #ffffff;
+  
+  &:nth-child(even) {
+    background: #f8f9fa;
+  }
+  
   .sv-service-subtitle {
     color: #4CAF50;
     font-weight: 600;
@@ -2986,13 +2992,13 @@ a[href="/contact"],
   .sv-service-title {
     font-size: 42px;
     font-weight: 700;
-    color: #2c3e50;
+    color: #1a1a1a;
     margin-bottom: 20px;
     line-height: 1.2;
   }
   
   .sv-service-text p {
-    color: #666;
+    color: #333333;
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 25px;
@@ -3007,7 +3013,7 @@ a[href="/contact"],
       padding: 10px 0;
       padding-left: 30px;
       position: relative;
-      color: #555;
+      color: #444444;
       font-size: 15px;
       
       &:before {
@@ -3025,10 +3031,13 @@ a[href="/contact"],
     .tp-btn-zikzak {
       background: #4CAF50;
       color: white;
-      padding: 15px 35px;
+      padding: 18px 40px;
       border-radius: 50px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+      display: inline-block;
+      font-weight: 600;
+      font-size: 16px;
       
       &:hover {
         background: #45a049;
@@ -3038,16 +3047,25 @@ a[href="/contact"],
       
       .zikzak-content {
         color: white;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
     }
   }
   
   .sv-service-content-wrap {
-    padding: 60px;
+    padding: 80px 60px;
+    background: #ffffff;
     
     @media (max-width: 991px) {
       padding: 40px 30px;
     }
+  }
+  
+  &:nth-child(even) .sv-service-content-wrap {
+    background: #f8f9fa;
   }
 }
 

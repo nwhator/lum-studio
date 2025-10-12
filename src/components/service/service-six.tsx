@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-// images
-import ser_img_1 from "@/assets/img/inner-service/service/service-1.jpg";
-import ser_img_2 from "@/assets/img/inner-service/service/service-2.jpg";
-import ser_img_3 from "@/assets/img/inner-service/service/service-3.jpg";
-import ser_img_4 from "@/assets/img/inner-service/service/service-4.jpg";
+// images from gallery
+import ser_img_1 from "@/assets/img/inner-project/portfolio-col-2/port-1.jpg";
+import ser_img_2 from "@/assets/img/inner-project/portfolio-col-2/port-5.jpg";
+import ser_img_3 from "@/assets/img/inner-project/portfolio-col-2/port-9.jpg";
+import ser_img_4 from "@/assets/img/inner-project/portfolio-col-2/port-13.jpg";
 import { RightArrow, ShapeTwo } from "../svg";
 import Link from "next/link";
 
@@ -15,6 +15,7 @@ const service_data = [
     img: ser_img_1,
     subtitle: "Photography Studio",
     title: "Wedding Photography",
+    slug: "wedding-photography",
     text: "We capture every precious moment of your special day with artistic excellence and professional precision. From candid moments to stunning portraits, we create timeless memories.",
     lists: [
       "Full-Day Coverage",
@@ -28,6 +29,7 @@ const service_data = [
     img: ser_img_2,
     subtitle: "Photography Studio",
     title: "Maternity & Baby Shoots",
+    slug: "maternity-baby-shoots",
     text: "Celebrate the beauty of motherhood and capture your baby's precious early moments. Our gentle approach creates stunning, heartwarming images you'll treasure forever.",
     lists: [
       "Maternity Sessions",
@@ -41,6 +43,7 @@ const service_data = [
     img: ser_img_3,
     subtitle: "Photography Studio",
     title: "Event Photography",
+    slug: "event-photography",
     text: "Professional coverage for all your special events. From corporate functions to birthday celebrations, we document every important moment with creative flair.",
     lists: [
       "Corporate Events",
@@ -54,6 +57,7 @@ const service_data = [
     img: ser_img_4,
     subtitle: "Photography Studio",
     title: "Professional Portraits",
+    slug: "professional-portraits",
     text: "High-quality portrait photography for individuals, families, and professionals. We create images that capture personality, style, and authentic moments.",
     lists: [
       "Individual Portraits",
@@ -104,10 +108,10 @@ export default function ServiceSix() {
                       <div className="sv-service-btn">
                         <Link
                           className="tp-btn-zikzak zikzak-inner p-relative"
-                          href="/service-details"
+                          href={`/service/${item.slug}`}
                         >
                           <span className="zikzak-content">
-                            See <br /> Details
+                            See Details
                             <RightArrow clr="currentColor" />
                           </span>
                           <ShapeTwo />

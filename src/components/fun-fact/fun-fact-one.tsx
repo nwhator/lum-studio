@@ -6,7 +6,7 @@ const counter_data = [
   {
     id: 1,
     title: "PROJECTS COMPLETED",
-    count: 200,
+    count: 1000,
     text: "+",
   },
   {
@@ -24,7 +24,7 @@ const counter_data = [
   {
     id: 4,
     title: "HAPPY CLIENTS",
-    count: 100,
+    count: 500,
     text: "+",
   },
 ];
