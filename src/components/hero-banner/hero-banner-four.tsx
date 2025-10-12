@@ -20,7 +20,7 @@ export default function HeroBannerFour() {
               <span className="tp-hero-3-category tp_reveal_anim">
                 We illuminate you.
               </span>
-              <Link className="tp-btn-black-2" href="/booking">
+              <Link className="tp-btn-black-2" href="/gallery">
                 Book a Shoot{" "}
                 <span className="p-relative">
                   <RightArrowTwo />

@@ -66,9 +66,9 @@ export default function AboutUsArea() {
             </div>
           </div>
         </div>
-        <div id="about-info" className="row">
-          <div className="col-xxl-9">
-            <div className="ab-about-content p-relative">
+        <div id="about-info" className="row justify-content-center">
+          <div className="col-xxl-9 col-xl-10">
+            <div className="ab-about-content p-relative text-center">
               <span>
                 <Hand />
                 Hi!
@@ -83,11 +83,11 @@ export default function AboutUsArea() {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-xl-9">
-            <div className="row">
-              <div className="col-xl-5 col-lg-5 col-md-4 mb-40">
-                <div className="ab-about-category-title-box p-relative">
+            <div className="row justify-content-center">
+              <div className="col-xl-10 col-lg-10 col-md-12 mb-40">
+                <div className="ab-about-category-title-box p-relative text-center">
                   <h4 className="ab-about-category-title">
                     Our <br />
                     <span>Services</span>
@@ -96,13 +96,14 @@ export default function AboutUsArea() {
                     className="ab-about-shape-1 d-none d-md-block"
                     src={shape}
                     alt="shape"
+                    style={{margin: '0 auto'}}
                   />
                 </div>
               </div>
-              <div className="col-xl-7 col-lg-7 col-md-8">
-                <div className="row">
-                  <div className="col-xl-6 col-lg-6 col-md-6 mb-40">
-                    <div className="ab-about-category-list category-space-1 tp_fade_bottom">
+              <div className="col-xl-12 col-lg-12">
+                <div className="row justify-content-center">
+                  <div className="col-xl-5 col-lg-6 col-md-6 mb-40">
+                    <div className="ab-about-category-list category-space-1 tp_fade_bottom text-center">
                       <ul>
                         <li>Weddings & Events</li>
                         <li>Portraits & Family Sessions</li>
@@ -112,8 +113,8 @@ export default function AboutUsArea() {
                       </ul>
                     </div>
                   </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 mb-40">
-                    <div className="ab-about-category-list category-space-2 tp_fade_bottom">
+                  <div className="col-xl-5 col-lg-6 col-md-6 mb-40">
+                    <div className="ab-about-category-list category-space-2 tp_fade_bottom text-center">
                       <ul>
                         <li>Videography & Event Coverage</li>
                         <li>Editing, Retouching & Color Grading</li>

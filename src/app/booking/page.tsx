@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Metadata } from "next";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
@@ -47,6 +48,7 @@ const getBookedSlotsForDate = (date: Date | null): string[] => {
 };
 
 export default function BookingPage() {
+  const router = useRouter();
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]);
   const [selectedPackage, setSelectedPackage] = useState<string>("");
@@ -133,18 +135,41 @@ export default function BookingPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // This will be connected to Calendly later
-    const sortedTimeSlots = selectedTimeSlots.sort((a, b) => 
-      timeSlots.indexOf(a) - timeSlots.indexOf(b)
-    );
-    console.log({
-      date: selectedDate,
-      timeSlots: sortedTimeSlots,
-      duration: `${selectedTimeSlots.length * 30} minutes`,
-      package: selectedPackage,
-      ...formData
-    });
-    alert(`Booking Summary:\n\nPackage: ${selectedPackage}\nDate: ${selectedDate?.toLocaleDateString()}\nTime: ${sortedTimeSlots[0]} - ${sortedTimeSlots[sortedTimeSlots.length - 1]}\nDuration: ${selectedTimeSlots.length * 30} minutes\n\nSoon connecting with Calendly!`);
+    
+    if (!selectedPackage) {
+      alert('Please select a package to continue');
+      return;
+    }
+    
+    // Map package names to their URLs
+    const packageUrlMap: { [key: string]: string } = {
+      "Wedding Photography": "/packages/wedding",
+      "Baby Shoot": "/packages/baby-shoot",
+      "Maternity Photography": "/packages/maternity",
+      "Family Portraits": "/packages/family-portraits",
+      "Convocation": "/packages/convocation",
+      "Call to Bar": "/packages/call-to-bar",
+      "General Photography": "/packages/general"
+    };
+    
+    const packageUrl = packageUrlMap[selectedPackage];
+    
+    if (packageUrl) {
+      // Store booking info in sessionStorage to persist across pages
+      sessionStorage.setItem('pendingBooking', JSON.stringify({
+        date: selectedDate,
+        timeSlots: selectedTimeSlots.sort((a, b) => 
+          timeSlots.indexOf(a) - timeSlots.indexOf(b)
+        ),
+        package: selectedPackage,
+        ...formData
+      }));
+      
+      // Redirect to package details page
+      router.push(packageUrl);
+    } else {
+      alert('Package page not found. Please try again.');
+    }
   };
 
   // Generate calendar days
@@ -191,10 +216,10 @@ export default function BookingPage() {
                 <div className="row justify-content-center">
                   <div className="col-xl-8">
                     <div className="booking-hero-content text-center">
-                      <h1 className="booking-title">Book Your Session</h1>
-                      <p className="booking-subtitle">Select your preferred date, time, and package to schedule your photography session</p>
+                      <h1 className="booking-title">Choose Your Package</h1>
+                      <p className="booking-subtitle">Select a photography package to view details, pricing, and book your session</p>
                       <Link href="/gallery" className="view-packages-link">
-                        📸 View All Packages & Pricing
+                        📸 View Our Gallery
                       </Link>
                     </div>
                   </div>
@@ -391,12 +416,12 @@ export default function BookingPage() {
                         <button
                           type="submit"
                           className="submit-btn"
-                          disabled={!selectedPackage || !selectedDate || selectedTimeSlots.length === 0 || !formData.name || !formData.email || !formData.phone}
+                          disabled={!selectedPackage}
                         >
-                          Confirm Booking
+                          View Package Details
                         </button>
                         <p className="calendly-note">
-                          📅 Soon connecting with Calendly
+                          📅 Select a package to view details and pricing
                         </p>
                       </div>
                     </form>

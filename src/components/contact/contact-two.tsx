@@ -16,9 +16,9 @@ export default function ContactTwo() {
         </div>
       </div>
       <div className="container">
-        <div className="row">
-          <div className="col-xl-5">
-            <div className="ab-about-category-title-box mb-40 p-relative">
+        <div className="row justify-content-center">
+          <div className="col-xl-10">
+            <div className="ab-about-category-title-box mb-40 p-relative text-center">
               <h4 className="ab-about-category-title">
                 Send a Message <br />
                 <span>Contact Us</span>
@@ -27,10 +27,13 @@ export default function ContactTwo() {
                 className="ab-about-shape-1 d-none d-xl-block"
                 src={shape}
                 alt="shape"
+                style={{margin: '0 auto'}}
               />
             </div>
           </div>
-          <div className="col-xl-7">
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-xl-8 col-lg-10">
             <div className="cn-contactform-wrap">
               {/* form start */}
               <ContactForm />

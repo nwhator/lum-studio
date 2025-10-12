@@ -27,13 +27,13 @@ const ContactLocation = () => {
         <div className="cn-contact-info-bg black-bg">
           {location_data.map((item) => (
             <div key={item.id} className="cn-contact-info-item">
-              <div className="row">
-                <div className="col-xl-7">
-                  <div className="cn-contact-left d-flex flex-wrap align-items-center">
+              <div className="row justify-content-center">
+                <div className="col-xl-10">
+                  <div className="cn-contact-left d-flex flex-wrap align-items-center justify-content-center mb-40">
                     <div className="cn-contact-info-thumb">
                       <Image src={item.img} alt="image" style={{ height: "auto" }} />
                     </div>
-                    <div className="cn-contact-left-info">
+                    <div className="cn-contact-left-info text-center">
                       <h4 className="cn-contact-left-title">{item.country}</h4>
                       <span>
                         <i className="fa-regular fa-clock"></i>
@@ -42,9 +42,11 @@ const ContactLocation = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-5">
-                  <div className="cn-contact-right-wrap d-flex align-items-start justify-content-between">
-                    <div className="cn-contact-right">
+              </div>
+              <div className="row justify-content-center">
+                <div className="col-xl-8">
+                  <div className="cn-contact-right-wrap d-flex flex-column align-items-center text-center">
+                    <div className="cn-contact-right mb-30">
                       <div className="cn-contact-location">
                         <span className="cn-contact-location-title">
                           {item.location_title}
@@ -61,7 +63,7 @@ const ContactLocation = () => {
                         <a href={item.map_link} target="_blank" rel="noopener noreferrer">Google Maps</a>
                       </div>
                     </div>
-                    <div className="cn-contact-right-info text-start text-md-end">
+                    <div className="cn-contact-right-info text-center">
                       <a href={`tel:${item.phone}`}>{item.phone}</a> <br />
                       <a href={`mailto:${item.email}`}>{item.email}</a>
                     </div>

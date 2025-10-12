@@ -10,51 +10,57 @@ import Link from "next/link";
 const project_data = [
   {
     id: 1,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
-    img_2: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
     meta: "Newborn Photography",
     title: "Baby Shoots",
-    category: "Active"
+    category: "Active",
+    description: "Precious moments of your newborn"
   },
   {
     id: 2,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
-    img_2: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
     meta: "Wedding Photography",
     title: "Wedding Shoots",
-    category: "Active"
+    category: "Active",
+    description: "Capturing your special day"
   },
   {
     id: 3,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
-    img_2: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
     meta: "Legal Milestone",
     title: "Call to Bar",
-    category: "Active"
+    category: "Active",
+    description: "Your professional achievement"
   },
   {
     id: 4,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
-    img_2: "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
     meta: "Academic Achievement",
     title: "Convocation",
-    category: "Active"
+    category: "Active",
+    description: "Celebrating your success"
   },
   {
     id: 5,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
-    img_2: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
     meta: "Portrait Photography",
     title: "Family Portraits",
-    category: "Active"
+    category: "Active",
+    description: "Timeless family memories"
   },
   {
     id: 6,
-    img_1: "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
-    img_2: "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
     meta: "Maternity Photography", 
     title: "Maternity Portraits",
-    category: "Active"
+    category: "Active",
+    description: "Beautiful journey to motherhood"
   },
 ];
 // prop type
@@ -63,85 +69,91 @@ type IProps = {
 };
 export default function ProjectFour({ style_2 = false }: IProps) {
   return (
-    <div className={`tp-project-3-area ${style_2 ? "pt-60 pw-project-style" : "pt-130 black-bg"}`} style={{paddingBottom: 0}}>
-      <div className="container container-1720">
+    <div className={`tp-project-modern-area ${style_2 ? "pt-60" : "pt-130 black-bg pb-130"}`}>
+      <div className="container">
         {!style_2 && (
-          <div className="row justify-content-center">
-            <div className="col-xl-7">
-              <div className="tp-project-3-title-box p-relative mb-150">
+          <div className="row justify-content-center mb-80">
+            <div className="col-xl-8">
+              <div className="tp-project-modern-header text-center">
                 <h4 className="tp-section-title-200 tp_reveal_anim">
-                  Our <span>Pictures</span>
+                  Our <span>Services</span>
                 </h4>
-                <div className="tp-project-3-btn-box">
-                  <Link
-                    className="tp-btn-zikzak p-relative"
-                    href="/gallery"
-                  >
-                    <span className="zikzak-content">
-                      See <br /> all shoots
-                      <RightArrow clr="#19191A" />
-                    </span>
-                    <ProjectShape />
-                  </Link>
-                </div>
+                <p className="tp-project-modern-subtitle">
+                  Explore our professional photography services tailored for your special moments
+                </p>
+                <Link className="tp-btn-modern" href="/gallery">
+                  View All Projects
+                  <RightArrow clr="#fff" />
+                </Link>
               </div>
             </div>
           </div>
         )}
-        <div className="row">
-          <div className="col-xl-12">
-            {project_data.map((item, i) => (
-              <div key={item.id} className="tp-project-3-wrap">
-                <div className="row">
-                  <div className="col-xl-4 col-lg-4 col-md-6">
-                    <div className="tp-project-3-thumb pro-img-1">
-                      <Image
-                        src={item.img_1}
-                        alt="port-img"
-                        width={400}
-                        height={600}
-                        style={{ objectFit: 'cover' }}
-                      />
-                      <Link href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="package-label-overlay classic-overlay">
-                        <span>Classic Package</span>
-                      </Link>
+        
+        <div className="tp-project-modern-grid">
+          {project_data.map((item, i) => (
+            <div 
+              key={item.id} 
+              className="tp-project-modern-card"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
+              <div className="tp-project-modern-card-inner">
+                {/* Classic Package */}
+                <Link 
+                  href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} 
+                  className="tp-project-package-item"
+                >
+                  <div className="tp-project-modern-image-wrapper">
+                    <Image
+                      src={item.img_classic}
+                      alt={`${item.title} - Classic`}
+                      width={500}
+                      height={600}
+                      className="tp-project-modern-image"
+                      style={{ objectFit: 'cover' }}
+                    />
+                    <div className="tp-project-package-badge classic-badge">
+                      <span>Classic</span>
                     </div>
                   </div>
-                  <div className="col-xl-4 col-lg-4 col-md-12 order-1 order-lg-0">
-                    <div className="tp-project-3-content text-center">
-                      <span className="tp-project-3-meta">{item.meta}</span>
-                      <h4 className="tp-project-3-title-sm" style={{color: 'var(--tp-theme-1)'}}>
-                        <Link href="/gallery">{item.title}</Link>
-                      </h4>
-                      <Link
-                        className="tp-btn-project-sm"
-                        href="/gallery"
-                      >
-                        See Project
-                      </Link>
-                    </div>
-                    <div className="tp-project-3-border color-1 text-center">
-                      <span></span>
+                </Link>
+
+                {/* Walk-in Package */}
+                <Link 
+                  href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} 
+                  className="tp-project-package-item"
+                >
+                  <div className="tp-project-modern-image-wrapper">
+                    <Image
+                      src={item.img_walkin}
+                      alt={`${item.title} - Walk-in`}
+                      width={500}
+                      height={600}
+                      className="tp-project-modern-image"
+                      style={{ objectFit: 'cover' }}
+                    />
+                    <div className="tp-project-package-badge walkin-badge">
+                      <span>Walk-in</span>
                     </div>
                   </div>
-                  <div className="col-xl-4 col-lg-4 col-md-6 order-0 order-lg-0">
-                    <div className="tp-project-3-thumb pro-img-2">
-                      <Image
-                        src={item.img_2}
-                        alt="port-img"
-                        width={400}
-                        height={600}
-                        style={{ objectFit: 'cover' }}
-                      />
-                      <Link href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="package-label-overlay walkin-overlay">
-                        <span>Walk-in Package</span>
+                </Link>
+
+                {/* Content Overlay */}
+                <div className="tp-project-modern-overlay">
+                  <div className="tp-project-modern-content">
+                    <span className="tp-project-modern-meta">{item.meta}</span>
+                    <h3 className="tp-project-modern-title">{item.title}</h3>
+                    <p className="tp-project-modern-desc">{item.description}</p>
+                    <div className="tp-project-modern-action">
+                      <Link href="/gallery" className="tp-project-modern-btn">
+                        View Project
                       </Link>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

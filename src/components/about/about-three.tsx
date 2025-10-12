@@ -11,9 +11,9 @@ export default function AboutThree() {
   return (
     <div className="tp-about-3-area pt-120 pb-110">
       <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-xl-11">
-            <div className="tp-about-3-title-box">
+            <div className="tp-about-3-title-box text-center">
               <span className="tp-section-subtitle-2 tp_fade_bottom">
                 <span>
                 </span>
@@ -29,14 +29,14 @@ export default function AboutThree() {
             </div>
           </div>
         </div>
-        <div className="row align-items-center">
+        <div className="row align-items-center justify-content-center">
           <div className="col-xl-6 col-lg-6 col-md-4">
-            <div className="tp-about-3-shape text-lg-end">
+            <div className="tp-about-3-shape text-center">
               <Image src={shape} alt="shape" style={{ height: "auto" }} />
             </div>
           </div>
-          <div className="col-xl-6 col-lg-6 col-md-8">
-            <div className="tp-about-3-content">
+          <div className="col-xl-10 col-lg-10">
+            <div className="tp-about-3-content text-center">
               <p className="mb-30 tp_fade_bottom">
                 Founded in 2020, LUM Studio is a creative photography and videography brand built
                 on passion, precision, and artistry.

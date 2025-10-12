@@ -200,8 +200,8 @@ export default function PackageTemplate({
                       <p className="package-hero-description text-white mb-40">
                         {heroDescription}
                       </p>
-                      <Link href="/contact" className="book-now-btn">
-                        Book Now
+                      <Link href="/booking" className="book-now-btn">
+                        Book Package
                       </Link>
                     </div>
                   </div>
