@@ -1,49 +1,11 @@
+"use client";
 import React from "react";
-import { Metadata } from "next";
-import PackageTemplate from "@/components/packages/package-template";
-
-export const metadata: Metadata = {
-  title: "Call to Bar Photography Packages - Lum Studios",
-  description: "Professional photography packages to celebrate your call to bar ceremony and achievement. Classic and walk-in sessions for lawyers being called to the Nigerian Bar.",
-  keywords: ["call to bar photography", "lawyer ceremony photography", "Nigerian bar call photography", "legal profession photography", "barrister photoshoot"],
-};
+import Wrapper from "@/layouts/wrapper";
+import HeaderTransparent from "@/layouts/headers/header-transparent";
+import FooterTwo from "@/layouts/footers/footer-two";
+import PricingTable from "@/components/packages/pricing-table";
 
 const CallToBarPackagePage = () => {
-  const packages = [
-    {
-      name: "Classic Call to Bar Package",
-      image: "/assets/img/inner-project/portfolio-col-2/port-7.jpg",
-      price: "$599",
-      description: "Perfect for ceremony coverage. Includes 3-hour coverage, 50 edited photos, and digital gallery access."
-    },
-    {
-      name: "Walk-In Call to Bar Package",
-      image: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
-      price: "$899",
-      description: "Complete celebration package with 5-hour coverage, 100+ edited photos, family portraits, and custom album."
-    }
-  ];
-
-  const reviews = [
-    {
-      name: "Barrister Adebayo",
-      rating: 5,
-      comment: "Exceptional service! Every important moment was captured beautifully. The photos perfectly commemorate this milestone in my career.",
-      date: "September 2024"
-    },
-    {
-      name: "Chiamaka Okafor",
-      rating: 5,
-      comment: "Professional and discreet during the ceremony. The final photos exceeded my expectations - truly stunning work!",
-      date: "August 2024"
-    },
-    {
-      name: "Emmanuel Johnson",
-      rating: 5,
-      comment: "Amazing photography that captured the dignity and importance of the call to bar ceremony. Highly recommended!",
-      date: "July 2024"
-    }
-  ];
 
   const faqs = [
     {
@@ -68,16 +30,202 @@ const CallToBarPackagePage = () => {
     }
   ];
 
+  const reviews = [
+    {
+      name: "Barrister Adebayo",
+      rating: 5,
+      comment: "Outstanding service! They captured every important moment of my call to bar ceremony beautifully.",
+      date: "November 2024"
+    },
+    {
+      name: "Chidinma Okonkwo",
+      rating: 5,
+      comment: "Professional, discreet, and produced stunning photos. Perfect way to commemorate this milestone!",
+      date: "October 2024"
+    },
+    {
+      name: "Emmanuel Udo",
+      rating: 5,
+      comment: "The family portraits were exceptional. They truly understood the significance of the occasion.",
+      date: "September 2024"
+    }
+  ];
+
   return (
-    <PackageTemplate
-      heroTitle="Call to Bar Photography Packages"
-      heroDescription="Celebrate this momentous achievement with professional photography that captures the dignity and pride of your call to bar ceremony. From the formal proceedings to joyful celebrations with family."
-      categoryName="Call to Bar"
-      packages={packages}
-      reviews={reviews}
-      faqs={faqs}
-      heroBackgroundImage="/assets/img/inner-project/portfolio-col-2/port-7.jpg"
-    />
+    <Wrapper>
+      <HeaderTransparent />
+      
+      {/* Hero Section */}
+      <section className="package-hero-area pt-180 pb-120">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-10">
+              <div className="package-hero-content text-center">
+                <h1 className="package-hero-title tp-char-animation">
+                  Graduation & Call to Bar Packages
+                </h1>
+                <p className="package-hero-description">
+                  Celebrate this momentous achievement with professional photography that captures the dignity and pride of your graduation or call to bar ceremony. From the formal proceedings to joyful celebrations with family.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Table */}
+      <PricingTable packageSlug="graduation-shoot" />
+
+      {/* Reviews Section */}
+      <section className="reviews-area pt-80 pb-80" style={{ background: '#fff' }}>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-10">
+              <div className="reviews-header text-center mb-60">
+                <h2 className="tp-section-title">What Our Clients Say</h2>
+              </div>
+              <div className="row g-4">
+                {reviews.map((review, idx) => (
+                  <div key={idx} className="col-xl-4 col-lg-4 col-md-6">
+                    <div className="review-card">
+                      <div className="review-rating mb-15">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <span key={i} style={{ color: 'var(--tp-theme-1)', fontSize: '18px' }}>★</span>
+                        ))}
+                      </div>
+                      <p className="review-comment">&ldquo;{review.comment}&rdquo;</p>
+                      <div className="review-author">
+                        <h4>{review.name}</h4>
+                        <span>{review.date}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="faqs-area pt-80 pb-120" style={{ background: '#f8f9fa' }}>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-10">
+              <div className="faqs-header text-center mb-60">
+                <h2 className="tp-section-title">Frequently Asked Questions</h2>
+              </div>
+              <div className="faqs-wrapper">
+                {faqs.map((faq, idx) => (
+                  <div key={idx} className="faq-item">
+                    <h3 className="faq-question">{faq.question}</h3>
+                    <p className="faq-answer">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FooterTwo />
+
+      <style jsx>{`
+        .package-hero-area {
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .package-hero-title {
+          font-size: 52px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 25px;
+        }
+
+        .package-hero-description {
+          font-size: 18px;
+          line-height: 1.8;
+          color: #666;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .review-card {
+          background: #fff;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          height: 100%;
+        }
+
+        .review-rating {
+          display: flex;
+          gap: 4px;
+        }
+
+        .review-comment {
+          font-size: 15px;
+          line-height: 1.7;
+          color: #444;
+          margin-bottom: 20px;
+        }
+
+        .review-author h4 {
+          font-size: 16px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 5px;
+        }
+
+        .review-author span {
+          font-size: 13px;
+          color: #999;
+        }
+
+        .faq-item {
+          background: #fff;
+          padding: 30px;
+          border-radius: 12px;
+          margin-bottom: 20px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+          font-size: 18px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 15px;
+        }
+
+        .faq-answer {
+          font-size: 15px;
+          line-height: 1.7;
+          color: #666;
+          margin: 0;
+        }
+
+        @media (max-width: 991px) {
+          .package-hero-title {
+            font-size: 38px;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .package-hero-area {
+            padding-top: 120px;
+            padding-bottom: 60px;
+          }
+
+          .package-hero-title {
+            font-size: 32px;
+          }
+
+          .package-hero-description {
+            font-size: 16px;
+          }
+        }
+      `}</style>
+    </Wrapper>
   );
 };
 

@@ -141,7 +141,6 @@ export default function ProjectFour({ style_2 = false }: IProps) {
                 {/* Content Overlay */}
                 <div className="tp-project-modern-overlay">
                   <div className="tp-project-modern-content">
-                    <span className="tp-project-modern-meta">{item.meta}</span>
                     <h3 className="tp-project-modern-title">{item.title}</h3>
                     <p className="tp-project-modern-desc">{item.description}</p>
                     <div className="tp-project-modern-action">
