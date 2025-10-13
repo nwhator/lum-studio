@@ -76,19 +76,79 @@ function BookingContent() {
     "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM"
   ];
 
-  // Handle time slot selection (max 4 slots = 2 hours)
+  // Check if a time slot can be selected (is it valid/clickable?)
+  const isSlotSelectable = (slot: string): boolean => {
+    // If no slots selected, all slots are available
+    if (selectedTimeSlots.length === 0) {
+      return true;
+    }
+    
+    // If slot is already selected, it can be clicked to deselect
+    if (selectedTimeSlots.includes(slot)) {
+      return true;
+    }
+    
+    // If already at max 4 slots, can't add more
+    if (selectedTimeSlots.length >= 4) {
+      return false;
+    }
+    
+    // Check if slot is adjacent to current selection
+    const slotIndex = timeSlots.indexOf(slot);
+    const currentIndices = selectedTimeSlots.map(s => timeSlots.indexOf(s)).sort((a, b) => a - b);
+    const minIndex = Math.min(...currentIndices);
+    const maxIndex = Math.max(...currentIndices);
+    
+    // Slot must be directly before first slot or directly after last slot
+    return slotIndex === minIndex - 1 || slotIndex === maxIndex + 1;
+  };
+
+  // Handle time slot selection (max 4 consecutive slots = 2 hours)
   const toggleTimeSlot = (slot: string) => {
+    const slotIndex = timeSlots.indexOf(slot);
+    
     if (selectedTimeSlots.includes(slot)) {
       // Remove slot
       setSelectedTimeSlots(selectedTimeSlots.filter(s => s !== slot));
     } else {
-      // Add slot (max 4)
-      if (selectedTimeSlots.length < 4) {
-        setSelectedTimeSlots([...selectedTimeSlots, slot].sort((a, b) => {
-          return timeSlots.indexOf(a) - timeSlots.indexOf(b);
-        }));
+      // Check if we can add this slot
+      if (selectedTimeSlots.length === 0) {
+        // First slot - can always add
+        setSelectedTimeSlots([slot]);
+      } else if (selectedTimeSlots.length >= 4) {
+        // Already at max
+        alert('Maximum 4 consecutive time slots (2 hours) allowed');
       } else {
-        alert('Maximum 4 time slots (2 hours) allowed');
+        // Check if the new slot is consecutive with existing slots
+        const currentIndices = selectedTimeSlots.map(s => timeSlots.indexOf(s)).sort((a, b) => a - b);
+        const minIndex = Math.min(...currentIndices);
+        const maxIndex = Math.max(...currentIndices);
+        
+        // New slot must be adjacent to the current range
+        if (slotIndex === minIndex - 1 || slotIndex === maxIndex + 1) {
+          // Check if all slots between min and max would be consecutive
+          const newSlots = [...selectedTimeSlots, slot];
+          const newIndices = newSlots.map(s => timeSlots.indexOf(s)).sort((a, b) => a - b);
+          const newMin = Math.min(...newIndices);
+          const newMax = Math.max(...newIndices);
+          
+          // Verify consecutive (no gaps)
+          let isConsecutive = true;
+          for (let i = newMin; i <= newMax; i++) {
+            if (!newIndices.includes(i)) {
+              isConsecutive = false;
+              break;
+            }
+          }
+          
+          if (isConsecutive) {
+            setSelectedTimeSlots(newSlots.sort((a, b) => timeSlots.indexOf(a) - timeSlots.indexOf(b)));
+          } else {
+            alert('Please select consecutive time slots only');
+          }
+        } else {
+          alert('Please select consecutive time slots. Click a slot next to your current selection.');
+        }
       }
     }
   };
@@ -474,22 +534,33 @@ www.thelumstudios.com
                         </span>
                       </label>
                       <div className="time-slots-grid">
-                        {timeSlots.map((slot) => (
-                          <button
-                            key={slot}
-                            type="button"
-                            className={`time-slot-btn ${selectedTimeSlots.includes(slot) ? 'selected' : ''}`}
-                            onClick={() => toggleTimeSlot(slot)}
-                          >
-                            {slot}
-                          </button>
-                        ))}
+                        {timeSlots.map((slot) => {
+                          const isSelected = selectedTimeSlots.includes(slot);
+                          const isSelectable = isSlotSelectable(slot);
+                          
+                          return (
+                            <button
+                              key={slot}
+                              type="button"
+                              className={`time-slot-btn ${isSelected ? 'selected' : ''} ${!isSelectable ? 'disabled' : ''}`}
+                              onClick={() => toggleTimeSlot(slot)}
+                              disabled={!isSelectable}
+                            >
+                              {slot}
+                            </button>
+                          );
+                        })}
                       </div>
                       {selectedTimeSlots.length > 0 && (
                         <div className="selected-time-summary">
                           <strong>Selected:</strong> {selectedTimeSlots[0]} - {selectedTimeSlots[selectedTimeSlots.length - 1]} 
                           ({selectedTimeSlots.length * 30} minutes)
                         </div>
+                      )}
+                      {selectedTimeSlots.length === 0 && (
+                        <small className="form-text">
+                          💡 Tip: Click a starting time. Only adjacent slots will remain available to extend your session.
+                        </small>
                       )}
                     </div>
 
