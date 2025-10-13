@@ -1,15 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import logo from "@/assets/img/logo/logo.png";
 
 export default function PageLoader() {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Minimum loading time for better UX (prevents flash)
-    const minLoadTime = 4000;
+    // Minimum loading time - 3000ms as requested
+    const minLoadTime = 3000;
     const startTime = Date.now();
 
     const handleLoad = () => {
@@ -39,21 +37,12 @@ export default function PageLoader() {
   return (
     <div className={`page-loader ${fadeOut ? "fade-out" : ""}`}>
       <div className="loader-content">
-        <div className="logo-container">
-          <Image
-            src={logo}
-            alt="LUM Studios"
-            width={180}
-            height={180}
-            priority
-            className="logo-pulse"
-          />
-        </div>
         <div className="loader-spinner">
           <div className="spinner-ring"></div>
           <div className="spinner-ring"></div>
+          <div className="spinner-ring"></div>
         </div>
-        <p className="loader-text">Loading...</p>
+        <p className="loader-text">Loading Experience...</p>
       </div>
 
       <style jsx>{`
@@ -80,58 +69,42 @@ export default function PageLoader() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 30px;
-        }
-
-        .logo-container {
-          position: relative;
-          width: 180px;
-          height: 180px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        :global(.logo-pulse) {
-          animation: pulse 2s ease-in-out infinite;
-          filter: drop-shadow(0 0 20px rgba(183, 196, 53, 0.3));
-        }
-
-        @keyframes pulse {
-          0%, 100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-          50% {
-            transform: scale(1.05);
-            opacity: 0.9;
-          }
+          gap: 35px;
         }
 
         .loader-spinner {
           position: relative;
-          width: 60px;
-          height: 60px;
+          width: 80px;
+          height: 80px;
         }
 
         .spinner-ring {
           position: absolute;
           width: 100%;
           height: 100%;
-          border: 3px solid transparent;
+          border: 4px solid transparent;
           border-top-color: var(--tp-theme-1);
           border-radius: 50%;
-          animation: spin 1.5s linear infinite;
+          animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
         }
 
         .spinner-ring:nth-child(2) {
-          width: 80%;
-          height: 80%;
-          top: 10%;
-          left: 10%;
-          border-top-color: rgba(var(--tp-theme-rgb), 0.4);
-          animation-duration: 1s;
+          width: 70%;
+          height: 70%;
+          top: 15%;
+          left: 15%;
+          border-top-color: rgba(var(--tp-theme-rgb), 0.6);
+          animation-duration: 1.5s;
           animation-direction: reverse;
+        }
+
+        .spinner-ring:nth-child(3) {
+          width: 40%;
+          height: 40%;
+          top: 30%;
+          left: 30%;
+          border-top-color: rgba(var(--tp-theme-rgb), 0.3);
+          animation-duration: 0.9s;
         }
 
         @keyframes spin {

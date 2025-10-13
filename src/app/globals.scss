@@ -81,6 +81,11 @@ body {
   font-family: var(--tp-ff-syne), var(--tp-ff-body), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   font-display: swap;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  overflow-x: hidden; /* Prevent horizontal scroll on html too */
 }
 
 /* Site-wide padding for desktop */
@@ -89,6 +94,13 @@ body {
   @media (min-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
+  }
+  
+  @media (max-width: 576px) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
   }
 }
 
@@ -3103,6 +3115,9 @@ a[href="/contact"],
 
 /* Service Hero Section */
 .sv-hero-area {
+  overflow-x: hidden;
+  width: 100%;
+  
   .sv-hero-title {
     span, strong {
       color: #B7C435;
@@ -3114,6 +3129,17 @@ a[href="/contact"],
     font-size: 18px;
     color: #666;
     max-width: 600px;
+  }
+  
+  @media (max-width: 576px) {
+    padding-left: 0;
+    padding-right: 0;
+    
+    .container {
+      max-width: 100%;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
   }
 }
 
@@ -3156,6 +3182,9 @@ a[href="/contact"],
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-top: 3px solid transparent;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   height: 100%;
   text-align: center;
   max-width: 420px;
