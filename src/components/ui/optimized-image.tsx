@@ -82,6 +82,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
     return (
       <Image
         {...props}
+        alt={props.alt || ''}
         sizes={responsiveSizes}
         priority={isPriority}
         loading={loadingStrategy}
@@ -102,6 +103,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
     return (
       <Image
         {...props}
+        alt={props.alt || ''}
         onError={handleError}
       />
     );

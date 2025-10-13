@@ -539,7 +539,7 @@ ${formData.additionalNotes ? `📝 *ADDITIONAL NOTES*\n${formData.additionalNote
                   <li>Transfer {formatPrice(totalPrice)} to the account above</li>
                   <li>Fill in your account name below (required)</li>
                   <li>Add transaction ID if available (optional)</li>
-                  <li>Click "Confirm Booking" to send details via WhatsApp</li>
+                  <li>Click &ldquo;Confirm Booking&rdquo; to send details via WhatsApp</li>
                 </ol>
               </div>
             </div>
@@ -579,7 +579,7 @@ ${formData.additionalNotes ? `📝 *ADDITIONAL NOTES*\n${formData.additionalNote
               </div>
 
               <div className="confirmation-note">
-                <p><strong>Note:</strong> After clicking "Confirm Booking", you'll be redirected to WhatsApp where we'll verify your payment and confirm your booking.</p>
+                <p><strong>Note:</strong> After clicking &ldquo;Confirm Booking&rdquo;, you&apos;ll be redirected to WhatsApp where we&apos;ll verify your payment and confirm your booking.</p>
               </div>
             </div>
           </div>
