@@ -598,11 +598,11 @@ www.thelumstudios.com
                       </div>
 
                       <div className="payment-instructions">
-                        <h4>��� Payment Instructions:</h4>
+                        <h4>💳 Payment Instructions:</h4>
                         <ol>
                           <li>Transfer <strong>{formatPrice(totalPrice)}</strong> to the account above</li>
                           <li>Fill in your payment confirmation details below</li>
-                          <li>Click "Send to WhatsApp" to complete your booking</li>
+                          <li>Click &ldquo;Send to WhatsApp&rdquo; to complete your booking</li>
                         </ol>
                       </div>
                     </div>
