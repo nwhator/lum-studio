@@ -77,7 +77,13 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
               </div>
 
               <div className="package-action">
-                <Link href="/booking?package={packageSlug}&type=classic" className="btn-book-package">
+                <Link
+                  href={{
+                    pathname: "/booking",
+                    query: { package: packageSlug, type: "classic", category: packageData.name },
+                  }}
+                  className="btn-book-package"
+                >
                   Book Classic Package
                 </Link>
               </div>
@@ -132,7 +138,13 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
               </div>
 
               <div className="package-action">
-                <Link href="/booking?package={packageSlug}&type=walkin" className="btn-book-package secondary">
+                <Link
+                  href={{
+                    pathname: "/booking",
+                    query: { package: packageSlug, type: "walkin", category: packageData.name },
+                  }}
+                  className="btn-book-package secondary"
+                >
                   Book Walk-in Package
                 </Link>
               </div>

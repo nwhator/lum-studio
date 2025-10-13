@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { PACKAGE_DATA, getPackageBySlug, CLASSIC_FEATURES, WALKIN_FEATURES, formatPrice } from "@/data/package-pricing";
 import { useRouter, useSearchParams } from "next/navigation";
 import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
@@ -83,7 +84,12 @@ function BookingContent() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  // legacy display strings; keep for non-URL flow
   const [selectedPackageType, setSelectedPackageType] = useState<string>("");
+  // new: URL-driven package flow
+  const [selectedPackageSlug, setSelectedPackageSlug] = useState<string>("");
+  const [selectedKind, setSelectedKind] = useState<"classic" | "walkin" | "">("");
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -95,6 +101,7 @@ function BookingContent() {
   const urlPackage = searchParams?.get('package') || '';
   const urlCategory = searchParams?.get('category') || '';
   const urlPrice = searchParams?.get('price') || '';
+  const urlType = searchParams?.get('type') || '';
 
   // Set initial category from URL if available
   useEffect(() => {
@@ -106,12 +113,27 @@ function BookingContent() {
         setSelectedCategory(category.id);
       }
     }
-  }, [urlCategory]);
+    if (urlPackage) {
+      setSelectedPackageSlug(urlPackage);
+    }
+    if (urlType === 'classic' || urlType === 'walkin') {
+      setSelectedKind(urlType);
+    }
+  }, [urlCategory, urlPackage, urlType]);
+
+  // Helpers for PACKAGE_DATA lookups when URL-driven flow is used
+  const selectedPackageData = selectedPackageSlug ? getPackageBySlug(selectedPackageSlug) : undefined;
+  const currentOptions = selectedPackageData && selectedKind ? (selectedKind === 'classic' ? selectedPackageData.classic : selectedPackageData.walkin) : [];
+  const currentOption = currentOptions && currentOptions.length > 0 ? currentOptions[Math.min(selectedOptionIndex, currentOptions.length - 1)] : undefined;
 
   // Get current price based on selections
   const getCurrentPrice = () => {
+    // Prefer URL/data-driven pricing from PACKAGE_DATA if available
+    if (selectedPackageData && selectedKind && currentOption) {
+      return formatPrice(currentOption.price);
+    }
     if (urlPrice) return urlPrice;
-    
+    // Fallback to legacy category pricing
     if (selectedCategory && selectedPackageType) {
       const category = shootCategories.find(cat => cat.id === selectedCategory);
       if (category) {
@@ -125,8 +147,8 @@ function BookingContent() {
 
   // Get current category name
   const getCurrentCategoryName = () => {
+    if (selectedPackageData) return selectedPackageData.name;
     if (urlCategory) return urlCategory;
-    
     if (selectedCategory) {
       const category = shootCategories.find(cat => cat.id === selectedCategory);
       return category?.name || "";
@@ -136,6 +158,7 @@ function BookingContent() {
 
   // Get current package name
   const getCurrentPackageName = () => {
+    if (selectedKind) return selectedKind === 'classic' ? 'Classic Package' : 'Walk-in Package';
     return urlPackage || selectedPackageType;
   };
 
@@ -267,7 +290,7 @@ function BookingContent() {
       timeSlots.indexOf(a) - timeSlots.indexOf(b)
     );
     
-    const message = `
+  const message = `
 ✨ *NEW BOOKING REQUEST* ✨
 
 ━━━━━━━━━━━━━━━━━━━━
@@ -275,8 +298,10 @@ function BookingContent() {
 📦 *PACKAGE DETAILS*
 ━━━━━━━━━━━━━━━━━━━━
 • Category: ${getCurrentCategoryName()}
-• Package: ${getCurrentPackageName()}${getCurrentPrice() ? `
-• Price: ${getCurrentPrice()}` : ''}
+• Package: ${getCurrentPackageName()}${selectedPackageData ? ` (${selectedPackageData.name})` : ''}
+${currentOption ? `• Option: ${currentOption.description}
+• Images: ${currentOption.images.edited} edited${currentOption.images.unedited ? `, ${currentOption.images.unedited} unedited` : ''}` : ''}
+${getCurrentPrice() ? `• Price: ${getCurrentPrice()}` : ''}
 
 
 👤 *CUSTOMER INFORMATION*
