@@ -48,6 +48,35 @@ html {
   font-display: swap;
 }
 
+/* Mobile Safety - Disable heavy animations to prevent crashes on fast scrolling */
+.is-mobile-device {
+  // Disable parallax effects
+  [data-speed] {
+    transform: none !important;
+  }
+  
+  // Reduce animation complexity
+  .tp_fade_bottom,
+  .tp_fade_left,
+  .tp_fade_right,
+  .tp-char-animation {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  // Simplify hover effects
+  * {
+    transition-duration: 0.2s !important; // Faster transitions
+  }
+  
+  // Disable 3D transforms
+  * {
+    transform-style: flat !important;
+    -webkit-transform-style: flat !important;
+  }
+}
+
 body {
   font-family: var(--tp-ff-syne), var(--tp-ff-body), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
@@ -3091,7 +3120,7 @@ a[href="/contact"],
 /* Service Title Section */
 .tp-service-5-title-box {
   .ab-inner-subtitle {
-    color: #4CAF50;
+    color: var(--tp-theme-1);
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
@@ -3099,51 +3128,60 @@ a[href="/contact"],
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    justify-content: center;
     
     svg {
-      fill: #4CAF50;
-      filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+      fill: var(--tp-theme-1);
+      filter: drop-shadow(0 0 8px rgba(var(--tp-theme-rgb), 0.3));
     }
   }
   
-  .tp-service-5-title {
-    color: #2c3e50;
-    line-height: 1.4;
-    margin-top: 15px;
+  .tp-service-description {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+    font-weight: 400;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 /* Service Items Grid */
 .tp-service-5-item {
-  padding: 35px 30px;
+  padding: 40px 35px;
   background: #fff;
-  border-radius: 16px;
-  transition: all 0.4s ease;
-  border: 2px solid transparent;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 3px solid transparent;
   height: 100%;
+  text-align: center;
   
   &:hover {
-    border-color: #4CAF50;
-    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
-    transform: translateY(-5px);
+    border-top-color: var(--tp-theme-1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
     
     .tp-service-4-title-sm {
-      color: #4CAF50;
+      color: var(--tp-theme-1);
     }
-  }
-  
-  .tp-service-4-icon {
-    margin-bottom: 25px;
     
-    img {
-      filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.2));
-      transition: all 0.3s ease;
+    .tp-service-professional-number {
+      color: var(--tp-theme-1);
+      transform: scale(1.05);
     }
   }
   
-  &:hover .tp-service-4-icon img {
-    filter: drop-shadow(0 0 15px rgba(76, 175, 80, 0.4));
-    transform: scale(1.05);
+  .tp-service-professional-number {
+    font-size: 48px;
+    font-weight: 300;
+    color: #ddd;
+    margin-bottom: 25px;
+    font-family: var(--tp-ff-syne);
+    transition: all 0.3s ease;
+    line-height: 1;
   }
   
   .tp-service-4-content {
@@ -3163,6 +3201,68 @@ a[href="/contact"],
       color: #666;
       line-height: 1.7;
       font-size: 15px;
+    }
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .tp-service-5-title-box {
+    .tp-service-description {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+  }
+  
+  .tp-service-5-item {
+    padding: 30px 25px;
+    margin-bottom: 20px;
+    
+    .tp-service-professional-number {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .tp-service-4-content {
+      .tp-service-4-title-sm {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+    }
+    
+    // Disable hover transform on mobile for stability
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .tp-service-5-title-box {
+    .tp-service-description {
+      font-size: 15px;
+    }
+  }
+  
+  .tp-service-5-item {
+    padding: 25px 20px;
+    
+    .tp-service-professional-number {
+      font-size: 36px;
+    }
+    
+    .tp-service-4-content {
+      .tp-service-4-title-sm {
+        font-size: 18px;
+      }
+      
+      p {
+        font-size: 13px;
+      }
     }
   }
 }

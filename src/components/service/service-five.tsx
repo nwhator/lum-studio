@@ -1,42 +1,36 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-// images
-import s_1 from "@/assets/img/home-01/service/service-icon-1.png";
-import s_2 from "@/assets/img/home-01/service/service-icon-2.png";
-import s_3 from "@/assets/img/home-01/service/service-icon-3.png";
 
 const service_data = [
   {
     id: 1,
     title: "Wedding Photography",
-    desc: "Capturing the magic of your special day with timeless elegance and artistic storytelling that you'll cherish forever.",
-    icon: s_2,
+    desc: "Capturing your special day with timeless elegance and artistic storytelling.",
+    number: "01",
   },
   {
     id: 2,
     title: "Portrait Sessions",
-    desc: "Professional portraits that capture your personality and essence, from maternity to family and individual sessions.",
-    icon: s_1,
+    desc: "Professional portraits from maternity to family and individual sessions.",
+    number: "02",
   },
   {
     id: 3,
     title: "Event Coverage",
-    desc: "Comprehensive event photography for all occasions - from corporate events to celebrations, we capture every moment.",
-    icon: s_3,
+    desc: "Comprehensive photography for corporate events and celebrations.",
+    number: "03",
   },
 ];
 
 // service items
 export function ServiceItems() {
   return (
-    <div className="row">
-      <div className="col-xxl-3"></div>
+    <div className="row justify-content-center">
       {service_data.map((item) => (
-        <div key={item.id} className="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+        <div key={item.id} className="col-xl-4 col-lg-4 col-md-6">
           <div className="tp-service-5-item tp_fade_bottom space-1">
-            <div className="tp-service-4-icon">
-              <Image src={item.icon} alt="icon" />
+            <div className="tp-service-professional-number">
+              {item.number}
             </div>
             <div className="tp-service-4-content">
               <h4 className="tp-service-4-title-sm tp-text-black">

@@ -9,9 +9,16 @@ export default function useScrollSmooth() {
   const [isScrollSmooth, setIsScrollSmooth] = useState<boolean>(true);
   
   useGSAP(() => {
-    // Skip ScrollSmoother on iOS and mobile devices
+    // Skip ScrollSmoother on iOS and ALL mobile devices for stability
     if (typeof window !== 'undefined' && (isIOSSafari() || isMobileDevice())) {
-      console.log('[ScrollSmooth] ⚠️ Skipped on mobile/iOS device');
+      console.log('[ScrollSmooth] ⚠️ Skipped on mobile/iOS device - Using native scroll');
+      
+      // Disable GSAP effects on mobile to prevent fast scroll crashes
+      gsap.config({
+        nullTargetWarn: false,
+        force3D: false, // Disable 3D transforms on mobile
+      });
+      
       return;
     }
 
@@ -22,14 +29,15 @@ export default function useScrollSmooth() {
       try {
         gsap.config({
           nullTargetWarn: false,
+          force3D: true, // Enable 3D on desktop for performance
         });
 
-        console.log('[ScrollSmooth] ✅ Creating ScrollSmoother (desktop)');
+        console.log('[ScrollSmooth] ✅ Creating ScrollSmoother (desktop only)');
         
         ScrollSmoother.create({
-          smooth: 2,
+          smooth: 1.5, // Reduced from 2 for better stability
           effects: true,
-          smoothTouch: 0.1,
+          smoothTouch: 0, // Disable smooth on touch devices
           normalizeScroll: false,
           ignoreMobileResize: true,
         });

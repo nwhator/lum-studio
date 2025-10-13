@@ -15,9 +15,6 @@ export default function ServiceHero() {
               <h4 className="sv-hero-title tp-char-animation">
                 Capturing Moments, <br /> Creating Memories.
               </h4>
-              <p className="tp_fade_bottom">
-                Professional photography services tailored to bring your vision to life with stunning imagery and creative excellence.
-              </p>
             </div>
           </div>
         </div>

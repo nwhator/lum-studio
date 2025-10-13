@@ -116,6 +116,7 @@ export const logError = (error: Error, context?: Record<string, any>) => {
 
 /**
  * Wrapper for animation initialization with error handling
+ * Automatically reduces animation complexity on mobile devices
  * @param initFn - Animation initialization function
  * @param name - Name of animation for logging
  */
@@ -128,6 +129,22 @@ export const safeAnimationInit = async (
     if (typeof window === 'undefined') {
       console.warn(`[GSAP] ${name}: Skipped (server side)`);
       return false;
+    }
+    
+    // On mobile, skip complex animations to prevent crashes during fast scrolling
+    const isMobile = isIOSSafari() || isMobileDevice();
+    if (isMobile) {
+      console.log(`[GSAP] ${name}: ⚠️ Simplified for mobile (preventing fast scroll crashes)`);
+      
+      // Reduce animation complexity on mobile
+      if (typeof window !== 'undefined') {
+        document.documentElement.classList.add('is-mobile-device');
+        
+        // Disable data-speed parallax on mobile
+        document.querySelectorAll('[data-speed]').forEach(el => {
+          (el as HTMLElement).removeAttribute('data-speed');
+        });
+      }
     }
 
     // Ensure DOM is ready

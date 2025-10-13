@@ -53,17 +53,16 @@ const ServiceMain = () => {
             {/* service area */}
             <div className="tp-service-5-area sv-service-style pb-70">
               <div className="container container-1530">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div className="tp-service-5-title-box mb-90">
+                <div className="row justify-content-center">
+                  <div className="col-xl-10 col-lg-11">
+                    <div className="tp-service-5-title-box mb-90 text-center">
                       <span className="ab-inner-subtitle mb-20">
                         <Leaf />
                         Our Services
                       </span>
-                      <h4 className="tp-service-5-title">
-                        At LUM Studios, we believe that every photograph tells a story. <br />
-                        We capture moments that become cherished memories.
-                      </h4>
+                      <p className="tp-service-description">
+                        Professional photography services that transform your most important moments into timeless art.
+                      </p>
                     </div>
                   </div>
                 </div>
