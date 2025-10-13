@@ -3,7 +3,8 @@ import { Metadata } from "next";
 import ServiceMain from "@/pages/service/service";
 
 export const metadata: Metadata = {
-  title: "Lum Studios - Service page",
+  title: "Service | LUM Studios - Photography & Videography Services",
+  description: "Explore our professional photography and videography services in Ile-Ife, Nigeria. Wedding photography, portraits, maternity shoots, events, and more.",
 };
 
 const ServicePage = () => {

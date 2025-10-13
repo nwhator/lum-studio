@@ -25,8 +25,9 @@ function BookingContent() {
   const [selectedPackageSlug, setSelectedPackageSlug] = useState("");
   const [selectedPackageType, setSelectedPackageType] = useState<"classic" | "walkin" | "">("");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
+  const [numEditedPictures, setNumEditedPictures] = useState(1); // For "per picture" pricing
   const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
+  const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]); // Multiple time slots
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,6 +38,7 @@ function BookingContent() {
   // Payment data
   const [paymentData, setPaymentData] = useState({
     accountName: "",
+    bankName: "",
     transactionId: ""
   });
   
@@ -63,13 +65,33 @@ function BookingContent() {
   const currentOption = currentOptions[selectedOptionIndex];
 
   // Calculate total price
-  const totalPrice = currentOption ? currentOption.price : 0;
+  const totalPrice = currentOption 
+    ? (currentOption.type === 'single' ? currentOption.price * numEditedPictures : currentOption.price)
+    : 0;
 
-  // Time slots
+  // Time slots (30-minute intervals from 9:00 AM to 5:30 PM)
   const timeSlots = [
-    "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-    "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"
+    "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+    "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
+    "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM"
   ];
+
+  // Handle time slot selection (max 4 slots = 2 hours)
+  const toggleTimeSlot = (slot: string) => {
+    if (selectedTimeSlots.includes(slot)) {
+      // Remove slot
+      setSelectedTimeSlots(selectedTimeSlots.filter(s => s !== slot));
+    } else {
+      // Add slot (max 4)
+      if (selectedTimeSlots.length < 4) {
+        setSelectedTimeSlots([...selectedTimeSlots, slot].sort((a, b) => {
+          return timeSlots.indexOf(a) - timeSlots.indexOf(b);
+        }));
+      } else {
+        alert('Maximum 4 time slots (2 hours) allowed');
+      }
+    }
+  };
 
   // Handle copy to clipboard
   const copyAccountNumber = () => {
@@ -103,12 +125,16 @@ function BookingContent() {
       alert('Please select a package type (Classic or Walk-in)');
       return false;
     }
+    if (currentOption?.type === 'single' && numEditedPictures < 1) {
+      alert('Please enter at least 1 edited picture');
+      return false;
+    }
     if (!selectedDate) {
       alert('Please select a date');
       return false;
     }
-    if (!selectedTime) {
-      alert('Please select a time');
+    if (selectedTimeSlots.length === 0) {
+      alert('Please select at least one time slot');
       return false;
     }
     if (!formData.name || !formData.email || !formData.phone) {
@@ -127,6 +153,10 @@ function BookingContent() {
   const validateStep3 = () => {
     if (!paymentData.accountName.trim()) {
       alert('Please enter the account name used for payment');
+      return false;
+    }
+    if (!paymentData.bankName.trim()) {
+      alert('Please enter your bank name');
       return false;
     }
     return true;
@@ -167,6 +197,13 @@ function BookingContent() {
       day: 'numeric'
     }) : '';
 
+    const timeRange = selectedTimeSlots.length > 0 
+      ? `${selectedTimeSlots[0]} - ${selectedTimeSlots[selectedTimeSlots.length - 1]}`
+      : 'N/A';
+    const duration = selectedTimeSlots.length > 0 
+      ? `${selectedTimeSlots.length * 30} minutes (${selectedTimeSlots.length} slots)`
+      : 'N/A';
+
     const message = `
 ✨ *NEW BOOKING REQUEST* ✨
 
@@ -176,8 +213,8 @@ function BookingContent() {
 ━━━━━━━━━━━━━━━━━━━━
 • Category: ${currentPackage?.name || 'N/A'}
 • Package: ${selectedPackageType === 'classic' ? 'Classic Package' : 'Walk-in Package'}
-• Option: ${currentOption?.description || 'N/A'}
-• Images: ${currentOption ? `${currentOption.images.edited} edited${currentOption.images.unedited > 0 ? `, ${currentOption.images.unedited} unedited` : ''}` : 'N/A'}
+• Option: ${currentOption?.description || 'N/A'}${currentOption?.type === 'single' ? ` × ${numEditedPictures}` : ''}
+• Images: ${currentOption?.type === 'single' ? `${numEditedPictures} edited` : `${currentOption ? `${currentOption.images.edited} edited${currentOption.images.unedited > 0 ? `, ${currentOption.images.unedited} unedited` : ''}` : 'N/A'}`}
 • Price: ${formatPrice(totalPrice)}
 
 ��� *CUSTOMER INFORMATION*
@@ -186,14 +223,16 @@ function BookingContent() {
 • Email: ${formData.email}
 • Phone: ${formData.phone}
 
-��� *SCHEDULE*
+📅 *SCHEDULE*
 ━━━━━━━━━━━━━━━━━━━━
 • Date: ${formattedDate}
-• Time: ${selectedTime}
+• Time: ${timeRange}
+• Duration: ${duration}
 
-��� *PAYMENT CONFIRMATION*
+💳 *PAYMENT CONFIRMATION*
 ━━━━━━━━━━━━━━━━━━━━
 • Transfer From: ${paymentData.accountName}
+• Customer Bank: ${paymentData.bankName}
 • Transaction ID: ${paymentData.transactionId || 'Not provided'}
 • Amount: ${formatPrice(totalPrice)}
 • Bank Account: ${PAYMENT_INFO.accountNumber} (${PAYMENT_INFO.bankName})
@@ -327,11 +366,19 @@ www.thelumstudios.com
                             <div
                               key={idx}
                               className={`pricing-option ${selectedOptionIndex === idx ? 'selected' : ''}`}
-                              onClick={() => setSelectedOptionIndex(idx)}
+                              onClick={() => {
+                                setSelectedOptionIndex(idx);
+                                if (option.type === 'single') {
+                                  setNumEditedPictures(1);
+                                }
+                              }}
                             >
                               <div className="option-header">
                                 <h5>{option.description}</h5>
-                                <span className="option-price">{formatPrice(option.price)}</span>
+                                <span className="option-price">
+                                  {formatPrice(option.price)}
+                                  {option.type === 'single' && ' each'}
+                                </span>
                               </div>
                               <div className="option-details">
                                 <span>{option.images.edited} edited</span>
@@ -342,6 +389,22 @@ www.thelumstudios.com
                             </div>
                           ))}
                         </div>
+                      </div>
+                    )}
+
+                    {/* Number of Pictures Input (for "per picture" pricing) */}
+                    {currentOption?.type === 'single' && (
+                      <div className="form-group">
+                        <label className="form-label">Number of Edited Pictures *</label>
+                        <input
+                          type="number"
+                          className="form-control"
+                          value={numEditedPictures}
+                          onChange={(e) => setNumEditedPictures(Math.max(1, parseInt(e.target.value) || 1))}
+                          min="1"
+                          placeholder="Enter number of pictures"
+                        />
+                        <small className="form-text">Price per picture: {formatPrice(currentOption.price)} × {numEditedPictures} = {formatPrice(totalPrice)}</small>
                       </div>
                     )}
 
@@ -392,34 +455,42 @@ www.thelumstudios.com
                     {/* Schedule */}
                     <div className="form-section-title">Schedule Your Session</div>
                     
-                    <div className="row">
-                      <div className="col-md-6">
-                        <div className="form-group">
-                          <label className="form-label">Preferred Date *</label>
-                          <input
-                            type="date"
-                            className="form-control"
-                            value={selectedDate}
-                            onChange={(e) => setSelectedDate(e.target.value)}
-                            min={new Date().toISOString().split('T')[0]}
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="form-group">
-                          <label className="form-label">Preferred Time *</label>
-                          <select
-                            className="form-control"
-                            value={selectedTime}
-                            onChange={(e) => setSelectedTime(e.target.value)}
+                    <div className="form-group">
+                      <label className="form-label">Preferred Date *</label>
+                      <input
+                        type="date"
+                        className="form-control"
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        min={new Date().toISOString().split('T')[0]}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label">
+                        Select Time Slots * 
+                        <span className="time-slot-info">
+                          (Select up to 4 consecutive 30-minute slots, max 2 hours)
+                        </span>
+                      </label>
+                      <div className="time-slots-grid">
+                        {timeSlots.map((slot) => (
+                          <button
+                            key={slot}
+                            type="button"
+                            className={`time-slot-btn ${selectedTimeSlots.includes(slot) ? 'selected' : ''}`}
+                            onClick={() => toggleTimeSlot(slot)}
                           >
-                            <option value="">Select time...</option>
-                            {timeSlots.map((time) => (
-                              <option key={time} value={time}>{time}</option>
-                            ))}
-                          </select>
-                        </div>
+                            {slot}
+                          </button>
+                        ))}
                       </div>
+                      {selectedTimeSlots.length > 0 && (
+                        <div className="selected-time-summary">
+                          <strong>Selected:</strong> {selectedTimeSlots[0]} - {selectedTimeSlots[selectedTimeSlots.length - 1]} 
+                          ({selectedTimeSlots.length * 30} minutes)
+                        </div>
+                      )}
                     </div>
 
                     <div className="form-group">
@@ -476,14 +547,17 @@ www.thelumstudios.com
                         </div>
                         <div className="review-item">
                           <span className="review-label">Selected Option:</span>
-                          <span className="review-value">{currentOption?.description}</span>
+                          <span className="review-value">
+                            {currentOption?.description}
+                            {currentOption?.type === 'single' && ` × ${numEditedPictures}`}
+                          </span>
                         </div>
                         <div className="review-item">
                           <span className="review-label">Image Delivery:</span>
                           <span className="review-value">
-                            {currentOption?.images.edited} edited
-                            {currentOption && currentOption.images.unedited > 0 && 
-                              `, ${currentOption.images.unedited} unedited`
+                            {currentOption?.type === 'single' 
+                              ? `${numEditedPictures} edited` 
+                              : `${currentOption?.images.edited} edited${currentOption && currentOption.images.unedited > 0 ? `, ${currentOption.images.unedited} unedited` : ''}`
                             }
                           </span>
                         </div>
@@ -524,7 +598,21 @@ www.thelumstudios.com
                         </div>
                         <div className="review-item">
                           <span className="review-label">Time:</span>
-                          <span className="review-value">{selectedTime}</span>
+                          <span className="review-value">
+                            {selectedTimeSlots.length > 0 
+                              ? `${selectedTimeSlots[0]} - ${selectedTimeSlots[selectedTimeSlots.length - 1]}`
+                              : 'N/A'
+                            }
+                          </span>
+                        </div>
+                        <div className="review-item">
+                          <span className="review-label">Duration:</span>
+                          <span className="review-value">
+                            {selectedTimeSlots.length > 0 
+                              ? `${selectedTimeSlots.length * 30} minutes (${selectedTimeSlots.length} slots)`
+                              : 'N/A'
+                            }
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -541,7 +629,7 @@ www.thelumstudios.com
                       <span className="price-amount">{formatPrice(totalPrice)}</span>
                     </div>
 
-                    <div className="button-group">
+                    <div className="button-group"> 
                       <button type="button" className="btn-secondary" onClick={goBackToStep1}>
                         ← Edit Booking
                       </button>
@@ -622,6 +710,19 @@ www.thelumstudios.com
                           placeholder="Enter the name on your bank account"
                         />
                         <small className="form-hint">This helps us verify your payment</small>
+                      </div>
+
+                      <div className="form-group">
+                        <label className="form-label">Bank Name (From which you transferred) *</label>
+                        <input
+                          type="text"
+                          name="bankName"
+                          className="form-control"
+                          value={paymentData.bankName}
+                          onChange={handlePaymentInputChange}
+                          placeholder="e.g., First Bank, GTBank, Access Bank"
+                        />
+                        <small className="form-hint">Your bank name helps us track the payment</small>
                       </div>
 
                       <div className="form-group">

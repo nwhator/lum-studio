@@ -134,7 +134,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Schema for SEO
+  // JSON-LD Schema for Organization (for Google logo)
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LUM Studios",
+    "alternateName": "LUM Photography Studios",
+    "url": siteConfig.url,
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+      "width": "600",
+      "height": "600"
+    },
+    "image": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr",
+      "https://www.instagram.com/lumphotographystudios/",
+      "https://www.tiktok.com/@lumphotographystudios",
+      "https://wa.me/2349022292514"
+    ]
+  };
+
+  // JSON-LD Schema for Local Business
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -231,8 +253,16 @@ export default function RootLayout({
         </ToastProvider>
         <ErrorDebugger />
       </ClientErrorBoundary>
+      {/* Organization Schema for Google Logo */}
       <Script
-        id="schema-org"
+        id="organization-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      {/* Local Business Schema */}
+      <Script
+        id="local-business-schema"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

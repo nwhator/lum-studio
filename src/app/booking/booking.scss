@@ -558,7 +558,74 @@
   }
 }
 
-@media (max-width: 576px) {
+// Time Slots Grid
+.time-slot-info {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666;
+  margin-left: 8px;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.time-slot-btn {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+
+  &:hover {
+    border-color: var(--tp-theme-1);
+    background: rgba(var(--tp-theme-rgb), 0.05);
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    background: var(--tp-theme-1);
+    border-color: var(--tp-theme-1);
+    color: white;
+    box-shadow: 0 4px 12px rgba(var(--tp-theme-rgb), 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.selected-time-summary {
+  padding: 15px 20px;
+  background: rgba(var(--tp-theme-rgb), 0.1);
+  border-left: 4px solid var(--tp-theme-1);
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+
+  strong {
+    color: var(--tp-theme-1);
+    margin-right: 8px;
+  }
+}
+
+.form-text {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
+@media (max-width: 991px) {
   .booking-hero {
     padding-top: 120px;
   }
@@ -587,6 +654,16 @@
 
   .pricing-options-grid {
     grid-template-columns: 1fr;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .time-slot-btn {
+    padding: 10px 12px;
+    font-size: 13px;
   }
 
   .price-summary-large .price-amount {
