@@ -11,8 +11,8 @@ import ab_4 from "@/assets/img/home-03/gallery/gal-5.jpg";
 // SVG checkmark for features
 const CheckIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="11" stroke="#4CAF50" strokeWidth="2" fill="none"/>
-    <path d="M7 12L10.5 15.5L17 9" stroke="#4CAF50" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="12" cy="12" r="11" stroke="#B7C435" strokeWidth="2" fill="none"/>
+    <path d="M7 12L10.5 15.5L17 9" stroke="#B7C435" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -25,7 +25,7 @@ export default function AboutUsArea() {
           <div className="row align-items-center g-4">
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
-                <div data-speed=".7" style={{ position: 'relative', height: 500, width: '100%' }}>
+                <div style={{ position: 'relative', height: 500, width: '100%' }}>
                  <Image
                     src={ab_1}
                     alt="Lum Studio Photography"
@@ -38,7 +38,7 @@ export default function AboutUsArea() {
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
-                <div data-speed="1.1" style={{ position: 'relative', height: 500, width: '100%' }}>
+                <div style={{ position: 'relative', height: 500, width: '100%' }}>
                   <Image
                     src={ab_2}
                     alt="Professional Photography Services"
@@ -50,7 +50,7 @@ export default function AboutUsArea() {
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
-                <div data-speed="0.9" style={{ position: 'relative', height: 500, width: '100%' }}>
+                <div style={{ position: 'relative', height: 500, width: '100%' }}>
                   <Image
                     src={ab_3}
                     alt="Wedding Photography Nigeria"
@@ -62,7 +62,7 @@ export default function AboutUsArea() {
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6">
               <div className="ab-about-image-box">
-                <div data-speed="1.2" style={{ position: 'relative', height: 500, width: '100%' }}>
+                <div style={{ position: 'relative', height: 500, width: '100%' }}>
                   <Image
                     src={ab_4}
                     alt="Event Photography Services"

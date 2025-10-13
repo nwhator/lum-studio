@@ -55,7 +55,7 @@ const WeddingPhotographyPage = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-10">
                     <div className="text-center mb-60">
-                      <span className="service-detail-subtitle" style={{color: '#4CAF50', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
+                      <span className="service-detail-subtitle" style={{color: '#B7C435', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
                         Photography Studio
                       </span>
                       <h1 className="service-detail-title tp-char-animation" style={{fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px', lineHeight: 1.2}}>
@@ -113,30 +113,30 @@ const WeddingPhotographyPage = () => {
                   <div className="col-xl-10">
                     <div className="service-detail-info" style={{background: 'white', padding: '60px', borderRadius: '12px'}}>
                       <h2 style={{fontSize: '42px', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px'}}>
-                        Our Wedding Photography <span style={{color: '#4CAF50'}}>Services</span>
+                        Our Wedding Photography <span style={{color: '#B7C435'}}>Services</span>
                       </h2>
                       
                       <div className="row g-4 mb-50">
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Full-Day Coverage</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>From getting ready to the last dance, we capture every moment of your special day with professional excellence.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Pre-Wedding Shoots</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Beautiful engagement and pre-wedding sessions to tell your love story before the big day.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Drone Photography</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Stunning aerial shots that add a unique perspective to your wedding album.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Professional Editing</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Expert retouching and color grading to ensure every photo is perfect.</p>
                           </div>
@@ -145,7 +145,7 @@ const WeddingPhotographyPage = () => {
 
                       <div className="text-center mt-60">
                         <Link href="/booking" className="service-cta-btn" style={{
-                          background: '#4CAF50',
+                          background: '#B7C435',
                           color: 'white',
                           padding: '18px 50px',
                           borderRadius: '50px',

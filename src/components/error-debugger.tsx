@@ -97,7 +97,7 @@ export default function ErrorDebugger() {
           bottom: '20px',
           right: '20px',
           zIndex: 9999,
-          background: errors.length > 0 ? '#e74c3c' : '#4CAF50',
+          background: errors.length > 0 ? '#e74c3c' : '#B7C435',
           color: 'white',
           border: 'none',
           borderRadius: '50%',

@@ -1181,7 +1181,7 @@ a[href="/contact"],
 }
 
 .step-number {
-  background: #4CAF50;
+  background: #B7C435;
   color: white;
   width: 40px;
   height: 40px;
@@ -1216,14 +1216,14 @@ a[href="/contact"],
   overflow: hidden;
 
   &:hover {
-    border-color: #4CAF50;
+    border-color: #B7C435;
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
   }
 
   &.selected {
     background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 100%);
-    border-color: #4CAF50;
+    border-color: #B7C435;
     border-width: 3px;
     box-shadow: 0 8px 25px rgba(76, 175, 80, 0.25);
 
@@ -1271,7 +1271,7 @@ a[href="/contact"],
       }
 
       .price-amount {
-        color: #4CAF50;
+        color: #B7C435;
         font-weight: 700;
         font-size: 16px;
       }
@@ -1284,7 +1284,7 @@ a[href="/contact"],
   padding: 15px 20px;
   border-radius: 12px;
   margin-bottom: 20px;
-  border-left: 4px solid #4CAF50;
+  border-left: 4px solid #B7C435;
 
   p {
     margin: 0;
@@ -1292,14 +1292,14 @@ a[href="/contact"],
     font-size: 16px;
 
     strong {
-      color: #4CAF50;
+      color: #B7C435;
       font-weight: 700;
     }
   }
 }
 
 .selected-price-display {
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  background: linear-gradient(135deg, #B7C435 0%, #45a049 100%);
   color: white;
   padding: 15px 30px;
   border-radius: 50px;
@@ -1345,14 +1345,14 @@ a[href="/contact"],
   }
 
   &:hover:not(.disabled) {
-    border-color: #4CAF50;
+    border-color: #B7C435;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
   }
 
   &.selected {
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-    border-color: #4CAF50;
+    background: linear-gradient(135deg, #B7C435 0%, #45a049 100%);
+    border-color: #B7C435;
     color: white;
 
     h4, p {
@@ -1381,14 +1381,14 @@ a[href="/contact"],
 
   .package-price-badge {
     background: #f1f8f4;
-    border: 2px solid #4CAF50;
+    border: 2px solid #B7C435;
     border-radius: 50px;
     padding: 8px 20px;
     display: inline-block;
     margin-top: 10px;
 
     .price {
-      color: #4CAF50;
+      color: #B7C435;
       font-size: 18px;
       font-weight: 800;
     }
@@ -1633,7 +1633,7 @@ a[href="/contact"],
 .booking-summary {
   background: #f8f9fa;
   padding: 40px 50px;
-  border-top: 3px solid #4CAF50;
+  border-top: 3px solid #B7C435;
 
   h3 {
     color: #2c3e50;
@@ -1664,8 +1664,8 @@ a[href="/contact"],
     padding: 15px;
     border-radius: 8px;
     margin: 10px 0;
-    border: 2px solid #4CAF50;
-    border-bottom: 2px solid #4CAF50;
+    border: 2px solid #B7C435;
+    border-bottom: 2px solid #B7C435;
   }
 
   .label {
@@ -1679,7 +1679,7 @@ a[href="/contact"],
     text-align: right;
 
     &.price-highlight {
-      color: #4CAF50;
+      color: #B7C435;
       font-size: 24px;
       font-weight: 800;
     }
@@ -2337,12 +2337,12 @@ a[href="/contact"],
       height: 100%;
 
       &:hover {
-        border-color: #4CAF50;
+        border-color: #B7C435;
         transform: translateY(-4px);
         box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
 
         .service-icon-wrapper svg circle {
-          fill: #4CAF50;
+          fill: #B7C435;
         }
 
         .service-icon-wrapper svg path {
@@ -2382,7 +2382,7 @@ a[href="/contact"],
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: #4CAF50;
+    background: #B7C435;
     color: #ffffff;
     padding: 18px 40px;
     border-radius: 50px;
@@ -2731,7 +2731,7 @@ a[href="/contact"],
     transition: all 0.3s ease;
     
     &.complete {
-      background: #4caf50;
+      background: #B7C435;
       color: white;
       
       &:hover {
@@ -2782,18 +2782,18 @@ a[href="/contact"],
   }
   
   &:hover {
-    border-color: #4CAF50;
+    border-color: #B7C435;
     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
     transform: translateY(-3px);
   }
   
   &.selected {
-    border-color: #4CAF50;
+    border-color: #B7C435;
     background: #f1f8f4;
     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
     
     h4 {
-      color: #4CAF50;
+      color: #B7C435;
     }
   }
 }
@@ -2809,14 +2809,14 @@ a[href="/contact"],
   font-weight: 500;
   
   &:hover:not(.disabled) {
-    border-color: #4CAF50;
+    border-color: #B7C435;
     background: #f1f8f4;
     transform: translateY(-2px);
   }
   
   &.selected {
-    border-color: #4CAF50;
-    background: #4CAF50;
+    border-color: #B7C435;
+    background: #B7C435;
     color: white;
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
   }
@@ -2842,17 +2842,17 @@ a[href="/contact"],
   
   &:hover:not(.disabled):not(.other-month) {
     background: #f1f8f4;
-    color: #4CAF50;
+    color: #B7C435;
   }
   
   &.selected {
-    background: #4CAF50;
+    background: #B7C435;
     color: white;
     font-weight: 600;
   }
   
   &.today {
-    border: 2px solid #4CAF50;
+    border: 2px solid #B7C435;
   }
 }
 
@@ -2860,7 +2860,7 @@ a[href="/contact"],
   display: inline-block;
   width: 35px;
   height: 35px;
-  background: #4CAF50;
+  background: #B7C435;
   color: white;
   border-radius: 50%;
   line-height: 35px;
@@ -2927,7 +2927,7 @@ a[href="/contact"],
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    color: #4CAF50;
+    color: #B7C435;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2936,7 +2936,7 @@ a[href="/contact"],
     .subtitle-line {
       width: 40px;
       height: 2px;
-      background: #4CAF50;
+      background: #B7C435;
     }
   }
   
@@ -2951,7 +2951,7 @@ a[href="/contact"],
     }
     
     .title-highlight {
-      color: #4CAF50;
+      color: #B7C435;
       position: relative;
     }
   }
@@ -3009,7 +3009,7 @@ a[href="/contact"],
     .stat-mini-number {
       font-size: 32px;
       font-weight: 700;
-      color: #4CAF50;
+      color: #B7C435;
       line-height: 1;
       margin-bottom: 5px;
     }
@@ -3074,7 +3074,7 @@ a[href="/contact"],
   .tp-btn-green {
     display: inline-flex;
     align-items: center;
-    background: #4CAF50;
+    background: #B7C435;
     color: white;
     padding: 14px 32px;
     border-radius: 50px;
@@ -3105,7 +3105,7 @@ a[href="/contact"],
 .sv-hero-area {
   .sv-hero-title {
     span, strong {
-      color: #4CAF50;
+      color: #B7C435;
       text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
     }
   }
@@ -3150,7 +3150,7 @@ a[href="/contact"],
 
 /* Service Items Grid */
 .tp-service-5-item {
-  padding: 40px 35px;
+  padding: 45px 40px;
   background: #fff;
   border-radius: 0;
   transition: all 0.3s ease;
@@ -3158,6 +3158,8 @@ a[href="/contact"],
   border-top: 3px solid transparent;
   height: 100%;
   text-align: center;
+  max-width: 420px;
+  margin: 0 auto;
   
   &:hover {
     border-top-color: var(--tp-theme-1);
@@ -3175,7 +3177,7 @@ a[href="/contact"],
   }
   
   .tp-service-professional-number {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 300;
     color: #ddd;
     margin-bottom: 25px;
@@ -3186,10 +3188,11 @@ a[href="/contact"],
   
   .tp-service-4-content {
     .tp-service-4-title-sm {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
       transition: all 0.3s ease;
+      line-height: 1.3;
       
       a {
         color: inherit;
@@ -3199,15 +3202,24 @@ a[href="/contact"],
     
     p {
       color: #666;
-      line-height: 1.7;
-      font-size: 15px;
+      line-height: 1.8;
+      font-size: 16px;
     }
   }
 }
 
 /* Responsive Styles */
+@media (max-width: 992px) {
+  .tp-service-5-item {
+    max-width: 100%;
+    padding: 40px 35px;
+  }
+}
+
 @media (max-width: 768px) {
   .tp-service-5-title-box {
+    margin-bottom: 60px !important;
+    
     .tp-service-description {
       font-size: 16px;
       margin-top: 15px;
@@ -3215,22 +3227,24 @@ a[href="/contact"],
   }
   
   .tp-service-5-item {
-    padding: 30px 25px;
-    margin-bottom: 20px;
+    padding: 35px 30px;
+    margin-bottom: 25px;
+    max-width: 100%;
     
     .tp-service-professional-number {
-      font-size: 40px;
+      font-size: 44px;
       margin-bottom: 20px;
     }
     
     .tp-service-4-content {
       .tp-service-4-title-sm {
-        font-size: 20px;
-        margin-bottom: 12px;
+        font-size: 21px;
+        margin-bottom: 14px;
       }
       
       p {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.7;
       }
     }
     
@@ -3243,25 +3257,28 @@ a[href="/contact"],
 
 @media (max-width: 576px) {
   .tp-service-5-title-box {
+    margin-bottom: 50px !important;
+    
     .tp-service-description {
       font-size: 15px;
     }
   }
   
   .tp-service-5-item {
-    padding: 25px 20px;
+    padding: 30px 25px;
+    margin-bottom: 20px;
     
     .tp-service-professional-number {
-      font-size: 36px;
+      font-size: 38px;
     }
     
     .tp-service-4-content {
       .tp-service-4-title-sm {
-        font-size: 18px;
+        font-size: 19px;
       }
       
       p {
-        font-size: 13px;
+        font-size: 14px;
       }
     }
   }
@@ -3275,8 +3292,23 @@ a[href="/contact"],
     background: #f8f9fa;
   }
   
+  .sv-service-thumb {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+    
+    img {
+      transition: transform 0.4s ease, opacity 0.3s ease;
+      opacity: 1;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
   .sv-service-subtitle {
-    color: #4CAF50;
+    color: #B7C435;
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
@@ -3285,7 +3317,7 @@ a[href="/contact"],
     display: block;
     
     i {
-      color: #4CAF50;
+      color: #B7C435;
       font-style: normal;
       margin-right: 10px;
       font-weight: 700;
@@ -3323,7 +3355,7 @@ a[href="/contact"],
         content: "✓";
         position: absolute;
         left: 0;
-        color: #4CAF50;
+        color: #B7C435;
         font-weight: 700;
         font-size: 18px;
       }
@@ -3332,7 +3364,7 @@ a[href="/contact"],
   
   .sv-service-btn {
     .tp-btn-zikzak {
-      background: #4CAF50;
+      background: #B7C435;
       color: white;
       padding: 18px 40px;
       border-radius: 50px;
@@ -3423,7 +3455,7 @@ a[href="/contact"],
     margin-bottom: 30px;
     
     span {
-      color: #4CAF50;
+      color: #B7C435;
       font-weight: 600;
       font-size: 13px;
       letter-spacing: 2px;
@@ -3450,13 +3482,13 @@ a[href="/contact"],
         left: 0;
         width: 0;
         height: 6px;
-        background: #4CAF50;
+        background: #B7C435;
         transition: width 0.5s ease;
         border-radius: 3px;
       }
       
       &:hover {
-        color: #4CAF50;
+        color: #B7C435;
         
         &:after {
           width: 100%;
@@ -3468,8 +3500,34 @@ a[href="/contact"],
 
 /* Responsive Adjustments */
 @media (max-width: 1199px) {
-  .sv-service-item .sv-service-title {
-    font-size: 36px;
+  .sv-service-item {
+    .sv-service-thumb {
+      min-height: 400px !important;
+    }
+    
+    .sv-service-title {
+      font-size: 36px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .sv-service-item {
+    .sv-service-thumb {
+      min-height: 350px !important;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .sv-service-item {
+    .sv-service-thumb {
+      min-height: 300px !important;
+      
+      &:hover img {
+        transform: none; // Disable zoom on mobile
+      }
+    }
   }
 }
 

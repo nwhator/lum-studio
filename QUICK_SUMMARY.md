@@ -72,7 +72,7 @@ most important moments into timeless art."
 
 **Before:**
 
-```
+```md
 [Icon Image]
 Wedding Photography
 Long description...
@@ -80,7 +80,7 @@ Long description...
 
 **After:**
 
-```
+```md
 01
 Wedding Photography
 Short description.
@@ -145,13 +145,13 @@ Short description.
 
 ### Service Page
 
-4. `src/pages/service/service.tsx` - Title & layout
-5. `src/components/service/service-five.tsx` - Icons → Numbers
+1. `src/pages/service/service.tsx` - Title & layout
+2. `src/components/service/service-five.tsx` - Icons → Numbers
 
 ### Brand Color
 
-6. `public/assets/scss/utils/index.css` - Color definition
-7. All compiled CSS files - Color updated
+1. `public/assets/scss/utils/index.css` - Color definition
+2. All compiled CSS files - Color updated
 
 ---
 

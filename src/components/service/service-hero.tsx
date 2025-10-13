@@ -21,12 +21,13 @@ export default function ServiceHero() {
         <div className="row">
           <div className="col-xl-12">
             <div className="sv-hero-thumb p-relative">
-              <div className="sv-hero-thumb-box">
+              <div className="sv-hero-thumb-box" style={{ position: 'relative', width: '100%', aspectRatio: '1/1', overflow: 'hidden' }}>
                 <Image
-                  data-speed=".7"
                   src={ser_hero}
                   alt="ser_hero-img"
-                  style={{height:"auto"}}
+                  fill
+                  priority
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
               <Image

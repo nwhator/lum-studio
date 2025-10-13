@@ -361,7 +361,7 @@ export default function PackageTemplate({
 
         .book-now-btn {
           display: inline-block;
-          background: #4CAF50 !important;
+          background: #B7C435 !important;
           color: white !important;
           padding: 15px 40px;
           border-radius: 30px;
@@ -371,7 +371,7 @@ export default function PackageTemplate({
           text-transform: uppercase;
           letter-spacing: 1px;
           transition: all 0.3s ease;
-          border: 3px solid #4CAF50;
+          border: 3px solid #B7C435;
           box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
           z-index: 10;
           position: relative;
@@ -379,7 +379,7 @@ export default function PackageTemplate({
 
         .book-now-btn:hover {
           background: transparent !important;
-          color: #4CAF50 !important;
+          color: #B7C435 !important;
           text-decoration: none !important;
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
@@ -447,14 +447,14 @@ export default function PackageTemplate({
 
         .get-package-btn {
           display: inline-block;
-          background: #4CAF50;
+          background: #B7C435;
           color: white;
           padding: 12px 30px;
           border-radius: 25px;
           text-decoration: none;
           font-weight: 500;
           transition: all 0.3s ease;
-          border: 2px solid #4CAF50;
+          border: 2px solid #B7C435;
           position: relative;
           z-index: 10;
           cursor: pointer;
@@ -463,7 +463,7 @@ export default function PackageTemplate({
 
         .get-package-btn:hover {
           background: transparent;
-          color: #4CAF50;
+          color: #B7C435;
           text-decoration: none;
           box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
           transform: translateY(-2px);

@@ -55,7 +55,7 @@ const MaternityBabyPage = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-10">
                     <div className="text-center mb-60">
-                      <span className="service-detail-subtitle" style={{color: '#4CAF50', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
+                      <span className="service-detail-subtitle" style={{color: '#B7C435', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
                         Photography Studio
                       </span>
                       <h1 className="service-detail-title tp-char-animation" style={{fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px', lineHeight: 1.2}}>
@@ -113,30 +113,30 @@ const MaternityBabyPage = () => {
                   <div className="col-xl-10">
                     <div className="service-detail-info" style={{background: 'white', padding: '60px', borderRadius: '12px'}}>
                       <h2 style={{fontSize: '42px', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px'}}>
-                        Maternity & Baby <span style={{color: '#4CAF50'}}>Services</span>
+                        Maternity & Baby <span style={{color: '#B7C435'}}>Services</span>
                       </h2>
                       
                       <div className="row g-4 mb-50">
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Maternity Sessions</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Beautiful, comfortable maternity photography that celebrates your pregnancy journey with elegance and style.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Newborn Photography</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Gentle, safe newborn photography within the first two weeks, capturing those precious tiny details.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Baby Milestones</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Document your baby&apos;s growth with milestone sessions at 3, 6, 9, and 12 months.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Family Portraits</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Include siblings and parents for heartwarming family photos with your new addition.</p>
                           </div>
@@ -145,7 +145,7 @@ const MaternityBabyPage = () => {
 
                       <div className="text-center mt-60">
                         <Link href="/booking" className="service-cta-btn" style={{
-                          background: '#4CAF50',
+                          background: '#B7C435',
                           color: 'white',
                           padding: '18px 50px',
                           borderRadius: '50px',
@@ -168,7 +168,7 @@ const MaternityBabyPage = () => {
                   <div className="col-xl-10">
                     <div className="service-faq-section" style={{background: 'white', padding: '60px', borderRadius: '12px'}}>
                       <h3 style={{fontSize: '36px', fontWeight: 700, color: '#1a1a1a', marginBottom: '40px', textAlign: 'center'}}>
-                        Frequently Asked <span style={{color: '#4CAF50'}}>Questions</span>
+                        Frequently Asked <span style={{color: '#B7C435'}}>Questions</span>
                       </h3>
                       
                       <div className="faq-items">

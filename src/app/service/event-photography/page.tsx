@@ -54,7 +54,7 @@ const EventPhotographyPage = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-10">
                     <div className="text-center mb-60">
-                      <span className="service-detail-subtitle" style={{color: '#4CAF50', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
+                      <span className="service-detail-subtitle" style={{color: '#B7C435', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
                         Photography Studio
                       </span>
                       <h1 className="service-detail-title tp-char-animation" style={{fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px', lineHeight: 1.2}}>
@@ -112,30 +112,30 @@ const EventPhotographyPage = () => {
                   <div className="col-xl-10">
                     <div className="service-detail-info" style={{background: 'white', padding: '60px', borderRadius: '12px'}}>
                       <h2 style={{fontSize: '42px', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px'}}>
-                        Event Photography <span style={{color: '#4CAF50'}}>Services</span>
+                        Event Photography <span style={{color: '#B7C435'}}>Services</span>
                       </h2>
                       
                       <div className="row g-4 mb-50">
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Corporate Events</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Professional coverage for conferences, seminars, product launches, and corporate gatherings with attention to detail.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Birthday Parties</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Capture the joy and celebration of milestone birthdays with candid and posed photography.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Graduations</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>Document this important academic achievement with professional graduation and convocation photography.</p>
                           </div>
                         </div>
                         <div className="col-md-6">
-                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
+                          <div className="service-feature-box" style={{padding: '30px', background: '#f8f9fa', borderRadius: '8px', borderLeft: '4px solid #B7C435'}}>
                             <h4 style={{fontSize: '22px', fontWeight: 600, color: '#1a1a1a', marginBottom: '15px'}}>Social Gatherings</h4>
                             <p style={{color: '#333', lineHeight: 1.7, margin: 0}}>From family reunions to celebrations, we capture the moments that bring people together.</p>
                           </div>
@@ -144,7 +144,7 @@ const EventPhotographyPage = () => {
 
                       <div className="text-center mt-60">
                         <Link href="/booking" className="service-cta-btn" style={{
-                          background: '#4CAF50',
+                          background: '#B7C435',
                           color: 'white',
                           padding: '18px 50px',
                           borderRadius: '50px',

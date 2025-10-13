@@ -9,7 +9,7 @@ export default function PageLoader() {
 
   useEffect(() => {
     // Minimum loading time for better UX (prevents flash)
-    const minLoadTime = 800;
+    const minLoadTime = 4000;
     const startTime = Date.now();
 
     const handleLoad = () => {

@@ -72,15 +72,19 @@ export default function ServiceSix() {
   return (
     <div className="sv-service-area project-panel-area-2">
       <div className="container-fluid p-0">
-        {service_data.map((item) => (
+        {service_data.map((item, index) => (
           <div key={item.id} className="sv-service-item project-panel-2">
             <div className="row g-0">
               <div className="col-xl-6 col-lg-6">
-                <div className="sv-service-thumb">
+                <div className="sv-service-thumb" style={{ position: 'relative', minHeight: '500px' }}>
                   <Image
                     src={item.img}
-                    alt="service-img"
-                    style={{ height: "auto" }}
+                    alt={`${item.title} - LUM Studios`}
+                    fill
+                    priority={index < 2}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: 'cover' }}
                   />
                 </div>
               </div>

@@ -84,7 +84,7 @@ const ToastNotification: React.FC<{
   const getColor = () => {
     switch (toast.type) {
       case 'success':
-        return '#4CAF50';
+        return '#B7C435';
       case 'error':
         return '#f44336';
       case 'warning':

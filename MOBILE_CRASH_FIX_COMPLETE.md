@@ -440,13 +440,13 @@ gsap.config({
 
 ### Service Page
 
-4. ✅ `src/pages/service/service.tsx` - Title section & layout
-5. ✅ `src/components/service/service-five.tsx` - Icons → Numbers
+1. ✅ `src/pages/service/service.tsx` - Title section & layout
+2. ✅ `src/components/service/service-five.tsx` - Icons → Numbers
 
 ### Brand Color
 
-6. ✅ `public/assets/scss/utils/index.css` - Color definition
-7. ✅ All 9 compiled CSS files - Color replacement
+1. ✅ `public/assets/scss/utils/index.css` - Color definition
+2. ✅ All 9 compiled CSS files - Color replacement
 
 ---
 
@@ -509,7 +509,7 @@ gsap.config({
 
 ### Detection Flow
 
-```
+```md
 User opens page
     ↓
 Device detected (iOS/Android/Mobile)
