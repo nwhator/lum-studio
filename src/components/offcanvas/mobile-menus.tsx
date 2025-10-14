@@ -50,9 +50,7 @@ export default function MobileMenus() {
                           <div key={i} className="col homemenu">
                             <div className="homemenu-thumb-wrap mb-20">
                               <div className="homemenu-thumb fix">
-                                <Link href={hm.link}>
-                                  <Image src={hm.img} alt={hm.title} width={512} height={480} style={{ height: "100%" }} />
-                                </Link>
+                                <Link href={hm.link} />
                               </div>
                             </div>
                             <div className="homemenu-content text-center">
