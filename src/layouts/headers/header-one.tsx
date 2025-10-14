@@ -54,10 +54,21 @@ const HeaderOne = () => {
                     className="tp-offcanvas-open-btn d-xl-none"
                     onClick={() => setOpenOffCanvas(true)}
                     aria-label="Open menu"
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      padding: '8px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '5px',
+                      width: '30px',
+                      height: '24px'
+                    }}
                   >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span style={{ display: 'block', width: '100%', height: '3px', background: '#111', borderRadius: '2px' }}></span>
+                    <span style={{ display: 'block', width: '100%', height: '3px', background: '#111', borderRadius: '2px' }}></span>
+                    <span style={{ display: 'block', width: '100%', height: '3px', background: '#111', borderRadius: '2px' }}></span>
                   </button>
                 </div>
               </div>

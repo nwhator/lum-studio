@@ -61,14 +61,15 @@ export default function GalleryOne() {
                           <Image
                             src={g}
                             alt="gallery-img"
-                            width={400}
-                            height={500}
+                            width={300}
+                            height={380}
                             className="gallery-responsive-img"
                             draggable={false}
                             onContextMenu={(e) => e.preventDefault()}
                             loading={i < 3 ? "eager" : "lazy"}
                             priority={i < 3}
-                            sizes="(max-width: 768px) 100vw, 400px"
+                            sizes="(max-width: 768px) 40vw, 300px"
+                            quality={85}
                           />
                           <div className="gallery-hover-overlay"></div>
                         </div>
@@ -93,8 +94,8 @@ export default function GalleryOne() {
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
-          width: 400px;
-          height: 500px;
+          width: 300px;
+          height: 380px;
         }
         
         .gallery-hover-overlay {
@@ -133,15 +134,15 @@ export default function GalleryOne() {
         
         @media (max-width: 992px) {
           .gallery-image-wrapper {
-            width: 360px;
-            height: 450px;
+            width: 280px;
+            height: 360px;
           }
         }
         
         @media (max-width: 768px) {
           .gallery-image-wrapper {
-            width: 42vw;
-            height: 280px;
+            width: 36vw;
+            height: 220px;
             border-radius: 10px;
           }
           
@@ -164,12 +165,12 @@ export default function GalleryOne() {
         
         @media (max-width: 480px) {
           .gallery-image-wrapper {
-            width: 40vw;
-            height: 240px;
+            width: 34vw;
+            height: 200px;
           }
           
           .tp-gallery-item {
-            margin-right: 12px !important;
+            margin-right: 10px !important;
           }
         }
       `}</style>

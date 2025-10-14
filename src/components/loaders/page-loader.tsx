@@ -6,8 +6,8 @@ export default function PageLoader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Minimum loading time - 3000ms as requested
-    const minLoadTime = 3000;
+    // Minimum loading time - reduced to 1000ms for faster perceived performance
+    const minLoadTime = 1000;
     const startTime = Date.now();
 
     const handleLoad = () => {
