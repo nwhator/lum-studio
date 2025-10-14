@@ -208,12 +208,10 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
     }
   }, [initIsotop]);
 
-  // Filter to show only first image per category on mobile
-  const displayedPortfolio = isMobile 
-    ? portfolio_data.filter((item, index, self) => 
-        index === self.findIndex((t) => t.show === item.show)
-      )
-    : portfolio_data;
+  // Always show only the first image per category
+  const displayedPortfolio = portfolio_data.filter((item, index, self) => 
+    index === self.findIndex((t) => t.show === item.show)
+  );
 
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">

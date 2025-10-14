@@ -3,6 +3,12 @@ import { gsap,Power2 } from "gsap";
 
 export default function cursorAnimation() {
     if(typeof window !== 'undefined'){
+        // Bail out entirely on touch devices (iOS/Android) for stability
+        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints || 0) > 0;
+        if (isTouch) {
+            return; // Do not initialize custom cursor on touch devices
+        }
+
         if ($("body").not(".is-mobile").hasClass("tp-magic-cursor")) {
             $(".tp-magnetic-item").wrap('<div class="tp-magnetic-wrap"></div>');
             

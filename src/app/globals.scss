@@ -168,7 +168,7 @@ img::selection {
 
 .tp-header-area .tp-main-menu-content > ul > li > a:hover {
   transform: translateY(-2px);
-  color: #000 !important;
+  color: var(--tp-theme-1) !important;
 }
 
 /* Ensure transparent headers keep text visible */
@@ -190,7 +190,23 @@ img::selection {
   color: #111;
 }
 .tp-header-area .tp-submenu.submenu a:hover {
-  color: #000;
+  color: var(--tp-theme-1);
+}
+
+/* Limit dropdown item padding to 25px vertical */
+.tp-header-area .tp-submenu.submenu li > a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.tp-header-area .tp-submenu.submenu .tp-megamenu-list-wrap a,
+.tp-header-area .tp-submenu.submenu .homemenu-title a {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+/* Remove home menu image boxes */
+.homemenu-thumb-wrap, .homemenu-thumb, .tp-shop-banner-left, .tp-megamenu-portfolio-banner, .tp-shop-banner-thumb {
+  display: none !important;
 }
 
 /* Reduce dropdown height and add scroll for better UX */
@@ -3985,6 +4001,13 @@ a[href="/contact"],
       padding-left: 15px;
       padding-right: 15px;
     }
+  }
+}
+
+/* Hide magic cursor on touch devices/small screens for stability */
+@media (hover: none), (pointer: coarse) {
+  #magic-cursor {
+    display: none !important;
   }
 }
 

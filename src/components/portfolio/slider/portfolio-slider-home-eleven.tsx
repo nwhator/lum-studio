@@ -69,6 +69,11 @@ export default function PortfolioSliderHomeEleven() {
 
   useEffect(() => {
     if (webGLContainerRef.current) {
+      // Disable WebGL effects on touch devices (iOS/Android) to avoid crashes
+      const isTouch = (typeof window !== 'undefined') && (('ontouchstart' in window) || (navigator.maxTouchPoints || 0) > 0);
+      if (isTouch) {
+        return; // Skip WebGL on touch devices
+      }
 
       const webGL = new WebGL( {
         vertex: verTextFragment().vertex,

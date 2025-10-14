@@ -23,14 +23,18 @@ const PortfolioGridColThreeMain = () => {
   useScrollSmooth();
 
   useEffect(() => {
-    document.body.classList.add("tp-magic-cursor");
+    const isTouch = (typeof window !== 'undefined') && (("ontouchstart" in window) || (navigator.maxTouchPoints || 0) > 0);
+    if (!isTouch) {
+      document.body.classList.add("tp-magic-cursor");
+    }
     return () => {
       document.body.classList.remove("tp-magic-cursor");
     }
   }, []);
 
   useEffect(() => {
-    if(typeof window !== 'undefined' && document.querySelector('.tp-magic-cursor')) {
+    const isTouch = (typeof window !== 'undefined') && (("ontouchstart" in window) || (navigator.maxTouchPoints || 0) > 0);
+    if(typeof window !== 'undefined' && !isTouch && document.querySelector('.tp-magic-cursor')) {
       safeAnimationInit(() => {
         cursorAnimation();
       }, 'cursor-animation');

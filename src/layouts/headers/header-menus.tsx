@@ -14,16 +14,11 @@ const HeaderMenus = () => {
             <div className="tp-submenu submenu tp-mega-menu">
               <div className="tp-menu-fullwidth">
                 <div className="tp-homemenu-wrapper">
-                  <div className="row gx-25 row-cols-xl-6 row-cols-lg-2 row-cols-md-2 row-cols-1">
+                  <div className="row gx-25 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
                     {menu.home_menus.map((home_menu, i) => (
                       <div key={i} className="col homemenu">
-                        <div className="homemenu-thumb-wrap mb-20">
-                          <div className="homemenu-thumb fix">
-                            <Link href={home_menu.link} />
-                          </div>
-                        </div>
-                        <div className="homemenu-content text-center">
-                          <h4 className="homemenu-title">
+                        <div className="homemenu-content text-center" style={{padding: '10px 0'}}>
+                          <h4 className="homemenu-title" style={{margin: 0}}>
                             <Link href={home_menu.link}>{home_menu.title}</Link>
                           </h4>
                         </div>
@@ -79,20 +74,7 @@ const HeaderMenus = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xl-4">
-                    <div className="tp-megamenu-shop-style">
-                      <div className="tp-shop-banner-left p-relative">
-                        <div className="tp-shop-banner-thumb" />
-                        <div className="tp-shop-banner-content">
-                          <h4 className="tp-shop-banner-title">Sale</h4>
-                          <span>20% Off all Shoes</span>
-                          <Link className="tp-shop-btn" href="/shop">
-                            Shop Now
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Removed shop-style image/banner column */}
                 </div>
               </div>
             </div>

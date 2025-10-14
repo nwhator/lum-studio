@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import keywords from "@/data/seo-keywords.json";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
@@ -45,7 +46,7 @@ const siteConfig = {
   description: "Founded in 2020, LUM Studio is a creative photography and videography brand in Ile-Ife, Nigeria. We specialize in weddings, portraits, maternity, baby shoots, convocation, call to bar, and special events. Capturing moments, creating stories.",
   url: "https://www.thelumstudios.com",
   ogImage: "https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg",
-  keywords: [
+  keywords: Array.from(new Set([
     "photography studio Nigeria",
     "wedding photography Ile-Ife",
     "professional photographer Nigeria",
@@ -55,23 +56,8 @@ const siteConfig = {
     "convocation photography",
     "call to bar photography",
     "event photography Nigeria",
-    "LUM Studios",
-    "LUM Studio",
-    "Lum Studios photography",
-    "Lum Studio photography",
-    "Lum Studios videography",
-    "Lum Studio videography",
-    "photography services Osun",
-    "professional videography Nigeria",
-    "drone photography Nigeria",
-    "wedding videographer Nigeria",
-    "best photographer Ile-Ife",
-    "studio photoshoot Ile-Ife",
-    "family portraits Nigeria",
-    "baby shoot studio Nigeria",
-    "maternity photoshoot Nigeria",
-    "event videography Nigeria"
-  ]
+    ...keywords
+  ]))
 };
 
 export const metadata: Metadata = {

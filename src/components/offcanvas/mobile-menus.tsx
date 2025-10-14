@@ -45,14 +45,9 @@ export default function MobileMenus() {
                 <div className="tp-submenu submenu tp-mega-menu" style={{ display: navTitle === menu.title ? "block" : "none"}}>
                   <div className="tp-menu-fullwidth">
                     <div className="tp-homemenu-wrapper">
-                      <div className="row gx-25 row-cols-xl-6 row-cols-lg-2 row-cols-md-2 row-cols-1">
+                      <div className="row gx-25 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-1">
                         {menu.home_menus.map((hm, i) => (
                           <div key={i} className="col homemenu">
-                            <div className="homemenu-thumb-wrap mb-20">
-                              <div className="homemenu-thumb fix">
-                                <Link href={hm.link} />
-                              </div>
-                            </div>
                             <div className="homemenu-content text-center">
                               <h4 className="homemenu-title">
                                 <Link href={hm.link}>{hm.title}</Link>
@@ -110,29 +105,7 @@ export default function MobileMenus() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-xl-4">
-                        <div className="tp-megamenu-shop-style">
-                          <div className="tp-shop-banner-left p-relative">
-                            <div className="tp-shop-banner-thumb">
-                              <Image
-                                src={shop_banner}
-                                alt="shop-banner"
-                                style={{height:'auto'}}
-                              />
-                            </div>
-                            <div className="tp-shop-banner-content">
-                              <h4 className="tp-shop-banner-title">Sale</h4>
-                              <span>20% Off all Shoes</span>
-                              <Link
-                                className="tp-shop-btn"
-                                href="/shop-details/1"
-                              >
-                                Shop Now
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      {/* removed shop banner in mobile menu */}
                     </div>
                   </div>
                 </div>
@@ -140,13 +113,7 @@ export default function MobileMenus() {
                 <div className="tp-submenu submenu tp-mega-menu" style={{ display: navTitle === menu.title ? "block" : "none"}}>
                   <div className="tp-menu-fullwidth">
                     <div className="tp-megamenu-portfolio p-relative">
-                      <div className="tp-megamenu-portfolio-banner">
-                        <Image
-                          src={port_img}
-                          alt="port-img"
-                          style={{height:'auto'}}
-                        />
-                      </div>
+                      {/* removed portfolio banner image */}
                       <div className="row gx-50">
                         <div className="col-xxl-9 col-xl-10">
                           <div className="tp-megamenu-list-box">
