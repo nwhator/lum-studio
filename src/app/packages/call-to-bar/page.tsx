@@ -4,8 +4,12 @@ import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 import PricingTable from "@/components/packages/pricing-table";
+import OurPixoGallery from "@/components/packages/ourpixo-gallery";
+import { getGalleriesBySlug } from "@/data/ourpixo-galleries";
 
 const CallToBarPackagePage = () => {
+  // Get call to bar galleries
+  const callToBarGalleries = getGalleriesBySlug('call-to-bar');
 
   const faqs = [
     {
@@ -75,6 +79,16 @@ const CallToBarPackagePage = () => {
 
       {/* Pricing Table */}
       <PricingTable packageSlug="graduation-shoot" />
+
+      {/* Gallery Sections */}
+      {callToBarGalleries.map((gallery, idx) => (
+        <OurPixoGallery
+          key={gallery.id}
+          galleryUrl={gallery.url}
+          title={gallery.name}
+          subtitle={idx === 0 ? "View our professional call to bar ceremony photography" : undefined}
+        />
+      ))}
 
       {/* Reviews Section */}
       <section className="reviews-area pt-80 pb-80" style={{ background: '#fff' }}>

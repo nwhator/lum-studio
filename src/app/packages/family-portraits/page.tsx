@@ -4,8 +4,12 @@ import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 import PricingTable from "@/components/packages/pricing-table";
+import OurPixoGallery from "@/components/packages/ourpixo-gallery";
+import { getGalleriesBySlug } from "@/data/ourpixo-galleries";
 
 const FamilyPortraitPackagePage = () => {
+  // Get family portrait galleries
+  const familyGalleries = getGalleriesBySlug('family-portraits');
 
   const reviews = [
     {
@@ -74,6 +78,16 @@ const FamilyPortraitPackagePage = () => {
 
       {/* Pricing Table */}
       <PricingTable packageSlug="family-shoot" />
+
+      {/* Gallery Sections */}
+      {familyGalleries.map((gallery, idx) => (
+        <OurPixoGallery
+          key={gallery.id}
+          galleryUrl={gallery.url}
+          title={gallery.name}
+          subtitle={idx === 0 ? "See our heartwarming family photography collection" : undefined}
+        />
+      ))}
 
       {/* Reviews Section */}
       <section className="reviews-area pt-80 pb-80" style={{ background: '#fff' }}>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
 import PackageTemplate from "@/components/packages/package-template";
+import OurPixoGallery from "@/components/packages/ourpixo-gallery";
+import { getGalleriesBySlug } from "@/data/ourpixo-galleries";
 
 export const metadata: Metadata = {
   title: "Photography Packages - Lum Studios",
@@ -68,16 +70,31 @@ const GeneralPackagePage = () => {
     }
   ];
 
+  // Get general galleries (portraits, product, burial, naming, etc.)
+  const generalGalleries = getGalleriesBySlug('general');
+
   return (
-    <PackageTemplate
-      heroTitle="Professional Photography Packages"
-      heroDescription="Capture life's precious moments with our professional photography services. From intimate celebrations to grand events, we create beautiful memories that last a lifetime."
-      categoryName="Photography"
-      packages={packages}
-      reviews={reviews}
-      faqs={faqs}
-      heroBackgroundImage="/assets/img/inner-project/portfolio-col-2/port-1.jpg"
-    />
+    <>
+      <PackageTemplate
+        heroTitle="Professional Photography Packages"
+        heroDescription="Capture life's precious moments with our professional photography services. From intimate celebrations to grand events, we create beautiful memories that last a lifetime."
+        categoryName="Photography"
+        packages={packages}
+        reviews={reviews}
+        faqs={faqs}
+        heroBackgroundImage="/assets/img/inner-project/portfolio-col-2/port-1.jpg"
+      />
+      
+      {/* Gallery Sections - Inserted after template */}
+      {generalGalleries.map((gallery, idx) => (
+        <OurPixoGallery
+          key={gallery.id}
+          galleryUrl={gallery.url}
+          title={gallery.name}
+          subtitle={idx === 0 ? "Browse our diverse photography portfolio" : undefined}
+        />
+      ))}
+    </>
   );
 };
 

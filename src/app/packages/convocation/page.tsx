@@ -4,8 +4,12 @@ import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 import PricingTable from "@/components/packages/pricing-table";
+import OurPixoGallery from "@/components/packages/ourpixo-gallery";
+import { getGalleriesBySlug } from "@/data/ourpixo-galleries";
 
 const ConvocationPackagePage = () => {
+  // Get convocation galleries
+  const convocationGalleries = getGalleriesBySlug('convocation');
 
   const faqs = [
     {
@@ -73,6 +77,16 @@ const ConvocationPackagePage = () => {
       </section>
 
       <PricingTable packageSlug="graduation-shoot" />
+
+      {/* Gallery Sections */}
+      {convocationGalleries.map((gallery, idx) => (
+        <OurPixoGallery
+          key={gallery.id}
+          galleryUrl={gallery.url}
+          title={gallery.name}
+          subtitle={idx === 0 ? "Explore our convocation and graduation ceremony photography" : undefined}
+        />
+      ))}
 
       <section className="reviews-area pt-80 pb-80" style={{ background: '#fff' }}>
         <div className="container">

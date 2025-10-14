@@ -4,8 +4,12 @@ import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 import PricingTable from "@/components/packages/pricing-table";
+import OurPixoGallery from "@/components/packages/ourpixo-gallery";
+import { getGalleriesBySlug } from "@/data/ourpixo-galleries";
 
 const MaternityPackagePage = () => {
+  // Get maternity galleries
+  const maternityGalleries = getGalleriesBySlug('maternity');
 
   const reviews = [
     {
@@ -75,6 +79,16 @@ const MaternityPackagePage = () => {
 
       {/* Pricing Table */}
       <PricingTable packageSlug="maternity-shoot" />
+
+      {/* Gallery Sections */}
+      {maternityGalleries.map((gallery, idx) => (
+        <OurPixoGallery
+          key={gallery.id}
+          galleryUrl={gallery.url}
+          title={gallery.name}
+          subtitle={idx === 0 ? "Discover our elegant maternity photography portfolio" : undefined}
+        />
+      ))}
 
       {/* Reviews Section */}
       <section className="reviews-area pt-80 pb-80" style={{ background: '#fff' }}>

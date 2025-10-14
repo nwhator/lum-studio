@@ -14,6 +14,7 @@ const project_data = [
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
     meta: "Newborn Photography",
     title: "Baby Shoots",
+    slug: "baby-shoot",
     category: "Active",
     description: "Precious moments of your newborn"
   },
@@ -23,6 +24,7 @@ const project_data = [
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
     meta: "Wedding Photography",
     title: "Wedding Shoots",
+    slug: "wedding",
     category: "Active",
     description: "Capturing your special day"
   },
@@ -32,6 +34,7 @@ const project_data = [
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
     meta: "Legal Milestone",
     title: "Call to Bar",
+    slug: "call-to-bar",
     category: "Active",
     description: "Your professional achievement"
   },
@@ -41,6 +44,7 @@ const project_data = [
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
     meta: "Academic Achievement",
     title: "Convocation",
+    slug: "convocation",
     category: "Active",
     description: "Celebrating your success"
   },
@@ -50,6 +54,7 @@ const project_data = [
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
     meta: "Portrait Photography",
     title: "Family Portraits",
+    slug: "family-portraits",
     category: "Active",
     description: "Timeless family memories"
   },
@@ -59,6 +64,7 @@ const project_data = [
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
     meta: "Maternity Photography", 
     title: "Maternity Portraits",
+    slug: "maternity",
     category: "Active",
     description: "Beautiful journey to motherhood"
   },
@@ -100,7 +106,7 @@ export default function ProjectFour({ style_2 = false }: IProps) {
               <div className="tp-project-modern-card-inner">
                 {/* Classic Package */}
                 <Link 
-                  href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} 
+                  href={`/packages/${item.slug}?type=classic`} 
                   className="tp-project-package-item"
                 >
                   <div className="tp-project-modern-image-wrapper">
@@ -120,7 +126,7 @@ export default function ProjectFour({ style_2 = false }: IProps) {
 
                 {/* Walk-in Package */}
                 <Link 
-                  href={`/packages/${item.title.toLowerCase().replace(/\s+/g, '-')}`} 
+                  href={`/packages/${item.slug}?type=walkin`} 
                   className="tp-project-package-item"
                 >
                   <div className="tp-project-modern-image-wrapper">

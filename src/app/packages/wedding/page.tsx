@@ -4,8 +4,12 @@ import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
 import PricingTable from "@/components/packages/pricing-table";
+import OurPixoGallery from "@/components/packages/ourpixo-gallery";
+import { getGalleriesBySlug } from "@/data/ourpixo-galleries";
 
 const WeddingPackagePage = () => {
+  // Get wedding galleries
+  const weddingGalleries = getGalleriesBySlug('wedding');
 
   const faqs = [
     {
@@ -73,6 +77,16 @@ const WeddingPackagePage = () => {
       </section>
 
       <PricingTable packageSlug="pre-wedding-shoot" />
+
+      {/* Gallery Sections */}
+      {weddingGalleries.map((gallery, idx) => (
+        <OurPixoGallery
+          key={gallery.id}
+          galleryUrl={gallery.url}
+          title={gallery.name}
+          subtitle={idx === 0 ? "Explore our beautiful wedding photography collection" : undefined}
+        />
+      ))}
 
       <section className="reviews-area pt-80 pb-80" style={{ background: '#fff' }}>
         <div className="container">

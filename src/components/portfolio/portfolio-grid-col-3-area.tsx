@@ -165,6 +165,8 @@ type IProps = {
 };
 export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   const { initIsotop, isotopContainer } = useIsotop();
+  const [isMobile, setIsMobile] = useState(false);
+
   // Function to get package route based on category
   const getPackageRoute = (category: string) => {
     switch (category.toLowerCase()) {
@@ -185,6 +187,17 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
     }
   };
 
+  // Check if mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useEffect(() => {
     // Only initialize on client side
     if (typeof window !== 'undefined') {
@@ -194,6 +207,13 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
       return () => clearTimeout(timer);
     }
   }, [initIsotop]);
+
+  // Filter to show only first image per category on mobile
+  const displayedPortfolio = isMobile 
+    ? portfolio_data.filter((item, index, self) => 
+        index === self.findIndex((t) => t.show === item.show)
+      )
+    : portfolio_data;
 
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
@@ -243,7 +263,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           </div>
         )}
         <div className="row grid gx-3 gy-3" ref={isotopContainer}>
-          {portfolio_data.map((item) => (
+          {displayedPortfolio.map((item) => (
             <div
               key={item.id}
               className={`col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item ${item.show}`}

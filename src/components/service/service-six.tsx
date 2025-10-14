@@ -16,7 +16,7 @@ const service_data = [
     subtitle: "Photography Studio",
     title: "Wedding Photography",
     slug: "wedding-photography",
-    text: "We capture every precious moment of your special day with artistic excellence and professional precision. From candid moments to stunning portraits, we create timeless memories.",
+    text: "We capture every precious moment of your special day with artistic excellence and professional precision.",
     lists: [
       "Full-Day Coverage",
       "Pre-Wedding Shoots",
@@ -30,7 +30,7 @@ const service_data = [
     subtitle: "Photography Studio",
     title: "Maternity & Baby Shoots",
     slug: "maternity-baby-shoots",
-    text: "Celebrate the beauty of motherhood and capture your baby's precious early moments. Our gentle approach creates stunning, heartwarming images you'll treasure forever.",
+    text: "Celebrate the beauty of motherhood and capture your baby's precious early moments with our gentle approach.",
     lists: [
       "Maternity Sessions",
       "Newborn Photography",
@@ -44,7 +44,7 @@ const service_data = [
     subtitle: "Photography Studio",
     title: "Event Photography",
     slug: "event-photography",
-    text: "Professional coverage for all your special events. From corporate functions to birthday celebrations, we document every important moment with creative flair.",
+    text: "Professional coverage for all your special events, documenting every important moment with creative flair.",
     lists: [
       "Corporate Events",
       "Birthday Parties",
@@ -58,7 +58,7 @@ const service_data = [
     subtitle: "Photography Studio",
     title: "Professional Portraits",
     slug: "professional-portraits",
-    text: "High-quality portrait photography for individuals, families, and professionals. We create images that capture personality, style, and authentic moments.",
+    text: "High-quality portrait photography that captures personality, style, and authentic moments for individuals, families, and professionals.",
     lists: [
       "Individual Portraits",
       "Family Sessions",
@@ -93,7 +93,6 @@ export default function ServiceSix() {
                   <div className="sv-service-content">
                     <div className="sv-service-title-box">
                       <span className="sv-service-subtitle">
-                        <i>{item.id < 9 ? "0" + item.id : item.id}</i>
                         {item.subtitle}
                       </span>
                       <h4 className="sv-service-title">{item.title}</h4>

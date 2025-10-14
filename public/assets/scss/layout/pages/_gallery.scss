@@ -14,11 +14,18 @@
             top: 0;
             left: 0;
             z-index: 999;
+            width: 100%;
             @media #{$xs}{
                 top: -6px;
+                display: block !important;
             }
             @media #{$sm}{
                 top: 0px;
+            }
+            & img {
+                width: 100%;
+                height: auto;
+                display: block;
             }
             & .img-2{
                 display: none;
@@ -29,11 +36,18 @@
             bottom: -1px;
             left: 0;
             z-index: 2;
+            width: 100%;
             @media #{$xs}{
                 bottom: -6px;
+                display: block !important;
             }
             @media #{$sm}{
                 bottom: -1px;
+            }
+            & img {
+                width: 100%;
+                height: auto;
+                display: block;
             }
             & .img-2{
                 display: none;
