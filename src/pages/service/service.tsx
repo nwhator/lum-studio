@@ -80,10 +80,6 @@ const ServiceMain = () => {
             {/* service area */}
             <ServiceSix />
             {/* service area */}
-
-            {/* big text */}
-            <BigText />
-            {/* big text */}
           </main>
 
           {/* footer area */}

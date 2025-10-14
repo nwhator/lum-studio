@@ -91,10 +91,6 @@ const PortfolioGridColThreeMain = () => {
             {/* portfolio area */}
             <PortfolioGridColThreeArea/>
             {/* portfolio area */}
-
-            {/* big text */}
-            <BigText />
-            {/* big text */}
           </main>
 
           {/* footer area */}

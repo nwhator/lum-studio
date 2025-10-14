@@ -59,8 +59,8 @@ export default function FaqArea() {
             <div className="fq-faq-wrapper">
               <div className="tp-service-2-accordion-box">
                 <div className="accordion" id="accordionExample">
-                  {faq_data.map((item) => (
-                    <FaqItem key={item.id} item={item} />
+                  {faq_data.map((item, index) => (
+                    <FaqItem key={item.id} item={item} isFirst={index === 0} />
                   ))}
                 </div>
               </div>
