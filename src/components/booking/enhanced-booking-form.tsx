@@ -433,7 +433,11 @@ ${formData.additionalNotes ? `📝 *ADDITIONAL NOTES*\n${formData.additionalNote
               </div>
               <div className="summary-item">
                 <span className="label">Date:</span>
-                <span className="value">{new Date(formData.preferredDate).toLocaleDateString('en-NG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span className="value">{
+                  formData.preferredDate && !isNaN(new Date(formData.preferredDate).getTime())
+                    ? new Date(formData.preferredDate).toLocaleDateString('en-NG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                    : 'Not selected'
+                }</span>
               </div>
               <div className="summary-item">
                 <span className="label">Time:</span>

@@ -48,12 +48,20 @@ function BookingContent() {
   useEffect(() => {
     const packageParam = searchParams?.get('package');
     const typeParam = searchParams?.get('type');
+    const looksParam = searchParams?.get('looks');
     
     if (packageParam) {
       setSelectedPackageSlug(packageParam);
     }
     if (typeParam === 'classic' || typeParam === 'walkin') {
       setSelectedPackageType(typeParam);
+    }
+    if (looksParam) {
+      const looksNum = parseInt(looksParam, 10);
+      if (!Number.isNaN(looksNum)) {
+        // We'll set selectedOptionIndex after we know options (in another effect)
+        // Temporarily store in state via URLSearchParams by keeping it here; selection happens below
+      }
     }
   }, [searchParams]);
 
@@ -63,6 +71,27 @@ function BookingContent() {
     ? (selectedPackageType === 'classic' ? currentPackage.classic : currentPackage.walkin)
     : [];
   const currentOption = currentOptions[selectedOptionIndex];
+  // When package/type changes, preselect option by URL looks or sensible default
+  useEffect(() => {
+    if (!currentOptions || currentOptions.length === 0) return;
+    const looksParam = searchParams?.get('looks');
+    if (looksParam) {
+      const looksNum = parseInt(looksParam, 10);
+      if (!Number.isNaN(looksNum)) {
+        const foundIdx = currentOptions.findIndex(o => o.type === 'look' && (o as any).looks === looksNum);
+        if (foundIdx !== -1) {
+          setSelectedOptionIndex(foundIdx);
+          return;
+        }
+      }
+    }
+    // Default: prefer looks == 2, else first 'look', else 0
+    const idx2 = currentOptions.findIndex(o => o.type === 'look' && (o as any).looks === 2);
+    if (idx2 !== -1) { setSelectedOptionIndex(idx2); return; }
+    const idxLook = currentOptions.findIndex(o => o.type === 'look');
+    if (idxLook !== -1) { setSelectedOptionIndex(idxLook); return; }
+    setSelectedOptionIndex(0);
+  }, [selectedPackageSlug, selectedPackageType, currentOptions?.length]);
 
   // Calculate total price
   const totalPrice = currentOption 
@@ -268,7 +297,7 @@ function BookingContent() {
 
 ━━━━━━━━━━━━━━━━━━━━
 
-��� *PACKAGE DETAILS*
+📦 *PACKAGE DETAILS*
 ━━━━━━━━━━━━━━━━━━━━
 • Category: ${currentPackage?.name || 'N/A'}
 • Package: ${selectedPackageType === 'classic' ? 'Classic Package' : 'Walk-in Package'}
@@ -276,7 +305,7 @@ function BookingContent() {
 • Images: ${currentOption?.type === 'single' ? `${numEditedPictures} edited` : `${currentOption ? `${currentOption.images.edited} edited${currentOption.images.unedited > 0 ? `, ${currentOption.images.unedited} unedited` : ''}` : 'N/A'}`}
 • Price: ${formatPrice(totalPrice)}
 
-��� *CUSTOMER INFORMATION*
+👤 *CUSTOMER INFORMATION*
 ━━━━━━━━━━━━━━━━━━━━
 • Name: ${formData.name}
 • Email: ${formData.email}
@@ -296,12 +325,12 @@ function BookingContent() {
 • Amount: ${formatPrice(totalPrice)}
 • Bank Account: ${PAYMENT_INFO.accountNumber} (${PAYMENT_INFO.bankName})
 
-��� *ADDITIONAL NOTES*
+📝 *ADDITIONAL NOTES*
 ━━━━━━━━━━━━━━━━━━━━
 ${formData.notes || 'No additional message'}
 
 ━━━━━━━━━━━━━━━━━━━━
-��� *Sent from LUM Studios Booking*
+✉️ *Sent from LUM Studios Booking*
 www.thelumstudios.com
     `.trim();
 
@@ -553,21 +582,32 @@ www.thelumstudios.com
                       {selectedTimeSlots.length > 0 && (
                         <div className="selected-time-summary">
                           {(() => {
-                            const startTime = selectedTimeSlots[0];
-                            const start = new Date(`1970-01-01T${startTime}`);
-                            const end = new Date(start.getTime() + 60 * 60 * 1000); // add 1 hour
+                            const parse12Hour = (time12: string): Date => {
+                              // Expect formats like "09:00 AM" or "12:30 PM"
+                              const match = time12.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+                              if (!match) return new Date(NaN);
+                              let [_, hhStr, mmStr, ap] = match;
+                              let hh = parseInt(hhStr, 10) % 12;
+                              if (ap.toUpperCase() === 'PM') hh += 12;
+                              const mm = parseInt(mmStr, 10);
+                              const d = new Date();
+                              d.setHours(hh, mm, 0, 0);
+                              return d;
+                            };
 
-                            const formatTime = (date: Date): string =>
-                              date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+                            const start = parse12Hour(selectedTimeSlots[0]);
+                            if (isNaN(start.getTime())) return null;
+                            const end = new Date(start.getTime() + 60 * 60 * 1000); // add 1 hour
+                            const fmt = (date: Date) => date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
 
                             return (
                               <strong>
-                                Selected: {formatTime(start)} - {formatTime(end)} (60 minutes)
+                                Selected: {fmt(start)} - {fmt(end)} (60 minutes)
                               </strong>
                             );
                           })()}
-                      </div>
-                    )}
+                        </div>
+                      )}
 
                     {selectedTimeSlots.length === 0 && (
                       <small className="form-text">
@@ -752,7 +792,7 @@ www.thelumstudios.com
                               className={`btn-copy ${copySuccess ? 'copied' : ''}`}
                               onClick={copyAccountNumber}
                             >
-                              {copySuccess ? '✓ Copied!' : '��� Copy'}
+                              {copySuccess ? '✓ Copied!' : '📋 Copy'}
                             </button>
                           </div>
                         </div>
@@ -845,7 +885,7 @@ www.thelumstudios.com
                     </div>
 
                     <div className="security-note">
-                      <span className="security-icon">���</span>
+                      <span className="security-icon">🔒</span>
                       <p>Your information is secure. We&apos;ll confirm your booking via WhatsApp.</p>
                     </div>
                   </div>

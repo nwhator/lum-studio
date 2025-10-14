@@ -56,9 +56,21 @@ const siteConfig = {
     "call to bar photography",
     "event photography Nigeria",
     "LUM Studios",
+    "LUM Studio",
+    "Lum Studios photography",
+    "Lum Studio photography",
+    "Lum Studios videography",
+    "Lum Studio videography",
     "photography services Osun",
     "professional videography Nigeria",
-    "drone photography Nigeria"
+    "drone photography Nigeria",
+    "wedding videographer Nigeria",
+    "best photographer Ile-Ife",
+    "studio photoshoot Ile-Ife",
+    "family portraits Nigeria",
+    "baby shoot studio Nigeria",
+    "maternity photoshoot Nigeria",
+    "event videography Nigeria"
   ]
 };
 

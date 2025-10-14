@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { PACKAGE_DATA, formatPrice, CLASSIC_FEATURES, WALKIN_FEATURES, type PackageType } from "@/data/package-pricing";
 
 interface PricingTableProps {
@@ -8,6 +9,7 @@ interface PricingTableProps {
 }
 
 export default function PricingTable({ packageSlug }: PricingTableProps) {
+  const router = useRouter();
   const packageData = PACKAGE_DATA.find(pkg => pkg.slug === packageSlug);
 
   if (!packageData) {
@@ -29,9 +31,31 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
         </div>
 
         <div className="row g-4">
+          {/** Helper: choose a sensible default looks value (prefer 2 looks) */}
+          {(() => null)()}
           {/* Classic Package */}
           <div className="col-xl-6 col-lg-6">
-            <div className="package-card classic-package">
+            <div
+              className="package-card classic-package is-clickable"
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                const classic = packageData.classic;
+                const pref = classic.find(o => o.type === 'look' && o.looks === 2)
+                  || classic.find(o => o.type === 'look');
+                const looksParam = pref && pref.looks ? `&looks=${pref.looks}` : '';
+                router.push(`/booking?package=${packageSlug}&type=classic${looksParam}`);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  const classic = packageData.classic;
+                  const pref = classic.find(o => o.type === 'look' && o.looks === 2)
+                    || classic.find(o => o.type === 'look');
+                  const looksParam = pref && pref.looks ? `&looks=${pref.looks}` : '';
+                  router.push(`/booking?package=${packageSlug}&type=classic${looksParam}`);
+                }
+              }}
+            >
               <div className="package-header">
                 <div className="package-badge">Popular</div>
                 <h3 className="package-name">Classic Package</h3>
@@ -77,16 +101,44 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
               </div>
 
               <div className="package-action">
-                <Link href="/booking?package={packageSlug}&type=classic" className="btn-book-package">
-                  Book Classic Package
-                </Link>
+                {(() => {
+                  const classic = packageData.classic;
+                  const pref = classic.find(o => o.type === 'look' && o.looks === 2)
+                    || classic.find(o => o.type === 'look');
+                  const looksParam = pref && pref.looks ? `&looks=${pref.looks}` : '';
+                  return (
+                    <Link href={`/booking?package=${packageSlug}&type=classic${looksParam}`} className="btn-book-package">
+                      Book Classic Package
+                    </Link>
+                  );
+                })()}
               </div>
             </div>
           </div>
 
           {/* Walk-in Package */}
           <div className="col-xl-6 col-lg-6">
-            <div className="package-card walkin-package">
+            <div
+              className="package-card walkin-package is-clickable"
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                const walkin = packageData.walkin;
+                const pref = walkin.find(o => o.type === 'look' && o.looks === 2)
+                  || walkin.find(o => o.type === 'look');
+                const looksParam = pref && pref.looks ? `&looks=${pref.looks}` : '';
+                router.push(`/booking?package=${packageSlug}&type=walkin${looksParam}`);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  const walkin = packageData.walkin;
+                  const pref = walkin.find(o => o.type === 'look' && o.looks === 2)
+                    || walkin.find(o => o.type === 'look');
+                  const looksParam = pref && pref.looks ? `&looks=${pref.looks}` : '';
+                  router.push(`/booking?package=${packageSlug}&type=walkin${looksParam}`);
+                }
+              }}
+            >
               <div className="package-header">
                 <div className="package-badge walkin-badge">Value</div>
                 <h3 className="package-name">Walk-in Package</h3>
@@ -132,9 +184,17 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
               </div>
 
               <div className="package-action">
-                <Link href="/booking?package={packageSlug}&type=walkin" className="btn-book-package secondary">
-                  Book Walk-in Package
-                </Link>
+                {(() => {
+                  const walkin = packageData.walkin;
+                  const pref = walkin.find(o => o.type === 'look' && o.looks === 2)
+                    || walkin.find(o => o.type === 'look');
+                  const looksParam = pref && pref.looks ? `&looks=${pref.looks}` : '';
+                  return (
+                    <Link href={`/booking?package=${packageSlug}&type=walkin${looksParam}`} className="btn-book-package secondary">
+                      Book Walk-in Package
+                    </Link>
+                  );
+                })()}
               </div>
             </div>
           </div>
@@ -189,6 +249,20 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
         .package-card:hover {
           transform: translateY(-5px);
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .package-card.is-clickable { cursor: pointer; position: relative; }
+        .package-card.is-clickable::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 12px;
+          box-shadow: 0 0 0 0 rgba(183,196,53,0.25);
+          transition: box-shadow 0.2s ease;
+          pointer-events: none;
+        }
+        .package-card.is-clickable:hover::after {
+          box-shadow: 0 0 0 3px rgba(183,196,53,0.25);
         }
 
         .classic-package {
@@ -339,6 +413,10 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
           background: #a0b030;
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(var(--tp-theme-rgb), 0.3);
+        }
+
+        .package-card:hover .btn-book-package {
+          transform: translateY(-1px);
         }
 
         .btn-book-package.secondary {

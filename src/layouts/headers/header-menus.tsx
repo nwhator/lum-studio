@@ -1,9 +1,9 @@
 import React, { CSSProperties } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import menu_data from "@/data/menu-data";
 
-const imgStyle:CSSProperties = { width: "100%", height: "235px", objectFit: "cover" };
+// Removed heavy images from header mega menu for cleaner look on transparent header
+// const imgStyle:CSSProperties = { width: "100%", height: "235px", objectFit: "cover" };
 const HeaderMenus = () => {
   return (
     <ul>
@@ -82,15 +82,7 @@ const HeaderMenus = () => {
                   <div className="col-xl-4">
                     <div className="tp-megamenu-shop-style">
                       <div className="tp-shop-banner-left p-relative">
-                        <div className="tp-shop-banner-thumb">
-                          <Image
-                            src="/assets/img/menu/shop-menu/banner-1.jpg"
-                            alt="image"
-                            width={343}
-                            height={371}
-                            style={imgStyle}
-                          />
-                        </div>
+                        <div className="tp-shop-banner-thumb" />
                         <div className="tp-shop-banner-content">
                           <h4 className="tp-shop-banner-title">Sale</h4>
                           <span>20% Off all Shoes</span>
@@ -108,15 +100,7 @@ const HeaderMenus = () => {
             <div className="tp-submenu submenu tp-mega-menu">
               <div className="tp-menu-fullwidth">
                 <div className="tp-megamenu-portfolio p-relative">
-                  <div className="tp-megamenu-portfolio-banner">
-                    <Image
-                      src="/assets/img/menu/portfolio-menu/portfolio.png"
-                      alt="image"
-                      width={438}
-                      height={480}
-                      style={imgStyle}
-                    />
-                  </div>
+                  <div className="tp-megamenu-portfolio-banner" />
                   <div className="row gx-50">
                     <div className="col-xxl-9 col-xl-10">
                       <div className="tp-megamenu-list-box">

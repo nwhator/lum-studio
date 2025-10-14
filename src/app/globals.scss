@@ -152,6 +152,61 @@ img {
 }
 
 img::selection {
+
+/* HeaderOne visual adjustments */
+#header-sticky.tp-header-area {
+  background: rgba(245,245,247,0.98);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-bottom: 1px solid #eaeaea;
+}
+
+.tp-header-area .tp-main-menu-content > ul > li > a {
+  color: #111 !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.tp-header-area .tp-main-menu-content > ul > li > a:hover {
+  transform: translateY(-2px);
+  color: #000 !important;
+}
+
+/* Ensure transparent headers keep text visible */
+.tp-transparent .tp-main-menu-content > ul > li > a,
+.tp-transparent .tp-header-bar,
+.tp-transparent .tp-header-logo {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Transparent header dropdown fix: readable on white bg */
+.tp-header-area .tp-submenu.submenu {
+  background: #ffffff;
+  color: #111;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.tp-header-area .tp-submenu.submenu a {
+  color: #111;
+}
+.tp-header-area .tp-submenu.submenu a:hover {
+  color: #000;
+}
+
+/* Reduce dropdown height and add scroll for better UX */
+.tp-header-area .tp-submenu.submenu .tp-megamenu-wrapper,
+.tp-header-area .tp-submenu.submenu .tp-menu-fullwidth {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Add subtle demarcation for both headers */
+#header-sticky.tp-header-area,
+.tp-header-transparent#header-sticky,
+.tp-header-area.tp-header-transparent {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
   background: transparent;
 }
 
