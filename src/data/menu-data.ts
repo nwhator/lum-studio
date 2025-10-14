@@ -5,32 +5,26 @@ const galleryCategories = [
   {
     title: "Baby Shoot",
     link: "/gallery#cat1",
-    img: "/assets/img/inner-project/portfolio-col-2/port-3.jpg",
   },
   {
     title: "Wedding Shoot",
     link: "/gallery#cat2",
-    img: "/assets/img/inner-project/portfolio-col-2/port-6.jpg",
   },
   {
     title: "Call to Bar",
     link: "/gallery#cat3",
-    img: "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
   },
   {
     title: "Convocation",
     link: "/gallery#cat4",
-    img: "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
   },
   {
     title: "Family Portraits",
     link: "/gallery#cat5",
-    img: "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
   },
   {
     title: "Maternity Portrait",
     link: "/gallery#cat6",
-    img: "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
   },
 ];
 

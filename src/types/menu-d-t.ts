@@ -5,7 +5,6 @@ export interface IMenuDT {
   home_menus?: {
     title: string;
     link: string;
-    img: string;
   }[];
   pages_mega_menu?: {
     first: {

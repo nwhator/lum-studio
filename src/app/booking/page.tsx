@@ -71,9 +71,8 @@ function BookingContent() {
 
   // Time slots (30-minute intervals from 9:00 AM to 5:30 PM)
   const timeSlots = [
-    "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-    "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
-    "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM"
+    "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", 
+    "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM",
   ];
 
   // Check if a time slot can be selected (is it valid/clickable?)
@@ -89,7 +88,7 @@ function BookingContent() {
     }
     
     // If already at max 4 slots, can't add more
-    if (selectedTimeSlots.length >= 4) {
+    if (selectedTimeSlots.length >= 1) {
       return false;
     }
     
@@ -117,7 +116,7 @@ function BookingContent() {
         setSelectedTimeSlots([slot]);
       } else if (selectedTimeSlots.length >= 4) {
         // Already at max
-        alert('Maximum 4 consecutive time slots (2 hours) allowed');
+        alert('1 Time Slot Allowed');
       } else {
         // Check if the new slot is consecutive with existing slots
         const currentIndices = selectedTimeSlots.map(s => timeSlots.indexOf(s)).sort((a, b) => a - b);
@@ -530,7 +529,7 @@ www.thelumstudios.com
                       <label className="form-label">
                         Select Time Slots * 
                         <span className="time-slot-info">
-                          (Select up to 4 consecutive 30-minute slots, max 2 hours)
+                          (Select 1-hour slot)
                         </span>
                       </label>
                       <div className="time-slots-grid">
@@ -553,19 +552,32 @@ www.thelumstudios.com
                       </div>
                       {selectedTimeSlots.length > 0 && (
                         <div className="selected-time-summary">
-                          <strong>Selected:</strong> {selectedTimeSlots[0]} - {selectedTimeSlots[selectedTimeSlots.length - 1]} 
-                          ({selectedTimeSlots.length * 30} minutes)
-                        </div>
-                      )}
-                      {selectedTimeSlots.length === 0 && (
-                        <small className="form-text">
-                          💡 Tip: Click a starting time. Only adjacent slots will remain available to extend your session.
-                        </small>
-                      )}
+                          {(() => {
+                            const startTime = selectedTimeSlots[0];
+                            const start = new Date(`1970-01-01T${startTime}`);
+                            const end = new Date(start.getTime() + 60 * 60 * 1000); // add 1 hour
+
+                            const formatTime = (date: Date): string =>
+                              date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+
+                            return (
+                              <strong>
+                                Selected: {formatTime(start)} - {formatTime(end)} (60 minutes)
+                              </strong>
+                            );
+                          })()}
+                      </div>
+                    )}
+
+                    {selectedTimeSlots.length === 0 && (
+                      <small className="form-text">
+                        💡 Tip: Click a starting time. Only adjacent slots will remain available to extend your session.
+                      </small>
+                    )}
                     </div>
 
                     <div className="form-group">
-                      <label className="form-label">Additional Notes</label>
+                      <label className="form-label">Additional Notes (Optional)</label>
                       <textarea
                         name="notes"
                         className="form-control"

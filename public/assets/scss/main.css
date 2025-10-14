@@ -33482,6 +33482,10 @@ body.tp-magic-cursor #magic-cursor {
   text-transform: uppercase;
   color: var(--tp-common-black);
 }
+.tp-header-menu > nav > ul > li > a:hover {
+  color: var(--tp-theme-1);
+  transform: translateY(-5%);
+}
 .tp-header-bar {
   line-height: 0;
 }
