@@ -31,6 +31,17 @@ export default function HeroBannerFour() {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        /* Allow hero background shapes to bleed on mobile */
+        @media (max-width: 768px) {
+          .tp-hero-3-area {
+            overflow: visible !important;
+          }
+          .tp-hero-3-content-box {
+            margin-bottom: -40px; /* pull into next section slightly */
+          }
+        }
+      `}</style>
     </div>
   );
 }

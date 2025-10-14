@@ -142,6 +142,7 @@ export default function GalleryOne() {
           .gallery-image-wrapper {
             width: 42vw;
             height: 280px;
+            border-radius: 10px;
           }
           
           .tp-gallery-item {
@@ -149,11 +150,11 @@ export default function GalleryOne() {
           }
           
           .gallery-image-wrapper {
-            border-radius: 6px;
+            border-radius: 10px;
           }
           
           .gallery-hover-overlay {
-            border-radius: 6px;
+            border-radius: 10px;
           }
           
           .gallery-image-wrapper:hover .gallery-responsive-img {

@@ -216,6 +216,12 @@ img::selection {
   overflow-y: auto;
 }
 
+/* Cap dropdown container padding */
+.tp-header-area .tp-submenu.submenu {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 /* Add subtle demarcation for both headers */
 #header-sticky.tp-header-area,
 .tp-header-transparent#header-sticky,

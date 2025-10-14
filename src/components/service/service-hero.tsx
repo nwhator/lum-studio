@@ -7,13 +7,22 @@ export default function ServiceHero() {
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="sv-hero-title-box text-center">
-              <h4 className="sv-hero-title tp-char-animation">
+              <h4 className="sv-hero-title tp-char-animation no-mobile-anim">
                 Capturing Moments, <br /> Creating Memories.
               </h4>
             </div>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @media (hover: none), (pointer: coarse) {
+          .no-mobile-anim {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
