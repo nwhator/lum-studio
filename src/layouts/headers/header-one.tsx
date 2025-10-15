@@ -67,7 +67,7 @@ const HeaderOne = () => {
       </header>
       <style jsx>{`
  .tp-offcanvas-open-btn {
-    background: transparent !important;
+    background: #000000 !important;
     border: none !important;
     padding: 8px !important;
     cursor: pointer !important;
@@ -83,7 +83,7 @@ const HeaderOne = () => {
   .tp-offcanvas-open-btn span {
     width: 100% !important;
     height: 3px !important;
-    background: #111 !important;
+    background: #ffffff !important;
     border-radius: 2px !important;
     transition: all 0.3s ease !important;
     opacity: 1 !important;
