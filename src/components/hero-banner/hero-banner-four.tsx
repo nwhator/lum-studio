@@ -44,21 +44,21 @@ export default function HeroBannerFour() {
         </div>
       </div>
       <style jsx>{`
-        /* Hero area with minimal design */
+        /* Hero area with minimal design - overflow visible */
         .tp-hero-3-area {
-          overflow: hidden !important;
+          overflow: visible !important;
           position: relative;
           z-index: 1;
           background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
         }
         
-        /* Beautiful Gradient Mesh Background */
+        /* Beautiful Gradient Mesh Background - extends beyond hero */
         .hero-gradient-mesh {
           position: absolute;
-          top: 0;
+          top: -200px;
           left: 0;
           width: 100%;
-          height: 100%;
+          height: calc(100% + 400px);
           background: 
             radial-gradient(at 20% 30%, rgba(183, 196, 53, 0.15) 0px, transparent 50%),
             radial-gradient(at 80% 20%, rgba(102, 126, 234, 0.15) 0px, transparent 50%),
@@ -67,6 +67,7 @@ export default function HeroBannerFour() {
             radial-gradient(at 10% 90%, rgba(183, 196, 53, 0.1) 0px, transparent 50%);
           animation: meshMove 20s ease-in-out infinite;
           z-index: 0;
+          pointer-events: none;
         }
 
         @keyframes meshMove {
@@ -80,13 +81,13 @@ export default function HeroBannerFour() {
           }
         }
 
-        /* Minimal Floating Elements Container */
+        /* Minimal Floating Elements Container - extends beyond hero */
         .hero-floating-elements {
           position: absolute;
-          top: 0;
+          top: -200px;
           left: 0;
           width: 100%;
-          height: 100%;
+          height: calc(100% + 400px);
           z-index: 1;
           pointer-events: none;
         }

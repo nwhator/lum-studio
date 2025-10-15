@@ -17,17 +17,19 @@ const HeaderOne = () => {
 
   return (
     <>
-      <header className="tp-header-height" ref={headerRef}>
+      <header className="tp-header-height" ref={headerRef} style={{ position: 'relative', zIndex: 999 }}>
         <div
           id="header-sticky"
           className={`tp-header-area tp-header-mob-space z-index-9 ${sticky ? "header-sticky" : ""}`}
           style={{
             paddingLeft: "50px",
             paddingRight: "50px",
-            background: "rgba(245,245,247,0.98)", // light grey
+            background: "rgba(245,245,247,0.85)", // More transparent to show gradient through
             boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
-            backdropFilter: "blur(2px)",
-            borderBottom: "1px solid #eaeaea",
+            backdropFilter: "blur(8px)", // Increased blur for better effect with gradient
+            borderBottom: "1px solid rgba(234,234,234,0.5)",
+            position: 'relative',
+            zIndex: 999,
           }}
         >
           <div className="container-fluid">
@@ -96,27 +98,16 @@ const HeaderOne = () => {
           background: #B7C435 !important;
         }
         
+        /* Always show hamburger on all screen sizes */
         .d-xl-none {
           display: flex !important;
         }
-        
-        @media (min-width: 1200px) {
-          .d-xl-none {
-            display: none !important;
-          }
-        }
 
-        /* Ensure button is always visible on mobile */
-        @media (max-width: 1199px) {
-          .tp-offcanvas-open-btn {
-            display: flex !important;
-          }
-          
-          .tp-header-bar {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: flex-end !important;
-          }
+        /* Ensure button is always visible */
+        .tp-header-bar {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-end !important;
         }
       `}</style>
       {/* off canvas */}

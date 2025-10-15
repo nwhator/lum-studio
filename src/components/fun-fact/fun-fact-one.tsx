@@ -6,7 +6,7 @@ const counter_data = [
   {
     id: 1,
     title: "PROJECTS COMPLETED",
-    count: 6000,
+    count: 6500,
     text: "+",
   },
   {

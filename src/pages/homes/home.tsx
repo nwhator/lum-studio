@@ -110,9 +110,9 @@ const HomeLum = () => {
       <HeaderOne />
       {/* header area end */}
 
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <main>
+      <div id="smooth-wrapper" style={{ overflow: 'visible' }}>
+        <div id="smooth-content" style={{ overflow: 'visible' }}>
+          <main style={{ overflow: 'visible', position: 'relative' }}>
 
             {/* hero area start */}
             <HeroBannerFour />
