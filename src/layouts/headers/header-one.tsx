@@ -51,7 +51,7 @@ const HeaderOne = () => {
               <div className="col-xl-2 col-lg col-6">
                 <div className="tp-header-bar text-end">
                   <button
-                    className="tp-offcanvas-open-btn d-xl-none"
+                    className="tp-offcanvas-open-btn"
                     onClick={() => setOpenOffCanvas(true)}
                     aria-label="Open menu"
                   >
@@ -67,6 +67,7 @@ const HeaderOne = () => {
       </header>
       <style jsx>{`
         .tp-offcanvas-open-btn {
+          background: transparent !important;
           border: none !important;
           padding: 8px !important;
           cursor: pointer !important;
