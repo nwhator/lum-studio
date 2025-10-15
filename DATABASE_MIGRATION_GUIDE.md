@@ -48,7 +48,7 @@
 ### 1.1 Sign Up (2 minutes)
 
 1. **Go to MongoDB Atlas**:
-   - Visit: https://www.mongodb.com/cloud/atlas/register
+   - Visit: <https://www.mongodb.com/cloud/atlas/register>
 
 2. **Sign Up**:
    - Click **"Try Free"** or **"Start Free"**
@@ -129,10 +129,12 @@
 4. **Click "Create User"**
 
 5. **Save Your Credentials**:
+
    ```
    Username: lum_admin
    Password: [your-password-here]
    ```
+
    ⚠️ **Save this now! You cannot view it again later!**
 
 ---
@@ -183,13 +185,15 @@ MongoDB Atlas needs to know which IPs can connect to your database.
 
 4. **Copy Connection String**:
    - You'll see something like:
+
    ```
    mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
    ```
 
 5. **Modify the Connection String**:
-   
+
    **Original**:
+
    ```
    mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
    ```
@@ -200,6 +204,7 @@ MongoDB Atlas needs to know which IPs can connect to your database.
    - Add `/lum_studios` before the `?` (database name)
 
    **Final Result**:
+
    ```
    mongodb+srv://lum_admin:YourActualPassword123@cluster0.xxxxx.mongodb.net/lum_studios?retryWrites=true&w=majority
    ```
@@ -223,6 +228,7 @@ npm install mongodb
 This installs the official MongoDB Node.js driver.
 
 **Expected output**:
+
 ```
 added 1 package, and audited X packages in Xs
 ```
@@ -316,6 +322,7 @@ export async function createIndexes() {
 ```
 
 **What this does**:
+
 - ✅ Connects to MongoDB Atlas
 - ✅ Reuses connection in development (faster)
 - ✅ Provides type-safe collection access
@@ -626,6 +633,7 @@ NEXT_PUBLIC_SITE_URL=https://thelumstudios.com
 ```
 
 **⚠️ IMPORTANT**:
+
 - Replace the `MONGODB_URI` value with YOUR actual connection string
 - Never commit `.env.local` to GitHub (it's already in `.gitignore`)
 - Keep your password secure!
@@ -654,6 +662,7 @@ npm run dev
 ```
 
 Wait for:
+
 ```
 ✓ Ready in Xs
 ○ Local:   http://localhost:3000
@@ -662,7 +671,7 @@ Wait for:
 ### 10.2 Test Booking Creation
 
 1. **Open your browser**:
-   - Go to: http://localhost:3000/booking
+   - Go to: <http://localhost:3000/booking>
 
 2. **Fill out the booking form**:
    - Select a package
@@ -689,7 +698,7 @@ Wait for:
 ### 10.3 Test Admin Dashboard
 
 1. **Login**:
-   - Go to: http://localhost:3000/admin/login
+   - Go to: <http://localhost:3000/admin/login>
    - Username: `admin`
    - Password: `Lum@Studio`
 
@@ -724,11 +733,13 @@ Wait for:
 ### 10.5 Test Persistence
 
 1. **Stop the server**:
+
    ```bash
    # Press Ctrl+C in terminal
    ```
 
 2. **Start again**:
+
    ```bash
    npm run dev
    ```
@@ -749,6 +760,7 @@ Wait for:
 **Problem**: Wrong username or password
 
 **Solution**:
+
 1. Go to MongoDB Atlas → Security → Database Access
 2. Verify your username (`lum_admin`)
 3. Reset password if needed:
@@ -764,6 +776,7 @@ Wait for:
 **Problem**: IP not whitelisted or network issue
 
 **Solution**:
+
 1. Go to MongoDB Atlas → Security → Network Access
 2. Check if your current IP is listed
 3. Add "Allow Access from Anywhere" (0.0.0.0/0) for development
@@ -777,6 +790,7 @@ Wait for:
 **Problem**: Environment variable not set
 
 **Solution**:
+
 1. Check `.env.local` exists in project root
 2. Verify `MONGODB_URI=` line is present
 3. Make sure connection string is in quotes
@@ -789,6 +803,7 @@ Wait for:
 **Bookings don't show in admin dashboard**
 
 **Solutions**:
+
 1. **Check MongoDB Atlas**:
    - Go to Database → Browse Collections
    - Verify `lum_studios` database exists
@@ -800,7 +815,7 @@ Wait for:
    - Check terminal for server errors
 
 3. **Verify API is working**:
-   - Go to: http://localhost:3000/api/bookings
+   - Go to: <http://localhost:3000/api/bookings>
    - Should see JSON response with bookings array
 
 ---
@@ -810,7 +825,9 @@ Wait for:
 **Database feels slow**
 
 **Solutions**:
+
 1. **Indexes not created**: Run this once:
+
    ```bash
    # In browser console or test file
    await createIndexes()
@@ -833,6 +850,7 @@ Wait for:
 **Problem**: MongoDB stores data as-is, no schema enforcement
 
 **Solution**:
+
 - Our code uses `timeSlots` (camelCase) consistently
 - Check your booking creation code
 - Verify the field name matches exactly
@@ -874,7 +892,7 @@ After completing all steps, verify:
 
 ## Next Steps
 
-### For Production Deployment:
+### For Production Deployment
 
 1. **Update Network Access**:
    - Remove "0.0.0.0/0" (allow anywhere)
@@ -900,14 +918,15 @@ After completing all steps, verify:
 
 ## Additional Resources
 
-- 📖 **MongoDB Atlas Docs**: https://docs.atlas.mongodb.com/
-- 💡 **MongoDB Node.js Driver**: https://mongodb.github.io/node-mongodb-native/
-- 🎓 **MongoDB University**: https://university.mongodb.com/ (free courses)
-- 💬 **MongoDB Community**: https://community.mongodb.com/
+- 📖 **MongoDB Atlas Docs**: <https://docs.atlas.mongodb.com/>
+- 💡 **MongoDB Node.js Driver**: <https://mongodb.github.io/node-mongodb-native/>
+- 🎓 **MongoDB University**: <https://university.mongodb.com/> (free courses)
+- 💬 **MongoDB Community**: <https://community.mongodb.com/>
 
 ---
 
-**Need Help?** 
+**Need Help?**
+
 - Check error messages carefully - they usually tell you what's wrong
 - Review each step to make sure nothing was skipped
 - MongoDB Atlas has excellent documentation and support
@@ -921,7 +940,7 @@ After completing all steps, verify:
 ### Step 1: Create Database on Vercel
 
 1. **Go to Vercel Dashboard**:
-   - Visit: https://vercel.com/dashboard
+   - Visit: <https://vercel.com/dashboard>
    - Select your project (or create one)
 
 2. **Create Postgres Database**:
@@ -934,11 +953,13 @@ After completing all steps, verify:
 3. **Get Connection String**:
    - After creation, go to **Settings** → **Environment Variables**
    - Vercel automatically adds these variables:
+
      ```
      POSTGRES_URL
      POSTGRES_PRISMA_URL
      POSTGRES_URL_NON_POOLING
      ```
+
    - Copy `POSTGRES_URL` for local development
 
 ### Step 2: Install Dependencies
@@ -1033,6 +1054,7 @@ initDatabase();
 ```
 
 **Run it once**:
+
 ```bash
 # Add to .env.local first:
 POSTGRES_URL="your-connection-string-from-vercel"
@@ -1327,11 +1349,13 @@ export async function DELETE(
 ### Step 6: Add to Environment Variables
 
 **Local Development** (`.env.local`):
+
 ```bash
 POSTGRES_URL="postgres://user:pass@host/db"
 ```
 
 **Production** (Vercel Dashboard):
+
 1. Go to project → Settings → Environment Variables
 2. Vercel should auto-add `POSTGRES_URL` after creating database
 3. If not, add it manually
@@ -1365,7 +1389,7 @@ npm run dev
 ### Step 1: Create Supabase Project
 
 1. **Sign Up**:
-   - Go to: https://supabase.com
+   - Go to: <https://supabase.com>
    - Click "Start your project"
    - Sign up with GitHub
 
@@ -1654,6 +1678,7 @@ export async function POST(request: NextRequest) {
 ### Step 6: Environment Variables
 
 **`.env.local`**:
+
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
@@ -1669,7 +1694,7 @@ SUPABASE_SERVICE_KEY=your-service-role-key
 ### Step 1: Create MongoDB Cluster
 
 1. **Sign Up**:
-   - Go to: https://www.mongodb.com/cloud/atlas
+   - Go to: <https://www.mongodb.com/cloud/atlas>
    - Sign up (free)
 
 2. **Create Cluster**:
@@ -1850,6 +1875,7 @@ export async function POST(request: NextRequest) {
 ### Step 5: Environment Variables
 
 **`.env.local`**:
+
 ```bash
 MONGODB_URI="mongodb+srv://user:password@cluster.mongodb.net/lum_studios?retryWrites=true&w=majority"
 ```
@@ -1898,6 +1924,7 @@ MONGODB_URI="mongodb+srv://user:password@cluster.mongodb.net/lum_studios?retryWr
 ### Connection Issues
 
 **Error: "Failed to connect to database"**
+
 ```bash
 # Check:
 1. Is POSTGRES_URL/MONGODB_URI in .env.local?
@@ -1909,6 +1936,7 @@ MONGODB_URI="mongodb+srv://user:password@cluster.mongodb.net/lum_studios?retryWr
 ### Schema Issues
 
 **Error: "relation 'bookings' does not exist"**
+
 ```bash
 # Run init script:
 npx tsx src/scripts/init-db.ts
@@ -1919,6 +1947,7 @@ npx tsx src/scripts/init-db.ts
 ### Type Errors
 
 **Error: "Property 'time_slots' does not exist"**
+
 ```bash
 # Database uses snake_case (time_slots)
 # Frontend uses camelCase (timeSlots)
@@ -1928,9 +1957,10 @@ timeSlots: row.time_slots
 
 ---
 
-## 🎉 Success!
+## 🎉 Success
 
 After migration, you'll have:
+
 - ✅ Persistent storage (survives server restarts)
 - ✅ Scalable database (handles many bookings)
 - ✅ Production-ready (can deploy to Vercel)

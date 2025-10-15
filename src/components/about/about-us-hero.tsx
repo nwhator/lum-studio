@@ -13,9 +13,11 @@ export default function AboutUsHero() {
     });
   };
   return (
-    <div className="ab-inner-hero-area ab-inner-hero-bg p-relative">
-      {/* Optimized Background Image with Next.js Image */}
-      <div className="ab-hero-bg-wrapper">
+    <div className="ab-inner-hero-area ab-inner-hero-hybrid p-relative">
+      {/* Hybrid Design: Image on Desktop, Gradient on Mobile */}
+      
+      {/* Desktop Background Image (hidden on mobile) */}
+      <div className="ab-hero-bg-wrapper desktop-only">
         <Image
           src="/assets/img/inner-about/hero/hero-1.jpg"
           alt="LUM Studios About Hero"
@@ -27,6 +29,13 @@ export default function AboutUsHero() {
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
+      </div>
+      
+      {/* Mobile Gradient Background (hidden on desktop) */}
+      <div className="ab-hero-gradient-bg mobile-only">
+        <div className="gradient-orb gradient-orb-1"></div>
+        <div className="gradient-orb gradient-orb-2"></div>
+        <div className="gradient-orb gradient-orb-3"></div>
       </div>
       
       <div className="breadcurmb-site d-none">

@@ -595,6 +595,171 @@
             z-index: -1;
         }
     }
+    
+    // Hybrid Hero: Image on Desktop, Gradient on Mobile (Best of Both Worlds)
+    &-hybrid {
+        padding-top: 290px;
+        padding-bottom: 110px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        
+        @media #{$xl}{
+            padding-top: 210px;
+        }
+        @media #{$lg}{
+            padding-top: 200px;
+        }
+        @media #{$md,$xs}{
+            padding-top: 160px;
+            padding-bottom: 80px;
+        }
+        
+        // Desktop: Background Image
+        .ab-hero-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            
+            // Show on desktop
+            @media (min-width: 768px) {
+                display: block;
+            }
+            
+            // Hide on mobile/tablet
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+        
+        // Desktop: Dark overlay for text readability
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 0;
+            pointer-events: none;
+            
+            // Show on desktop
+            @media (min-width: 768px) {
+                display: block;
+            }
+            
+            // Hide on mobile
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+        
+        // Mobile: Animated Gradient Background
+        .ab-hero-gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, 
+                #667eea 0%, 
+                #764ba2 25%, 
+                #f093fb 50%, 
+                #4facfe 75%, 
+                #00f2fe 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 0.15;
+            
+            // Hide on desktop
+            @media (min-width: 768px) {
+                display: none;
+            }
+            
+            // Show on mobile/tablet
+            @media (max-width: 767px) {
+                display: block;
+            }
+            
+            // Mobile gradient base
+            @media (max-width: 767px) {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+                    z-index: -2;
+                }
+            }
+        }
+        
+        // Floating Gradient Orbs (Mobile Only)
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+            
+            // Hide on desktop
+            @media (min-width: 768px) {
+                display: none;
+            }
+            
+            // Show on mobile
+            @media (max-width: 767px) {
+                display: block;
+            }
+            
+            &-1 {
+                width: 250px;
+                height: 250px;
+                background: radial-gradient(circle, #B7C435 0%, transparent 70%);
+                top: -10%;
+                left: -10%;
+                animation-delay: 0s;
+            }
+            
+            &-2 {
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle, #667eea 0%, transparent 70%);
+                top: 30%;
+                right: -10%;
+                animation-delay: 5s;
+            }
+            
+            &-3 {
+                width: 180px;
+                height: 180px;
+                background: radial-gradient(circle, #f093fb 0%, transparent 70%);
+                bottom: -10%;
+                left: 30%;
+                animation-delay: 10s;
+            }
+        }
+        
+        // Ensure content stays above background
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    }
     &-subtitle{
         font-size: 15px;
         font-weight: 600;
@@ -1199,5 +1364,30 @@
     }
     & .ab-brand-slide-wrap{
         overflow: visible;
+    }
+}
+
+// Keyframe Animations for About Hero
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
     }
 }

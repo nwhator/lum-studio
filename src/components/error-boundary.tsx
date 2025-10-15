@@ -57,6 +57,15 @@ class ErrorBoundary extends Component<Props, State> {
           timestamp: new Date().toISOString(),
           url: window.location.href,
           pathname: window.location.pathname,
+          viewport: {
+            width: window.innerWidth,
+            height: window.innerHeight
+          },
+          memory: (performance as any).memory ? {
+            used: (performance as any).memory.usedJSHeapSize,
+            total: (performance as any).memory.totalJSHeapSize,
+            limit: (performance as any).memory.jsHeapSizeLimit
+          } : 'not available'
         };
         
         console.error("=== ERROR DETAILS ===");
@@ -72,6 +81,15 @@ class ErrorBoundary extends Component<Props, State> {
             page_url: window.location.href,
           });
         }
+
+        // Store error in sessionStorage for remote debugging
+        try {
+          const existingErrors = JSON.parse(sessionStorage.getItem('app_errors') || '[]');
+          existingErrors.push(errorDetails);
+          sessionStorage.setItem('app_errors', JSON.stringify(existingErrors.slice(-5))); // Keep last 5 errors
+        } catch (storageError) {
+          console.warn('Could not store error in sessionStorage:', storageError);
+        }
       } catch (logError) {
         console.error("Failed to log error:", logError);
       }
@@ -86,7 +104,8 @@ class ErrorBoundary extends Component<Props, State> {
 
       // Show detailed error in development or on mobile for debugging
       const isDev = process.env.NODE_ENV === 'development';
-      const showDetails = isDev || /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const isIPhone = /iPhone|iPod/.test(navigator.userAgent);
+      const showDetails = isDev || isIPhone || /Android|webOS|iPad|iPod/i.test(navigator.userAgent);
 
       return (
         <div style={{

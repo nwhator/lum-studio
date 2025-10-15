@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 // Lazy load heavy components
 const Wrapper = dynamic(() => import("@/layouts/wrapper"), { ssr: true });
-const HeaderTransparent = dynamic(() => import("@/layouts/headers/header-transparent"), { ssr: true });
+const HeaderOne = dynamic(() => import("@/layouts/headers/header-one"), { ssr: true });
 const FooterTwo = dynamic(() => import("@/layouts/footers/footer-two"), { ssr: true });
 
 // Critical components loaded immediately
@@ -15,6 +15,7 @@ import ProjectFour from "@/components/project/project-four";
 
 const HomeLum = () => {
   const [animationsLoaded, setAnimationsLoaded] = useState(false);
+  const [isIOSSafari, setIsIOSSafari] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -22,11 +23,14 @@ const HomeLum = () => {
     // Detect iOS Safari - skip heavy animations to prevent crashes
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    const isIOSSafari = isIOS && isSafari;
+    const isIOSSafariBrowser = isIOS && isSafari;
     
-    if (isIOSSafari) {
-      console.log('iOS Safari detected - using lightweight mode');
+    setIsIOSSafari(isIOSSafariBrowser);
+    
+    if (isIOSSafariBrowser) {
+      console.log('iOS Safari detected - using lightweight mode, skipping heavy animations');
       setAnimationsLoaded(true);
+      // Don't add smooth scroll class on iOS to prevent crashes
       return;
     }
 
@@ -37,6 +41,8 @@ const HomeLum = () => {
       if (typeof window === 'undefined') return;
       
       try {
+        console.log('Loading animations...');
+        
         // Add timeout protection to prevent hanging
         const loadWithTimeout = (promise: Promise<any>, timeout = 5000) => {
           return Promise.race([
@@ -58,6 +64,8 @@ const HomeLum = () => {
           loadWithTimeout(import('gsap/SplitText')),
         ]);
 
+        console.log('GSAP modules loaded successfully');
+
         // Register plugins (NO ScrollSmoother)
         gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -67,6 +75,8 @@ const HomeLum = () => {
         const { ctaAnimation } = await loadWithTimeout(import('@/utils/cta-anim'));
         const { textInvert } = await loadWithTimeout(import('@/utils/text-invert'));
 
+        console.log('Animation modules loaded, initializing...');
+
         fadeAnimation();
         revelAnimationOne();
         projectThreeAnimation();
@@ -74,6 +84,7 @@ const HomeLum = () => {
         textInvert();
 
         setAnimationsLoaded(true);
+        console.log('✅ Animations initialized successfully');
       } catch (error) {
         console.error('Error loading animations (site will work without them):', error);
         setAnimationsLoaded(true); // Site works without animations
@@ -82,7 +93,7 @@ const HomeLum = () => {
 
     // Use requestIdleCallback if available, otherwise setTimeout
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => loadAnimations());
+      requestIdleCallback(() => loadAnimations(), { timeout: 2000 });
     } else {
       setTimeout(() => loadAnimations(), 500);
     }
@@ -96,7 +107,7 @@ const HomeLum = () => {
     <Wrapper>
 
       {/* header area start */}
-      <HeaderTransparent />
+      <HeaderOne />
       {/* header area end */}
 
       <div id="smooth-wrapper">

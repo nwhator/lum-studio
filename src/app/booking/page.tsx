@@ -2,7 +2,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Wrapper from "@/layouts/wrapper";
-import HeaderTransparent from "@/layouts/headers/header-transparent";
+import HeaderOne from "@/layouts/headers/header-one";
 import FooterTwo from "@/layouts/footers/footer-two";
 import { PACKAGE_DATA, formatPrice, getPackageBySlug } from "@/data/package-pricing";
 import "./booking.scss";
@@ -379,7 +379,7 @@ www.thelumstudios.com
 
   return (
     <Wrapper>
-      <HeaderTransparent />
+      <HeaderOne />
       
       <div className="booking-page">
         {/* Hero Section */}

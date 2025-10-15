@@ -8,7 +8,7 @@ const social_data = [
   {
     id:2,
     icon:"fa-brands fa-instagram",
-    link:"https://www.instagram.com/lumphotographystudios/"
+    link:"https://instagram.com/lum_studios/"
   },
   {
     id:3,
