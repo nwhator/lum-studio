@@ -67,12 +67,28 @@ const HeaderTransparent = () => {
 
       <style jsx>{`
         .tp-header-area {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        .tp-header-area .container {
+          max-width: 100% !important;
           padding-left: 50px !important;
           padding-right: 50px !important;
         }
+
+        .tp-header-area .tp-header-logo {
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+        }
+
+        .tp-header-area .tp-header-bar {
+          padding-right: 0 !important;
+          margin-right: 0 !important;
+        }
         
         @media (max-width: 767px) {
-          .tp-header-area {
+          .tp-header-area .container {
             padding-left: 20px !important;
             padding-right: 20px !important;
           }
