@@ -11,10 +11,11 @@ const nextConfig = {
     formats: ['image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60, // 1 minute for development, will be cached by CDN in production
+    minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'inline',
     unoptimized: false,
+    quality: 85,
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,7 +35,7 @@ const nextConfig = {
   swcMinify: true,
   compress: true,
   poweredByHeader: false,
-  reactStrictMode: true,
+  reactStrictMode: false, // Disable strict mode to reduce hydration warnings in dev
   
   // Reduce build output
   compiler: {
