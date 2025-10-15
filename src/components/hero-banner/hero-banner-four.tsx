@@ -178,6 +178,37 @@ export default function HeroBannerFour() {
           position: relative;
           z-index: 2;
         }
+
+        /* Reduce hero content size on desktop by 10% */
+        .tp-hero-3-title {
+          font-size: calc(clamp(32px, 5vw, 80px) * 0.9) !important;
+          line-height: 1.2;
+        }
+
+        .tp-hero-3-category {
+          font-size: calc(clamp(16px, 2vw, 24px) * 0.9) !important;
+        }
+
+        .tp-btn-black-2 {
+          font-size: calc(16px * 0.9) !important;
+          padding: calc(18px * 0.9) calc(35px * 0.9) !important;
+        }
+
+        @media (max-width: 768px) {
+          /* Keep mobile sizes as they are */
+          .tp-hero-3-title {
+            font-size: clamp(28px, 8vw, 40px) !important;
+          }
+
+          .tp-hero-3-category {
+            font-size: clamp(14px, 4vw, 18px) !important;
+          }
+
+          .tp-btn-black-2 {
+            font-size: 14px !important;
+            padding: 16px 28px !important;
+          }
+        }
         
         /* Add top padding for spacing from header */
         .tp-hero-3-ptb {
