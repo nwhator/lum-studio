@@ -51,7 +51,7 @@ const HeaderOne = () => {
               <div className="col-xl-2 col-lg col-6">
                 <div className="tp-header-bar text-end">
                   <button
-                    className="tp-offcanvas-open-btn"
+                    className="tp-offcanvas-open-btn d-xl-none"
                     onClick={() => setOpenOffCanvas(true)}
                     aria-label="Open menu"
                   >
@@ -66,35 +66,33 @@ const HeaderOne = () => {
         </div>
       </header>
       <style jsx>{`
-        .tp-offcanvas-open-btn {
-          background: transparent !important;
-          border: none !important;
-          padding: 8px !important;
-          cursor: pointer !important;
-          display: flex !important;
-          flex-direction: column !important;
-          gap: 5px !important;
-          width: 32px !important;
-          height: 26px !important;
-          position: relative !important;
-          z-index: 999 !important;
-          margin: 0 !important;
-        }
-        
-        .tp-offcanvas-open-btn span {
-          display: block !important;
-          width: 100% !important;
-          height: 3px !important;
-          background: #000000 !important;
-          border-radius: 2px !important;
-          transition: all 0.3s ease !important;
-          opacity: 1 !important;
-          z-index: 1000 !important;
-        }
-        
-        .tp-offcanvas-open-btn:hover span {
-          background: #B7C435 !important;
-        }
+ .tp-offcanvas-open-btn {
+    background: transparent !important;
+    border: none !important;
+    padding: 8px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    width: 32px !important;
+    height: 26px !important;
+    position: relative !important;
+    z-index: 2000 !important;
+  }
+
+  .tp-offcanvas-open-btn span {
+    width: 100% !important;
+    height: 3px !important;
+    background: #111 !important;
+    border-radius: 2px !important;
+    transition: all 0.3s ease !important;
+    opacity: 1 !important;
+    z-index: 2001 !important;
+  }
+
+  .tp-offcanvas-open-btn:hover span {
+    background: #B7C435 !important;
+  }
         
         .d-xl-none {
           display: flex !important;
