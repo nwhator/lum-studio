@@ -40,11 +40,11 @@ export default function GalleryOne() {
 
   return (
     <div className="tp-gallery-area fix p-relative">
-      <div className="tp-gallery-shape-1">
+      <div className={`tp-gallery-shape-1 ${isMobile ? 'hide-on-mobile' : ''}`}>
         <Image className="img-1" src={shape_1} alt="shape" style={imgStyle} />
         <Image className="img-2" src={shape_d_1} alt="shape" style={imgStyle} />
       </div>
-      <div className="tp-gallery-shape-2">
+      <div className={`tp-gallery-shape-2 ${isMobile ? 'hide-on-mobile' : ''}`}>
         <Image className="img-1" src={shape_2} alt="shape" style={imgStyle} />
         <Image className="img-2" src={shape_d_2} alt="shape" style={imgStyle} />
       </div>
@@ -140,6 +140,10 @@ export default function GalleryOne() {
         }
         
         @media (max-width: 768px) {
+          .hide-on-mobile {
+            display: none !important;
+          }
+          
           .gallery-image-wrapper {
             width: 36vw;
             height: 220px;

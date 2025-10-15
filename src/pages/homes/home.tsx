@@ -17,6 +17,8 @@ const HomeLum = () => {
   const [animationsLoaded, setAnimationsLoaded] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     // Detect iOS Safari - skip heavy animations to prevent crashes
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);

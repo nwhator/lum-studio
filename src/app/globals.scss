@@ -371,16 +371,16 @@ button[type="submit"],
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
   padding: 4px 0;
   min-width: min-content;
   
   .filter-btn {
     background: transparent;
     border: 1px solid rgba(0, 0, 0, 0.12);
-    padding: 14px 28px;
+    padding: 12px 20px;
     border-radius: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     color: #333;
     cursor: pointer;

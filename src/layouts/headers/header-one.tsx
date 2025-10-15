@@ -54,21 +54,10 @@ const HeaderOne = () => {
                     className="tp-offcanvas-open-btn d-xl-none"
                     onClick={() => setOpenOffCanvas(true)}
                     aria-label="Open menu"
-                    style={{
-                      background: 'transparent',
-                      border: 'none',
-                      padding: '8px',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '5px',
-                      width: '30px',
-                      height: '24px'
-                    }}
                   >
-                    <span style={{ display: 'block', width: '100%', height: '3px', background: '#111', borderRadius: '2px' }}></span>
-                    <span style={{ display: 'block', width: '100%', height: '3px', background: '#111', borderRadius: '2px' }}></span>
-                    <span style={{ display: 'block', width: '100%', height: '3px', background: '#111', borderRadius: '2px' }}></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </button>
                 </div>
               </div>
@@ -76,6 +65,34 @@ const HeaderOne = () => {
           </div>
         </div>
       </header>
+      <style jsx>{`
+        .tp-offcanvas-open-btn {
+          background: transparent !important;
+          border: none !important;
+          padding: 8px !important;
+          cursor: pointer !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 5px !important;
+          width: 32px !important;
+          height: 26px !important;
+          position: relative !important;
+          z-index: 999 !important;
+        }
+        
+        .tp-offcanvas-open-btn span {
+          display: block !important;
+          width: 100% !important;
+          height: 3px !important;
+          background: #111 !important;
+          border-radius: 2px !important;
+          transition: all 0.3s ease !important;
+        }
+        
+        .tp-offcanvas-open-btn:hover span {
+          background: var(--tp-theme-1) !important;
+        }
+      `}</style>
       {/* off canvas */}
       <MobileOffcanvas openOffcanvas={openOffCanvas} setOpenOffcanvas={setOpenOffCanvas} />
       {/* off canvas */}

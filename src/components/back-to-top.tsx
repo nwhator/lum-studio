@@ -3,27 +3,33 @@ import React, { useEffect } from "react";
 
 export default function BackToTop() {
 
-  function backToTop() {
-    const result = document.querySelector(".back-to-top-wrapper");
-    if (result) {
-      document.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-          result.classList.add("back-to-top-btn-show");
-        } else {
-          result.classList.remove("back-to-top-btn-show");
-        }
-      });
-      result.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
-  }
   useEffect(() => {
-    backToTop();
+    if (typeof window === 'undefined') return;
+
+    const result = document.querySelector(".back-to-top-wrapper");
+    if (!result) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        result.classList.add("back-to-top-btn-show");
+      } else {
+        result.classList.remove("back-to-top-btn-show");
+      }
+    };
+
+    const handleClick = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    result.addEventListener("click", handleClick);
+
     return () => {
-      window.removeEventListener("scroll", backToTop);
-    }
-  },[])
+      document.removeEventListener("scroll", handleScroll);
+      result?.removeEventListener("click", handleClick);
+    };
+  }, []);
+
   return (
     <div className="back-to-top-wrapper">
       <button id="back_to_top" type="button" className="back-to-top-btn">

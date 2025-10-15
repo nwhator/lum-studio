@@ -6,8 +6,8 @@ export default function PageLoader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Minimum loading time - reduced to 1000ms for faster perceived performance
-    const minLoadTime = 1000;
+    // Minimum loading time - 1500ms for balance between speed and smooth UX
+    const minLoadTime = 1500;
     const startTime = Date.now();
 
     const handleLoad = () => {
@@ -23,12 +23,14 @@ export default function PageLoader() {
       }, remainingTime);
     };
 
-    // Check if page is already loaded
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
+    // Check if page is already loaded (only in browser)
+    if (typeof window !== 'undefined') {
+      if (document.readyState === "complete") {
+        handleLoad();
+      } else {
+        window.addEventListener("load", handleLoad);
+        return () => window.removeEventListener("load", handleLoad);
+      }
     }
   }, []);
 
