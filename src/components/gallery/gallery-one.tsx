@@ -69,7 +69,6 @@ export default function GalleryOne() {
                             loading={i < 3 ? "eager" : "lazy"}
                             priority={i < 3}
                             sizes="(max-width: 768px) 40vw, 300px"
-                            quality={85}
                           />
                           <div className="gallery-hover-overlay"></div>
                         </div>
