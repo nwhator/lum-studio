@@ -28,6 +28,8 @@ function BookingContent() {
   const [numEditedPictures, setNumEditedPictures] = useState(1); // For "per picture" pricing
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]); // Multiple time slots
+  const [bookedSlots, setBookedSlots] = useState<string[]>([]); // Booked time slots for selected date
+  const [loadingSlots, setLoadingSlots] = useState(false); // Loading state for fetching booked slots
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -93,20 +95,79 @@ function BookingContent() {
     setSelectedOptionIndex(0);
   }, [selectedPackageSlug, selectedPackageType, currentOptions?.length]);
 
+  // Fetch booked slots when date changes
+  useEffect(() => {
+    if (!selectedDate) {
+      setBookedSlots([]);
+      return;
+    }
+
+    const fetchBookedSlots = async () => {
+      setLoadingSlots(true);
+      try {
+        const response = await fetch(`/api/bookings?date=${selectedDate}`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setBookedSlots(data.bookedSlots || []);
+        } else {
+          console.error('Failed to fetch booked slots:', data.error);
+          setBookedSlots([]);
+        }
+      } catch (error) {
+        console.error('Error fetching booked slots:', error);
+        setBookedSlots([]);
+      } finally {
+        setLoadingSlots(false);
+      }
+    };
+
+    fetchBookedSlots();
+  }, [selectedDate]);
+
   // Calculate total price
   const totalPrice = currentOption 
     ? (currentOption.type === 'single' ? currentOption.price * numEditedPictures : currentOption.price)
     : 0;
 
-  // Time slots (30-minute intervals from 9:00 AM to 5:30 PM)
+  // Time slots (1-hour intervals from 9:00 AM to 5:00 PM)
   const timeSlots = [
     "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", 
     "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM",
   ];
 
+  // Get end time for a slot (1 hour later)
+  const getEndTime = (startTime: string): string => {
+    const index = timeSlots.indexOf(startTime);
+    if (index === -1 || index === timeSlots.length - 1) {
+      // If last slot, add 1 hour manually
+      const hour = parseInt(startTime.split(':')[0]);
+      const period = startTime.includes('PM') ? 'PM' : 'AM';
+      let nextHour = hour + 1;
+      let nextPeriod = period;
+      
+      if (nextHour === 12 && period === 'AM') {
+        nextPeriod = 'PM';
+      } else if (nextHour === 13) {
+        nextHour = 1;
+        nextPeriod = 'PM';
+      } else if (nextHour > 12) {
+        nextHour = nextHour - 12;
+      }
+      
+      return `${String(nextHour).padStart(2, '0')}:00 ${nextPeriod}`;
+    }
+    return timeSlots[index + 1];
+  };
+
   // Check if a time slot can be selected (is it valid/clickable?)
   const isSlotSelectable = (slot: string): boolean => {
-    // If no slots selected, all slots are available
+    // If slot is already booked, it cannot be selected
+    if (bookedSlots.includes(slot)) {
+      return false;
+    }
+    
+    // If no slots selected, all non-booked slots are available
     if (selectedTimeSlots.length === 0) {
       return true;
     }
@@ -116,7 +177,7 @@ function BookingContent() {
       return true;
     }
     
-    // If already at max 4 slots, can't add more
+    // If already at max 1 slot, can't add more
     if (selectedTimeSlots.length >= 1) {
       return false;
     }
@@ -131,8 +192,14 @@ function BookingContent() {
     return slotIndex === minIndex - 1 || slotIndex === maxIndex + 1;
   };
 
-  // Handle time slot selection (max 4 consecutive slots = 2 hours)
+  // Handle time slot selection (max 1 slot = 1 hour)
   const toggleTimeSlot = (slot: string) => {
+    // Check if slot is already booked
+    if (bookedSlots.includes(slot)) {
+      alert('This time slot is already booked. Please select another time.');
+      return;
+    }
+    
     const slotIndex = timeSlots.indexOf(slot);
     
     if (selectedTimeSlots.includes(slot)) {
@@ -143,40 +210,12 @@ function BookingContent() {
       if (selectedTimeSlots.length === 0) {
         // First slot - can always add
         setSelectedTimeSlots([slot]);
-      } else if (selectedTimeSlots.length >= 4) {
-        // Already at max
+      } else if (selectedTimeSlots.length >= 1) {
+        // Already at max (1 slot only)
         alert('1 Time Slot Allowed');
       } else {
-        // Check if the new slot is consecutive with existing slots
-        const currentIndices = selectedTimeSlots.map(s => timeSlots.indexOf(s)).sort((a, b) => a - b);
-        const minIndex = Math.min(...currentIndices);
-        const maxIndex = Math.max(...currentIndices);
-        
-        // New slot must be adjacent to the current range
-        if (slotIndex === minIndex - 1 || slotIndex === maxIndex + 1) {
-          // Check if all slots between min and max would be consecutive
-          const newSlots = [...selectedTimeSlots, slot];
-          const newIndices = newSlots.map(s => timeSlots.indexOf(s)).sort((a, b) => a - b);
-          const newMin = Math.min(...newIndices);
-          const newMax = Math.max(...newIndices);
-          
-          // Verify consecutive (no gaps)
-          let isConsecutive = true;
-          for (let i = newMin; i <= newMax; i++) {
-            if (!newIndices.includes(i)) {
-              isConsecutive = false;
-              break;
-            }
-          }
-          
-          if (isConsecutive) {
-            setSelectedTimeSlots(newSlots.sort((a, b) => timeSlots.indexOf(a) - timeSlots.indexOf(b)));
-          } else {
-            alert('Please select consecutive time slots only');
-          }
-        } else {
-          alert('Please select consecutive time slots. Click a slot next to your current selection.');
-        }
+        // This code won't be reached since max is 1, but keeping for safety
+        setSelectedTimeSlots([slot]);
       }
     }
   };
@@ -286,10 +325,10 @@ function BookingContent() {
     }) : '';
 
     const timeRange = selectedTimeSlots.length > 0 
-      ? `${selectedTimeSlots[0]} - ${selectedTimeSlots[selectedTimeSlots.length - 1]}`
+      ? `${selectedTimeSlots[0]} - ${getEndTime(selectedTimeSlots[0])}`
       : 'N/A';
     const duration = selectedTimeSlots.length > 0 
-      ? `${selectedTimeSlots.length * 30} minutes (${selectedTimeSlots.length} slots)`
+      ? `1 hour (1 slot)`
       : 'N/A';
 
     const message = `
@@ -561,20 +600,28 @@ www.thelumstudios.com
                           (Select 1-hour slot)
                         </span>
                       </label>
+                      {loadingSlots && (
+                        <div className="loading-slots-message">
+                          <span>Loading available time slots...</span>
+                        </div>
+                      )}
                       <div className="time-slots-grid">
                         {timeSlots.map((slot) => {
                           const isSelected = selectedTimeSlots.includes(slot);
+                          const isBooked = bookedSlots.includes(slot);
                           const isSelectable = isSlotSelectable(slot);
                           
                           return (
                             <button
                               key={slot}
                               type="button"
-                              className={`time-slot-btn ${isSelected ? 'selected' : ''} ${!isSelectable ? 'disabled' : ''}`}
+                              className={`time-slot-btn ${isSelected ? 'selected' : ''} ${isBooked ? 'booked' : ''} ${!isSelectable && !isBooked ? 'disabled' : ''}`}
                               onClick={() => toggleTimeSlot(slot)}
                               disabled={!isSelectable}
+                              title={isBooked ? 'This time slot is already booked' : isSelected ? 'Click to deselect' : 'Click to select'}
                             >
                               {slot}
+                              {isBooked && <span className="booked-indicator">⊗</span>}
                             </button>
                           );
                         })}
@@ -719,11 +766,11 @@ www.thelumstudios.com
                             }) : ''}
                           </span>
                         </div>
-                        <div className="review-item">
+        <div className="review-item">
                           <span className="review-label">Time:</span>
                           <span className="review-value">
                             {selectedTimeSlots.length > 0 
-                              ? `${selectedTimeSlots[0]} - ${selectedTimeSlots[selectedTimeSlots.length - 1]}`
+                              ? `${selectedTimeSlots[0]} - ${getEndTime(selectedTimeSlots[0])}`
                               : 'N/A'
                             }
                           </span>
@@ -732,7 +779,7 @@ www.thelumstudios.com
                           <span className="review-label">Duration:</span>
                           <span className="review-value">
                             {selectedTimeSlots.length > 0 
-                              ? `${selectedTimeSlots.length * 30} minutes (${selectedTimeSlots.length} slots)`
+                              ? `1 hour (1 slot)`
                               : 'N/A'
                             }
                           </span>

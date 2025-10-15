@@ -16,6 +16,9 @@ export default function HeroBannerFour() {
         <div className="shape-circle shape-3"></div>
         <div className="shape-square shape-4"></div>
         <div className="shape-square shape-5"></div>
+        <div className="shape-circle shape-6"></div>
+        <div className="shape-square shape-7"></div>
+        <div className="shape-circle shape-8"></div>
       </div>
 
       <div className="container">
@@ -94,7 +97,7 @@ export default function HeroBannerFour() {
         .shape-square {
           position: absolute;
           border-radius: 50%;
-          opacity: 0.08;
+          opacity: 0.15;
         }
 
         .shape-square {
@@ -146,6 +149,33 @@ export default function HeroBannerFour() {
           animation: float2 19s ease-in-out infinite reverse;
         }
 
+        .shape-6 {
+          width: 90px;
+          height: 90px;
+          background: linear-gradient(135deg, #B7C435 0%, #a0b030 100%);
+          top: 45%;
+          left: 5%;
+          animation: float3 21s ease-in-out infinite;
+        }
+
+        .shape-7 {
+          width: 70px;
+          height: 70px;
+          background: linear-gradient(135deg, #a0b030 0%, rgba(183, 196, 53, 0.7) 100%);
+          bottom: 10%;
+          right: 30%;
+          animation: float1 17s ease-in-out infinite reverse;
+        }
+
+        .shape-8 {
+          width: 110px;
+          height: 110px;
+          background: linear-gradient(135deg, rgba(183, 196, 53, 0.7) 0%, #a0b030 100%);
+          top: 10%;
+          right: 8%;
+          animation: float2 20s ease-in-out infinite;
+        }
+
         @keyframes float1 {
           0%, 100% {
             transform: translateY(0px) rotate(0deg);
@@ -179,37 +209,6 @@ export default function HeroBannerFour() {
           z-index: 2;
         }
 
-        /* Reduce hero content size on desktop by 10% */
-        .tp-hero-3-title {
-          font-size: calc(clamp(32px, 5vw, 80px) * 0.9) !important;
-          line-height: 1.2;
-        }
-
-        .tp-hero-3-category {
-          font-size: calc(clamp(16px, 2vw, 24px) * 0.9) !important;
-        }
-
-        .tp-btn-black-2 {
-          font-size: calc(16px * 0.9) !important;
-          padding: calc(18px * 0.9) calc(35px * 0.9) !important;
-        }
-
-        @media (max-width: 768px) {
-          /* Keep mobile sizes as they are */
-          .tp-hero-3-title {
-            font-size: clamp(28px, 8vw, 40px) !important;
-          }
-
-          .tp-hero-3-category {
-            font-size: clamp(14px, 4vw, 18px) !important;
-          }
-
-          .tp-btn-black-2 {
-            font-size: 14px !important;
-            padding: 16px 28px !important;
-          }
-        }
-        
         /* Add top padding for spacing from header */
         .tp-hero-3-ptb {
           padding-top: 150px !important;
@@ -236,7 +235,7 @@ export default function HeroBannerFour() {
             width: 60px;
             height: 60px;
           }
-          .shape-4, .shape-5 {
+          .shape-4, .shape-5, .shape-6, .shape-7, .shape-8 {
             display: none;
           }
         }

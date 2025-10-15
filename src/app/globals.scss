@@ -214,6 +214,28 @@ img::selection {
   display: none !important;
 }
 
+/* Gallery/Portfolio dropdown - single row on desktop */
+@media (min-width: 1200px) {
+  .tp-megamenu-portfolio .tp-megamenu-list-box .row {
+    flex-wrap: nowrap !important;
+  }
+
+  .tp-megamenu-portfolio .tp-megamenu-list-box > .row > div {
+    flex: 0 0 auto;
+    max-width: none;
+  }
+
+  .tp-portfolio-menu-style .row {
+    flex-wrap: nowrap !important;
+  }
+
+  .tp-portfolio-menu-style .col-lg-6 {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 150px;
+  }
+}
+
 /* Reduce dropdown height and add scroll for better UX */
 .tp-header-area .tp-submenu.submenu .tp-megamenu-wrapper,
 .tp-header-area .tp-submenu.submenu .tp-menu-fullwidth {

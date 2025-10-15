@@ -107,9 +107,16 @@ export async function sendAdminNotification(data: BookingEmailData) {
   try {
     const transporter = createTransporter();
     
+    // Get all admin emails from environment variables
+    const adminEmails = [
+      process.env.ADMIN_EMAIL_1,
+      process.env.ADMIN_EMAIL_2,
+      process.env.ADMIN_EMAIL
+    ].filter(Boolean); // Remove undefined/null values
+    
     const mailOptions = {
       from: process.env.EMAIL_FROM || process.env.SMTP_USER,
-      to: process.env.ADMIN_EMAIL,
+      to: adminEmails.join(', '), // Send to all admin emails
       subject: `New Booking - ${data.packageType} - ${data.date}`,
       html: `
         <!DOCTYPE html>
@@ -171,7 +178,7 @@ export async function sendAdminNotification(data: BookingEmailData) {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Admin notification sent to:', process.env.ADMIN_EMAIL);
+    console.log('Admin notification sent to:', adminEmails.join(', '));
     return { success: true };
   } catch (error) {
     console.error('Error sending admin notification:', error);

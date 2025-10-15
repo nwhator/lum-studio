@@ -1,29 +1,54 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendBookingConfirmation, sendAdminNotification } from '@/utils/email';
 
+// Type definition for booking
+interface Booking {
+  id: string;
+  date: string;
+  timeSlots: string[];
+  package: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  status: 'confirmed' | 'cancelled' | 'completed';
+  createdAt: string;
+  updatedAt: string;
+}
+
 // This will be replaced with actual database calls
 // For now, we'll use in-memory storage (will reset on server restart)
 // TODO: Replace with Vercel Postgres, MongoDB, or Supabase
-let bookings: any[] = [];
+// Use global storage to persist across API routes
+const getBookingsStore = (): Booking[] => {
+  if (typeof global !== 'undefined') {
+    if (!(global as any).bookings) {
+      (global as any).bookings = [];
+    }
+    return (global as any).bookings as Booking[];
+  }
+  return [];
+};
 
 // GET - Fetch all bookings or booked slots for a specific date
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const date = searchParams.get('date');
+    const bookings = getBookingsStore();
 
     if (date) {
       // Return booked slots for a specific date
       const bookedSlots = bookings
-        .filter(booking => {
+        .filter((booking: Booking) => {
           const bookingDate = new Date(booking.date).toDateString();
           const requestedDate = new Date(date).toDateString();
           return bookingDate === requestedDate && booking.status === 'confirmed';
         })
-        .flatMap(booking => booking.timeSlots);
+        .flatMap((booking: Booking) => booking.timeSlots);
 
       // Remove duplicates
-      const uniqueSlots = bookedSlots.filter((slot, index, self) => 
+      const uniqueSlots = bookedSlots.filter((slot: string, index: number, self: string[]) => 
         self.indexOf(slot) === index
       );
 
@@ -36,7 +61,7 @@ export async function GET(request: NextRequest) {
     // Return all bookings (for admin)
     return NextResponse.json({ 
       success: true, 
-      bookings: bookings.sort((a, b) => 
+      bookings: bookings.sort((a: Booking, b: Booking) => 
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )
     });
@@ -54,6 +79,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { date, timeSlots, package: packageType, name, email, phone, message } = body;
+    const bookings = getBookingsStore();
 
     // Validate required fields
     if (!date || !timeSlots || !packageType || !name || !email || !phone) {
@@ -65,7 +91,7 @@ export async function POST(request: NextRequest) {
 
     // Check if slots are already booked
     const requestedDate = new Date(date).toDateString();
-    const conflictingBookings = bookings.filter(booking => {
+    const conflictingBookings = bookings.filter((booking: any) => {
       const bookingDate = new Date(booking.date).toDateString();
       return bookingDate === requestedDate && 
              booking.status === 'confirmed' &&
@@ -80,7 +106,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create new booking
-    const newBooking = {
+    const newBooking: Booking = {
       id: `booking_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       date,
       timeSlots,
@@ -89,7 +115,7 @@ export async function POST(request: NextRequest) {
       email,
       phone,
       message: message || '',
-      status: 'confirmed',
+      status: 'confirmed' as const,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };

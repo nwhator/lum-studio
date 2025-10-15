@@ -1,41 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// This will use the same in-memory storage as the main bookings route
-// In production, this would connect to the same database
-
-// DELETE - Cancel a booking (admin only)
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const bookingId = params.id;
-    
-    // TODO: Add admin authentication check
-    // const session = await getServerSession();
-    // if (!session || !session.user.isAdmin) {
-    //   return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    // }
-
-    // For now, we'll allow any cancellation (add auth in production)
-    
-    // In a real implementation, this would update the database
-    // For this example, we're using a simplified approach
-    console.log('Canceling booking:', bookingId);
-
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Booking cancelled successfully',
-      bookingId 
-    });
-  } catch (error) {
-    console.error('Error canceling booking:', error);
-    return NextResponse.json(
-      { success: false, error: 'Failed to cancel booking' },
-      { status: 500 }
-    );
+// Import the bookings array from the main route
+// In production, this would use a database
+// For development, we need to share the same in-memory storage
+const getBookingsStore = () => {
+  if (typeof global !== 'undefined') {
+    if (!(global as any).bookings) {
+      (global as any).bookings = [];
+    }
+    return (global as any).bookings;
   }
-}
+  return [];
+};
 
 // PATCH - Update booking status
 export async function PATCH(
@@ -56,20 +32,67 @@ export async function PATCH(
       );
     }
 
-    // TODO: Add admin authentication check
+    // Get bookings from global store
+    const bookings = getBookingsStore();
+    
+    // Find and update the booking
+    const bookingIndex = bookings.findIndex((b: any) => b.id === bookingId);
+    if (bookingIndex === -1) {
+      return NextResponse.json(
+        { success: false, error: 'Booking not found' },
+        { status: 404 }
+      );
+    }
 
-    console.log('Updating booking status:', { bookingId, status });
+    bookings[bookingIndex].status = status;
+    bookings[bookingIndex].updatedAt = new Date().toISOString();
 
     return NextResponse.json({ 
       success: true, 
       message: 'Booking status updated successfully',
-      bookingId,
-      status
+      booking: bookings[bookingIndex]
     });
   } catch (error) {
     console.error('Error updating booking:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to update booking' },
+      { status: 500 }
+    );
+  }
+}
+
+// DELETE - Cancel a booking (admin only)
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const bookingId = params.id;
+    
+    // Get bookings from global store
+    const bookings = getBookingsStore();
+    
+    // Find and mark as cancelled
+    const bookingIndex = bookings.findIndex((b: any) => b.id === bookingId);
+    if (bookingIndex === -1) {
+      return NextResponse.json(
+        { success: false, error: 'Booking not found' },
+        { status: 404 }
+      );
+    }
+
+    bookings[bookingIndex].status = 'cancelled';
+    bookings[bookingIndex].updatedAt = new Date().toISOString();
+
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Booking cancelled successfully',
+      booking: bookings[bookingIndex]
+    });
+  } catch (error) {
+    console.error('Error canceling booking:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to cancel booking' },
       { status: 500 }
     );
   }
