@@ -15,7 +15,6 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'inline',
     unoptimized: false,
-    quality: 85,
     remotePatterns: [
       {
         protocol: 'https',
