@@ -32,7 +32,7 @@ const features = [
 
 export default function AboutThree() {
   return (
-    <div className="tp-about-3-area pt-120 pb-120">
+    <div className="tp-about-3-area pt-120 pb-120" style={{ background: '#ffffff' }}>
       <div className="container">
         {/* Header Section */}
         <div className="row justify-content-center mb-60">
