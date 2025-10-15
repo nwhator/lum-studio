@@ -2,6 +2,7 @@
 import React from "react";
 import { scroller } from "react-scroll";
 import { ScrollDown } from "../svg";
+import Image from "next/image";
 
 export default function AboutUsHero() {
   const scrollTo = () => {
@@ -12,10 +13,22 @@ export default function AboutUsHero() {
     });
   };
   return (
-    <div
-      className="ab-inner-hero-area ab-inner-hero-bg p-relative"
-      style={{ backgroundImage: "url(/assets/img/inner-about/hero/hero-1.jpg)" }}
-    >
+    <div className="ab-inner-hero-area ab-inner-hero-bg p-relative">
+      {/* Optimized Background Image with Next.js Image */}
+      <div className="ab-hero-bg-wrapper">
+        <Image
+          src="/assets/img/inner-about/hero/hero-1.jpg"
+          alt="LUM Studios About Hero"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          style={{ objectFit: 'cover' }}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+        />
+      </div>
+      
       <div className="breadcurmb-site d-none">
         <h6>About Us</h6>
       </div>

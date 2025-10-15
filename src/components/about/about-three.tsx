@@ -7,8 +7,8 @@ import { ArrowBg, RightArrowTwo } from "../svg";
 
 const stats = [
   { number: "5+", label: "Years Experience" },
-  { number: "500+", label: "Happy Clients" },
-  { number: "1000+", label: "Projects Completed" }
+  { number: "4000+", label: "Happy Clients" },
+  { number: "6500+", label: "Projects Completed" }
 ];
 
 const features = [

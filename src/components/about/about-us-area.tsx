@@ -100,13 +100,13 @@ export default function AboutUsArea() {
               <div className="row g-4">
                 <div className="col-lg-4 col-md-4 col-sm-6">
                   <div className="ab-stat-card">
-                    <h3 className="stat-number brand-green-text">500+</h3>
+                    <h3 className="stat-number brand-green-text">4000+</h3>
                     <p className="stat-label">Happy Clients</p>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-6">
                   <div className="ab-stat-card">
-                    <h3 className="stat-number brand-green-text">1000+</h3>
+                    <h3 className="stat-number brand-green-text">6500+</h3>
                     <p className="stat-label">Projects Completed</p>
                   </div>
                 </div>

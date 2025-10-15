@@ -1,17 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Import the bookings array from the main route
-// In production, this would use a database
-// For development, we need to share the same in-memory storage
-const getBookingsStore = () => {
-  if (typeof global !== 'undefined') {
-    if (!(global as any).bookings) {
-      (global as any).bookings = [];
-    }
-    return (global as any).bookings;
-  }
-  return [];
-};
+import { getBookingsCollection } from '@/lib/mongodb';
 
 // PATCH - Update booking status
 export async function PATCH(
@@ -32,25 +20,31 @@ export async function PATCH(
       );
     }
 
-    // Get bookings from global store
-    const bookings = getBookingsStore();
-    
-    // Find and update the booking
-    const bookingIndex = bookings.findIndex((b: any) => b.id === bookingId);
-    if (bookingIndex === -1) {
+    const collection = await getBookingsCollection();
+
+    // Update the booking
+    const result = await collection.findOneAndUpdate(
+      { id: bookingId },
+      { 
+        $set: { 
+          status, 
+          updatedAt: new Date().toISOString() 
+        } 
+      },
+      { returnDocument: 'after' } // Return updated document
+    );
+
+    if (!result) {
       return NextResponse.json(
         { success: false, error: 'Booking not found' },
         { status: 404 }
       );
     }
 
-    bookings[bookingIndex].status = status;
-    bookings[bookingIndex].updatedAt = new Date().toISOString();
-
     return NextResponse.json({ 
       success: true, 
       message: 'Booking status updated successfully',
-      booking: bookings[bookingIndex]
+      booking: result
     });
   } catch (error) {
     console.error('Error updating booking:', error);
@@ -61,33 +55,38 @@ export async function PATCH(
   }
 }
 
-// DELETE - Cancel a booking (admin only)
+// DELETE - Cancel a booking (soft delete)
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
     const bookingId = params.id;
+    const collection = await getBookingsCollection();
     
-    // Get bookings from global store
-    const bookings = getBookingsStore();
-    
-    // Find and mark as cancelled
-    const bookingIndex = bookings.findIndex((b: any) => b.id === bookingId);
-    if (bookingIndex === -1) {
+    // Soft delete by changing status to 'cancelled'
+    const result = await collection.findOneAndUpdate(
+      { id: bookingId },
+      { 
+        $set: { 
+          status: 'cancelled', 
+          updatedAt: new Date().toISOString() 
+        } 
+      },
+      { returnDocument: 'after' }
+    );
+
+    if (!result) {
       return NextResponse.json(
         { success: false, error: 'Booking not found' },
         { status: 404 }
       );
     }
 
-    bookings[bookingIndex].status = 'cancelled';
-    bookings[bookingIndex].updatedAt = new Date().toISOString();
-
     return NextResponse.json({ 
       success: true, 
       message: 'Booking cancelled successfully',
-      booking: bookings[bookingIndex]
+      booking: result
     });
   } catch (error) {
     console.error('Error canceling booking:', error);
