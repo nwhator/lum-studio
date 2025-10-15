@@ -85,7 +85,7 @@ const HeaderOne = () => {
           display: block !important;
           width: 100% !important;
           height: 3px !important;
-          background: #000 !important;
+          background: #1a1a1a !important;
           border-radius: 2px !important;
           transition: all 0.3s ease !important;
           opacity: 1 !important;
@@ -93,7 +93,7 @@ const HeaderOne = () => {
         }
         
         .tp-offcanvas-open-btn:hover span {
-          background: var(--tp-theme-1) !important;
+          background: #B7C435 !important;
         }
         
         .d-xl-none {
@@ -103,6 +103,19 @@ const HeaderOne = () => {
         @media (min-width: 1200px) {
           .d-xl-none {
             display: none !important;
+          }
+        }
+
+        /* Ensure button is always visible on mobile */
+        @media (max-width: 1199px) {
+          .tp-offcanvas-open-btn {
+            display: flex !important;
+          }
+          
+          .tp-header-bar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
           }
         }
       `}</style>

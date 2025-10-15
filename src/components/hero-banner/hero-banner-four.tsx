@@ -60,11 +60,11 @@ export default function HeroBannerFour() {
           width: 100%;
           height: 100%;
           background: 
-            radial-gradient(at 20% 30%, rgba(183, 196, 53, 0.08) 0px, transparent 50%),
-            radial-gradient(at 80% 20%, rgba(102, 126, 234, 0.08) 0px, transparent 50%),
-            radial-gradient(at 40% 70%, rgba(240, 147, 251, 0.06) 0px, transparent 50%),
-            radial-gradient(at 90% 80%, rgba(79, 172, 254, 0.07) 0px, transparent 50%),
-            radial-gradient(at 10% 90%, rgba(183, 196, 53, 0.05) 0px, transparent 50%);
+            radial-gradient(at 20% 30%, rgba(183, 196, 53, 0.15) 0px, transparent 50%),
+            radial-gradient(at 80% 20%, rgba(102, 126, 234, 0.15) 0px, transparent 50%),
+            radial-gradient(at 40% 70%, rgba(240, 147, 251, 0.12) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 172, 254, 0.14) 0px, transparent 50%),
+            radial-gradient(at 10% 90%, rgba(183, 196, 53, 0.1) 0px, transparent 50%);
           animation: meshMove 20s ease-in-out infinite;
           z-index: 0;
         }
@@ -103,7 +103,7 @@ export default function HeroBannerFour() {
         .orb-1 {
           width: 300px;
           height: 300px;
-          background: radial-gradient(circle, rgba(183, 196, 53, 0.25) 0%, rgba(183, 196, 53, 0) 70%);
+          background: radial-gradient(circle, rgba(183, 196, 53, 0.4) 0%, rgba(183, 196, 53, 0) 70%);
           top: 10%;
           left: 15%;
           animation: floatOrb1 25s infinite;
@@ -112,7 +112,7 @@ export default function HeroBannerFour() {
         .orb-2 {
           width: 250px;
           height: 250px;
-          background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, rgba(102, 126, 234, 0) 70%);
+          background: radial-gradient(circle, rgba(102, 126, 234, 0.35) 0%, rgba(102, 126, 234, 0) 70%);
           top: 50%;
           right: 10%;
           animation: floatOrb2 30s infinite;
@@ -121,7 +121,7 @@ export default function HeroBannerFour() {
         .orb-3 {
           width: 200px;
           height: 200px;
-          background: radial-gradient(circle, rgba(240, 147, 251, 0.18) 0%, rgba(240, 147, 251, 0) 70%);
+          background: radial-gradient(circle, rgba(240, 147, 251, 0.3) 0%, rgba(240, 147, 251, 0) 70%);
           bottom: 15%;
           left: 25%;
           animation: floatOrb3 28s infinite;
@@ -133,7 +133,7 @@ export default function HeroBannerFour() {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          opacity: 0.6;
+          opacity: 0.8;
         }
 
         .dot-1 {
@@ -161,9 +161,9 @@ export default function HeroBannerFour() {
         .float-line {
           position: absolute;
           height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(183, 196, 53, 0.2), transparent);
+          background: linear-gradient(90deg, transparent, rgba(183, 196, 53, 0.35), transparent);
           border-radius: 1px;
-          opacity: 0.4;
+          opacity: 0.6;
         }
 
         .line-1 {
