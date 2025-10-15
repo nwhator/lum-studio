@@ -396,54 +396,78 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
         }
 
         .btn-book-package {
-          display: block;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
           width: 100%;
           padding: 18px 30px;
-          background: var(--tp-theme-1);
+          background: linear-gradient(135deg, var(--tp-theme-1) 0%, #a0b030 100%);
           color: white;
           text-align: center;
           font-weight: 700;
           font-size: 17px;
-          border-radius: 10px;
+          border-radius: 50px;
           text-decoration: none;
           transition: all 0.3s ease;
-          border: 2px solid var(--tp-theme-1);
-          box-shadow: 0 2px 8px rgba(var(--tp-theme-rgb), 0.2);
+          border: none;
+          box-shadow: 0 4px 15px rgba(183, 196, 53, 0.3);
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+        }
+
+        .btn-book-package::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: left 0.5s ease;
+        }
+
+        .btn-book-package:hover::before {
+          left: 100%;
+        }
+
+        .btn-book-package::after {
+          content: '→';
+          font-size: 20px;
+          font-weight: bold;
+          transition: transform 0.3s ease;
         }
 
         .btn-book-package:hover {
-          background: #a0b030;
-          border-color: #a0b030;
-          transform: translateY(-3px);
-          box-shadow: 0 6px 20px rgba(var(--tp-theme-rgb), 0.4);
+          background: linear-gradient(135deg, #a0b030 0%, var(--tp-theme-1) 100%);
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 8px 25px rgba(183, 196, 53, 0.5);
           color: white;
+        }
+
+        .btn-book-package:hover::after {
+          transform: translateX(5px);
+        }
+
+        .btn-book-package:active {
+          transform: translateY(-1px) scale(1);
+          box-shadow: 0 3px 10px rgba(183, 196, 53, 0.4);
         }
 
         .btn-book-package.secondary {
-          background: white;
-          color: var(--tp-theme-1);
-          border: 2px solid var(--tp-theme-1);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+          box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
         }
 
         .btn-book-package.secondary:hover {
-          background: var(--tp-theme-1);
+          background: linear-gradient(135deg, #5a6268 0%, #6c757d 100%);
+          box-shadow: 0 8px 25px rgba(108, 117, 125, 0.5);
           color: white;
-          border-color: var(--tp-theme-1);
-          transform: translateY(-3px);
-          box-shadow: 0 6px 20px rgba(var(--tp-theme-rgb), 0.3);
         }
 
         .package-card:hover .btn-book-package {
           transform: translateY(-2px);
-        }
-
-        .btn-book-package.secondary {
-          background: #6c757d;
-        }
-
-        .btn-book-package.secondary:hover {
-          background: #5a6268;
         }
 
         .pricing-note {

@@ -19,7 +19,7 @@ const HeaderTransparent = () => {
       <header className="tp-header-height" ref={headerRef}>
         <div
           id="header-sticky"
-          className={`tp-header-area tp-header-transparent tp-header-mob-space tp-transparent pl-60 pr-60 z-index-9 ${sticky?'header-sticky':''}`}
+          className={`tp-header-area tp-header-transparent tp-header-mob-space tp-transparent z-index-9 ${sticky?'header-sticky':''}`}
         >
           <div className="container">
             <div className="row align-items-center">
@@ -64,6 +64,20 @@ const HeaderTransparent = () => {
           </div>
         </div>
       </header>
+
+      <style jsx>{`
+        .tp-header-area {
+          padding-left: 50px !important;
+          padding-right: 50px !important;
+        }
+        
+        @media (max-width: 767px) {
+          .tp-header-area {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+        }
+      `}</style>
 
       {/* off canvas */}
       <MobileOffcanvas openOffcanvas={openOffCanvas} setOpenOffcanvas={setOpenOffCanvas} />

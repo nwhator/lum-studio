@@ -39,9 +39,9 @@ export default function HeroBannerFour() {
           background: #ffffff !important;
         }
         
-        /* Reduce padding between header and hero */
+        /* Add top padding for spacing from header */
         .tp-hero-3-ptb {
-          padding-top: 100px !important;
+          padding-top: 150px !important;
         }
         
         @media (max-width: 768px) {
@@ -51,7 +51,7 @@ export default function HeroBannerFour() {
             background: #ffffff !important;
           }
           .tp-hero-3-ptb {
-            padding-top: 80px !important;
+            padding-top: 130px !important;
           }
           .tp-hero-3-content-box {
             margin-bottom: 0 !important;

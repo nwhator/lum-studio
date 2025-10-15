@@ -731,23 +731,43 @@ button[type="submit"],
 
 // Transparent header styles
 .tp-header-transparent {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   
-  // White text for navigation
+  // Logo spacing - 50px from left
+  .tp-header-logo {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    
+    img {
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+  }
+  
+  // Hamburger spacing - 50px from right
+  .tp-header-bar {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  // White text for navigation with shadow for visibility on any background
   .tp-main-menu-content {
     ul li a {
       color: var(--tp-common-white) !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      font-weight: 500;
       
       &:hover {
         color: var(--tp-theme-1) !important;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.5);
       }
     }
     
     // Dropdown menu items
     ul li ul li a {
       color: var(--tp-common-black) !important;
+      text-shadow: none;
       
       &:hover {
         color: var(--tp-theme-1) !important;
@@ -755,10 +775,11 @@ button[type="submit"],
     }
   }
   
-  // Mobile menu button
+  // Mobile menu button - visible on all backgrounds
   .tp-offcanvas-open-btn {
     span {
       background-color: var(--tp-common-white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
   }
   

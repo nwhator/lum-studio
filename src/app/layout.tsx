@@ -162,10 +162,11 @@ export default function RootLayout({
     "url": siteConfig.url,
     "logo": "https://www.thelumstudios.com/assets/img/logo/logo.png",
     "image": siteConfig.ogImage,
-    "telephone": "+2349022292514",
+    "telephone": ["+2348145538164", "+2349022292514"],
     "email": "contact@thelumstudios.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Opp. Hammedal Filling Station, Ilesha-Garage",
       "addressLocality": "Ile-Ife",
       "addressRegion": "Osun State",
       "addressCountry": "Nigeria"

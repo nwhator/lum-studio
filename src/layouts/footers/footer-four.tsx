@@ -62,12 +62,13 @@ export default function Footer() {
                   <h4 className="tp-footer-3-title">Contact</h4>
                   <div className="tp-footer-2-contact-item">
                     <span>
-                      <a href="https://www.google.com/maps/@23.8223596,90.3656686,15z?entry=ttu"
-                      target="_blank">Ile Ife, Osun State</a>
+                      <a href="https://maps.app.goo.gl/58XNcbtgwe9uyXiNA"
+                      target="_blank">Opp. Hammedal Filling Station, Ilesha-Garage, Ile-ife, Osun State</a>
                       </span>
                   </div>
                   <div className="tp-footer-2-contact-item">
                     <span>P: <a href="tel:+2348145538164">0814 553 8164</a></span>
+                    <span>P: <a href="tel:+2349022292514">0902 229 2514</a></span>
                     <span>E: <a href="mailto:contact@thelumstudios.com">contact@thelumstudios.com</a></span>
                   </div>
                 </div>

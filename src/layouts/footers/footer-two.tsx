@@ -67,16 +67,19 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                 <div className="tp-footer-2-contact-item">
                   <span>
                     <a
-                      href="https://www.google.com/maps/@23.8223596,90.3656686,15z?entry=ttu"
+                      href="https://maps.app.goo.gl/58XNcbtgwe9uyXiNA"
                       target="_blank"
                     >
-                      Ile Ife, Osun State, Nigeria
+                      Opp. Hammedal Filling Station, Ilesha-Garage, Ile-ife, Osun State
                     </a>
                   </span>
                 </div>
                 <div className="tp-footer-2-contact-item">
                   <span>
                     <a href="tel:+2348145538164">P: +234 814 553 8164</a>
+                  </span>
+                  <span>
+                    <a href="tel:+2349022292514">P: +234 902 229 2514</a>
                   </span>
                 </div>
                 <div className="tp-footer-2-contact-item">

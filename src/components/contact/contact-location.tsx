@@ -13,10 +13,11 @@ const location_data = [
     country: "Nigeria",
     time: "Open: 9:00am – 6:00pm",
     location_title: "LUM Studios",
-    address: "Ile Ife, Osun State",
+    address: "Opp. Hammedal Filling Station, Ilesha-Garage, Ile-ife, Osun State",
     phone: "+2348145538164",
+    phone2: "+2349022292514",
     email: "contact@thelumstudios.com",
-    map_link: "https://www.google.com/maps/@23.8223596,90.3656686,15z?entry=ttu",
+    map_link: "https://maps.app.goo.gl/58XNcbtgwe9uyXiNA",
   },
 ];
 
@@ -65,6 +66,7 @@ const ContactLocation = () => {
                     </div>
                     <div className="cn-contact-right-info text-center">
                       <a href={`tel:${item.phone}`}>{item.phone}</a> <br />
+                      <a href={`tel:${item.phone2}`}>{item.phone2}</a> <br />
                       <a href={`mailto:${item.email}`}>{item.email}</a>
                     </div>
                   </div>
