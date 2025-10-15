@@ -13,7 +13,6 @@ const service_data = [
   {
     id: 1,
     img: ser_img_1,
-    subtitle: "Photography Studio",
     title: "Wedding Photography",
     slug: "wedding-photography",
     text: "We capture every precious moment of your special day with artistic excellence and professional precision.",
@@ -27,7 +26,6 @@ const service_data = [
   {
     id: 2,
     img: ser_img_2,
-    subtitle: "Photography Studio",
     title: "Maternity & Baby Shoots",
     slug: "maternity-baby-shoots",
     text: "Celebrate the beauty of motherhood and capture your baby's precious early moments with our gentle approach.",
@@ -41,7 +39,6 @@ const service_data = [
   {
     id: 3,
     img: ser_img_3,
-    subtitle: "Photography Studio",
     title: "Event Photography",
     slug: "event-photography",
     text: "Professional coverage for all your special events, documenting every important moment with creative flair.",
@@ -55,7 +52,6 @@ const service_data = [
   {
     id: 4,
     img: ser_img_4,
-    subtitle: "Photography Studio",
     title: "Professional Portraits",
     slug: "professional-portraits",
     text: "High-quality portrait photography that captures personality, style, and authentic moments for individuals, families, and professionals.",
@@ -92,9 +88,6 @@ export default function ServiceSix() {
                 <div className="sv-service-content-wrap d-flex align-items-center">
                   <div className="sv-service-content">
                     <div className="sv-service-title-box">
-                      <span className="sv-service-subtitle">
-                        {item.subtitle}
-                      </span>
                       <h4 className="sv-service-title">{item.title}</h4>
                     </div>
                     <div className="sv-service-space-wrap">

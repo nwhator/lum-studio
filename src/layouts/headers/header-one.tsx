@@ -49,7 +49,7 @@ const HeaderOne = () => {
                 </div>
               </div>
               <div className="col-xl-2 col-lg col-6">
-                <div className="tp-header-bar text-end" style={{ marginRight: 0 }}>
+                <div className="tp-header-bar text-end">
                   <button
                     className="tp-offcanvas-open-btn d-xl-none"
                     onClick={() => setOpenOffCanvas(true)}
@@ -78,19 +78,32 @@ const HeaderOne = () => {
           height: 26px !important;
           position: relative !important;
           z-index: 999 !important;
+          margin: 0 !important;
         }
         
         .tp-offcanvas-open-btn span {
           display: block !important;
           width: 100% !important;
           height: 3px !important;
-          background: #111 !important;
+          background: #000 !important;
           border-radius: 2px !important;
           transition: all 0.3s ease !important;
+          opacity: 1 !important;
+          visibility: visible !important;
         }
         
         .tp-offcanvas-open-btn:hover span {
           background: var(--tp-theme-1) !important;
+        }
+        
+        .d-xl-none {
+          display: flex !important;
+        }
+        
+        @media (min-width: 1200px) {
+          .d-xl-none {
+            display: none !important;
+          }
         }
       `}</style>
       {/* off canvas */}

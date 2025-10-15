@@ -213,6 +213,11 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
     index === self.findIndex((t) => t.show === item.show)
   );
 
+  // Get unique category counts (1 per category since we filter duplicates)
+  const getCategoryCount = (category: string) => {
+    return displayedPortfolio.filter(item => item.show === category).length;
+  };
+
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
@@ -228,31 +233,31 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                   <div className="portfolio-filter masonary-menu">
                     <button data-filter="*" className="active filter-btn">
                       <span className="filter-text">All Projects</span>
-                      <span className="filter-count">{portfolio_data.length}</span>
+                      <span className="filter-count">{displayedPortfolio.length}</span>
                     </button>
                     <button data-filter=".cat1" className="filter-btn">
                       <span className="filter-text">Baby</span>
-                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat1').length}</span>
+                      <span className="filter-count">{getCategoryCount('cat1')}</span>
                     </button>
                     <button data-filter=".cat2" className="filter-btn">
                       <span className="filter-text">Wedding</span>
-                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat2').length}</span>
+                      <span className="filter-count">{getCategoryCount('cat2')}</span>
                     </button>
                     <button data-filter=".cat3" className="filter-btn">
                       <span className="filter-text">Call to Bar</span>
-                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat3').length}</span>
+                      <span className="filter-count">{getCategoryCount('cat3')}</span>
                     </button>
                     <button data-filter=".cat4" className="filter-btn">
                       <span className="filter-text">Convocation</span>
-                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat4').length}</span>
+                      <span className="filter-count">{getCategoryCount('cat4')}</span>
                     </button>
                     <button data-filter=".cat5" className="filter-btn">
                       <span className="filter-text">Family</span>
-                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat5').length}</span>
+                      <span className="filter-count">{getCategoryCount('cat5')}</span>
                     </button>
                     <button data-filter=".cat6" className="filter-btn">
                       <span className="filter-text">Maternity</span>
-                      <span className="filter-count">{portfolio_data.filter(item => item.show === 'cat6').length}</span>
+                      <span className="filter-count">{getCategoryCount('cat6')}</span>
                     </button>
                   </div>
                 </div>

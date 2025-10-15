@@ -19,7 +19,7 @@ export default function ParticleAnimation() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Particle class
+    // Particle class - Bigger bubbles with white/transparent background
     class Particle {
       x: number;
       y: number;
@@ -31,10 +31,10 @@ export default function ParticleAnimation() {
       constructor() {
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.3;
+        this.size = Math.random() * 40 + 20; // Bigger: 20-60px instead of 1-4px
+        this.speedX = Math.random() * 1 - 0.5; // Slightly faster
+        this.speedY = Math.random() * 1 - 0.5;
+        this.opacity = Math.random() * 0.15 + 0.05; // More subtle: 0.05-0.2
       }
 
       update() {
@@ -49,16 +49,30 @@ export default function ParticleAnimation() {
 
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = `rgba(183, 196, 53, ${this.opacity})`;
+        // Create gradient for bubble effect
+        const gradient = ctx.createRadialGradient(
+          this.x, this.y, 0,
+          this.x, this.y, this.size
+        );
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.8})`);
+        gradient.addColorStop(0.5, `rgba(183, 196, 53, ${this.opacity * 0.4})`);
+        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+        
+        ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Add subtle border for bubble effect
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity * 0.6})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
       }
     }
 
-    // Create particles
+    // Create particles - Fewer bubbles since they're bigger
     const particles: Particle[] = [];
-    const particleCount = window.innerWidth < 768 ? 30 : 60;
+    const particleCount = window.innerWidth < 768 ? 15 : 25; // Reduced count for bigger bubbles
     
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
@@ -74,23 +88,7 @@ export default function ParticleAnimation() {
         particle.draw();
       });
 
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            ctx.strokeStyle = `rgba(183, 196, 53, ${0.15 * (1 - distance / 150)})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        });
-      });
+      // Remove connection lines for cleaner bubble effect
 
       animationId = requestAnimationFrame(animate);
     };

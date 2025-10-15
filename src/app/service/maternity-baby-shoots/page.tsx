@@ -55,10 +55,7 @@ const MaternityBabyPage = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-10">
                     <div className="text-center mb-60">
-                      <span className="service-detail-subtitle" style={{color: '#B7C435', fontSize: '14px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '20px'}}>
-                        Photography Studio
-                      </span>
-                      <h1 className="service-detail-title tp-char-animation" style={{fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px', lineHeight: 1.2}}>
+                      <h1 className="service-detail-title tp-char-animation" style={{fontSize: 'clamp(28px, 5vw, 80px)', fontWeight: 700, color: '#1a1a1a', marginBottom: '30px', lineHeight: 1.2, wordWrap: 'break-word', overflowWrap: 'break-word', hyphens: 'auto'}}>
                         Maternity & Baby Shoots
                       </h1>
                       <p className="service-detail-desc" style={{fontSize: '18px', color: '#333', lineHeight: 1.8, maxWidth: '800px', margin: '0 auto'}}>

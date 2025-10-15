@@ -21,7 +21,6 @@ import { Leaf } from "@/components/svg";
 import FooterTwo from "@/layouts/footers/footer-two";
 // animation
 import { charAnimation, fadeAnimation } from "@/utils/title-animation";
-import { servicePanel } from "@/utils/panel-animation";
 
 const ServiceMain = () => {
   useScrollSmooth();
@@ -31,7 +30,7 @@ const ServiceMain = () => {
       safeAnimationInit(() => {
         charAnimation();
         fadeAnimation();
-        servicePanel();
+        // servicePanel(); - Removed for better mobile UX
       }, 'service-animations');
     }, 100);
     return () => clearTimeout(timer);

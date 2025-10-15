@@ -206,7 +206,7 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
               <p className="note-icon">📌</p>
               <div className="note-content">
                 <h4>Important Note</h4>
-                <p>Booking and reservations must be made in advance. All prices are in Nigerian Naira (₦). Additional services like express delivery and BTS content are available at extra cost.</p>
+                <p><strong>Classic Packages:</strong> Booking and reservations must be made in advance. All prices are in Nigerian Naira (₦). Additional services like express delivery and BTS content are available at extra cost.</p>
               </div>
             </div>
           </div>
@@ -398,25 +398,44 @@ export default function PricingTable({ packageSlug }: PricingTableProps) {
         .btn-book-package {
           display: block;
           width: 100%;
-          padding: 16px 30px;
+          padding: 18px 30px;
           background: var(--tp-theme-1);
           color: white;
           text-align: center;
           font-weight: 700;
-          font-size: 16px;
-          border-radius: 8px;
+          font-size: 17px;
+          border-radius: 10px;
           text-decoration: none;
           transition: all 0.3s ease;
+          border: 2px solid var(--tp-theme-1);
+          box-shadow: 0 2px 8px rgba(var(--tp-theme-rgb), 0.2);
         }
 
         .btn-book-package:hover {
           background: #a0b030;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(var(--tp-theme-rgb), 0.3);
+          border-color: #a0b030;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(var(--tp-theme-rgb), 0.4);
+          color: white;
+        }
+
+        .btn-book-package.secondary {
+          background: white;
+          color: var(--tp-theme-1);
+          border: 2px solid var(--tp-theme-1);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-book-package.secondary:hover {
+          background: var(--tp-theme-1);
+          color: white;
+          border-color: var(--tp-theme-1);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(var(--tp-theme-rgb), 0.3);
         }
 
         .package-card:hover .btn-book-package {
-          transform: translateY(-1px);
+          transform: translateY(-2px);
         }
 
         .btn-book-package.secondary {

@@ -166,8 +166,11 @@ img::selection {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.tp-header-area .tp-main-menu-content > ul > li > a:hover {
-  transform: translateY(-2px);
+.tp-header-area .tp-main-menu-content > ul > li > a:hover,
+.tp-header-area .tp-main-menu-content > ul > li:hover > a,
+.header-main-menu .tp-main-menu-content > ul > li > a:hover,
+.header-main-menu .tp-main-menu-content > ul > li:hover > a {
+  transform: translateY(-2px) !important;
   color: var(--tp-theme-1) !important;
 }
 
@@ -187,10 +190,12 @@ img::selection {
   border: 1px solid rgba(0,0,0,0.06);
 }
 .tp-header-area .tp-submenu.submenu a {
-  color: #111;
+  color: #111 !important;
 }
-.tp-header-area .tp-submenu.submenu a:hover {
-  color: var(--tp-theme-1);
+.tp-header-area .tp-submenu.submenu a:hover,
+.tp-header-area .tp-submenu.submenu .homemenu-title a:hover,
+.tp-header-area .tp-submenu.submenu .tp-megamenu-list-wrap a:hover {
+  color: var(--tp-theme-1) !important;
 }
 
 /* Limit dropdown item padding to 25px vertical */

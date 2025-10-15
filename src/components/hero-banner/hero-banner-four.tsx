@@ -33,7 +33,7 @@ export default function HeroBannerFour() {
       <style jsx>{`
         /* Hero overflow for particle animation */
         .tp-hero-3-area {
-          overflow: visible !important;
+          overflow: hidden !important;
           position: relative;
           z-index: 1;
         }
@@ -44,11 +44,15 @@ export default function HeroBannerFour() {
         }
         
         @media (max-width: 768px) {
+          .tp-hero-3-area {
+            overflow: hidden !important;
+            max-width: 100vw !important;
+          }
           .tp-hero-3-ptb {
             padding-top: 80px !important;
           }
           .tp-hero-3-content-box {
-            margin-bottom: -40px; /* pull into next section slightly */
+            margin-bottom: 0 !important;
           }
         }
       `}</style>
