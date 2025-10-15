@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 // Lazy load heavy components
 const Wrapper = dynamic(() => import("@/layouts/wrapper"), { ssr: true });
-const HeaderOne = dynamic(() => import("@/layouts/headers/header-one"), { ssr: true });
+const HeaderTransparent = dynamic(() => import("@/layouts/headers/header-transparent"), { ssr: true });
 const FooterTwo = dynamic(() => import("@/layouts/footers/footer-two"), { ssr: true });
 
 // Critical components loaded immediately
@@ -96,7 +96,7 @@ const HomeLum = () => {
     <Wrapper>
 
       {/* header area start */}
-      <HeaderOne />
+      <HeaderTransparent />
       {/* header area end */}
 
       <div id="smooth-wrapper">

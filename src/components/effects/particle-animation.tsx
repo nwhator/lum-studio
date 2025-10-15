@@ -20,13 +20,19 @@ export default function ParticleAnimation() {
 
     // Set canvas size
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight + 400; // Extra height for overflow
+      const parent = canvas.parentElement;
+      if (parent) {
+        canvas.width = parent.offsetWidth;
+        canvas.height = parent.offsetHeight;
+      } else {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Particle class - Bigger bubbles with white/transparent background
+    // Particle class - Bigger bubbles with random mild colors
     class Particle {
       x: number;
       y: number;
@@ -34,14 +40,27 @@ export default function ParticleAnimation() {
       speedX: number;
       speedY: number;
       opacity: number;
+      color: string;
 
       constructor() {
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
-        this.size = Math.random() * 40 + 20; // Bigger: 20-60px instead of 1-4px
-        this.speedX = Math.random() * 1 - 0.5; // Slightly faster
+        this.size = Math.random() * 40 + 20; // Bigger: 20-60px
+        this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
-        this.opacity = Math.random() * 0.15 + 0.05; // More subtle: 0.05-0.2
+        this.opacity = Math.random() * 0.15 + 0.05; // Subtle: 0.05-0.2
+        
+        // Random mild colors: brand green, grey, beige, light blue, soft pink
+        const colors = [
+          '183, 196, 53',   // Brand green
+          '158, 158, 158',  // Grey
+          '200, 200, 200',  // Light grey
+          '220, 215, 201',  // Beige
+          '173, 216, 230',  // Light blue
+          '255, 218, 224',  // Soft pink
+          '230, 230, 250',  // Lavender
+        ];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
       update() {
@@ -56,14 +75,14 @@ export default function ParticleAnimation() {
 
       draw() {
         if (!ctx) return;
-        // Create gradient for bubble effect
+        // Create gradient for bubble effect with random color
         const gradient = ctx.createRadialGradient(
           this.x, this.y, 0,
           this.x, this.y, this.size
         );
         gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.8})`);
-        gradient.addColorStop(0.5, `rgba(183, 196, 53, ${this.opacity * 0.4})`);
-        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+        gradient.addColorStop(0.5, `rgba(${this.color}, ${this.opacity * 0.5})`);
+        gradient.addColorStop(1, `rgba(${this.color}, 0)`);
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -71,7 +90,7 @@ export default function ParticleAnimation() {
         ctx.fill();
         
         // Add subtle border for bubble effect
-        ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity * 0.6})`;
+        ctx.strokeStyle = `rgba(${this.color}, ${this.opacity * 0.4})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -113,13 +132,13 @@ export default function ParticleAnimation() {
       ref={canvasRef}
       style={{
         position: 'absolute',
-        top: '-100px',
+        top: '0',
         left: 0,
         width: '100%',
-        height: 'calc(100% + 400px)',
+        height: '100%',
         pointerEvents: 'none',
-        zIndex: 0,
-        opacity: 0.6,
+        zIndex: 1,
+        opacity: 0.8,
       }}
     />
   );

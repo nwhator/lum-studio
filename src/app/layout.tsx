@@ -6,8 +6,6 @@ import Script from "next/script";
 import { Syne, Marcellus } from "next/font/google";
 import localFont from "next/font/local";
 import { ToastProvider } from "@/components/ui/toast";
-import ClientErrorBoundary from "@/components/client-error-boundary";
-import ErrorDebugger from "@/components/error-debugger";
 import "./globals.scss";
 
 // Optimized font loading with display swap and preload
@@ -245,12 +243,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gellery.variable} ${syne.variable} ${marcellus.variable}`}
       >
-      <ClientErrorBoundary>
         <ToastProvider>
           {children}
         </ToastProvider>
-        <ErrorDebugger />
-      </ClientErrorBoundary>
       {/* Organization Schema for Google Logo */}
       <Script
         id="organization-schema"

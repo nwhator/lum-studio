@@ -36,6 +36,7 @@ export default function HeroBannerFour() {
           overflow: hidden !important;
           position: relative;
           z-index: 1;
+          background: #ffffff !important;
         }
         
         /* Reduce padding between header and hero */
@@ -47,6 +48,7 @@ export default function HeroBannerFour() {
           .tp-hero-3-area {
             overflow: hidden !important;
             max-width: 100vw !important;
+            background: #ffffff !important;
           }
           .tp-hero-3-ptb {
             padding-top: 80px !important;

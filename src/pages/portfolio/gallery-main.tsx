@@ -11,7 +11,7 @@ registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import HeaderOne from "@/layouts/headers/header-one";
+import HeaderTransparent from "@/layouts/headers/header-transparent";
 import PortfolioGridColThreeArea from "@/components/portfolio/portfolio-grid-col-3-area";
 import BigText from "@/components/big-text";
 import FooterTwo from "@/layouts/footers/footer-two";
@@ -64,7 +64,7 @@ const PortfolioGridColThreeMain = () => {
       {/* magic cursor end */}
 
       {/* header area start */}
-      <HeaderOne />
+      <HeaderTransparent />
       {/* header area end */}
 
       <div id="smooth-wrapper">
