@@ -764,14 +764,41 @@ button[type="submit"],
       }
     }
     
-    // Dropdown menu items
+    // Dropdown menu items - black text on white background
     ul li ul li a {
-      color: var(--tp-common-black) !important;
+      color: #000000 !important;
       text-shadow: none;
+      font-weight: 500;
       
       &:hover {
         color: var(--tp-theme-1) !important;
       }
+    }
+    
+    // Mega menu items - black text
+    .tp-megamenu-list-wrap a,
+    .homemenu-title a {
+      color: #000000 !important;
+      text-shadow: none;
+      font-weight: 500;
+      
+      &:hover {
+        color: var(--tp-theme-1) !important;
+      }
+    }
+  }
+  
+  // Ensure dropdown has white background with proper contrast
+  .tp-submenu.submenu {
+    background: #ffffff !important;
+    
+    a {
+      color: #000000 !important;
+      text-shadow: none !important;
+    }
+    
+    a:hover {
+      color: var(--tp-theme-1) !important;
     }
   }
   
