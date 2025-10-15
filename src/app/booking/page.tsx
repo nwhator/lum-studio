@@ -93,6 +93,7 @@ function BookingContent() {
     const idxLook = currentOptions.findIndex(o => o.type === 'look');
     if (idxLook !== -1) { setSelectedOptionIndex(idxLook); return; }
     setSelectedOptionIndex(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPackageSlug, selectedPackageType, currentOptions?.length]);
 
   // Fetch booked slots when date changes
