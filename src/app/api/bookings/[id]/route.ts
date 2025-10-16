@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getBookingsCollection } from '@/lib/mongodb';
 
+if (!process.env.MONGODB_URI) {
+  // For API routes:
+  return Response.json({ error: "Database disabled" }, { status: 503 });
+  // For utility files, just return early or throw an error.
+}
+
 // PATCH - Update booking status
 export async function PATCH(
   request: NextRequest,

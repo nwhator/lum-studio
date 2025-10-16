@@ -7,9 +7,15 @@ let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
 // Check if MongoDB URI is configured
+// if (!process.env.MONGODB_URI) {
+//   throw new Error('Please add MONGODB_URI to .env.local');
+// }
+
 if (!process.env.MONGODB_URI) {
-  throw new Error('Please add MONGODB_URI to .env.local');
-}
+  // For API routes:
+  return Response.json({ error: "Database disabled" }, { status: 503 });
+  // For utility files, just return early or throw an error.
+
 
 if (process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable to preserve the connection
