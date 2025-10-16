@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Social from "../social/social";
-import shape from "@/assets/img/inner-about/about/shape-1.png";
+import shape from "@/assets/img/inner-about/about/shape-1.webp";
 
 export default function ContactTwo() {
   return (

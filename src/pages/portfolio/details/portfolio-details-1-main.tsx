@@ -22,10 +22,10 @@ import {charAnimation,titleAnimation} from "@/utils/title-animation";
 
 
 // images
-import port_d_1 from '@/assets/img/inner-project/portfolio-details/port-details-1.jpg';
-import port_d_2 from '@/assets/img/inner-project/portfolio-details/port-details-2.jpg';
-import port_d_3 from '@/assets/img/inner-project/portfolio-details/port-details-3.jpg';
-import port_d_4 from '@/assets/img/inner-project/portfolio-details/port-details-4.jpg';
+import port_d_1 from '@/assets/img/inner-project/portfolio-details/port-details-1.webp';
+import port_d_2 from '@/assets/img/inner-project/portfolio-details/port-details-2.webp';
+import port_d_3 from '@/assets/img/inner-project/portfolio-details/port-details-3.webp';
+import port_d_4 from '@/assets/img/inner-project/portfolio-details/port-details-4.webp';
 
 const port_images = [port_d_1, port_d_2, port_d_3, port_d_4];
 

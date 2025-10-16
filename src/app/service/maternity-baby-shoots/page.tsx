@@ -20,12 +20,12 @@ import Link from "next/link";
 import { charAnimation, titleAnimation } from "@/utils/title-animation";
 
 // images
-import img1 from "@/assets/img/inner-project/portfolio-col-2/port-5.jpg";
-import img2 from "@/assets/img/inner-project/portfolio-col-2/port-6.jpg";
-import img3 from "@/assets/img/inner-project/portfolio-col-2/port-7.jpg";
-import img4 from "@/assets/img/inner-project/portfolio-col-2/port-8.jpg";
-import img5 from "@/assets/img/home-03/gallery/gal-3.jpg";
-import img6 from "@/assets/img/home-03/gallery/gal-4.jpg";
+import img1 from "@/assets/img/inner-project/portfolio-col-2/port-5.webp";
+import img2 from "@/assets/img/inner-project/portfolio-col-2/port-6.webp";
+import img3 from "@/assets/img/inner-project/portfolio-col-2/port-7.webp";
+import img4 from "@/assets/img/inner-project/portfolio-col-2/port-8.webp";
+import img5 from "@/assets/img/home-03/gallery/gal-3.webp";
+import img6 from "@/assets/img/home-03/gallery/gal-4.webp";
 
 const MaternityBabyPage = () => {
   useScrollSmooth();

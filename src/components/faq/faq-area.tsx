@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Search } from "../svg";
-import faq_banner from '@/assets/img/inner-faq/faq/banner-faq.jpg';
+import faq_banner from '@/assets/img/inner-faq/faq/banner-faq.webp';
 import FaqItem from "./faq-item";
 
 // type 

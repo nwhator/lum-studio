@@ -3,10 +3,10 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 // images
-import port_1 from "@/assets/img/inner-service/portfolio/port-2.jpg";
-import port_2 from "@/assets/img/inner-service/portfolio/port-3.jpg";
-import port_3 from "@/assets/img/inner-service/portfolio/port-4.jpg";
-import port_4 from "@/assets/img/inner-service/portfolio/port-1.jpg";
+import port_1 from "@/assets/img/inner-service/portfolio/port-2.webp";
+import port_2 from "@/assets/img/inner-service/portfolio/port-3.webp";
+import port_3 from "@/assets/img/inner-service/portfolio/port-4.webp";
+import port_4 from "@/assets/img/inner-service/portfolio/port-1.webp";
 
 // images
 const port_images = [port_1, port_1, port_2, port_3, port_4, port_1, port_2];

@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 // images
-import sv_1 from "@/assets/img/inner-service/sercive-details/sv-details-1.jpg";
-import sv_2 from "@/assets/img/inner-service/sercive-details/sv-details-2.jpg";
-import sv_3 from "@/assets/img/inner-service/sercive-details/sv-details-3.jpg";
+import sv_1 from "@/assets/img/inner-service/sercive-details/sv-details-1.webp";
+import sv_2 from "@/assets/img/inner-service/sercive-details/sv-details-2.webp";
+import sv_3 from "@/assets/img/inner-service/sercive-details/sv-details-3.webp";
 
 export default function ServiceDetailsArea() {
   return (

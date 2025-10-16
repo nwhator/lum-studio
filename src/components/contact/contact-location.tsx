@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 // images
-import location_1 from "@/assets/img/inner-contact/contact/info-1.jpg";
-import location_2 from "@/assets/img/inner-contact/contact/info-2.jpg";
-import location_3 from "@/assets/img/inner-contact/contact/info-3.jpg";
+import location_1 from "@/assets/img/inner-contact/contact/info-1.webp";
+import location_2 from "@/assets/img/inner-contact/contact/info-2.webp";
+import location_3 from "@/assets/img/inner-contact/contact/info-3.webp";
 
 // data
 const location_data = [

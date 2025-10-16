@@ -4,9 +4,9 @@ import Social from "../social/social";
 import { Leaf } from "../svg";
 
 // images
-import shape_1 from "@/assets/img/inner-about/hero/hero-2-shape-1.jpg";
-import shape_2 from "@/assets/img/inner-about/hero/hero-2-shape-2.jpg";
-import hero_img from '@/assets/img/inner-about/hero/hero-2-1.jpg';
+import shape_1 from "@/assets/img/inner-about/hero/hero-2-shape-1.webp";
+import shape_2 from "@/assets/img/inner-about/hero/hero-2-shape-2.webp";
+import hero_img from '@/assets/img/inner-about/hero/hero-2-1.webp';
 
 export default function AboutMeHero() {
   return (

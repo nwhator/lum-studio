@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { UpArrow } from "../svg";
-import p_img_1 from "@/assets/img/home-05/project/project-2.jpg";
-import p_img_2 from "@/assets/img/home-05/project/project-3.jpg";
+import p_img_1 from "@/assets/img/home-05/project/project-2.webp";
+import p_img_2 from "@/assets/img/home-05/project/project-3.webp";
 
 export default function HeroBannerFive() {
   return (

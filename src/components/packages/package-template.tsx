@@ -156,7 +156,7 @@ export default function PackageTemplate({
   packages,
   reviews,
   faqs,
-  heroBackgroundImage = "/assets/img/inner-project/portfolio-col-2/port-1.jpg"
+  heroBackgroundImage = "/assets/img/inner-project/portfolio-col-2/port-1.webp"
 }: PackageTemplateProps) {
   const [openFAQ, setOpenFAQ] = React.useState<number | null>(null);
   

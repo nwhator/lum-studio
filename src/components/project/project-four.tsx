@@ -10,8 +10,8 @@ import Link from "next/link";
 const project_data = [
   {
     id: 1,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
-    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-1.webp",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-2.webp",
     meta: "Newborn Photography",
     title: "Baby Shoots",
     slug: "baby-shoot",
@@ -20,8 +20,8 @@ const project_data = [
   },
   {
     id: 2,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
-    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-4.webp",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-5.webp",
     meta: "Wedding Photography",
     title: "Wedding Shoots",
     slug: "wedding",
@@ -30,8 +30,8 @@ const project_data = [
   },
   {
     id: 3,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
-    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-9.webp",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-8.webp",
     meta: "Legal Milestone",
     title: "Call to Bar",
     slug: "call-to-bar",
@@ -40,8 +40,8 @@ const project_data = [
   },
   {
     id: 4,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
-    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-10.webp",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-11.webp",
     meta: "Academic Achievement",
     title: "Convocation",
     slug: "convocation",
@@ -50,8 +50,8 @@ const project_data = [
   },
   {
     id: 5,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
-    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-13.webp",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-14.webp",
     meta: "Portrait Photography",
     title: "Family Portraits",
     slug: "family-portraits",
@@ -60,8 +60,8 @@ const project_data = [
   },
   {
     id: 6,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
-    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-16.webp",
+    img_walkin: "/assets/img/inner-project/portfolio-col-2/port-17.webp",
     meta: "Maternity Photography", 
     title: "Maternity Portraits",
     slug: "maternity",

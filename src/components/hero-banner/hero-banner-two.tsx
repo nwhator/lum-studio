@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Leaf } from "../svg";
-import hero_bg from "@/assets/img/home-02/hero/hero-bg-1.jpg";
+import hero_bg from "@/assets/img/home-02/hero/hero-bg-1.webp";
 
 const HeroBannerTwo = () => {
   return (

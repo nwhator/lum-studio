@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 // service images
-import s_1 from "@/assets/img/home-01/service/service-icon-1.png";
-import s_2 from "@/assets/img/home-01/service/service-icon-2.png";
-import s_3 from "@/assets/img/home-01/service/service-icon-3.png";
-import s_4 from "@/assets/img/home-01/service/service-icon-4.png";
+import s_1 from "@/assets/img/home-01/service/service-icon-1.webp";
+import s_2 from "@/assets/img/home-01/service/service-icon-2.webp";
+import s_3 from "@/assets/img/home-01/service/service-icon-3.webp";
+import s_4 from "@/assets/img/home-01/service/service-icon-4.webp";
 
 // service data
 const service_data = [

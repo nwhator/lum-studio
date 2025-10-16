@@ -2,9 +2,9 @@
 import React, { CSSProperties } from 'react';
 import Image from 'next/image';
 // images
-import ab_1 from '@/assets/img/home-02/about/ab-1.jpg';
-import ab_2 from '@/assets/img/home-02/about/ab-2.jpg';
-import ab_3 from '@/assets/img/home-02/about/ab-s.jpg';
+import ab_1 from '@/assets/img/home-02/about/ab-1.webp';
+import ab_2 from '@/assets/img/home-02/about/ab-2.webp';
+import ab_3 from '@/assets/img/home-02/about/ab-s.webp';
 
 // img style
 const imgStyle:CSSProperties = {height: "auto"};

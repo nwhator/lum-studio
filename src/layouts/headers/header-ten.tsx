@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MenuThree } from "@/components/svg";
-import logo from "@/assets/img/logo/logo-white.png";
+import logo from "@/assets/img/logo/logo-white.webp";
 import MobileOffcanvasTwo from "@/components/offcanvas/mobile-offcanvas-2";
 
 export default function HeaderTen() {

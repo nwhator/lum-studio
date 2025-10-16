@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Menu, Search, Wishlist, Zero } from "@/components/svg";
 import useSticky from "@/hooks/use-sticky";
 import HeaderMenus from "./header-menus";
-import logo_1 from "@/assets/img/logo/logo.png";   
-import logo_2 from "@/assets/img/logo/logo-white.png"; 
+import logo_1 from "@/assets/img/logo/logo.webp";   
+import logo_2 from "@/assets/img/logo/logo-white.webp"; 
 import CartOffcanvas from "@/components/offcanvas/cart-offcanvas";
 import MobileOffcanvas from "@/components/offcanvas/mobile-offcanvas";
 

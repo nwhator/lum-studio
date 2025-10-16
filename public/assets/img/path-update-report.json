@@ -1,0 +1,2101 @@
+[
+  {
+    "file": "app\\admin\\login\\page.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\checkout\\page.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\layout.tsx",
+    "changes": [
+      {
+        "from": "https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg",
+        "to": "https://www.thelumstudios.com/assets/img/logo/logo-bg.webp"
+      },
+      {
+        "from": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+        "to": "https://www.thelumstudios.com/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+        "to": "https://www.thelumstudios.com/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+        "to": "https://www.thelumstudios.com/assets/img/logo/logo.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\packages\\general\\page.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-2.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\page.tsx",
+    "changes": [
+      {
+        "from": "https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg",
+        "to": "https://www.thelumstudios.com/assets/img/logo/logo-bg.webp"
+      },
+      {
+        "from": "https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg",
+        "to": "https://www.thelumstudios.com/assets/img/logo/logo-bg.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\service\\event-photography\\page.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-9.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-9.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-10.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-10.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-11.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-11.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-12.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-12.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-14.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-14.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\service\\maternity-baby-shoots\\page.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-6.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-6.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-7.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-7.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-8.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-3.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-4.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\service\\professional-portraits\\page.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-13.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-15.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-15.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-16.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-16.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-17.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-17.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-5.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-5.webp"
+      }
+    ]
+  },
+  {
+    "file": "app\\service\\wedding-photography\\page.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-3.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-1.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-2.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-2.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-me-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-about/about/shape-1.png",
+        "to": "@/assets/img/inner-about/about/shape-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-me-hero.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-about/hero/hero-2-shape-1.jpg",
+        "to": "@/assets/img/inner-about/hero/hero-2-shape-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-about/hero/hero-2-shape-2.jpg",
+        "to": "@/assets/img/inner-about/hero/hero-2-shape-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-about/hero/hero-2-1.jpg",
+        "to": "@/assets/img/inner-about/hero/hero-2-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-02/about/ab-1.jpg",
+        "to": "@/assets/img/home-02/about/ab-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/about/ab-2.jpg",
+        "to": "@/assets/img/home-02/about/ab-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/about/ab-s.jpg",
+        "to": "@/assets/img/home-02/about/ab-s.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-three.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-03/about/ab-shape-img.png",
+        "to": "@/assets/img/home-03/about/ab-shape-img.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-04/about/about-shape-2.png",
+        "to": "@/assets/img/home-04/about/about-shape-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/about/about-shape-1.png",
+        "to": "@/assets/img/home-04/about/about-shape-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-us-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-about/about/about-1.jpg",
+        "to": "@/assets/img/inner-about/about/about-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-3.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-4.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-5.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-5.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\about\\about-us-hero.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-about/hero/hero-1.jpg",
+        "to": "/assets/img/inner-about/hero/hero-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\award\\award-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-01/award/award-1.png",
+        "to": "@/assets/img/home-01/award/award-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/award/award-2.png",
+        "to": "@/assets/img/home-01/award/award-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/award/award-3.png",
+        "to": "@/assets/img/home-01/award/award-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/award/award-4.png",
+        "to": "@/assets/img/home-01/award/award-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/award/award-5.png",
+        "to": "@/assets/img/home-01/award/award-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/award/award-6.png",
+        "to": "@/assets/img/home-01/award/award-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\award\\award-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-02/award/award-1.png",
+        "to": "@/assets/img/home-02/award/award-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\blog-list-banner.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-blog/blog-right-sidebar/blog-banner.jpg",
+        "to": "/assets/img/inner-blog/blog-right-sidebar/blog-banner.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\blog-sidebar.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/avatar/avata-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/avatar/avata-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/banner/banner.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/banner/banner.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\details\\blog-details-area-2.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-1.jpg",
+        "to": "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-details/blog-details-4.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/blog-details-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\details\\blog-details-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-details/blog-details-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/blog-details-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-details/blog-details-3.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/blog-details-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-details/blog-details-4.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/blog-details-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\details\\blog-details-author.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-details/avatar/avatar-1.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/avatar/avatar-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\details\\blog-details-breadcrumb.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-details/bg-shape/overly.png",
+        "to": "@/assets/img/inner-blog/blog-details/bg-shape/overly.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-details/avatar/avatar-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/avatar/avatar-2.webp"
+      },
+      {
+        "from": "/assets/img/inner-blog/blog-details/blog-details-1.jpg",
+        "to": "/assets/img/inner-blog/blog-details/blog-details-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\details\\blog-details-comments.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-details/avatar/avatar-3.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/avatar/avatar-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-details/avatar/avatar-4.jpg",
+        "to": "@/assets/img/inner-blog/blog-details/avatar/avatar-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\blog\\slider\\blog-classic-slider.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-blog/blog-sidebar/blog-sidebar-bg.jpg",
+        "to": "/assets/img/inner-blog/blog-sidebar/blog-sidebar-bg.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\contact\\contact-location-2.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-contact/contact/contact-1.jpg",
+        "to": "@/assets/img/inner-contact/contact/contact-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/contact-2.jpg",
+        "to": "@/assets/img/inner-contact/contact/contact-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/contact-3.jpg",
+        "to": "@/assets/img/inner-contact/contact/contact-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/contact-4.jpg",
+        "to": "@/assets/img/inner-contact/contact/contact-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/contact-5.jpg",
+        "to": "@/assets/img/inner-contact/contact/contact-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/contact-6.jpg",
+        "to": "@/assets/img/inner-contact/contact/contact-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\contact\\contact-location.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-contact/contact/info-1.jpg",
+        "to": "@/assets/img/inner-contact/contact/info-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/info-2.jpg",
+        "to": "@/assets/img/inner-contact/contact/info-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-contact/contact/info-3.jpg",
+        "to": "@/assets/img/inner-contact/contact/info-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\contact\\contact-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-03/cta/cta-1.png",
+        "to": "@/assets/img/home-03/cta/cta-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\contact\\contact-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-about/about/shape-1.png",
+        "to": "@/assets/img/inner-about/about/shape-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\counter\\counter-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-05/marque/marque-1.jpg",
+        "to": "@/assets/img/home-05/marque/marque-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-2.jpg",
+        "to": "@/assets/img/home-05/marque/marque-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-3.jpg",
+        "to": "@/assets/img/home-05/marque/marque-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-4.jpg",
+        "to": "@/assets/img/home-05/marque/marque-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-5.jpg",
+        "to": "@/assets/img/home-05/marque/marque-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-6.jpg",
+        "to": "@/assets/img/home-05/marque/marque-6.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-7.jpg",
+        "to": "@/assets/img/home-05/marque/marque-7.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-8.jpg",
+        "to": "@/assets/img/home-05/marque/marque-8.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/marque/marque-9.jpg",
+        "to": "@/assets/img/home-05/marque/marque-9.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\faq\\faq-area-2.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-02/service/sv-shape-1.png",
+        "to": "@/assets/img/home-02/service/sv-shape-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\faq\\faq-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-faq/faq/banner-faq.jpg",
+        "to": "@/assets/img/inner-faq/faq/banner-faq.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\gallery\\gallery-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-03/gallery/gal-shape-1.png",
+        "to": "@/assets/img/home-03/gallery/gal-shape-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-shape-dark-1.png",
+        "to": "@/assets/img/home-03/gallery/gal-shape-dark-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-shape-2.png",
+        "to": "@/assets/img/home-03/gallery/gal-shape-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-shape-dark-2.png",
+        "to": "@/assets/img/home-03/gallery/gal-shape-dark-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-1.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-2.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-3.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-4.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-5.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-5.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\hero-banner\\hero-banner-five.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-05/project/project-2.jpg",
+        "to": "@/assets/img/home-05/project/project-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/project/project-3.jpg",
+        "to": "@/assets/img/home-05/project/project-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\hero-banner\\hero-banner-one.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/home-01/hero/hero-shape-1-1.png",
+        "to": "/assets/img/home-01/hero/hero-shape-1-1.webp"
+      },
+      {
+        "from": "/assets/img/home-01/hero/hero-1-1.png",
+        "to": "/assets/img/home-01/hero/hero-1-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\hero-banner\\hero-banner-six.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-shop/home/slider-1.jpg",
+        "to": "/assets/img/inner-shop/home/slider-1.webp"
+      },
+      {
+        "from": "/assets/img/inner-shop/home/slider-2.jpg",
+        "to": "/assets/img/inner-shop/home/slider-2.webp"
+      },
+      {
+        "from": "/assets/img/inner-shop/home/slider-3.jpg",
+        "to": "/assets/img/inner-shop/home/slider-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\hero-banner\\hero-banner-three.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-04/hero/hero-star.png",
+        "to": "@/assets/img/home-04/hero/hero-star.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/hero/hero-star-2.png",
+        "to": "@/assets/img/home-04/hero/hero-star-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/hero/hero-1.jpg",
+        "to": "@/assets/img/home-04/hero/hero-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\hero-banner\\hero-banner-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-02/hero/hero-bg-1.jpg",
+        "to": "@/assets/img/home-02/hero/hero-bg-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\instagram\\instagram-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-1.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-2.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-3.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-4.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-5.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-6.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-6.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/instagram/insta-inner-7.jpg",
+        "to": "@/assets/img/home-02/instagram/insta-inner-7.webp"
+      },
+      {
+        "from": "/assets/img/home-02/instagram/insta-1.jpg",
+        "to": "/assets/img/home-02/instagram/insta-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\instagram\\instagram-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-shop/instagram/insta-1.jpg",
+        "to": "@/assets/img/inner-shop/instagram/insta-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-shop/instagram/insta-2.jpg",
+        "to": "@/assets/img/inner-shop/instagram/insta-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-shop/instagram/insta-3.jpg",
+        "to": "@/assets/img/inner-shop/instagram/insta-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-shop/instagram/insta-4.jpg",
+        "to": "@/assets/img/inner-shop/instagram/insta-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-shop/instagram/insta-5.jpg",
+        "to": "@/assets/img/inner-shop/instagram/insta-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-shop/instagram/insta-6.jpg",
+        "to": "@/assets/img/inner-shop/instagram/insta-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\line-text\\line-img-slider.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-service/portfolio/port-2.jpg",
+        "to": "@/assets/img/inner-service/portfolio/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-service/portfolio/port-3.jpg",
+        "to": "@/assets/img/inner-service/portfolio/port-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-service/portfolio/port-4.jpg",
+        "to": "@/assets/img/inner-service/portfolio/port-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-service/portfolio/port-1.jpg",
+        "to": "@/assets/img/inner-service/portfolio/port-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\line-text\\line-text-2.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/home-04/brand/overly.png",
+        "to": "/assets/img/home-04/brand/overly.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\mission\\mission-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-05/mission/mission-1.jpg",
+        "to": "@/assets/img/home-05/mission/mission-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/mission/mission-2.jpg",
+        "to": "@/assets/img/home-05/mission/mission-2.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\offcanvas\\cart-offcanvas.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-blog/blog-sidebar/rc-post/rc-1.jpg",
+        "to": "/assets/img/inner-blog/blog-sidebar/rc-post/rc-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\offcanvas\\mobile-menus.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/menu/shop-menu/banner-1.jpg",
+        "to": "@/assets/img/menu/shop-menu/banner-1.webp"
+      },
+      {
+        "from": "@/assets/img/menu/portfolio-menu/portfolio.png",
+        "to": "@/assets/img/menu/portfolio-menu/portfolio.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\offcanvas\\mobile-offcanvas-2.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\offcanvas\\mobile-offcanvas.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-1.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-2.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-3.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-03/gallery/gal-4.jpg",
+        "to": "@/assets/img/home-03/gallery/gal-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\packages\\package-template.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\about-portfolio.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-about/portfolio/portfolio-1.jpg",
+        "to": "@/assets/img/inner-about/portfolio/portfolio-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-about/portfolio/portfolio-2.jpg",
+        "to": "@/assets/img/inner-about/portfolio/portfolio-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-about/portfolio/portfolio-3.jpg",
+        "to": "@/assets/img/inner-about/portfolio/portfolio-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\details\\portfolio-details-3-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-1.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-2.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-3.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-4.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-5.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-6.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-6.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-7.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-3/portfolio-img-7.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\details\\portfolio-details-custom-light-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/custom/custom-big-1.jpg",
+        "to": "@/assets/img/inner-project/custom/custom-big-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/custom/custom-big-2.jpg",
+        "to": "@/assets/img/inner-project/custom/custom-big-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/custom/port-1.jpg",
+        "to": "@/assets/img/inner-project/custom/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/custom/port-2.jpg",
+        "to": "@/assets/img/inner-project/custom/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/custom/port-3.jpg",
+        "to": "@/assets/img/inner-project/custom/port-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\details\\portfolio-details-showcase-2-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-2.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-3.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-4.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-5.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-6.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-6.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-7.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-7.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-8.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-8.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-9.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-9.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-10.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-10.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-11.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-11.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2-12.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2-12.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/showcase/showcase-details-2-1.jpg",
+        "to": "/assets/img/inner-project/showcase/showcase-details-2-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\details\\portfolio-details-showcase-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-1.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-2.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-details-3.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-details-3.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/showcase/showcase-1.jpg",
+        "to": "/assets/img/inner-project/showcase/showcase-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\portfolio-grid-4-col-area.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-4.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-3.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-3.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-2.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-5.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-6.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-6.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-7.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-7.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-8.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\portfolio-grid-col-2-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-3.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-6.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\portfolio-grid-col-3-area.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-2.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-3.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-3.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-4.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-5.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-6.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-6.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-7.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-7.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-8.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-9.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-10.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-11.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-12.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-12.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-13.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-14.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-15.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-15.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-16.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-17.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-18.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-18.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\portfolio-masonry-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/masonary/masonary-1.jpg",
+        "to": "@/assets/img/inner-project/masonary/masonary-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/masonary/masonary-2.jpg",
+        "to": "@/assets/img/inner-project/masonary/masonary-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/masonary/masonary-3.jpg",
+        "to": "@/assets/img/inner-project/masonary/masonary-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/masonary/masonary-4.jpg",
+        "to": "@/assets/img/inner-project/masonary/masonary-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/masonary/masonary-5.jpg",
+        "to": "@/assets/img/inner-project/masonary/masonary-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/masonary/masonary-6.jpg",
+        "to": "@/assets/img/inner-project/masonary/masonary-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\slider\\perspective-port-slider.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-09/slider/slider-1.jpg",
+        "to": "@/assets/img/home-09/slider/slider-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-09/slider/slider-2.jpg",
+        "to": "@/assets/img/home-09/slider/slider-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-09/slider/slider-3.jpg",
+        "to": "@/assets/img/home-09/slider/slider-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-09/slider/slider-4.jpg",
+        "to": "@/assets/img/home-09/slider/slider-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-09/slider/slider-5.jpg",
+        "to": "@/assets/img/home-09/slider/slider-5.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\slider\\portfolio-slider-home-eleven.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-1.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-2.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-3.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/showcase/showcase-4.jpg",
+        "to": "@/assets/img/inner-project/showcase/showcase-4.webp"
+      },
+      {
+        "from": "/assets/img/webgl/1.jpg",
+        "to": "/assets/img/webgl/1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\slider\\portfolio-slider-home-nine.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-10/porfolio/port-1.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-10/porfolio/port-2.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-10/porfolio/port-3.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-10/porfolio/port-4.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-10/porfolio/port-5.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-10/porfolio/port-6.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-6.webp"
+      },
+      {
+        "from": "@/assets/img/home-10/porfolio/port-7.jpg",
+        "to": "@/assets/img/home-10/porfolio/port-7.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\portfolio\\slider\\portfolio-slider-home-ten.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-11/port-sm-1.jpg",
+        "to": "@/assets/img/home-11/port-sm-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-11/port-sm-2.jpg",
+        "to": "@/assets/img/home-11/port-sm-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-11/port-sm-3.jpg",
+        "to": "@/assets/img/home-11/port-sm-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-11/port-sm-4.jpg",
+        "to": "@/assets/img/home-11/port-sm-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-11/port-sm-5.jpg",
+        "to": "@/assets/img/home-11/port-sm-5.webp"
+      },
+      {
+        "from": "/assets/img/home-11/port-1.jpg",
+        "to": "/assets/img/home-11/port-1.webp"
+      },
+      {
+        "from": "/assets/img/home-11/port-2.jpg",
+        "to": "/assets/img/home-11/port-2.webp"
+      },
+      {
+        "from": "/assets/img/home-11/port-3.jpg",
+        "to": "/assets/img/home-11/port-3.webp"
+      },
+      {
+        "from": "/assets/img/home-11/port-4.jpg",
+        "to": "/assets/img/home-11/port-4.webp"
+      },
+      {
+        "from": "/assets/img/home-11/port-5.jpg",
+        "to": "/assets/img/home-11/port-5.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\project\\project-five.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-05/project/project-4.jpg",
+        "to": "@/assets/img/home-05/project/project-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/project/project-5.jpg",
+        "to": "@/assets/img/home-05/project/project-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/project/project-6.jpg",
+        "to": "@/assets/img/home-05/project/project-6.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/project/project-7.jpg",
+        "to": "@/assets/img/home-05/project/project-7.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/project/project-8.jpg",
+        "to": "@/assets/img/home-05/project/project-8.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/project/project-9.jpg",
+        "to": "@/assets/img/home-05/project/project-9.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\project\\project-four.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-2.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-4.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-5.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-9.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-8.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-10.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-11.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-13.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-14.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-16.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
+        "to": "/assets/img/inner-project/portfolio-col-2/port-17.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\project\\project-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-01/project/project-1-1.jpg",
+        "to": "@/assets/img/home-01/project/project-1-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/project/project-1-2.jpg",
+        "to": "@/assets/img/home-01/project/project-1-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/project/project-1-3.jpg",
+        "to": "@/assets/img/home-01/project/project-1-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/project/project-1-4.jpg",
+        "to": "@/assets/img/home-01/project/project-1-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/project/project-1-5.jpg",
+        "to": "@/assets/img/home-01/project/project-1-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/project/project-1-6.jpg",
+        "to": "@/assets/img/home-01/project/project-1-6.webp"
+      },
+      {
+        "from": "/assets/img/inner-service/hero/hero-1-2.jpg",
+        "to": "/assets/img/inner-service/hero/hero-1-2.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\project\\project-text-line.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-01/project/project-shape-1-1.png",
+        "to": "@/assets/img/home-01/project/project-shape-1-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\project\\project-three.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-04/portfolio/port-1.jpg",
+        "to": "@/assets/img/home-04/portfolio/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/portfolio/port-2.jpg",
+        "to": "@/assets/img/home-04/portfolio/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/portfolio/port-3.jpg",
+        "to": "@/assets/img/home-04/portfolio/port-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/portfolio/port-4.jpg",
+        "to": "@/assets/img/home-04/portfolio/port-4.webp"
+      },
+      {
+        "from": "/assets/img/home-04/brand/overly.png",
+        "to": "/assets/img/home-04/brand/overly.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\project\\project-two.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/home-02/project/project-1.jpg",
+        "to": "/assets/img/home-02/project/project-1.webp"
+      },
+      {
+        "from": "/assets/img/home-02/project/project-2.jpg",
+        "to": "/assets/img/home-02/project/project-2.webp"
+      },
+      {
+        "from": "/assets/img/home-02/project/project-3.jpg",
+        "to": "/assets/img/home-02/project/project-3.webp"
+      },
+      {
+        "from": "/assets/img/home-02/project/project-4.jpg",
+        "to": "/assets/img/home-02/project/project-4.webp"
+      },
+      {
+        "from": "/assets/img/home-02/project/project-5.jpg",
+        "to": "/assets/img/home-02/project/project-5.webp"
+      },
+      {
+        "from": "/assets/img/home-02/project/project-6.jpg",
+        "to": "/assets/img/home-02/project/project-6.webp"
+      },
+      {
+        "from": "/assets/img/home-02/project/project-7.jpg",
+        "to": "/assets/img/home-02/project/project-7.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\service\\service-details-area.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-service/sercive-details/sv-details-1.jpg",
+        "to": "@/assets/img/inner-service/sercive-details/sv-details-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-service/sercive-details/sv-details-2.jpg",
+        "to": "@/assets/img/inner-service/sercive-details/sv-details-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-service/sercive-details/sv-details-3.jpg",
+        "to": "@/assets/img/inner-service/sercive-details/sv-details-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\service\\service-four.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-03/service/sv-icon-1.png",
+        "to": "@/assets/img/home-03/service/sv-icon-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\service\\service-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-01/service/service-icon-1.png",
+        "to": "@/assets/img/home-01/service/service-icon-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/service/service-icon-2.png",
+        "to": "@/assets/img/home-01/service/service-icon-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/service/service-icon-3.png",
+        "to": "@/assets/img/home-01/service/service-icon-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-01/service/service-icon-4.png",
+        "to": "@/assets/img/home-01/service/service-icon-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\service\\service-six.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-9.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-9.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+        "to": "@/assets/img/inner-project/portfolio-col-2/port-13.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\service\\service-three.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-04/service/sv-star-1.png",
+        "to": "@/assets/img/home-04/service/sv-star-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/service/sv-icon-1.png",
+        "to": "@/assets/img/home-04/service/sv-icon-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/service/sv-icon-2.png",
+        "to": "@/assets/img/home-04/service/sv-icon-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/service/sv-icon-3.png",
+        "to": "@/assets/img/home-04/service/sv-icon-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-04/service/sv-icon-4.png",
+        "to": "@/assets/img/home-04/service/sv-icon-4.webp"
+      },
+      {
+        "from": "/assets/img/home-04/brand/overly.png",
+        "to": "/assets/img/home-04/brand/overly.webp"
+      },
+      {
+        "from": "/assets/img/home-04/hero/overly.png",
+        "to": "/assets/img/home-04/hero/overly.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\service\\service-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-02/service/sv-icon-1.png",
+        "to": "@/assets/img/home-02/service/sv-icon-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/service/sv-icon-2.png",
+        "to": "@/assets/img/home-02/service/sv-icon-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/service/sv-icon-3.png",
+        "to": "@/assets/img/home-02/service/sv-icon-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/service/sv-icon-4.png",
+        "to": "@/assets/img/home-02/service/sv-icon-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-02/service/sv-shape-1.png",
+        "to": "@/assets/img/home-02/service/sv-shape-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\studio-panels\\studio-panel-1.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-08/hero/img-1.jpg",
+        "to": "@/assets/img/home-08/hero/img-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/hero/img-2.jpg",
+        "to": "@/assets/img/home-08/hero/img-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/hero/shape-1.png",
+        "to": "@/assets/img/home-08/hero/shape-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/hero/img-3.jpg",
+        "to": "@/assets/img/home-08/hero/img-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/hero/img-4.jpg",
+        "to": "@/assets/img/home-08/hero/img-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/hero/img-5.jpg",
+        "to": "@/assets/img/home-08/hero/img-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/hero/img-6.jpg",
+        "to": "@/assets/img/home-08/hero/img-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\studio-panels\\studio-panel-2.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-08/service/sv-icon-1.png",
+        "to": "@/assets/img/home-08/service/sv-icon-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/service/sv-icon-2.png",
+        "to": "@/assets/img/home-08/service/sv-icon-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/service/sv-icon-3.png",
+        "to": "@/assets/img/home-08/service/sv-icon-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\studio-panels\\studio-panel-3.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-08/hero/shape-1.png",
+        "to": "@/assets/img/home-08/hero/shape-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-12/portfolio/port-1.jpg",
+        "to": "@/assets/img/home-12/portfolio/port-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-12/portfolio/port-2.jpg",
+        "to": "@/assets/img/home-12/portfolio/port-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-12/portfolio/port-3.jpg",
+        "to": "@/assets/img/home-12/portfolio/port-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-12/portfolio/port-4.jpg",
+        "to": "@/assets/img/home-12/portfolio/port-4.webp"
+      },
+      {
+        "from": "@/assets/img/home-12/portfolio/port-5.jpg",
+        "to": "@/assets/img/home-12/portfolio/port-5.webp"
+      },
+      {
+        "from": "@/assets/img/home-12/portfolio/port-6.jpg",
+        "to": "@/assets/img/home-12/portfolio/port-6.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\studio-panels\\studio-panel-4.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/home-08/testimonial/test-1.png",
+        "to": "@/assets/img/home-08/testimonial/test-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-08/testimonial/test-logo-1.png",
+        "to": "@/assets/img/home-08/testimonial/test-logo-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "components\\work\\about-work.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-about/about/shape-1.png",
+        "to": "@/assets/img/inner-about/about/shape-1.webp"
+      }
+    ]
+  },
+  {
+    "file": "data\\blog-data.ts",
+    "changes": [
+      {
+        "from": "@/assets/img/home-05/blog/blog-1.jpg",
+        "to": "@/assets/img/home-05/blog/blog-1.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/blog/blog-2.jpg",
+        "to": "@/assets/img/home-05/blog/blog-2.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/blog/blog-3.jpg",
+        "to": "@/assets/img/home-05/blog/blog-3.webp"
+      },
+      {
+        "from": "@/assets/img/home-05/blog/blog-4.jpg",
+        "to": "@/assets/img/home-05/blog/blog-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-1.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-3.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-4.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-5.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-5.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-6.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-6.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-standard/blog-7.jpg",
+        "to": "@/assets/img/inner-blog/blog-standard/blog-7.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/avatar/avata-1.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/avatar/avata-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-1.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-3.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-4.jpg",
+        "to": "@/assets/img/inner-blog/blog-sidebar/sidebar-left-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-right-sidebar/blog-1.jpg",
+        "to": "@/assets/img/inner-blog/blog-right-sidebar/blog-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-right-sidebar/blog-2.jpg",
+        "to": "@/assets/img/inner-blog/blog-right-sidebar/blog-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-right-sidebar/blog-3.jpg",
+        "to": "@/assets/img/inner-blog/blog-right-sidebar/blog-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-right-sidebar/blog-4.jpg",
+        "to": "@/assets/img/inner-blog/blog-right-sidebar/blog-4.webp"
+      },
+      {
+        "from": "@/assets/img/inner-blog/blog-right-sidebar/blog-5.jpg",
+        "to": "@/assets/img/inner-blog/blog-right-sidebar/blog-5.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\footers\\footer-four.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\footers\\footer-one.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\footers\\footer-six.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      },
+      {
+        "from": "@/assets/img/inner-shop/payment.png",
+        "to": "@/assets/img/inner-shop/payment.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\footers\\footer-three.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      },
+      {
+        "from": "/assets/img/home-04/hero/overly.png",
+        "to": "/assets/img/home-04/hero/overly.webp"
+      },
+      {
+        "from": "/assets/img/home-04/hero/overly.png",
+        "to": "/assets/img/home-04/hero/overly.webp"
+      },
+      {
+        "from": "/assets/img/home-04/hero/overly.png",
+        "to": "/assets/img/home-04/hero/overly.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\footers\\footer-two.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-eight.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-eleven.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-five.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-four.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-nine.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-one.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/logo/logo.png",
+        "to": "/assets/img/logo/logo.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-seven.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white-rotate.png",
+        "to": "@/assets/img/logo/logo-white-rotate.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-six.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-ten.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-three.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-transparent.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/logo/logo-white.png",
+        "to": "/assets/img/logo/logo-white.webp"
+      },
+      {
+        "from": "/assets/img/logo/logo-white.png",
+        "to": "/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-twelve.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/logo/logo.png",
+        "to": "@/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "@/assets/img/logo/logo-white.png",
+        "to": "@/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "layouts\\headers\\header-two.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/logo/logo.png",
+        "to": "/assets/img/logo/logo.webp"
+      },
+      {
+        "from": "/assets/img/logo/logo-white.png",
+        "to": "/assets/img/logo/logo-white.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\blog\\blog-details-2.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-3.jpg",
+        "to": "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\contact\\contact-2.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/home-01/team/team-details-bg.png",
+        "to": "/assets/img/home-01/team/team-details-bg.webp"
+      },
+      {
+        "from": "/assets/img/inner-contact/contact/contact-bg.png",
+        "to": "/assets/img/inner-contact/contact/contact-bg.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\contact\\contact.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/home-01/team/team-details-bg.png",
+        "to": "/assets/img/home-01/team/team-details-bg.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\error\\error-main.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/error/error.png",
+        "to": "@/assets/img/error/error.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\faq\\faq-main.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/home-01/team/team-details-bg.png",
+        "to": "/assets/img/home-01/team/team-details-bg.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\portfolio\\details\\portfolio-details-1-main.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-details/port-details-1.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details/port-details-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details/port-details-2.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details/port-details-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details/port-details-3.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details/port-details-3.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details/port-details-4.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details/port-details-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\portfolio\\details\\portfolio-details-2-main.tsx",
+    "changes": [
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-2/slide-1.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-2/slide-1.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-2/slide-2.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-2/slide-2.webp"
+      },
+      {
+        "from": "@/assets/img/inner-project/portfolio-details-2/slide-3.jpg",
+        "to": "@/assets/img/inner-project/portfolio-details-2/slide-3.webp"
+      }
+    ]
+  },
+  {
+    "file": "pages\\portfolio\\details\\portfolio-details-comparison-main.tsx",
+    "changes": [
+      {
+        "from": "/assets/img/inner-project/portfolio-details-2/slide-5.jpg",
+        "to": "/assets/img/inner-project/portfolio-details-2/slide-5.webp"
+      },
+      {
+        "from": "/assets/img/inner-project/portfolio-details-2/slide-4.jpg",
+        "to": "/assets/img/inner-project/portfolio-details-2/slide-4.webp"
+      }
+    ]
+  },
+  {
+    "file": "utils\\parallax-slider.ts",
+    "changes": [
+      {
+        "from": "/assets/img/home-12/portfolio/port-${idx + 1}.jpg",
+        "to": "/assets/img/home-12/portfolio/port-${idx + 1}.webp"
+      }
+    ]
+  }
+]

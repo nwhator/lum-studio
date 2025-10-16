@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/assets/img/logo/logo-white-rotate.png";
-import logo_2 from "@/assets/img/logo/logo-white.png";
+import logo from "@/assets/img/logo/logo-white-rotate.webp";
+import logo_2 from "@/assets/img/logo/logo-white.webp";
 import { MenuTwo, UpArrowTwo } from "@/components/svg";
 import MobileOffcanvasTwo from "@/components/offcanvas/mobile-offcanvas-2";
 

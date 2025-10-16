@@ -12,7 +12,11 @@
     "type-check": "tsc --noEmit",
     "lint:fix": "next lint --fix",
     "clean": "rimraf .next out dist",
-    "preview": "npm run build && npm run start"
+    "preview": "npm run build && npm run start",
+    "compress-images": "node scripts/compress-images.js",
+    "replace-images": "node scripts/replace-with-optimized.js",
+    "update-paths": "node scripts/update-image-paths.js",
+    "optimize-all": "npm run compress-images && npm run replace-images && npm run update-paths"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
@@ -44,6 +48,7 @@
     "react-slick": "^0.30.2",
     "react-use": "^17.5.0",
     "sass": "^1.75.0",
+    "sharp": "^0.34.4",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.1",
     "three": "^0.164.1",

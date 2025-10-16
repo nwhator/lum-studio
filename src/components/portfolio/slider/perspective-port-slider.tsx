@@ -3,11 +3,11 @@ import Image from "next/image";
 import { Share } from "../../svg";
 import Link from "next/link";
 // images
-import port_1 from "@/assets/img/home-09/slider/slider-1.jpg";
-import port_2 from "@/assets/img/home-09/slider/slider-2.jpg";
-import port_3 from "@/assets/img/home-09/slider/slider-3.jpg";
-import port_4 from "@/assets/img/home-09/slider/slider-4.jpg";
-import port_5 from "@/assets/img/home-09/slider/slider-5.jpg";
+import port_1 from "@/assets/img/home-09/slider/slider-1.webp";
+import port_2 from "@/assets/img/home-09/slider/slider-2.webp";
+import port_3 from "@/assets/img/home-09/slider/slider-3.webp";
+import port_4 from "@/assets/img/home-09/slider/slider-4.webp";
+import port_5 from "@/assets/img/home-09/slider/slider-5.webp";
 
 const portfolio_data = [
   {

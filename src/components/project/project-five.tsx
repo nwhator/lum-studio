@@ -4,12 +4,12 @@ import LineTextFour from "../line-text/line-text-4";
 import { UpArrow } from "../svg";
 import Link from "next/link";
 // images
-import p_img_1 from "@/assets/img/home-05/project/project-4.jpg";
-import p_img_2 from "@/assets/img/home-05/project/project-5.jpg";
-import p_img_3 from "@/assets/img/home-05/project/project-6.jpg";
-import p_img_4 from "@/assets/img/home-05/project/project-7.jpg";
-import p_img_5 from "@/assets/img/home-05/project/project-8.jpg";
-import p_img_6 from "@/assets/img/home-05/project/project-9.jpg";
+import p_img_1 from "@/assets/img/home-05/project/project-4.webp";
+import p_img_2 from "@/assets/img/home-05/project/project-5.webp";
+import p_img_3 from "@/assets/img/home-05/project/project-6.webp";
+import p_img_4 from "@/assets/img/home-05/project/project-7.webp";
+import p_img_5 from "@/assets/img/home-05/project/project-8.webp";
+import p_img_6 from "@/assets/img/home-05/project/project-9.webp";
 
 const project_data = [
   {

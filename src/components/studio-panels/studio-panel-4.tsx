@@ -7,8 +7,8 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 import CounterTwo from "../counter/counter-two";
 import { NextArrow, PrevArrow } from "../svg";
-import shape from "@/assets/img/home-08/testimonial/test-1.png";
-import logo from "@/assets/img/home-08/testimonial/test-logo-1.png";
+import shape from "@/assets/img/home-08/testimonial/test-1.webp";
+import logo from "@/assets/img/home-08/testimonial/test-logo-1.webp";
 
 // slider setting
 const slider_setting: SwiperOptions = {

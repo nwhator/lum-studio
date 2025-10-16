@@ -3,7 +3,7 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import Image from "next/image";
-import shape from "@/assets/img/home-01/project/project-shape-1-1.png";
+import shape from "@/assets/img/home-01/project/project-shape-1-1.webp";
 
 const ProjectTextLine = () => {
   useGSAP(() => {

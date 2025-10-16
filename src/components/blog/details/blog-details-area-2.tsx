@@ -7,9 +7,9 @@ import BlogDetailsComments from "./blog-details-comments";
 import BlogReplyForm from "@/components/form/blog-reply-form";
 
 // images
-import details_thumb_1 from "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-1.jpg";
-import details_thumb_2 from "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-2.jpg";
-import details_thumb_3 from "@/assets/img/inner-blog/blog-details/blog-details-4.jpg";
+import details_thumb_1 from "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-1.webp";
+import details_thumb_2 from "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-2.webp";
+import details_thumb_3 from "@/assets/img/inner-blog/blog-details/blog-details-4.webp";
 
 export default function BlogDetailsAreaTwo() {
   return (

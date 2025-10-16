@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 // images
-import ab_1 from "@/assets/img/inner-about/about/about-1.jpg";
-import ab_2 from "@/assets/img/home-03/gallery/gal-3.jpg";
-import ab_3 from "@/assets/img/home-03/gallery/gal-4.jpg";
-import ab_4 from "@/assets/img/home-03/gallery/gal-5.jpg";
+import ab_1 from "@/assets/img/inner-about/about/about-1.webp";
+import ab_2 from "@/assets/img/home-03/gallery/gal-3.webp";
+import ab_3 from "@/assets/img/home-03/gallery/gal-4.webp";
+import ab_4 from "@/assets/img/home-03/gallery/gal-5.webp";
 
 // SVG checkmark for features
 const CheckIcon = () => (

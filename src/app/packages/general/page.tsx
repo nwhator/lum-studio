@@ -14,13 +14,13 @@ const GeneralPackagePage = () => {
   const packages = [
     {
       name: "Classic Photography Package",
-      image: "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+      image: "/assets/img/inner-project/portfolio-col-2/port-1.webp",
       price: "$399",
       description: "Perfect for special occasions. Includes 2-hour session, 30 edited photos, and digital gallery access."
     },
     {
       name: "Walk-In Photography Package",
-      image: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+      image: "/assets/img/inner-project/portfolio-col-2/port-2.webp",
       price: "$699",
       description: "Complete photography experience with 4-hour coverage, 60+ edited photos, multiple setups, and custom album."
     }
@@ -82,7 +82,7 @@ const GeneralPackagePage = () => {
         packages={packages}
         reviews={reviews}
         faqs={faqs}
-        heroBackgroundImage="/assets/img/inner-project/portfolio-col-2/port-1.jpg"
+        heroBackgroundImage="/assets/img/inner-project/portfolio-col-2/port-1.webp"
       />
       
       {/* Gallery Sections - Inserted after template */}

@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/assets/img/logo/logo-white.png";
-import logo_2 from "@/assets/img/logo/logo.png";
+import logo from "@/assets/img/logo/logo-white.webp";
+import logo_2 from "@/assets/img/logo/logo.webp";
 import { RightArrow } from "@/components/svg";
 import { Facebook, Instagram, TikTok, Threads, WhatsApp } from "@/components/svg/social";
 

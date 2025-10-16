@@ -37,7 +37,7 @@ const HeaderOne = () => {
               <div className="col-xl-2 col-lg-2 col-6">
                 <div className="tp-header-logo" style={{ marginLeft: 0 }}>
                   <Link href="/" className="logo-1" aria-label="LUM Studio Home">
-                    <Image src="/assets/img/logo/logo.png" alt="LUM Studios" width={110} height={32} />
+                    <Image src="/assets/img/logo/logo.webp" alt="LUM Studios" width={110} height={32} />
                   </Link>
                 </div>
               </div>
@@ -69,12 +69,13 @@ const HeaderOne = () => {
       </header>
       <style jsx>{`
         .tp-offcanvas-open-btn {
-          background: #000000 !important;
+          background: transparent !important;
           border: none !important;
           padding: 8px !important;
           cursor: pointer !important;
           display: flex !important;
           flex-direction: column !important;
+          justify-content: space-between !important;
           gap: 5px !important;
           width: 32px !important;
           height: 26px !important;
@@ -86,14 +87,17 @@ const HeaderOne = () => {
           display: block !important;
           width: 100% !important;
           height: 3px !important;
+          background-color: #1a1a1a !important;
           background: #1a1a1a !important;
           border-radius: 2px !important;
           transition: all 0.3s ease !important;
           opacity: 1 !important;
           visibility: visible !important;
+          flex-shrink: 0 !important;
         }
 
         .tp-offcanvas-open-btn:hover span {
+          background-color: #B7C435 !important;
           background: #B7C435 !important;
         }
         

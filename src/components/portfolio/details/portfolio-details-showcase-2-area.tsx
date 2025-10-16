@@ -3,18 +3,18 @@ import Image from 'next/image';
 import { Leaf, UpArrow, UpArrowTwo } from '@/components/svg';
 
 // images 
-import port_d_1 from '@/assets/img/inner-project/showcase/showcase-details-2-2.jpg';
-import port_d_2 from '@/assets/img/inner-project/showcase/showcase-details-2-3.jpg';
-import port_d_3 from '@/assets/img/inner-project/showcase/showcase-details-2-4.jpg';
-import port_d_4 from '@/assets/img/inner-project/showcase/showcase-details-2-5.jpg';
-import port_d_5 from '@/assets/img/inner-project/showcase/showcase-details-2-6.jpg';
-import port_d_6 from '@/assets/img/inner-project/showcase/showcase-details-2-7.jpg';
-import port_d_7 from '@/assets/img/inner-project/showcase/showcase-details-2-8.jpg';
-import port_d_8 from '@/assets/img/inner-project/showcase/showcase-details-2-9.jpg';
+import port_d_1 from '@/assets/img/inner-project/showcase/showcase-details-2-2.webp';
+import port_d_2 from '@/assets/img/inner-project/showcase/showcase-details-2-3.webp';
+import port_d_3 from '@/assets/img/inner-project/showcase/showcase-details-2-4.webp';
+import port_d_4 from '@/assets/img/inner-project/showcase/showcase-details-2-5.webp';
+import port_d_5 from '@/assets/img/inner-project/showcase/showcase-details-2-6.webp';
+import port_d_6 from '@/assets/img/inner-project/showcase/showcase-details-2-7.webp';
+import port_d_7 from '@/assets/img/inner-project/showcase/showcase-details-2-8.webp';
+import port_d_8 from '@/assets/img/inner-project/showcase/showcase-details-2-9.webp';
 
-import fullwidth_img from '@/assets/img/inner-project/showcase/showcase-details-2-10.jpg';
-import d_g_img_1 from '@/assets/img/inner-project/showcase/showcase-details-2-11.jpg';
-import d_g_img_2 from '@/assets/img/inner-project/showcase/showcase-details-2-12.jpg';
+import fullwidth_img from '@/assets/img/inner-project/showcase/showcase-details-2-10.webp';
+import d_g_img_1 from '@/assets/img/inner-project/showcase/showcase-details-2-11.webp';
+import d_g_img_2 from '@/assets/img/inner-project/showcase/showcase-details-2-12.webp';
 
 // img data
 const img_data = [port_d_1, port_d_2, port_d_3, port_d_4, port_d_5, port_d_6, port_d_7, port_d_8];
@@ -23,7 +23,7 @@ export default function PortfolioDetailsShowcaseTwoArea() {
   return (
     <>
     {/* portfolio hero */}
-    <div className="showcase-details-2-area showcase-details-2-bg p-relative" style={{backgroundImage: "url(/assets/img/inner-project/showcase/showcase-details-2-1.jpg)"}}>
+    <div className="showcase-details-2-area showcase-details-2-bg p-relative" style={{backgroundImage: "url(/assets/img/inner-project/showcase/showcase-details-2-1.webp)"}}>
           <div className="showcase-details-2-link">
             <a className="project-details-custom-link" href="#">
                 Visit Website

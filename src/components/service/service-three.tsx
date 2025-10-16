@@ -6,11 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 // internal imports
-import star_icon from "@/assets/img/home-04/service/sv-star-1.png";
-import sv_1 from "@/assets/img/home-04/service/sv-icon-1.png";
-import sv_2 from "@/assets/img/home-04/service/sv-icon-2.png";
-import sv_3 from "@/assets/img/home-04/service/sv-icon-3.png";
-import sv_4 from "@/assets/img/home-04/service/sv-icon-4.png";
+import star_icon from "@/assets/img/home-04/service/sv-star-1.webp";
+import sv_1 from "@/assets/img/home-04/service/sv-icon-1.webp";
+import sv_2 from "@/assets/img/home-04/service/sv-icon-2.webp";
+import sv_3 from "@/assets/img/home-04/service/sv-icon-3.webp";
+import sv_4 from "@/assets/img/home-04/service/sv-icon-4.webp";
 
 
 // slider setting
@@ -88,7 +88,7 @@ export default function ServiceThree() {
     <div
       className="tp-service-4-area pt-120 pb-170 fix"
       data-background="assets/img/home-04/brand/overly.png"
-      style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.png)" }}
+      style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.webp)" }}
     >
       <div className="container">
         <div className="tp-service-4-title-wrap">
@@ -123,7 +123,7 @@ export default function ServiceThree() {
               <div
                 className="tp-service-4-item"
                 style={{
-                  backgroundImage: "url(/assets/img/home-04/hero/overly.png)",
+                  backgroundImage: "url(/assets/img/home-04/hero/overly.webp)",
                 }}
               >
                 <div className="tp-service-4-icon">

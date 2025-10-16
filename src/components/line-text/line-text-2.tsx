@@ -15,7 +15,7 @@ export default function LineTextTwo() {
   return (
     <div
       className="tp-line-text-wrap pb-30"
-      style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.png)" }}
+      style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.webp)" }}
     >
       <div className="tp-line-text-slide">
         <Marquee direction="right" speed={100} autoFill={true}>

@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 // images
-import insta_1 from "@/assets/img/inner-shop/instagram/insta-1.jpg";
-import insta_2 from "@/assets/img/inner-shop/instagram/insta-2.jpg";
-import insta_3 from "@/assets/img/inner-shop/instagram/insta-3.jpg";
-import insta_4 from "@/assets/img/inner-shop/instagram/insta-4.jpg";
-import insta_5 from "@/assets/img/inner-shop/instagram/insta-5.jpg";
-import insta_6 from "@/assets/img/inner-shop/instagram/insta-6.jpg";
+import insta_1 from "@/assets/img/inner-shop/instagram/insta-1.webp";
+import insta_2 from "@/assets/img/inner-shop/instagram/insta-2.webp";
+import insta_3 from "@/assets/img/inner-shop/instagram/insta-3.webp";
+import insta_4 from "@/assets/img/inner-shop/instagram/insta-4.webp";
+import insta_5 from "@/assets/img/inner-shop/instagram/insta-5.webp";
+import insta_6 from "@/assets/img/inner-shop/instagram/insta-6.webp";
 
 const insta_images = [insta_1, insta_2, insta_3, insta_4, insta_5, insta_6];
 export default function InstagramTwo() {

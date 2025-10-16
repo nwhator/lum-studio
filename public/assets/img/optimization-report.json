@@ -1,0 +1,2711 @@
+[
+  {
+    "original": "avata.jpg",
+    "optimized": "avata.webp",
+    "originalSize": "19.31",
+    "optimizedSize": "2.95",
+    "savings": "84.7"
+  },
+  {
+    "original": "cross-out.png",
+    "optimized": "cross-out.webp",
+    "originalSize": "0.17",
+    "optimizedSize": "0.16",
+    "savings": "5.9"
+  },
+  {
+    "original": "error.png",
+    "optimized": "error.webp",
+    "originalSize": "24.90",
+    "optimizedSize": "11.15",
+    "savings": "55.2"
+  },
+  {
+    "original": "award-1.png",
+    "optimized": "award-1.webp",
+    "originalSize": "26.15",
+    "optimizedSize": "16.44",
+    "savings": "37.1"
+  },
+  {
+    "original": "award-2.png",
+    "optimized": "award-2.webp",
+    "originalSize": "40.37",
+    "optimizedSize": "7.21",
+    "savings": "82.1"
+  },
+  {
+    "original": "award-3.png",
+    "optimized": "award-3.webp",
+    "originalSize": "34.73",
+    "optimizedSize": "14.30",
+    "savings": "58.8"
+  },
+  {
+    "original": "award-4.png",
+    "optimized": "award-4.webp",
+    "originalSize": "58.19",
+    "optimizedSize": "23.55",
+    "savings": "59.5"
+  },
+  {
+    "original": "award-5.png",
+    "optimized": "award-5.webp",
+    "originalSize": "42.22",
+    "optimizedSize": "9.34",
+    "savings": "77.9"
+  },
+  {
+    "original": "award-6.png",
+    "optimized": "award-6.webp",
+    "originalSize": "49.99",
+    "optimizedSize": "13.63",
+    "savings": "72.7"
+  },
+  {
+    "original": "brand-1.png",
+    "optimized": "brand-1.webp",
+    "originalSize": "0.50",
+    "optimizedSize": "0.49",
+    "savings": "2.0"
+  },
+  {
+    "original": "brand-2.png",
+    "optimized": "brand-2.webp",
+    "originalSize": "0.91",
+    "optimizedSize": "0.92",
+    "savings": "-1.1"
+  },
+  {
+    "original": "brand-3.png",
+    "optimized": "brand-3.webp",
+    "originalSize": "0.62",
+    "optimizedSize": "0.68",
+    "savings": "-9.7"
+  },
+  {
+    "original": "brand-4.png",
+    "optimized": "brand-4.webp",
+    "originalSize": "0.96",
+    "optimizedSize": "0.99",
+    "savings": "-3.1"
+  },
+  {
+    "original": "brand-5.png",
+    "optimized": "brand-5.webp",
+    "originalSize": "1.07",
+    "optimizedSize": "1.06",
+    "savings": "0.9"
+  },
+  {
+    "original": "brand-6.png",
+    "optimized": "brand-6.webp",
+    "originalSize": "0.72",
+    "optimizedSize": "0.88",
+    "savings": "-22.2"
+  },
+  {
+    "original": "brand-7.png",
+    "optimized": "brand-7.webp",
+    "originalSize": "0.81",
+    "optimizedSize": "0.84",
+    "savings": "-3.7"
+  },
+  {
+    "original": "footer-circle-shape-1.png",
+    "optimized": "footer-circle-shape-1.webp",
+    "originalSize": "1.11",
+    "optimizedSize": "1.16",
+    "savings": "-4.5"
+  },
+  {
+    "original": "footer-circle-shape-2.png",
+    "optimized": "footer-circle-shape-2.webp",
+    "originalSize": "3.44",
+    "optimizedSize": "2.11",
+    "savings": "38.7"
+  },
+  {
+    "original": "hero-1-1.png",
+    "optimized": "hero-1-1.webp",
+    "originalSize": "9.73",
+    "optimizedSize": "103.24",
+    "savings": "-961.0"
+  },
+  {
+    "original": "hero-1-2.jpg",
+    "optimized": "hero-1-2.webp",
+    "originalSize": "52.16",
+    "optimizedSize": "63.87",
+    "savings": "-22.5"
+  },
+  {
+    "original": "hero-shape-1-1.png",
+    "optimized": "hero-shape-1-1.webp",
+    "originalSize": "1.84",
+    "optimizedSize": "167.55",
+    "savings": "-9006.0"
+  },
+  {
+    "original": "project-1-1.jpg",
+    "optimized": "project-1-1.webp",
+    "originalSize": "183.87",
+    "optimizedSize": "16.79",
+    "savings": "90.9"
+  },
+  {
+    "original": "project-1-2.jpg",
+    "optimized": "project-1-2.webp",
+    "originalSize": "72.24",
+    "optimizedSize": "9.95",
+    "savings": "86.2"
+  },
+  {
+    "original": "project-1-3.jpg",
+    "optimized": "project-1-3.webp",
+    "originalSize": "830.57",
+    "optimizedSize": "136.66",
+    "savings": "83.5"
+  },
+  {
+    "original": "project-1-4.jpg",
+    "optimized": "project-1-4.webp",
+    "originalSize": "149.30",
+    "optimizedSize": "21.88",
+    "savings": "85.3"
+  },
+  {
+    "original": "project-1-5.jpg",
+    "optimized": "project-1-5.webp",
+    "originalSize": "123.23",
+    "optimizedSize": "14.27",
+    "savings": "88.4"
+  },
+  {
+    "original": "project-1-6.jpg",
+    "optimized": "project-1-6.webp",
+    "originalSize": "262.50",
+    "optimizedSize": "29.15",
+    "savings": "88.9"
+  },
+  {
+    "original": "project-ful-img-1-1.jpg",
+    "optimized": "project-ful-img-1-1.webp",
+    "originalSize": "112.96",
+    "optimizedSize": "103.92",
+    "savings": "8.0"
+  },
+  {
+    "original": "project-shape-1-1.png",
+    "optimized": "project-shape-1-1.webp",
+    "originalSize": "2.44",
+    "optimizedSize": "3.10",
+    "savings": "-27.0"
+  },
+  {
+    "original": "service-icon-1.png",
+    "optimized": "service-icon-1.webp",
+    "originalSize": "3.57",
+    "optimizedSize": "1.19",
+    "savings": "66.7"
+  },
+  {
+    "original": "service-icon-2.png",
+    "optimized": "service-icon-2.webp",
+    "originalSize": "4.65",
+    "optimizedSize": "1.68",
+    "savings": "63.9"
+  },
+  {
+    "original": "service-icon-3.png",
+    "optimized": "service-icon-3.webp",
+    "originalSize": "3.77",
+    "optimizedSize": "1.37",
+    "savings": "63.7"
+  },
+  {
+    "original": "service-icon-4.png",
+    "optimized": "service-icon-4.webp",
+    "originalSize": "3.30",
+    "optimizedSize": "1.70",
+    "savings": "48.5"
+  },
+  {
+    "original": "ab-1.jpg",
+    "optimized": "ab-1.webp",
+    "originalSize": "7.97",
+    "optimizedSize": "5.77",
+    "savings": "27.6"
+  },
+  {
+    "original": "ab-2.jpg",
+    "optimized": "ab-2.webp",
+    "originalSize": "6.65",
+    "optimizedSize": "7.02",
+    "savings": "-5.6"
+  },
+  {
+    "original": "ab-3.jpg",
+    "optimized": "ab-3.webp",
+    "originalSize": "4.85",
+    "optimizedSize": "4.86",
+    "savings": "-0.2"
+  },
+  {
+    "original": "ab-4.jpg",
+    "optimized": "ab-4.webp",
+    "originalSize": "189.61",
+    "optimizedSize": "227.47",
+    "savings": "-20.0"
+  },
+  {
+    "original": "ab-s.jpg",
+    "optimized": "ab-s.webp",
+    "originalSize": "9.48",
+    "optimizedSize": "10.87",
+    "savings": "-14.7"
+  },
+  {
+    "original": "award-1.png",
+    "optimized": "award-1.webp",
+    "originalSize": "25.72",
+    "optimizedSize": "17.65",
+    "savings": "31.4"
+  },
+  {
+    "original": "hero-bg-1.jpg",
+    "optimized": "hero-bg-1.webp",
+    "originalSize": "61.51",
+    "optimizedSize": "77.45",
+    "savings": "-25.9"
+  },
+  {
+    "original": "insta-1.jpg",
+    "optimized": "insta-1.webp",
+    "originalSize": "87.43",
+    "optimizedSize": "82.57",
+    "savings": "5.6"
+  },
+  {
+    "original": "insta-2.jpg",
+    "optimized": "insta-2.webp",
+    "originalSize": "63.12",
+    "optimizedSize": "25.35",
+    "savings": "59.8"
+  },
+  {
+    "original": "insta-inner-1.jpg",
+    "optimized": "insta-inner-1.webp",
+    "originalSize": "16.51",
+    "optimizedSize": "5.64",
+    "savings": "65.8"
+  },
+  {
+    "original": "insta-inner-2.jpg",
+    "optimized": "insta-inner-2.webp",
+    "originalSize": "22.00",
+    "optimizedSize": "7.87",
+    "savings": "64.2"
+  },
+  {
+    "original": "insta-inner-3.jpg",
+    "optimized": "insta-inner-3.webp",
+    "originalSize": "25.02",
+    "optimizedSize": "6.96",
+    "savings": "72.2"
+  },
+  {
+    "original": "insta-inner-4.jpg",
+    "optimized": "insta-inner-4.webp",
+    "originalSize": "16.55",
+    "optimizedSize": "6.29",
+    "savings": "62.0"
+  },
+  {
+    "original": "insta-inner-5.jpg",
+    "optimized": "insta-inner-5.webp",
+    "originalSize": "4.96",
+    "optimizedSize": "1.93",
+    "savings": "61.1"
+  },
+  {
+    "original": "insta-inner-6.jpg",
+    "optimized": "insta-inner-6.webp",
+    "originalSize": "5.07",
+    "optimizedSize": "1.97",
+    "savings": "61.1"
+  },
+  {
+    "original": "insta-inner-7.jpg",
+    "optimized": "insta-inner-7.webp",
+    "originalSize": "36.10",
+    "optimizedSize": "12.93",
+    "savings": "64.2"
+  },
+  {
+    "original": "project-1.jpg",
+    "optimized": "project-1.webp",
+    "originalSize": "77.71",
+    "optimizedSize": "54.18",
+    "savings": "30.3"
+  },
+  {
+    "original": "project-2.jpg",
+    "optimized": "project-2.webp",
+    "originalSize": "77.92",
+    "optimizedSize": "53.42",
+    "savings": "31.4"
+  },
+  {
+    "original": "project-3.jpg",
+    "optimized": "project-3.webp",
+    "originalSize": "54.95",
+    "optimizedSize": "37.36",
+    "savings": "32.0"
+  },
+  {
+    "original": "project-4.jpg",
+    "optimized": "project-4.webp",
+    "originalSize": "110.90",
+    "optimizedSize": "80.52",
+    "savings": "27.4"
+  },
+  {
+    "original": "project-5.jpg",
+    "optimized": "project-5.webp",
+    "originalSize": "84.66",
+    "optimizedSize": "69.84",
+    "savings": "17.5"
+  },
+  {
+    "original": "project-6.jpg",
+    "optimized": "project-6.webp",
+    "originalSize": "61.30",
+    "optimizedSize": "37.98",
+    "savings": "38.0"
+  },
+  {
+    "original": "project-7.jpg",
+    "optimized": "project-7.webp",
+    "originalSize": "47.59",
+    "optimizedSize": "38.46",
+    "savings": "19.2"
+  },
+  {
+    "original": "sv-icon-1.png",
+    "optimized": "sv-icon-1.webp",
+    "originalSize": "1.23",
+    "optimizedSize": "0.71",
+    "savings": "42.3"
+  },
+  {
+    "original": "sv-icon-2.png",
+    "optimized": "sv-icon-2.webp",
+    "originalSize": "1.00",
+    "optimizedSize": "0.60",
+    "savings": "40.0"
+  },
+  {
+    "original": "sv-icon-3.png",
+    "optimized": "sv-icon-3.webp",
+    "originalSize": "0.86",
+    "optimizedSize": "0.50",
+    "savings": "41.9"
+  },
+  {
+    "original": "sv-icon-4.png",
+    "optimized": "sv-icon-4.webp",
+    "originalSize": "1.18",
+    "optimizedSize": "0.69",
+    "savings": "41.5"
+  },
+  {
+    "original": "sv-shape-1.png",
+    "optimized": "sv-shape-1.webp",
+    "originalSize": "12.98",
+    "optimizedSize": "5.73",
+    "savings": "55.9"
+  },
+  {
+    "original": "ab-shape-img.png",
+    "optimized": "ab-shape-img.webp",
+    "originalSize": "4.90",
+    "optimizedSize": "2.02",
+    "savings": "58.8"
+  },
+  {
+    "original": "cta-1.png",
+    "optimized": "cta-1.webp",
+    "originalSize": "2.15",
+    "optimizedSize": "1.08",
+    "savings": "49.8"
+  },
+  {
+    "original": "gal-1.jpg",
+    "optimized": "gal-1.webp",
+    "originalSize": "1756.71",
+    "optimizedSize": "55.71",
+    "savings": "96.8"
+  },
+  {
+    "original": "gal-2.jpg",
+    "optimized": "gal-2.webp",
+    "originalSize": "1178.25",
+    "optimizedSize": "122.12",
+    "savings": "89.6"
+  },
+  {
+    "original": "gal-3.jpg",
+    "optimized": "gal-3.webp",
+    "originalSize": "1232.50",
+    "optimizedSize": "35.84",
+    "savings": "97.1"
+  },
+  {
+    "original": "gal-4.jpg",
+    "optimized": "gal-4.webp",
+    "originalSize": "969.72",
+    "optimizedSize": "30.17",
+    "savings": "96.9"
+  },
+  {
+    "original": "gal-5.jpg",
+    "optimized": "gal-5.webp",
+    "originalSize": "1191.95",
+    "optimizedSize": "66.15",
+    "savings": "94.5"
+  },
+  {
+    "original": "gal-shape-1.png",
+    "optimized": "gal-shape-1.webp",
+    "originalSize": "2.78",
+    "optimizedSize": "1.36",
+    "savings": "51.1"
+  },
+  {
+    "original": "gal-shape-2.png",
+    "optimized": "gal-shape-2.webp",
+    "originalSize": "2.67",
+    "optimizedSize": "1.51",
+    "savings": "43.4"
+  },
+  {
+    "original": "gal-shape-dark-1.png",
+    "optimized": "gal-shape-dark-1.webp",
+    "originalSize": "3.04",
+    "optimizedSize": "1.44",
+    "savings": "52.6"
+  },
+  {
+    "original": "gal-shape-dark-2.png",
+    "optimized": "gal-shape-dark-2.webp",
+    "originalSize": "2.96",
+    "optimizedSize": "1.41",
+    "savings": "52.4"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "60.16",
+    "optimizedSize": "19.07",
+    "savings": "68.3"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "52.01",
+    "optimizedSize": "21.97",
+    "savings": "57.8"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "99.65",
+    "optimizedSize": "17.44",
+    "savings": "82.5"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "101.67",
+    "optimizedSize": "23.34",
+    "savings": "77.0"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "79.54",
+    "optimizedSize": "28.73",
+    "savings": "63.9"
+  },
+  {
+    "original": "port-6.jpg",
+    "optimized": "port-6.webp",
+    "originalSize": "31.19",
+    "optimizedSize": "20.90",
+    "savings": "33.0"
+  },
+  {
+    "original": "port-7.jpg",
+    "optimized": "port-7.webp",
+    "originalSize": "59.91",
+    "optimizedSize": "54.96",
+    "savings": "8.3"
+  },
+  {
+    "original": "port-8.jpg",
+    "optimized": "port-8.webp",
+    "originalSize": "66.76",
+    "optimizedSize": "36.38",
+    "savings": "45.5"
+  },
+  {
+    "original": "sv-icon-1.png",
+    "optimized": "sv-icon-1.webp",
+    "originalSize": "2.74",
+    "optimizedSize": "1.51",
+    "savings": "44.9"
+  },
+  {
+    "original": "about-shape-1.png",
+    "optimized": "about-shape-1.webp",
+    "originalSize": "0.81",
+    "optimizedSize": "0.44",
+    "savings": "45.7"
+  },
+  {
+    "original": "about-shape-2.png",
+    "optimized": "about-shape-2.webp",
+    "originalSize": "0.81",
+    "optimizedSize": "0.50",
+    "savings": "38.3"
+  },
+  {
+    "original": "brand-1.png",
+    "optimized": "brand-1.webp",
+    "originalSize": "2.20",
+    "optimizedSize": "1.18",
+    "savings": "46.4"
+  },
+  {
+    "original": "brand-2.png",
+    "optimized": "brand-2.webp",
+    "originalSize": "1.52",
+    "optimizedSize": "0.83",
+    "savings": "45.4"
+  },
+  {
+    "original": "brand-3.png",
+    "optimized": "brand-3.webp",
+    "originalSize": "3.52",
+    "optimizedSize": "1.98",
+    "savings": "43.8"
+  },
+  {
+    "original": "brand-4.png",
+    "optimized": "brand-4.webp",
+    "originalSize": "4.69",
+    "optimizedSize": "2.00",
+    "savings": "57.4"
+  },
+  {
+    "original": "brand-5.png",
+    "optimized": "brand-5.webp",
+    "originalSize": "1.61",
+    "optimizedSize": "0.92",
+    "savings": "42.9"
+  },
+  {
+    "original": "brand-6.png",
+    "optimized": "brand-6.webp",
+    "originalSize": "1.22",
+    "optimizedSize": "0.72",
+    "savings": "41.0"
+  },
+  {
+    "original": "brand-7.png",
+    "optimized": "brand-7.webp",
+    "originalSize": "1.90",
+    "optimizedSize": "1.24",
+    "savings": "34.7"
+  },
+  {
+    "original": "brand-8.png",
+    "optimized": "brand-8.webp",
+    "originalSize": "1.55",
+    "optimizedSize": "0.91",
+    "savings": "41.3"
+  },
+  {
+    "original": "overly.png",
+    "optimized": "overly.webp",
+    "originalSize": "172.31",
+    "optimizedSize": "71.04",
+    "savings": "58.8"
+  },
+  {
+    "original": "hero-1.jpg",
+    "optimized": "hero-1.webp",
+    "originalSize": "133.67",
+    "optimizedSize": "118.03",
+    "savings": "11.7"
+  },
+  {
+    "original": "hero-star-2.png",
+    "optimized": "hero-star-2.webp",
+    "originalSize": "0.50",
+    "optimizedSize": "38.57",
+    "savings": "-7614.0"
+  },
+  {
+    "original": "hero-star.png",
+    "optimized": "hero-star.webp",
+    "originalSize": "0.49",
+    "optimizedSize": "35.11",
+    "savings": "-7065.3"
+  },
+  {
+    "original": "overly.png",
+    "optimized": "overly.webp",
+    "originalSize": "823.94",
+    "optimizedSize": "199.04",
+    "savings": "75.8"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "128.91",
+    "optimizedSize": "49.63",
+    "savings": "61.5"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "119.96",
+    "optimizedSize": "43.11",
+    "savings": "64.1"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "110.53",
+    "optimizedSize": "43.43",
+    "savings": "60.7"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "61.58",
+    "optimizedSize": "11.64",
+    "savings": "81.1"
+  },
+  {
+    "original": "sv-icon-1.png",
+    "optimized": "sv-icon-1.webp",
+    "originalSize": "2.42",
+    "optimizedSize": "1.32",
+    "savings": "45.5"
+  },
+  {
+    "original": "sv-icon-2.png",
+    "optimized": "sv-icon-2.webp",
+    "originalSize": "3.02",
+    "optimizedSize": "1.60",
+    "savings": "47.0"
+  },
+  {
+    "original": "sv-icon-3.png",
+    "optimized": "sv-icon-3.webp",
+    "originalSize": "3.14",
+    "optimizedSize": "1.30",
+    "savings": "58.6"
+  },
+  {
+    "original": "sv-icon-4.png",
+    "optimized": "sv-icon-4.webp",
+    "originalSize": "3.44",
+    "optimizedSize": "1.59",
+    "savings": "53.8"
+  },
+  {
+    "original": "sv-star-1.png",
+    "optimized": "sv-star-1.webp",
+    "originalSize": "1.42",
+    "optimizedSize": "0.56",
+    "savings": "60.6"
+  },
+  {
+    "original": "blog-1.jpg",
+    "optimized": "blog-1.webp",
+    "originalSize": "22.56",
+    "optimizedSize": "16.12",
+    "savings": "28.5"
+  },
+  {
+    "original": "blog-2.jpg",
+    "optimized": "blog-2.webp",
+    "originalSize": "63.36",
+    "optimizedSize": "27.74",
+    "savings": "56.2"
+  },
+  {
+    "original": "blog-3.jpg",
+    "optimized": "blog-3.webp",
+    "originalSize": "32.16",
+    "optimizedSize": "22.78",
+    "savings": "29.2"
+  },
+  {
+    "original": "blog-4.jpg",
+    "optimized": "blog-4.webp",
+    "originalSize": "21.95",
+    "optimizedSize": "19.03",
+    "savings": "13.3"
+  },
+  {
+    "original": "marque-1.jpg",
+    "optimized": "marque-1.webp",
+    "originalSize": "31.40",
+    "optimizedSize": "26.12",
+    "savings": "16.8"
+  },
+  {
+    "original": "marque-2.jpg",
+    "optimized": "marque-2.webp",
+    "originalSize": "28.32",
+    "optimizedSize": "25.89",
+    "savings": "8.6"
+  },
+  {
+    "original": "marque-3.jpg",
+    "optimized": "marque-3.webp",
+    "originalSize": "27.68",
+    "optimizedSize": "28.55",
+    "savings": "-3.1"
+  },
+  {
+    "original": "marque-4.jpg",
+    "optimized": "marque-4.webp",
+    "originalSize": "26.64",
+    "optimizedSize": "23.12",
+    "savings": "13.2"
+  },
+  {
+    "original": "marque-5.jpg",
+    "optimized": "marque-5.webp",
+    "originalSize": "26.18",
+    "optimizedSize": "23.10",
+    "savings": "11.8"
+  },
+  {
+    "original": "marque-6.jpg",
+    "optimized": "marque-6.webp",
+    "originalSize": "38.71",
+    "optimizedSize": "40.38",
+    "savings": "-4.3"
+  },
+  {
+    "original": "marque-7.jpg",
+    "optimized": "marque-7.webp",
+    "originalSize": "18.60",
+    "optimizedSize": "13.62",
+    "savings": "26.8"
+  },
+  {
+    "original": "marque-8.jpg",
+    "optimized": "marque-8.webp",
+    "originalSize": "25.34",
+    "optimizedSize": "21.23",
+    "savings": "16.2"
+  },
+  {
+    "original": "marque-9.jpg",
+    "optimized": "marque-9.webp",
+    "originalSize": "51.42",
+    "optimizedSize": "41.10",
+    "savings": "20.1"
+  },
+  {
+    "original": "mission-1.jpg",
+    "optimized": "mission-1.webp",
+    "originalSize": "47.21",
+    "optimizedSize": "20.92",
+    "savings": "55.7"
+  },
+  {
+    "original": "mission-2.jpg",
+    "optimized": "mission-2.webp",
+    "originalSize": "57.89",
+    "optimizedSize": "23.80",
+    "savings": "58.9"
+  },
+  {
+    "original": "project-1.jpg",
+    "optimized": "project-1.webp",
+    "originalSize": "11.26",
+    "optimizedSize": "4.86",
+    "savings": "56.8"
+  },
+  {
+    "original": "project-2.jpg",
+    "optimized": "project-2.webp",
+    "originalSize": "20.59",
+    "optimizedSize": "7.98",
+    "savings": "61.2"
+  },
+  {
+    "original": "project-3.jpg",
+    "optimized": "project-3.webp",
+    "originalSize": "20.80",
+    "optimizedSize": "5.10",
+    "savings": "75.5"
+  },
+  {
+    "original": "project-4.jpg",
+    "optimized": "project-4.webp",
+    "originalSize": "39.54",
+    "optimizedSize": "26.27",
+    "savings": "33.6"
+  },
+  {
+    "original": "project-5.jpg",
+    "optimized": "project-5.webp",
+    "originalSize": "36.29",
+    "optimizedSize": "27.46",
+    "savings": "24.3"
+  },
+  {
+    "original": "project-6.jpg",
+    "optimized": "project-6.webp",
+    "originalSize": "25.28",
+    "optimizedSize": "23.66",
+    "savings": "6.4"
+  },
+  {
+    "original": "project-7.jpg",
+    "optimized": "project-7.webp",
+    "originalSize": "38.17",
+    "optimizedSize": "29.90",
+    "savings": "21.7"
+  },
+  {
+    "original": "project-8.jpg",
+    "optimized": "project-8.webp",
+    "originalSize": "20.88",
+    "optimizedSize": "15.29",
+    "savings": "26.8"
+  },
+  {
+    "original": "project-9.jpg",
+    "optimized": "project-9.webp",
+    "originalSize": "20.44",
+    "optimizedSize": "15.83",
+    "savings": "22.6"
+  },
+  {
+    "original": "about-1.png",
+    "optimized": "about-1.webp",
+    "originalSize": "88.10",
+    "optimizedSize": "33.69",
+    "savings": "61.8"
+  },
+  {
+    "original": "blog-1.jpg",
+    "optimized": "blog-1.webp",
+    "originalSize": "70.33",
+    "optimizedSize": "24.79",
+    "savings": "64.8"
+  },
+  {
+    "original": "blog-2.jpg",
+    "optimized": "blog-2.webp",
+    "originalSize": "60.44",
+    "optimizedSize": "20.72",
+    "savings": "65.7"
+  },
+  {
+    "original": "blog-3.jpg",
+    "optimized": "blog-3.webp",
+    "originalSize": "60.00",
+    "optimizedSize": "22.39",
+    "savings": "62.7"
+  },
+  {
+    "original": "gal-1.jpg",
+    "optimized": "gal-1.webp",
+    "originalSize": "83.74",
+    "optimizedSize": "33.65",
+    "savings": "59.8"
+  },
+  {
+    "original": "gal-2.jpg",
+    "optimized": "gal-2.webp",
+    "originalSize": "66.88",
+    "optimizedSize": "46.37",
+    "savings": "30.7"
+  },
+  {
+    "original": "gal-3.jpg",
+    "optimized": "gal-3.webp",
+    "originalSize": "67.82",
+    "optimizedSize": "46.72",
+    "savings": "31.1"
+  },
+  {
+    "original": "gal-4.jpg",
+    "optimized": "gal-4.webp",
+    "originalSize": "43.21",
+    "optimizedSize": "20.30",
+    "savings": "53.0"
+  },
+  {
+    "original": "gal-5.jpg",
+    "optimized": "gal-5.webp",
+    "originalSize": "53.14",
+    "optimizedSize": "28.05",
+    "savings": "47.2"
+  },
+  {
+    "original": "gal-6.jpg",
+    "optimized": "gal-6.webp",
+    "originalSize": "38.15",
+    "optimizedSize": "19.61",
+    "savings": "48.6"
+  },
+  {
+    "original": "gal-7.jpg",
+    "optimized": "gal-7.webp",
+    "originalSize": "63.14",
+    "optimizedSize": "28.89",
+    "savings": "54.2"
+  },
+  {
+    "original": "img-1.png",
+    "optimized": "img-1.webp",
+    "originalSize": "369.91",
+    "optimizedSize": "191.16",
+    "savings": "48.3"
+  },
+  {
+    "original": "line-shape-bg.png",
+    "optimized": "line-shape-bg.webp",
+    "originalSize": "45.33",
+    "optimizedSize": "52.26",
+    "savings": "-15.3"
+  },
+  {
+    "original": "play.png",
+    "optimized": "play.webp",
+    "originalSize": "4.70",
+    "optimizedSize": "63.78",
+    "savings": "-1257.0"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "95.19",
+    "optimizedSize": "27.97",
+    "savings": "70.6"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "213.63",
+    "optimizedSize": "46.18",
+    "savings": "78.4"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "158.39",
+    "optimizedSize": "33.50",
+    "savings": "78.8"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "85.37",
+    "optimizedSize": "24.57",
+    "savings": "71.2"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "105.68",
+    "optimizedSize": "41.70",
+    "savings": "60.5"
+  },
+  {
+    "original": "port-6.jpg",
+    "optimized": "port-6.webp",
+    "originalSize": "134.87",
+    "optimizedSize": "33.62",
+    "savings": "75.1"
+  },
+  {
+    "original": "port-7.jpg",
+    "optimized": "port-7.webp",
+    "originalSize": "150.01",
+    "optimizedSize": "26.79",
+    "savings": "82.1"
+  },
+  {
+    "original": "port-8.jpg",
+    "optimized": "port-8.webp",
+    "originalSize": "233.82",
+    "optimizedSize": "42.59",
+    "savings": "81.8"
+  },
+  {
+    "original": "port-9.jpg",
+    "optimized": "port-9.webp",
+    "originalSize": "85.80",
+    "optimizedSize": "28.25",
+    "savings": "67.1"
+  },
+  {
+    "original": "img-1.jpg",
+    "optimized": "img-1.webp",
+    "originalSize": "9.97",
+    "optimizedSize": "46.27",
+    "savings": "-364.1"
+  },
+  {
+    "original": "img-2.jpg",
+    "optimized": "img-2.webp",
+    "originalSize": "6.59",
+    "optimizedSize": "33.32",
+    "savings": "-405.6"
+  },
+  {
+    "original": "img-3.jpg",
+    "optimized": "img-3.webp",
+    "originalSize": "17.54",
+    "optimizedSize": "39.19",
+    "savings": "-123.4"
+  },
+  {
+    "original": "img-4.jpg",
+    "optimized": "img-4.webp",
+    "originalSize": "11.44",
+    "optimizedSize": "24.22",
+    "savings": "-111.7"
+  },
+  {
+    "original": "img-5.jpg",
+    "optimized": "img-5.webp",
+    "originalSize": "36.67",
+    "optimizedSize": "32.33",
+    "savings": "11.8"
+  },
+  {
+    "original": "img-6.jpg",
+    "optimized": "img-6.webp",
+    "originalSize": "27.66",
+    "optimizedSize": "89.22",
+    "savings": "-222.6"
+  },
+  {
+    "original": "shape-1.png",
+    "optimized": "shape-1.webp",
+    "originalSize": "2.34",
+    "optimizedSize": "155.18",
+    "savings": "-6531.6"
+  },
+  {
+    "original": "portfolio-1.jpg",
+    "optimized": "portfolio-1.webp",
+    "originalSize": "14.00",
+    "optimizedSize": "14.68",
+    "savings": "-4.9"
+  },
+  {
+    "original": "sv-icon-1.png",
+    "optimized": "sv-icon-1.webp",
+    "originalSize": "2.51",
+    "optimizedSize": "1.05",
+    "savings": "58.2"
+  },
+  {
+    "original": "sv-icon-2.png",
+    "optimized": "sv-icon-2.webp",
+    "originalSize": "2.63",
+    "optimizedSize": "1.44",
+    "savings": "45.2"
+  },
+  {
+    "original": "sv-icon-3.png",
+    "optimized": "sv-icon-3.webp",
+    "originalSize": "3.28",
+    "optimizedSize": "1.28",
+    "savings": "61.0"
+  },
+  {
+    "original": "test-1.png",
+    "optimized": "test-1.webp",
+    "originalSize": "9.63",
+    "optimizedSize": "5.23",
+    "savings": "45.7"
+  },
+  {
+    "original": "test-logo-1.png",
+    "optimized": "test-logo-1.webp",
+    "originalSize": "3.94",
+    "optimizedSize": "1.64",
+    "savings": "58.4"
+  },
+  {
+    "original": "slider-1.jpg",
+    "optimized": "slider-1.webp",
+    "originalSize": "147.20",
+    "optimizedSize": "172.89",
+    "savings": "-17.5"
+  },
+  {
+    "original": "slider-2.jpg",
+    "optimized": "slider-2.webp",
+    "originalSize": "100.39",
+    "optimizedSize": "97.53",
+    "savings": "2.8"
+  },
+  {
+    "original": "slider-3.jpg",
+    "optimized": "slider-3.webp",
+    "originalSize": "121.90",
+    "optimizedSize": "132.38",
+    "savings": "-8.6"
+  },
+  {
+    "original": "slider-4.jpg",
+    "optimized": "slider-4.webp",
+    "originalSize": "76.43",
+    "optimizedSize": "76.32",
+    "savings": "0.1"
+  },
+  {
+    "original": "slider-5.jpg",
+    "optimized": "slider-5.webp",
+    "originalSize": "116.96",
+    "optimizedSize": "52.10",
+    "savings": "55.5"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "47.73",
+    "optimizedSize": "37.93",
+    "savings": "20.5"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "132.97",
+    "optimizedSize": "103.20",
+    "savings": "22.4"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "146.12",
+    "optimizedSize": "81.37",
+    "savings": "44.3"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "73.46",
+    "optimizedSize": "30.37",
+    "savings": "58.7"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "195.25",
+    "optimizedSize": "167.87",
+    "savings": "14.0"
+  },
+  {
+    "original": "port-6.jpg",
+    "optimized": "port-6.webp",
+    "originalSize": "48.21",
+    "optimizedSize": "31.65",
+    "savings": "34.3"
+  },
+  {
+    "original": "port-7.jpg",
+    "optimized": "port-7.webp",
+    "originalSize": "167.03",
+    "optimizedSize": "136.58",
+    "savings": "18.2"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "101.91",
+    "optimizedSize": "81.78",
+    "savings": "19.8"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "91.20",
+    "optimizedSize": "70.03",
+    "savings": "23.2"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "151.12",
+    "optimizedSize": "102.03",
+    "savings": "32.5"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "82.42",
+    "optimizedSize": "62.40",
+    "savings": "24.3"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "208.27",
+    "optimizedSize": "197.72",
+    "savings": "5.1"
+  },
+  {
+    "original": "port-sm-1.jpg",
+    "optimized": "port-sm-1.webp",
+    "originalSize": "24.79",
+    "optimizedSize": "11.55",
+    "savings": "53.4"
+  },
+  {
+    "original": "port-sm-2.jpg",
+    "optimized": "port-sm-2.webp",
+    "originalSize": "33.65",
+    "optimizedSize": "12.26",
+    "savings": "63.6"
+  },
+  {
+    "original": "port-sm-3.jpg",
+    "optimized": "port-sm-3.webp",
+    "originalSize": "28.48",
+    "optimizedSize": "9.01",
+    "savings": "68.4"
+  },
+  {
+    "original": "port-sm-4.jpg",
+    "optimized": "port-sm-4.webp",
+    "originalSize": "36.30",
+    "optimizedSize": "11.52",
+    "savings": "68.3"
+  },
+  {
+    "original": "port-sm-5.jpg",
+    "optimized": "port-sm-5.webp",
+    "originalSize": "37.32",
+    "optimizedSize": "14.29",
+    "savings": "61.7"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "70.77",
+    "optimizedSize": "41.55",
+    "savings": "41.3"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "72.02",
+    "optimizedSize": "44.58",
+    "savings": "38.1"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "42.03",
+    "optimizedSize": "27.21",
+    "savings": "35.3"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "51.00",
+    "optimizedSize": "27.47",
+    "savings": "46.1"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "63.75",
+    "optimizedSize": "42.48",
+    "savings": "33.4"
+  },
+  {
+    "original": "port-6.jpg",
+    "optimized": "port-6.webp",
+    "originalSize": "16.66",
+    "optimizedSize": "11.42",
+    "savings": "31.5"
+  },
+  {
+    "original": "port-7.jpg",
+    "optimized": "port-7.webp",
+    "originalSize": "81.83",
+    "optimizedSize": "48.12",
+    "savings": "41.2"
+  },
+  {
+    "original": "port-8.jpg",
+    "optimized": "port-8.webp",
+    "originalSize": "48.72",
+    "optimizedSize": "24.10",
+    "savings": "50.5"
+  },
+  {
+    "original": "title-shape.png",
+    "optimized": "title-shape.webp",
+    "originalSize": "0.80",
+    "optimizedSize": "64.64",
+    "savings": "-7980.0"
+  },
+  {
+    "original": "about-1.jpg",
+    "optimized": "about-1.webp",
+    "originalSize": "927.97",
+    "optimizedSize": "920.49",
+    "savings": "0.8"
+  },
+  {
+    "original": "about-2.jpg",
+    "optimized": "about-2.webp",
+    "originalSize": "928.43",
+    "optimizedSize": "471.54",
+    "savings": "49.2"
+  },
+  {
+    "original": "about-3.jpg",
+    "optimized": "about-3.webp",
+    "originalSize": "22.89",
+    "optimizedSize": "7.30",
+    "savings": "68.1"
+  },
+  {
+    "original": "shape-1.png",
+    "optimized": "shape-1.webp",
+    "originalSize": "1.87",
+    "optimizedSize": "0.82",
+    "savings": "56.1"
+  },
+  {
+    "original": "brand-1.png",
+    "optimized": "brand-1.webp",
+    "originalSize": "3.81",
+    "optimizedSize": "2.04",
+    "savings": "46.5"
+  },
+  {
+    "original": "brand-2.png",
+    "optimized": "brand-2.webp",
+    "originalSize": "1.35",
+    "optimizedSize": "0.74",
+    "savings": "45.2"
+  },
+  {
+    "original": "brand-3.png",
+    "optimized": "brand-3.webp",
+    "originalSize": "2.31",
+    "optimizedSize": "1.22",
+    "savings": "47.2"
+  },
+  {
+    "original": "brand-4.png",
+    "optimized": "brand-4.webp",
+    "originalSize": "1.67",
+    "optimizedSize": "0.86",
+    "savings": "48.5"
+  },
+  {
+    "original": "brand-5.png",
+    "optimized": "brand-5.webp",
+    "originalSize": "3.39",
+    "optimizedSize": "1.96",
+    "savings": "42.2"
+  },
+  {
+    "original": "brand-bg-shape.png",
+    "optimized": "brand-bg-shape.webp",
+    "originalSize": "53.27",
+    "optimizedSize": "27.45",
+    "savings": "48.5"
+  },
+  {
+    "original": "hero-1.jpg",
+    "optimized": "hero-1.webp",
+    "originalSize": "678.16",
+    "optimizedSize": "282.54",
+    "savings": "58.3"
+  },
+  {
+    "original": "hero-2-1.jpg",
+    "optimized": "hero-2-1.webp",
+    "originalSize": "63.53",
+    "optimizedSize": "43.86",
+    "savings": "31.0"
+  },
+  {
+    "original": "hero-2-shape-1.jpg",
+    "optimized": "hero-2-shape-1.webp",
+    "originalSize": "0.79",
+    "optimizedSize": "62.28",
+    "savings": "-7783.5"
+  },
+  {
+    "original": "hero-2-shape-2.jpg",
+    "optimized": "hero-2-shape-2.webp",
+    "originalSize": "1.22",
+    "optimizedSize": "38.72",
+    "savings": "-3073.8"
+  },
+  {
+    "original": "portfolio-1.jpg",
+    "optimized": "portfolio-1.webp",
+    "originalSize": "54.13",
+    "optimizedSize": "73.91",
+    "savings": "-36.5"
+  },
+  {
+    "original": "portfolio-2.jpg",
+    "optimized": "portfolio-2.webp",
+    "originalSize": "16.15",
+    "optimizedSize": "14.29",
+    "savings": "11.5"
+  },
+  {
+    "original": "portfolio-3.jpg",
+    "optimized": "portfolio-3.webp",
+    "originalSize": "109.46",
+    "optimizedSize": "40.47",
+    "savings": "63.0"
+  },
+  {
+    "original": "avatar-1.jpg",
+    "optimized": "avatar-1.webp",
+    "originalSize": "13.41",
+    "optimizedSize": "4.60",
+    "savings": "65.7"
+  },
+  {
+    "original": "avatar-2.jpg",
+    "optimized": "avatar-2.webp",
+    "originalSize": "2.72",
+    "optimizedSize": "1.04",
+    "savings": "61.8"
+  },
+  {
+    "original": "avatar-3.jpg",
+    "optimized": "avatar-3.webp",
+    "originalSize": "4.13",
+    "optimizedSize": "1.49",
+    "savings": "63.9"
+  },
+  {
+    "original": "avatar-4.jpg",
+    "optimized": "avatar-4.webp",
+    "originalSize": "4.47",
+    "optimizedSize": "1.61",
+    "savings": "64.0"
+  },
+  {
+    "original": "overly.png",
+    "optimized": "overly.webp",
+    "originalSize": "243.83",
+    "optimizedSize": "106.21",
+    "savings": "56.4"
+  },
+  {
+    "original": "blog-details-1.jpg",
+    "optimized": "blog-details-1.webp",
+    "originalSize": "125.68",
+    "optimizedSize": "157.10",
+    "savings": "-25.0"
+  },
+  {
+    "original": "blog-details-2.jpg",
+    "optimized": "blog-details-2.webp",
+    "originalSize": "69.26",
+    "optimizedSize": "28.53",
+    "savings": "58.8"
+  },
+  {
+    "original": "blog-details-3.jpg",
+    "optimized": "blog-details-3.webp",
+    "originalSize": "48.66",
+    "optimizedSize": "14.26",
+    "savings": "70.7"
+  },
+  {
+    "original": "blog-details-4.jpg",
+    "optimized": "blog-details-4.webp",
+    "originalSize": "89.91",
+    "optimizedSize": "25.74",
+    "savings": "71.4"
+  },
+  {
+    "original": "blog-details-1.jpg",
+    "optimized": "blog-details-1.webp",
+    "originalSize": "53.29",
+    "optimizedSize": "42.43",
+    "savings": "20.4"
+  },
+  {
+    "original": "blog-details-2.jpg",
+    "optimized": "blog-details-2.webp",
+    "originalSize": "32.30",
+    "optimizedSize": "37.35",
+    "savings": "-15.6"
+  },
+  {
+    "original": "blog-details-3.jpg",
+    "optimized": "blog-details-3.webp",
+    "originalSize": "75.04",
+    "optimizedSize": "73.34",
+    "savings": "2.3"
+  },
+  {
+    "original": "blog-1.jpg",
+    "optimized": "blog-1.webp",
+    "originalSize": "42.17",
+    "optimizedSize": "14.10",
+    "savings": "66.6"
+  },
+  {
+    "original": "blog-2.jpg",
+    "optimized": "blog-2.webp",
+    "originalSize": "28.50",
+    "optimizedSize": "11.22",
+    "savings": "60.6"
+  },
+  {
+    "original": "blog-3.jpg",
+    "optimized": "blog-3.webp",
+    "originalSize": "36.95",
+    "optimizedSize": "12.44",
+    "savings": "66.3"
+  },
+  {
+    "original": "blog-4.jpg",
+    "optimized": "blog-4.webp",
+    "originalSize": "39.00",
+    "optimizedSize": "11.54",
+    "savings": "70.4"
+  },
+  {
+    "original": "blog-5.jpg",
+    "optimized": "blog-5.webp",
+    "originalSize": "65.19",
+    "optimizedSize": "26.31",
+    "savings": "59.6"
+  },
+  {
+    "original": "blog-banner.jpg",
+    "optimized": "blog-banner.webp",
+    "originalSize": "132.16",
+    "optimizedSize": "214.99",
+    "savings": "-62.7"
+  },
+  {
+    "original": "avata-1.jpg",
+    "optimized": "avata-1.webp",
+    "originalSize": "2.21",
+    "optimizedSize": "0.95",
+    "savings": "57.0"
+  },
+  {
+    "original": "avata-2.jpg",
+    "optimized": "avata-2.webp",
+    "originalSize": "8.11",
+    "optimizedSize": "2.96",
+    "savings": "63.5"
+  },
+  {
+    "original": "banner.jpg",
+    "optimized": "banner.webp",
+    "originalSize": "26.23",
+    "optimizedSize": "60.71",
+    "savings": "-131.5"
+  },
+  {
+    "original": "blog-sidebar-bg.jpg",
+    "optimized": "blog-sidebar-bg.webp",
+    "originalSize": "31.69",
+    "optimizedSize": "18.51",
+    "savings": "41.6"
+  },
+  {
+    "original": "rc-1.jpg",
+    "optimized": "rc-1.webp",
+    "originalSize": "5.57",
+    "optimizedSize": "1.81",
+    "savings": "67.5"
+  },
+  {
+    "original": "rc-2.jpg",
+    "optimized": "rc-2.webp",
+    "originalSize": "5.95",
+    "optimizedSize": "2.33",
+    "savings": "60.8"
+  },
+  {
+    "original": "rc-3.jpg",
+    "optimized": "rc-3.webp",
+    "originalSize": "4.48",
+    "optimizedSize": "1.51",
+    "savings": "66.3"
+  },
+  {
+    "original": "sidebar-left-1.jpg",
+    "optimized": "sidebar-left-1.webp",
+    "originalSize": "122.36",
+    "optimizedSize": "67.67",
+    "savings": "44.7"
+  },
+  {
+    "original": "sidebar-left-2.jpg",
+    "optimized": "sidebar-left-2.webp",
+    "originalSize": "75.99",
+    "optimizedSize": "22.30",
+    "savings": "70.7"
+  },
+  {
+    "original": "sidebar-left-3.jpg",
+    "optimized": "sidebar-left-3.webp",
+    "originalSize": "27.57",
+    "optimizedSize": "25.09",
+    "savings": "9.0"
+  },
+  {
+    "original": "sidebar-left-4.jpg",
+    "optimized": "sidebar-left-4.webp",
+    "originalSize": "33.09",
+    "optimizedSize": "26.38",
+    "savings": "20.3"
+  },
+  {
+    "original": "blog-1.jpg",
+    "optimized": "blog-1.webp",
+    "originalSize": "112.84",
+    "optimizedSize": "60.14",
+    "savings": "46.7"
+  },
+  {
+    "original": "blog-2.jpg",
+    "optimized": "blog-2.webp",
+    "originalSize": "63.80",
+    "optimizedSize": "22.35",
+    "savings": "65.0"
+  },
+  {
+    "original": "blog-3.jpg",
+    "optimized": "blog-3.webp",
+    "originalSize": "54.80",
+    "optimizedSize": "20.80",
+    "savings": "62.0"
+  },
+  {
+    "original": "blog-4.jpg",
+    "optimized": "blog-4.webp",
+    "originalSize": "75.79",
+    "optimizedSize": "28.69",
+    "savings": "62.1"
+  },
+  {
+    "original": "blog-5.jpg",
+    "optimized": "blog-5.webp",
+    "originalSize": "51.37",
+    "optimizedSize": "15.81",
+    "savings": "69.2"
+  },
+  {
+    "original": "blog-6.jpg",
+    "optimized": "blog-6.webp",
+    "originalSize": "57.37",
+    "optimizedSize": "17.03",
+    "savings": "70.3"
+  },
+  {
+    "original": "blog-7.jpg",
+    "optimized": "blog-7.webp",
+    "originalSize": "52.42",
+    "optimizedSize": "17.52",
+    "savings": "66.6"
+  },
+  {
+    "original": "brand-1.jpg",
+    "optimized": "brand-1.webp",
+    "originalSize": "11.68",
+    "optimizedSize": "1.81",
+    "savings": "84.5"
+  },
+  {
+    "original": "brand-10.jpg",
+    "optimized": "brand-10.webp",
+    "originalSize": "18.07",
+    "optimizedSize": "2.89",
+    "savings": "84.0"
+  },
+  {
+    "original": "brand-11.jpg",
+    "optimized": "brand-11.webp",
+    "originalSize": "8.72",
+    "optimizedSize": "2.42",
+    "savings": "72.2"
+  },
+  {
+    "original": "brand-12.jpg",
+    "optimized": "brand-12.webp",
+    "originalSize": "5.35",
+    "optimizedSize": "1.18",
+    "savings": "77.9"
+  },
+  {
+    "original": "brand-13.jpg",
+    "optimized": "brand-13.webp",
+    "originalSize": "8.33",
+    "optimizedSize": "2.38",
+    "savings": "71.4"
+  },
+  {
+    "original": "brand-14.jpg",
+    "optimized": "brand-14.webp",
+    "originalSize": "6.46",
+    "optimizedSize": "2.74",
+    "savings": "57.6"
+  },
+  {
+    "original": "brand-15.jpg",
+    "optimized": "brand-15.webp",
+    "originalSize": "6.76",
+    "optimizedSize": "1.63",
+    "savings": "75.9"
+  },
+  {
+    "original": "brand-2.jpg",
+    "optimized": "brand-2.webp",
+    "originalSize": "13.57",
+    "optimizedSize": "3.86",
+    "savings": "71.6"
+  },
+  {
+    "original": "brand-3.jpg",
+    "optimized": "brand-3.webp",
+    "originalSize": "8.53",
+    "optimizedSize": "2.77",
+    "savings": "67.5"
+  },
+  {
+    "original": "brand-4.jpg",
+    "optimized": "brand-4.webp",
+    "originalSize": "14.49",
+    "optimizedSize": "3.26",
+    "savings": "77.5"
+  },
+  {
+    "original": "brand-5.jpg",
+    "optimized": "brand-5.webp",
+    "originalSize": "6.11",
+    "optimizedSize": "1.82",
+    "savings": "70.2"
+  },
+  {
+    "original": "brand-6.jpg",
+    "optimized": "brand-6.webp",
+    "originalSize": "11.21",
+    "optimizedSize": "2.49",
+    "savings": "77.8"
+  },
+  {
+    "original": "brand-7.jpg",
+    "optimized": "brand-7.webp",
+    "originalSize": "3.06",
+    "optimizedSize": "0.91",
+    "savings": "70.3"
+  },
+  {
+    "original": "brand-8.jpg",
+    "optimized": "brand-8.webp",
+    "originalSize": "5.87",
+    "optimizedSize": "2.06",
+    "savings": "64.9"
+  },
+  {
+    "original": "brand-9.jpg",
+    "optimized": "brand-9.webp",
+    "originalSize": "27.42",
+    "optimizedSize": "4.81",
+    "savings": "82.5"
+  },
+  {
+    "original": "contact-1.jpg",
+    "optimized": "contact-1.webp",
+    "originalSize": "15.92",
+    "optimizedSize": "2.80",
+    "savings": "82.4"
+  },
+  {
+    "original": "contact-2.jpg",
+    "optimized": "contact-2.webp",
+    "originalSize": "16.67",
+    "optimizedSize": "2.54",
+    "savings": "84.8"
+  },
+  {
+    "original": "contact-3.jpg",
+    "optimized": "contact-3.webp",
+    "originalSize": "12.72",
+    "optimizedSize": "1.40",
+    "savings": "89.0"
+  },
+  {
+    "original": "contact-4.jpg",
+    "optimized": "contact-4.webp",
+    "originalSize": "11.16",
+    "optimizedSize": "1.64",
+    "savings": "85.3"
+  },
+  {
+    "original": "contact-5.jpg",
+    "optimized": "contact-5.webp",
+    "originalSize": "11.51",
+    "optimizedSize": "2.01",
+    "savings": "82.5"
+  },
+  {
+    "original": "contact-6.jpg",
+    "optimized": "contact-6.webp",
+    "originalSize": "11.57",
+    "optimizedSize": "1.73",
+    "savings": "85.0"
+  },
+  {
+    "original": "contact-bg.png",
+    "optimized": "contact-bg.webp",
+    "originalSize": "94.95",
+    "optimizedSize": "54.24",
+    "savings": "42.9"
+  },
+  {
+    "original": "info-1.jpg",
+    "optimized": "info-1.webp",
+    "originalSize": "20.33",
+    "optimizedSize": "4.83",
+    "savings": "76.2"
+  },
+  {
+    "original": "info-2.jpg",
+    "optimized": "info-2.webp",
+    "originalSize": "38.52",
+    "optimizedSize": "8.94",
+    "savings": "76.8"
+  },
+  {
+    "original": "info-3.jpg",
+    "optimized": "info-3.webp",
+    "originalSize": "20.18",
+    "optimizedSize": "3.60",
+    "savings": "82.2"
+  },
+  {
+    "original": "banner-faq.jpg",
+    "optimized": "banner-faq.webp",
+    "originalSize": "73.25",
+    "optimizedSize": "62.16",
+    "savings": "15.1"
+  },
+  {
+    "original": "custom-big-1.jpg",
+    "optimized": "custom-big-1.webp",
+    "originalSize": "140.63",
+    "optimizedSize": "166.36",
+    "savings": "-18.3"
+  },
+  {
+    "original": "custom-big-2.jpg",
+    "optimized": "custom-big-2.webp",
+    "originalSize": "223.83",
+    "optimizedSize": "273.17",
+    "savings": "-22.0"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "9.55",
+    "optimizedSize": "7.25",
+    "savings": "24.1"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "9.04",
+    "optimizedSize": "5.23",
+    "savings": "42.1"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "33.69",
+    "optimizedSize": "12.93",
+    "savings": "61.6"
+  },
+  {
+    "original": "prev-img.jpg",
+    "optimized": "prev-img.webp",
+    "originalSize": "46.27",
+    "optimizedSize": "11.20",
+    "savings": "75.8"
+  },
+  {
+    "original": "hero-bg-2.png",
+    "optimized": "hero-bg-2.webp",
+    "originalSize": "1505.41",
+    "optimizedSize": "407.03",
+    "savings": "73.0"
+  },
+  {
+    "original": "hero-bg.png",
+    "optimized": "hero-bg.webp",
+    "originalSize": "1505.41",
+    "optimizedSize": "407.03",
+    "savings": "73.0"
+  },
+  {
+    "original": "masonary-1.jpg",
+    "optimized": "masonary-1.webp",
+    "originalSize": "136.47",
+    "optimizedSize": "47.22",
+    "savings": "65.4"
+  },
+  {
+    "original": "masonary-2.jpg",
+    "optimized": "masonary-2.webp",
+    "originalSize": "52.59",
+    "optimizedSize": "28.72",
+    "savings": "45.4"
+  },
+  {
+    "original": "masonary-3.jpg",
+    "optimized": "masonary-3.webp",
+    "originalSize": "111.10",
+    "optimizedSize": "63.00",
+    "savings": "43.3"
+  },
+  {
+    "original": "masonary-4.jpg",
+    "optimized": "masonary-4.webp",
+    "originalSize": "146.79",
+    "optimizedSize": "57.75",
+    "savings": "60.7"
+  },
+  {
+    "original": "masonary-5.jpg",
+    "optimized": "masonary-5.webp",
+    "originalSize": "75.75",
+    "optimizedSize": "51.42",
+    "savings": "32.1"
+  },
+  {
+    "original": "masonary-6.jpg",
+    "optimized": "masonary-6.webp",
+    "originalSize": "75.14",
+    "optimizedSize": "84.66",
+    "savings": "-12.7"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "1232.58",
+    "optimizedSize": "34.91",
+    "savings": "97.2"
+  },
+  {
+    "original": "port-10.jpg",
+    "optimized": "port-10.webp",
+    "originalSize": "1191.95",
+    "optimizedSize": "66.15",
+    "savings": "94.5"
+  },
+  {
+    "original": "port-11.jpg",
+    "optimized": "port-11.webp",
+    "originalSize": "3858.53",
+    "optimizedSize": "66.99",
+    "savings": "98.3"
+  },
+  {
+    "original": "port-12.jpg",
+    "optimized": "port-12.webp",
+    "originalSize": "1945.95",
+    "optimizedSize": "35.23",
+    "savings": "98.2"
+  },
+  {
+    "original": "port-13.jpg",
+    "optimized": "port-13.webp",
+    "originalSize": "1178.25",
+    "optimizedSize": "122.12",
+    "savings": "89.6"
+  },
+  {
+    "original": "port-14.jpg",
+    "optimized": "port-14.webp",
+    "originalSize": "2796.90",
+    "optimizedSize": "60.52",
+    "savings": "97.8"
+  },
+  {
+    "original": "port-15.jpg",
+    "optimized": "port-15.webp",
+    "originalSize": "2471.40",
+    "optimizedSize": "113.85",
+    "savings": "95.4"
+  },
+  {
+    "original": "port-16.jpg",
+    "optimized": "port-16.webp",
+    "originalSize": "969.72",
+    "optimizedSize": "30.17",
+    "savings": "96.9"
+  },
+  {
+    "original": "port-17.jpg",
+    "optimized": "port-17.webp",
+    "originalSize": "3699.70",
+    "optimizedSize": "71.35",
+    "savings": "98.1"
+  },
+  {
+    "original": "port-18.jpg",
+    "optimized": "port-18.webp",
+    "originalSize": "1235.07",
+    "optimizedSize": "13.32",
+    "savings": "98.9"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "1926.82",
+    "optimizedSize": "62.79",
+    "savings": "96.7"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "2379.64",
+    "optimizedSize": "35.96",
+    "savings": "98.5"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "927.97",
+    "optimizedSize": "53.06",
+    "savings": "94.3"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "2348.33",
+    "optimizedSize": "102.20",
+    "savings": "95.6"
+  },
+  {
+    "original": "port-6.jpg",
+    "optimized": "port-6.webp",
+    "originalSize": "3009.58",
+    "optimizedSize": "60.99",
+    "savings": "98.0"
+  },
+  {
+    "original": "port-7.jpg",
+    "optimized": "port-7.webp",
+    "originalSize": "1754.16",
+    "optimizedSize": "24.64",
+    "savings": "98.6"
+  },
+  {
+    "original": "port-8.jpg",
+    "optimized": "port-8.webp",
+    "originalSize": "1753.63",
+    "optimizedSize": "32.48",
+    "savings": "98.1"
+  },
+  {
+    "original": "port-9.jpg",
+    "optimized": "port-9.webp",
+    "originalSize": "1756.71",
+    "optimizedSize": "55.71",
+    "savings": "96.8"
+  },
+  {
+    "original": "port-details-1.jpg",
+    "optimized": "port-details-1.webp",
+    "originalSize": "153.26",
+    "optimizedSize": "30.59",
+    "savings": "80.0"
+  },
+  {
+    "original": "port-details-2.jpg",
+    "optimized": "port-details-2.webp",
+    "originalSize": "87.73",
+    "optimizedSize": "65.29",
+    "savings": "25.6"
+  },
+  {
+    "original": "port-details-3.jpg",
+    "optimized": "port-details-3.webp",
+    "originalSize": "105.72",
+    "optimizedSize": "32.22",
+    "savings": "69.5"
+  },
+  {
+    "original": "port-details-4.jpg",
+    "optimized": "port-details-4.webp",
+    "originalSize": "45.18",
+    "optimizedSize": "28.93",
+    "savings": "36.0"
+  },
+  {
+    "original": "slide-1.jpg",
+    "optimized": "slide-1.webp",
+    "originalSize": "71.57",
+    "optimizedSize": "58.67",
+    "savings": "18.0"
+  },
+  {
+    "original": "slide-2.jpg",
+    "optimized": "slide-2.webp",
+    "originalSize": "78.57",
+    "optimizedSize": "12.51",
+    "savings": "84.1"
+  },
+  {
+    "original": "slide-3.jpg",
+    "optimized": "slide-3.webp",
+    "originalSize": "58.60",
+    "optimizedSize": "11.17",
+    "savings": "80.9"
+  },
+  {
+    "original": "slide-4.jpg",
+    "optimized": "slide-4.webp",
+    "originalSize": "63.79",
+    "optimizedSize": "53.21",
+    "savings": "16.6"
+  },
+  {
+    "original": "slide-5.jpg",
+    "optimized": "slide-5.webp",
+    "originalSize": "70.28",
+    "optimizedSize": "61.02",
+    "savings": "13.2"
+  },
+  {
+    "original": "portfolio-img-1.jpg",
+    "optimized": "portfolio-img-1.webp",
+    "originalSize": "119.38",
+    "optimizedSize": "23.95",
+    "savings": "79.9"
+  },
+  {
+    "original": "portfolio-img-2.jpg",
+    "optimized": "portfolio-img-2.webp",
+    "originalSize": "53.18",
+    "optimizedSize": "17.82",
+    "savings": "66.5"
+  },
+  {
+    "original": "portfolio-img-3.jpg",
+    "optimized": "portfolio-img-3.webp",
+    "originalSize": "41.68",
+    "optimizedSize": "23.65",
+    "savings": "43.3"
+  },
+  {
+    "original": "portfolio-img-4.jpg",
+    "optimized": "portfolio-img-4.webp",
+    "originalSize": "35.61",
+    "optimizedSize": "14.49",
+    "savings": "59.3"
+  },
+  {
+    "original": "portfolio-img-5.jpg",
+    "optimized": "portfolio-img-5.webp",
+    "originalSize": "49.69",
+    "optimizedSize": "32.67",
+    "savings": "34.3"
+  },
+  {
+    "original": "portfolio-img-6.jpg",
+    "optimized": "portfolio-img-6.webp",
+    "originalSize": "36.86",
+    "optimizedSize": "27.41",
+    "savings": "25.6"
+  },
+  {
+    "original": "portfolio-img-7.jpg",
+    "optimized": "portfolio-img-7.webp",
+    "originalSize": "52.56",
+    "optimizedSize": "30.87",
+    "savings": "41.3"
+  },
+  {
+    "original": "showcase-1.jpg",
+    "optimized": "showcase-1.webp",
+    "originalSize": "96.46",
+    "optimizedSize": "118.36",
+    "savings": "-22.7"
+  },
+  {
+    "original": "showcase-2.jpg",
+    "optimized": "showcase-2.webp",
+    "originalSize": "66.80",
+    "optimizedSize": "33.63",
+    "savings": "49.7"
+  },
+  {
+    "original": "showcase-3.jpg",
+    "optimized": "showcase-3.webp",
+    "originalSize": "133.19",
+    "optimizedSize": "87.20",
+    "savings": "34.5"
+  },
+  {
+    "original": "showcase-4.jpg",
+    "optimized": "showcase-4.webp",
+    "originalSize": "66.94",
+    "optimizedSize": "46.69",
+    "savings": "30.3"
+  },
+  {
+    "original": "showcase-5.jpg",
+    "optimized": "showcase-5.webp",
+    "originalSize": "57.25",
+    "optimizedSize": "28.02",
+    "savings": "51.1"
+  },
+  {
+    "original": "showcase-6.jpg",
+    "optimized": "showcase-6.webp",
+    "originalSize": "132.79",
+    "optimizedSize": "86.21",
+    "savings": "35.1"
+  },
+  {
+    "original": "showcase-details-1.jpg",
+    "optimized": "showcase-details-1.webp",
+    "originalSize": "63.85",
+    "optimizedSize": "36.07",
+    "savings": "43.5"
+  },
+  {
+    "original": "showcase-details-2-1.jpg",
+    "optimized": "showcase-details-2-1.webp",
+    "originalSize": "134.75",
+    "optimizedSize": "157.25",
+    "savings": "-16.7"
+  },
+  {
+    "original": "showcase-details-2-10.jpg",
+    "optimized": "showcase-details-2-10.webp",
+    "originalSize": "188.98",
+    "optimizedSize": "245.83",
+    "savings": "-30.1"
+  },
+  {
+    "original": "showcase-details-2-11.jpg",
+    "optimized": "showcase-details-2-11.webp",
+    "originalSize": "80.33",
+    "optimizedSize": "38.11",
+    "savings": "52.6"
+  },
+  {
+    "original": "showcase-details-2-12.jpg",
+    "optimized": "showcase-details-2-12.webp",
+    "originalSize": "114.17",
+    "optimizedSize": "56.20",
+    "savings": "50.8"
+  },
+  {
+    "original": "showcase-details-2-13.jpg",
+    "optimized": "showcase-details-2-13.webp",
+    "originalSize": "91.49",
+    "optimizedSize": "73.40",
+    "savings": "19.8"
+  },
+  {
+    "original": "showcase-details-2-2.jpg",
+    "optimized": "showcase-details-2-2.webp",
+    "originalSize": "11.21",
+    "optimizedSize": "5.57",
+    "savings": "50.3"
+  },
+  {
+    "original": "showcase-details-2-3.jpg",
+    "optimized": "showcase-details-2-3.webp",
+    "originalSize": "50.31",
+    "optimizedSize": "19.24",
+    "savings": "61.8"
+  },
+  {
+    "original": "showcase-details-2-4.jpg",
+    "optimized": "showcase-details-2-4.webp",
+    "originalSize": "32.50",
+    "optimizedSize": "10.03",
+    "savings": "69.1"
+  },
+  {
+    "original": "showcase-details-2-5.jpg",
+    "optimized": "showcase-details-2-5.webp",
+    "originalSize": "14.87",
+    "optimizedSize": "3.74",
+    "savings": "74.8"
+  },
+  {
+    "original": "showcase-details-2-6.jpg",
+    "optimized": "showcase-details-2-6.webp",
+    "originalSize": "25.73",
+    "optimizedSize": "6.66",
+    "savings": "74.1"
+  },
+  {
+    "original": "showcase-details-2-7.jpg",
+    "optimized": "showcase-details-2-7.webp",
+    "originalSize": "26.27",
+    "optimizedSize": "4.67",
+    "savings": "82.2"
+  },
+  {
+    "original": "showcase-details-2-8.jpg",
+    "optimized": "showcase-details-2-8.webp",
+    "originalSize": "91.26",
+    "optimizedSize": "35.72",
+    "savings": "60.9"
+  },
+  {
+    "original": "showcase-details-2-9.jpg",
+    "optimized": "showcase-details-2-9.webp",
+    "originalSize": "27.28",
+    "optimizedSize": "8.70",
+    "savings": "68.1"
+  },
+  {
+    "original": "showcase-details-2.jpg",
+    "optimized": "showcase-details-2.webp",
+    "originalSize": "67.21",
+    "optimizedSize": "47.45",
+    "savings": "29.4"
+  },
+  {
+    "original": "showcase-details-3.jpg",
+    "optimized": "showcase-details-3.webp",
+    "originalSize": "127.22",
+    "optimizedSize": "80.81",
+    "savings": "36.5"
+  },
+  {
+    "original": "video.jpg",
+    "optimized": "video.webp",
+    "originalSize": "116.35",
+    "optimizedSize": "143.86",
+    "savings": "-23.6"
+  },
+  {
+    "original": "hero-1-2.jpg",
+    "optimized": "hero-1-2.webp",
+    "originalSize": "144.80",
+    "optimizedSize": "178.72",
+    "savings": "-23.4"
+  },
+  {
+    "original": "hero-1.jpg",
+    "optimized": "hero-1.webp",
+    "originalSize": "134.37",
+    "optimizedSize": "148.92",
+    "savings": "-10.8"
+  },
+  {
+    "original": "hero-shape-1.jpg",
+    "optimized": "hero-shape-1.webp",
+    "originalSize": "15.14",
+    "optimizedSize": "299.12",
+    "savings": "-1875.7"
+  },
+  {
+    "original": "port-1.jpg",
+    "optimized": "port-1.webp",
+    "originalSize": "48.93",
+    "optimizedSize": "29.74",
+    "savings": "39.2"
+  },
+  {
+    "original": "port-2.jpg",
+    "optimized": "port-2.webp",
+    "originalSize": "35.57",
+    "optimizedSize": "28.08",
+    "savings": "21.1"
+  },
+  {
+    "original": "port-3.jpg",
+    "optimized": "port-3.webp",
+    "originalSize": "42.33",
+    "optimizedSize": "26.80",
+    "savings": "36.7"
+  },
+  {
+    "original": "port-4.jpg",
+    "optimized": "port-4.webp",
+    "originalSize": "31.85",
+    "optimizedSize": "19.81",
+    "savings": "37.8"
+  },
+  {
+    "original": "port-5.jpg",
+    "optimized": "port-5.webp",
+    "originalSize": "40.89",
+    "optimizedSize": "24.12",
+    "savings": "41.0"
+  },
+  {
+    "original": "sv-details-1.jpg",
+    "optimized": "sv-details-1.webp",
+    "originalSize": "129.42",
+    "optimizedSize": "194.21",
+    "savings": "-50.1"
+  },
+  {
+    "original": "sv-details-2.jpg",
+    "optimized": "sv-details-2.webp",
+    "originalSize": "74.25",
+    "optimizedSize": "37.15",
+    "savings": "50.0"
+  },
+  {
+    "original": "sv-details-3.jpg",
+    "optimized": "sv-details-3.webp",
+    "originalSize": "41.56",
+    "optimizedSize": "14.98",
+    "savings": "64.0"
+  },
+  {
+    "original": "service-1.jpg",
+    "optimized": "service-1.webp",
+    "originalSize": "89.22",
+    "optimizedSize": "129.53",
+    "savings": "-45.2"
+  },
+  {
+    "original": "service-2.jpg",
+    "optimized": "service-2.webp",
+    "originalSize": "127.73",
+    "optimizedSize": "198.76",
+    "savings": "-55.6"
+  },
+  {
+    "original": "service-3.jpg",
+    "optimized": "service-3.webp",
+    "originalSize": "114.86",
+    "optimizedSize": "173.07",
+    "savings": "-50.7"
+  },
+  {
+    "original": "service-4.jpg",
+    "optimized": "service-4.webp",
+    "originalSize": "80.01",
+    "optimizedSize": "98.95",
+    "savings": "-23.7"
+  },
+  {
+    "original": "logo-bg.jpg",
+    "optimized": "logo-bg.webp",
+    "originalSize": "1.16",
+    "optimizedSize": "0.10",
+    "savings": "91.4"
+  },
+  {
+    "original": "logo-white-rotate.png",
+    "optimized": "logo-white-rotate.webp",
+    "originalSize": "1.71",
+    "optimizedSize": "1.27",
+    "savings": "25.7"
+  },
+  {
+    "original": "logo-white.png",
+    "optimized": "logo-white.webp",
+    "originalSize": "620.15",
+    "optimizedSize": "296.97",
+    "savings": "52.1"
+  },
+  {
+    "original": "logo.png",
+    "optimized": "logo.webp",
+    "originalSize": "620.15",
+    "optimizedSize": "296.97",
+    "savings": "52.1"
+  },
+  {
+    "original": "offcanvas-1.jpg",
+    "optimized": "offcanvas-1.webp",
+    "originalSize": "3.02",
+    "optimizedSize": "1.06",
+    "savings": "64.9"
+  },
+  {
+    "original": "offcanvas-2.jpg",
+    "optimized": "offcanvas-2.webp",
+    "originalSize": "3.53",
+    "optimizedSize": "1.20",
+    "savings": "66.0"
+  },
+  {
+    "original": "offcanvas-3.jpg",
+    "optimized": "offcanvas-3.webp",
+    "originalSize": "4.77",
+    "optimizedSize": "2.04",
+    "savings": "57.2"
+  },
+  {
+    "original": "offcanvas-4.jpg",
+    "optimized": "offcanvas-4.webp",
+    "originalSize": "4.89",
+    "optimizedSize": "1.71",
+    "savings": "65.0"
+  },
+  {
+    "original": "portfolio.png",
+    "optimized": "portfolio.webp",
+    "originalSize": "41.94",
+    "optimizedSize": "133.57",
+    "savings": "-218.5"
+  },
+  {
+    "original": "banner-1.jpg",
+    "optimized": "banner-1.webp",
+    "originalSize": "29.81",
+    "optimizedSize": "56.33",
+    "savings": "-89.0"
+  },
+  {
+    "original": "home-1.jpg",
+    "optimized": "home-1.webp",
+    "originalSize": "18.26",
+    "optimizedSize": "14.10",
+    "savings": "22.8"
+  },
+  {
+    "original": "home-10.jpg",
+    "optimized": "home-10.webp",
+    "originalSize": "18.70",
+    "optimizedSize": "8.05",
+    "savings": "57.0"
+  },
+  {
+    "original": "home-11.jpg",
+    "optimized": "home-11.webp",
+    "originalSize": "18.92",
+    "optimizedSize": "7.46",
+    "savings": "60.6"
+  },
+  {
+    "original": "home-12.jpg",
+    "optimized": "home-12.webp",
+    "originalSize": "44.68",
+    "optimizedSize": "6.66",
+    "savings": "85.1"
+  },
+  {
+    "original": "home-2.jpg",
+    "optimized": "home-2.webp",
+    "originalSize": "19.46",
+    "optimizedSize": "7.79",
+    "savings": "60.0"
+  },
+  {
+    "original": "home-3.jpg",
+    "optimized": "home-3.webp",
+    "originalSize": "26.05",
+    "optimizedSize": "11.21",
+    "savings": "57.0"
+  },
+  {
+    "original": "home-4.jpg",
+    "optimized": "home-4.webp",
+    "originalSize": "19.66",
+    "optimizedSize": "9.56",
+    "savings": "51.4"
+  },
+  {
+    "original": "home-5.jpg",
+    "optimized": "home-5.webp",
+    "originalSize": "13.32",
+    "optimizedSize": "7.31",
+    "savings": "45.1"
+  },
+  {
+    "original": "home-6.jpg",
+    "optimized": "home-6.webp",
+    "originalSize": "26.76",
+    "optimizedSize": "9.88",
+    "savings": "63.1"
+  },
+  {
+    "original": "home-7.jpg",
+    "optimized": "home-7.webp",
+    "originalSize": "11.18",
+    "optimizedSize": "4.90",
+    "savings": "56.2"
+  },
+  {
+    "original": "home-8.jpg",
+    "optimized": "home-8.webp",
+    "originalSize": "30.90",
+    "optimizedSize": "4.58",
+    "savings": "85.2"
+  },
+  {
+    "original": "home-9.jpg",
+    "optimized": "home-9.webp",
+    "originalSize": "10.47",
+    "optimizedSize": "5.87",
+    "savings": "43.9"
+  },
+  {
+    "original": "price-bg-1.jpg",
+    "optimized": "price-bg-1.webp",
+    "originalSize": "26.98",
+    "optimizedSize": "9.19",
+    "savings": "65.9"
+  },
+  {
+    "original": "price-bg-2.jpg",
+    "optimized": "price-bg-2.webp",
+    "originalSize": "46.50",
+    "optimizedSize": "10.74",
+    "savings": "76.9"
+  },
+  {
+    "original": "price-bg-3.jpg",
+    "optimized": "price-bg-3.webp",
+    "originalSize": "15.28",
+    "optimizedSize": "3.99",
+    "savings": "73.9"
+  },
+  {
+    "original": "1.jpg",
+    "optimized": "1.webp",
+    "originalSize": "7.27",
+    "optimizedSize": "4.01",
+    "savings": "44.8"
+  }
+]

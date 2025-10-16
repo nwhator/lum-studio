@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 
 // images from gallery
-import ser_img_1 from "@/assets/img/inner-project/portfolio-col-2/port-1.jpg";
-import ser_img_2 from "@/assets/img/inner-project/portfolio-col-2/port-5.jpg";
-import ser_img_3 from "@/assets/img/inner-project/portfolio-col-2/port-9.jpg";
-import ser_img_4 from "@/assets/img/inner-project/portfolio-col-2/port-13.jpg";
+import ser_img_1 from "@/assets/img/inner-project/portfolio-col-2/port-1.webp";
+import ser_img_2 from "@/assets/img/inner-project/portfolio-col-2/port-5.webp";
+import ser_img_3 from "@/assets/img/inner-project/portfolio-col-2/port-9.webp";
+import ser_img_4 from "@/assets/img/inner-project/portfolio-col-2/port-13.webp";
 import { RightArrow, ShapeTwo } from "../svg";
 import Link from "next/link";
 

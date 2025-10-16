@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 // internal imports
-import logo from '@/assets/img/logo/logo.png';
-import logo_2 from '@/assets/img/logo/logo-white.png';
+import logo from '@/assets/img/logo/logo.webp';
+import logo_2 from '@/assets/img/logo/logo-white.webp';
 import MobileOffcanvasTwo from "@/components/offcanvas/mobile-offcanvas-2";
 
 // props type

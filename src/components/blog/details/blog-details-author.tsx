@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import avatar from '@/assets/img/inner-blog/blog-details/avatar/avatar-1.jpg'
+import avatar from '@/assets/img/inner-blog/blog-details/avatar/avatar-1.webp'
 
 export default function BlogDetailsAuthor() {
   return (

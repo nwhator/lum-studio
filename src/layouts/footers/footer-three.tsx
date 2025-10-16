@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import LineTextThree from '@/components/line-text/line-text-3';
-import logo from '@/assets/img/logo/logo-white.png';
+import logo from '@/assets/img/logo/logo-white.webp';
 import { RightArrow } from '@/components/svg';
 import Link from 'next/link';
 
@@ -10,7 +10,7 @@ export default function FooterThree() {
   return (
     <footer>
 
-      <div className="tp-footer-4-area black-bg pt-70 pb-120" style={{ backgroundImage: "url(/assets/img/home-04/hero/overly.png)" }}>
+      <div className="tp-footer-4-area black-bg pt-70 pb-120" style={{ backgroundImage: "url(/assets/img/home-04/hero/overly.webp)" }}>
         <div className="container-fluid">
           <div className="row">
             <div className="col-xl-12">
@@ -35,7 +35,7 @@ export default function FooterThree() {
           </div>
         </div>
       </div>
-      <div className="tp-footer-2-area black-bg pb-20" style={{ backgroundImage: "url(/assets/img/home-04/hero/overly.png)" }}>
+      <div className="tp-footer-2-area black-bg pb-20" style={{ backgroundImage: "url(/assets/img/home-04/hero/overly.webp)" }}>
         <div className="container container-1480">
           <div className="row">
             <div className="col-xl-3 col-lg-4 col-md-6 mb-50">
@@ -96,7 +96,7 @@ export default function FooterThree() {
           </div>
         </div>
       </div>
-      <div className="tp-copyright-2-area tp-copyright-2-bdr-top black-bg" style={{ backgroundImage: "url(/assets/img/home-04/hero/overly.png)" }}>
+      <div className="tp-copyright-2-area tp-copyright-2-bdr-top black-bg" style={{ backgroundImage: "url(/assets/img/home-04/hero/overly.webp)" }}>
         <div className="container container-1480">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-5">

@@ -46,8 +46,8 @@ const PortfolioDetailsComparisonMain = () => {
                        <div className="project-details-img-comparison">
                            {isClient && (
                              <ReactCompareImage 
-                               leftImage="/assets/img/inner-project/portfolio-details-2/slide-5.jpg" 
-                               rightImage="/assets/img/inner-project/portfolio-details-2/slide-4.jpg" 
+                               leftImage="/assets/img/inner-project/portfolio-details-2/slide-5.webp" 
+                               rightImage="/assets/img/inner-project/portfolio-details-2/slide-4.webp" 
                                handleSize={60} 
                              />
                            )}

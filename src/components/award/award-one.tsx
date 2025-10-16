@@ -3,12 +3,12 @@ import React from "react";
 import Image from "next/image";
 
 // award images
-import a_1 from "@/assets/img/home-01/award/award-1.png";
-import a_2 from "@/assets/img/home-01/award/award-2.png";
-import a_3 from "@/assets/img/home-01/award/award-3.png";
-import a_4 from "@/assets/img/home-01/award/award-4.png";
-import a_5 from "@/assets/img/home-01/award/award-5.png";
-import a_6 from "@/assets/img/home-01/award/award-6.png";
+import a_1 from "@/assets/img/home-01/award/award-1.webp";
+import a_2 from "@/assets/img/home-01/award/award-2.webp";
+import a_3 from "@/assets/img/home-01/award/award-3.webp";
+import a_4 from "@/assets/img/home-01/award/award-4.webp";
+import a_5 from "@/assets/img/home-01/award/award-5.webp";
+import a_6 from "@/assets/img/home-01/award/award-6.webp";
 import { Leaf } from "../svg";
 
 const award_data = [

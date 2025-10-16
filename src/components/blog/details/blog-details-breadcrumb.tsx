@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import overlay from "@/assets/img/inner-blog/blog-details/bg-shape/overly.png";
-import avatar from "@/assets/img/inner-blog/blog-details/avatar/avatar-2.jpg";
+import overlay from "@/assets/img/inner-blog/blog-details/bg-shape/overly.webp";
+import avatar from "@/assets/img/inner-blog/blog-details/avatar/avatar-2.webp";
 
 export default function BlogDetailsBreadcrumb() {
   return (
@@ -9,7 +9,7 @@ export default function BlogDetailsBreadcrumb() {
       <div
         className="blog-details-bg blog-details-bg-height blog-details-overlay p-relative d-flex align-items-end pt-170 pb-170"
         style={{
-          backgroundImage: `url(/assets/img/inner-blog/blog-details/blog-details-1.jpg)`,
+          backgroundImage: `url(/assets/img/inner-blog/blog-details/blog-details-1.webp)`,
         }}
       >
         <div className="blog-details-overlay-shape">

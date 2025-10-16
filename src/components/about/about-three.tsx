@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // internal imports
-import shape from '@/assets/img/home-03/about/ab-shape-img.png';
+import shape from '@/assets/img/home-03/about/ab-shape-img.webp';
 import { ArrowBg, RightArrowTwo } from "../svg";
 
 const stats = [

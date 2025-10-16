@@ -2,12 +2,12 @@ import React from "react";
 import { Leaf } from "../svg";
 import Image from "next/image";
 // service icon
-import ser_1 from "@/assets/img/home-02/service/sv-icon-1.png";
-import ser_2 from "@/assets/img/home-02/service/sv-icon-2.png";
-import ser_3 from "@/assets/img/home-02/service/sv-icon-3.png";
-import ser_4 from "@/assets/img/home-02/service/sv-icon-4.png";
+import ser_1 from "@/assets/img/home-02/service/sv-icon-1.webp";
+import ser_2 from "@/assets/img/home-02/service/sv-icon-2.webp";
+import ser_3 from "@/assets/img/home-02/service/sv-icon-3.webp";
+import ser_4 from "@/assets/img/home-02/service/sv-icon-4.webp";
 // shape
-import shape from "@/assets/img/home-02/service/sv-shape-1.png";
+import shape from "@/assets/img/home-02/service/sv-shape-1.webp";
 
 const service_accordion = [
   {

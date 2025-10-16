@@ -42,7 +42,7 @@ const ContactTwoMain = () => {
             className="inner-bg"
             style={{
               backgroundImage:
-                "url(/assets/img/home-01/team/team-details-bg.png)",
+                "url(/assets/img/home-01/team/team-details-bg.webp)",
             }}
           >
             <main>
@@ -98,7 +98,7 @@ const ContactTwoMain = () => {
                   <div className="container">
                      <div className="row justify-content-center">
                         <div className="col-xl-10">
-                           <div className="cn-contactform-support-bg d-flex align-items-center justify-content-center" style={{backgroundImage: "url(/assets/img/inner-contact/contact/contact-bg.png)"}}>
+                           <div className="cn-contactform-support-bg d-flex align-items-center justify-content-center" style={{backgroundImage: "url(/assets/img/inner-contact/contact/contact-bg.webp)"}}>
                               <div className="cn-contactform-support-text text-center">
                                  <span>Or, you can contact one of our studios
                                     directly below. We aim to respond

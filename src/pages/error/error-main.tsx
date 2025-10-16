@@ -14,7 +14,7 @@ registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
 import FooterTwo from "@/layouts/footers/footer-two";
-import error from '@/assets/img/error/error.png';
+import error from '@/assets/img/error/error.webp';
 
 const ErrorMain = () => {
   useScrollSmooth();

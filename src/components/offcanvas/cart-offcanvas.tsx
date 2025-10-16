@@ -50,7 +50,7 @@ export default function CartOffcanvas({openCartMini,setOpenCartMini}:IProps) {
                 <div className="cartmini__thumb">
                   <Link href="/shop-details/1">
                     <Image
-                      src="/assets/img/inner-blog/blog-sidebar/rc-post/rc-1.jpg"
+                      src="/assets/img/inner-blog/blog-sidebar/rc-post/rc-1.webp"
                       alt="cart-img"
                       width={70}
                       height={70}

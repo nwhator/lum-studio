@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 // images
-import ab_1 from "@/assets/img/inner-about/portfolio/portfolio-1.jpg";
-import ab_2 from "@/assets/img/inner-about/portfolio/portfolio-2.jpg";
-import ab_3 from "@/assets/img/inner-about/portfolio/portfolio-3.jpg";
+import ab_1 from "@/assets/img/inner-about/portfolio/portfolio-1.webp";
+import ab_2 from "@/assets/img/inner-about/portfolio/portfolio-2.webp";
+import ab_3 from "@/assets/img/inner-about/portfolio/portfolio-3.webp";
 
 const portfolio_images = [ab_1, ab_2, ab_3];
 

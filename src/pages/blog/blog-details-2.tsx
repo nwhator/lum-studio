@@ -16,7 +16,7 @@ import BlogDetailsRelatedPosts from "@/components/blog/details/blog-details-rela
 import { charAnimation } from "@/utils/title-animation";
 import BlogDetailsAreaTwo from "@/components/blog/details/blog-details-area-2";
 // image
-import blog_bg from "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-3.jpg";
+import blog_bg from "@/assets/img/inner-blog/blog-details-without-sidebar/blog-details-3.webp";
 
 const BlogDetailsTwoMain = () => {
   useScrollSmooth();

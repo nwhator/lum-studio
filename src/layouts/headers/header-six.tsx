@@ -5,7 +5,7 @@ import Link from 'next/link';
 import HeaderMenus from './header-menus';
 import useSticky from '@/hooks/use-sticky';
 import { Menu, Search, Wishlist, Zero } from '@/components/svg';
-import logo from '@/assets/img/logo/logo-white.png';
+import logo from '@/assets/img/logo/logo-white.webp';
 import CartOffcanvas from '@/components/offcanvas/cart-offcanvas';
 import MobileOffcanvas from '@/components/offcanvas/mobile-offcanvas';
 

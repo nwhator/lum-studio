@@ -3,13 +3,13 @@ import React from "react";
 import Image from "next/image";
 import { Leaf } from "../svg";
 // instagram images
-import inst_1 from "@/assets/img/home-02/instagram/insta-inner-1.jpg";
-import inst_2 from "@/assets/img/home-02/instagram/insta-inner-2.jpg";
-import inst_3 from "@/assets/img/home-02/instagram/insta-inner-3.jpg";
-import inst_4 from "@/assets/img/home-02/instagram/insta-inner-4.jpg";
-import inst_5 from "@/assets/img/home-02/instagram/insta-inner-5.jpg";
-import inst_6 from "@/assets/img/home-02/instagram/insta-inner-6.jpg";
-import inst_7 from "@/assets/img/home-02/instagram/insta-inner-7.jpg";
+import inst_1 from "@/assets/img/home-02/instagram/insta-inner-1.webp";
+import inst_2 from "@/assets/img/home-02/instagram/insta-inner-2.webp";
+import inst_3 from "@/assets/img/home-02/instagram/insta-inner-3.webp";
+import inst_4 from "@/assets/img/home-02/instagram/insta-inner-4.webp";
+import inst_5 from "@/assets/img/home-02/instagram/insta-inner-5.webp";
+import inst_6 from "@/assets/img/home-02/instagram/insta-inner-6.webp";
+import inst_7 from "@/assets/img/home-02/instagram/insta-inner-7.webp";
 
 export default function InstagramArea() {
   // instagram images
@@ -41,7 +41,7 @@ export default function InstagramArea() {
         </div>
         <div className="tp-instagram-thumb">
           <Image 
-            src="/assets/img/home-02/instagram/insta-1.jpg" 
+            src="/assets/img/home-02/instagram/insta-1.webp" 
             alt="inst-img"
             width={800}
             height={600}

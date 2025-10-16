@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import shape from '@/assets/img/inner-about/about/shape-1.png';
+import shape from '@/assets/img/inner-about/about/shape-1.webp';
 
 const work_data = [
   {

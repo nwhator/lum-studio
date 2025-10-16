@@ -8,10 +8,10 @@ import Link from "next/link";
 import {addEvents, slideNextTransitionStart,slidePrevTransitionStart, verTextFragment} from "@/utils/webgl-anim";
 import { WebGL } from "@/plugins";
 // images
-import showcase_1 from "@/assets/img/inner-project/showcase/showcase-1.jpg";
-import showcase_2 from "@/assets/img/inner-project/showcase/showcase-2.jpg";
-import showcase_3 from "@/assets/img/inner-project/showcase/showcase-3.jpg";
-import showcase_4 from "@/assets/img/inner-project/showcase/showcase-4.jpg";
+import showcase_1 from "@/assets/img/inner-project/showcase/showcase-1.webp";
+import showcase_2 from "@/assets/img/inner-project/showcase/showcase-2.webp";
+import showcase_3 from "@/assets/img/inner-project/showcase/showcase-3.webp";
+import showcase_4 from "@/assets/img/inner-project/showcase/showcase-4.webp";
 
 // slider data
 const slider_data = [
@@ -98,7 +98,7 @@ export default function PortfolioSliderHomeEleven() {
         <div
           className="port-showcase-slider-wrap tp-slider-parallax fix"
           id="showcase-slider-holder"
-          data-pattern-img="/assets/img/webgl/1.jpg"
+          data-pattern-img="/assets/img/webgl/1.webp"
         >
           <div
             className="swiper-container parallax-slider-active p-relative"

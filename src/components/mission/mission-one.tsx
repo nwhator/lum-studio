@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { UpArrow } from "../svg";
 // images
-import m_img_1 from "@/assets/img/home-05/mission/mission-1.jpg";
-import m_img_2 from "@/assets/img/home-05/mission/mission-2.jpg";
+import m_img_1 from "@/assets/img/home-05/mission/mission-1.webp";
+import m_img_2 from "@/assets/img/home-05/mission/mission-2.webp";
 
 export default function MissionOne() {
   return (

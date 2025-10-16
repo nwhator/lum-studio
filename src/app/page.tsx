@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: "https://www.thelumstudios.com",
     images: [
       {
-        url: "https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg",
+        url: "https://www.thelumstudios.com/assets/img/logo/logo-bg.webp",
         width: 1200,
         height: 630,
         alt: "LUM Studios - Professional Photography",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LUM Studios - Professional Photography & Videography",
     description: "Capturing moments, creating stories. Premium photography services in Ile-Ife, Nigeria.",
-    images: ["https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg"],
+    images: ["https://www.thelumstudios.com/assets/img/logo/logo-bg.webp"],
   },
 };
 

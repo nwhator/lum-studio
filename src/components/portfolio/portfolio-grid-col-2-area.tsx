@@ -5,12 +5,12 @@ import { UpArrow } from "../svg";
 import { useIsotop } from "@/hooks/use-isotop";
 
 // images
-import port_1 from "@/assets/img/inner-project/portfolio-col-2/port-1.jpg";
-import port_2 from "@/assets/img/inner-project/portfolio-col-2/port-2.jpg";
-import port_3 from "@/assets/img/inner-project/portfolio-col-2/port-3.jpg";
-import port_4 from "@/assets/img/inner-project/portfolio-col-2/port-4.jpg";
-import port_5 from "@/assets/img/inner-project/portfolio-col-2/port-5.jpg";
-import port_6 from "@/assets/img/inner-project/portfolio-col-2/port-6.jpg";
+import port_1 from "@/assets/img/inner-project/portfolio-col-2/port-1.webp";
+import port_2 from "@/assets/img/inner-project/portfolio-col-2/port-2.webp";
+import port_3 from "@/assets/img/inner-project/portfolio-col-2/port-3.webp";
+import port_4 from "@/assets/img/inner-project/portfolio-col-2/port-4.webp";
+import port_5 from "@/assets/img/inner-project/portfolio-col-2/port-5.webp";
+import port_6 from "@/assets/img/inner-project/portfolio-col-2/port-6.webp";
 
 // data
 const portfolio_data = [

@@ -3,15 +3,15 @@ import Image, { StaticImageData } from 'next/image';
 import CounterItem from './counter-item';
 
 // images 
-import marque_1 from '@/assets/img/home-05/marque/marque-1.jpg';
-import marque_2 from '@/assets/img/home-05/marque/marque-2.jpg';
-import marque_3 from '@/assets/img/home-05/marque/marque-3.jpg';
-import marque_4 from '@/assets/img/home-05/marque/marque-4.jpg';
-import marque_5 from '@/assets/img/home-05/marque/marque-5.jpg';
-import marque_6 from '@/assets/img/home-05/marque/marque-6.jpg';
-import marque_7 from '@/assets/img/home-05/marque/marque-7.jpg';
-import marque_8 from '@/assets/img/home-05/marque/marque-8.jpg';
-import marque_9 from '@/assets/img/home-05/marque/marque-9.jpg';
+import marque_1 from '@/assets/img/home-05/marque/marque-1.webp';
+import marque_2 from '@/assets/img/home-05/marque/marque-2.webp';
+import marque_3 from '@/assets/img/home-05/marque/marque-3.webp';
+import marque_4 from '@/assets/img/home-05/marque/marque-4.webp';
+import marque_5 from '@/assets/img/home-05/marque/marque-5.webp';
+import marque_6 from '@/assets/img/home-05/marque/marque-6.webp';
+import marque_7 from '@/assets/img/home-05/marque/marque-7.webp';
+import marque_8 from '@/assets/img/home-05/marque/marque-8.webp';
+import marque_9 from '@/assets/img/home-05/marque/marque-9.webp';
 
 function MarqueImage({src}: {src: StaticImageData}) {
   return <Image src={src} alt="marque-img" style={{height: 'auto'}} />

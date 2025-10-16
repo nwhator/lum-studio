@@ -8,11 +8,11 @@ import Social from '@/components/social/social';
 import { Dots } from '@/components/svg';
 
 // images
-import full_img from '@/assets/img/inner-project/custom/custom-big-1.jpg';
-import full_img_2 from '@/assets/img/inner-project/custom/custom-big-2.jpg';
-import port_1 from '@/assets/img/inner-project/custom/port-1.jpg';
-import port_2 from '@/assets/img/inner-project/custom/port-2.jpg';
-import port_3 from '@/assets/img/inner-project/custom/port-3.jpg';
+import full_img from '@/assets/img/inner-project/custom/custom-big-1.webp';
+import full_img_2 from '@/assets/img/inner-project/custom/custom-big-2.webp';
+import port_1 from '@/assets/img/inner-project/custom/port-1.webp';
+import port_2 from '@/assets/img/inner-project/custom/port-2.webp';
+import port_3 from '@/assets/img/inner-project/custom/port-3.webp';
 
 // slider images
 const slider_images = [port_1,port_2,port_3,port_2];

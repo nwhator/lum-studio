@@ -42,7 +42,7 @@ const ContactMain = () => {
             className="inner-bg"
             style={{
               backgroundImage:
-                "url(/assets/img/home-01/team/team-details-bg.png)",
+                "url(/assets/img/home-01/team/team-details-bg.webp)",
             }}
           >
             <main>

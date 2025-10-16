@@ -3,10 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // images
-import port_1 from "@/assets/img/home-04/portfolio/port-1.jpg";
-import port_2 from "@/assets/img/home-04/portfolio/port-2.jpg";
-import port_3 from "@/assets/img/home-04/portfolio/port-3.jpg";
-import port_4 from "@/assets/img/home-04/portfolio/port-4.jpg";
+import port_1 from "@/assets/img/home-04/portfolio/port-1.webp";
+import port_2 from "@/assets/img/home-04/portfolio/port-2.webp";
+import port_3 from "@/assets/img/home-04/portfolio/port-3.webp";
+import port_4 from "@/assets/img/home-04/portfolio/port-4.webp";
 
 // portfolio data
 const portfolio_data = [
@@ -35,7 +35,7 @@ export default function ProjectThree() {
   return (
     <div
       className="tp-project-4-area pb-120 project-panel-area"
-      style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.png)" }}
+      style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.webp)" }}
     >
       <div className="container-fluid p-0">
         <div className="row g-0">

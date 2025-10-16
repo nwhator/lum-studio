@@ -14,6 +14,7 @@ export default function GlobalErrorHandler() {
 
     // Create error display overlay (only on iPhone for debugging)
     let errorOverlay: HTMLDivElement | null = null;
+    let errorTimeout: NodeJS.Timeout | null = null;
 
     const showError = (error: Error | string, source?: string) => {
       const errorMessage = typeof error === 'string' ? error : error.message;
@@ -61,18 +62,29 @@ export default function GlobalErrorHandler() {
             max-height: 30vh;
             overflow-y: auto;
             border-bottom: 3px solid #cc0000;
+            transition: opacity 0.3s ease;
           `;
           document.body.appendChild(errorOverlay);
         }
 
+        errorOverlay.style.opacity = '1';
         errorOverlay.innerHTML = `
           <div style="font-weight: bold; margin-bottom: 5px;">⚠️ ERROR DETECTED (iPhone Debug Mode)</div>
           <div style="margin-bottom: 3px;"><strong>Message:</strong> ${errorMessage}</div>
           <div style="margin-bottom: 3px;"><strong>Source:</strong> ${source || 'Unknown'}</div>
           <div style="margin-bottom: 3px;"><strong>Page:</strong> ${window.location.pathname}</div>
           ${errorStack ? `<details style="margin-top: 5px;"><summary style="cursor: pointer;">Stack Trace</summary><pre style="font-size: 9px; white-space: pre-wrap; margin-top: 5px;">${errorStack}</pre></details>` : ''}
-          <button onclick="location.reload()" style="margin-top: 10px; background: white; color: #ff3333; border: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; cursor: pointer;">Reload Page</button>
+          <div style="margin-top: 10px; display: flex; gap: 10px;">
+            <button onclick="window.location.href='/'" style="background: white; color: #ff3333; border: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; flex: 1;">Go to Home</button>
+            <button onclick="location.reload()" style="background: rgba(255,255,255,0.3); color: white; border: 1px solid white; padding: 8px 15px; border-radius: 5px; font-weight: bold; cursor: pointer;">Reload</button>
+          </div>
         `;
+
+        // Don't auto-hide - let user decide when to dismiss
+        if (errorTimeout) {
+          clearTimeout(errorTimeout);
+          errorTimeout = null;
+        }
       }
     };
 
@@ -111,6 +123,9 @@ export default function GlobalErrorHandler() {
       window.removeEventListener('error', handleError);
       window.removeEventListener('unhandledrejection', handleRejection);
       window.removeEventListener('error', handleResourceError, true);
+      if (errorTimeout) {
+        clearTimeout(errorTimeout);
+      }
       if (errorOverlay) {
         errorOverlay.remove();
       }

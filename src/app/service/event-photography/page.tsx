@@ -20,11 +20,11 @@ import Link from "next/link";
 import { charAnimation, titleAnimation } from "@/utils/title-animation";
 
 // images
-import img1 from "@/assets/img/inner-project/portfolio-col-2/port-9.jpg";
-import img2 from "@/assets/img/inner-project/portfolio-col-2/port-10.jpg";
-import img3 from "@/assets/img/inner-project/portfolio-col-2/port-11.jpg";
-import img4 from "@/assets/img/inner-project/portfolio-col-2/port-12.jpg";
-import img5 from "@/assets/img/inner-project/portfolio-col-2/port-14.jpg";
+import img1 from "@/assets/img/inner-project/portfolio-col-2/port-9.webp";
+import img2 from "@/assets/img/inner-project/portfolio-col-2/port-10.webp";
+import img3 from "@/assets/img/inner-project/portfolio-col-2/port-11.webp";
+import img4 from "@/assets/img/inner-project/portfolio-col-2/port-12.webp";
+import img5 from "@/assets/img/inner-project/portfolio-col-2/port-14.webp";
 
 const EventPhotographyPage = () => {
   useScrollSmooth();

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/assets/img/logo/logo-white.png";
+import logo from "@/assets/img/logo/logo-white.webp";
 import MobileOffcanvasTwo from "@/components/offcanvas/mobile-offcanvas-2";
 
 export default function HeaderNine() {

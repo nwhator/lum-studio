@@ -5,12 +5,12 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 // project images
-import p_1 from "@/assets/img/home-01/project/project-1-1.jpg";
-import p_2 from "@/assets/img/home-01/project/project-1-2.jpg";
-import p_3 from "@/assets/img/home-01/project/project-1-3.jpg";
-import p_4 from "@/assets/img/home-01/project/project-1-4.jpg";
-import p_5 from "@/assets/img/home-01/project/project-1-5.jpg";
-import p_6 from "@/assets/img/home-01/project/project-1-6.jpg";
+import p_1 from "@/assets/img/home-01/project/project-1-1.webp";
+import p_2 from "@/assets/img/home-01/project/project-1-2.webp";
+import p_3 from "@/assets/img/home-01/project/project-1-3.webp";
+import p_4 from "@/assets/img/home-01/project/project-1-4.webp";
+import p_5 from "@/assets/img/home-01/project/project-1-5.webp";
+import p_6 from "@/assets/img/home-01/project/project-1-6.webp";
 
 // type
 type IProject = {
@@ -136,7 +136,7 @@ const ProjectOne = ({style_2=false}:IProps) => {
                       data-speed="auto"
                       style={{
                         backgroundImage:
-                          "url(/assets/img/inner-service/hero/hero-1-2.jpg)",
+                          "url(/assets/img/inner-service/hero/hero-1-2.webp)",
                       }}
                     ></div>
                   </div>

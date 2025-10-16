@@ -27,7 +27,7 @@ const HeaderTransparent = () => {
                 <div className="tp-header-logo">
                   <Link className="logo-1" href="/">
                     <Image
-                      src="/assets/img/logo/logo-white.png"
+                      src="/assets/img/logo/logo-white.webp"
                       alt="logo"
                       width={85}
                       height={26}
@@ -35,7 +35,7 @@ const HeaderTransparent = () => {
                   </Link>
                   <Link className="logo-2" href="/">
                     <Image
-                      src="/assets/img/logo/logo-white.png"
+                      src="/assets/img/logo/logo-white.webp"
                       alt="logo"
                       width={85}
                       height={26}

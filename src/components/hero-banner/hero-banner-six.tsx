@@ -8,19 +8,19 @@ import Link from "next/link";
 const hero_data = [
   {
     id: 1,
-    bg: "/assets/img/inner-shop/home/slider-1.jpg",
+    bg: "/assets/img/inner-shop/home/slider-1.webp",
     subtitle: "YOU MAY NEED",
     title: "Shoes <br/> Collection",
   },
   {
     id: 2,
-    bg: "/assets/img/inner-shop/home/slider-2.jpg",
+    bg: "/assets/img/inner-shop/home/slider-2.webp",
     subtitle: "NEW ARRIVALS",
     title: "Shoes <br/> Collection",
   },
   {
     id: 3,
-    bg: "/assets/img/inner-shop/home/slider-3.jpg",
+    bg: "/assets/img/inner-shop/home/slider-3.webp",
     subtitle: "NEW ARRIVALS",
     title: "Shoes <br/> Collection",
   },

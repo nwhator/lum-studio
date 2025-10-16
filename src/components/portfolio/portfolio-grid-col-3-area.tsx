@@ -10,7 +10,7 @@ const portfolio_data = [
   // Baby Shoot (cat1)
   {
     id: 1,
-    img: "/assets/img/inner-project/portfolio-col-2/port-1.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-1.webp",
     category: "Baby Shoot",
     title: "Adorable Beginnings",
     year: "2024",
@@ -18,7 +18,7 @@ const portfolio_data = [
   },
   {
     id: 2,
-    img: "/assets/img/inner-project/portfolio-col-2/port-2.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-2.webp",
     category: "Baby Shoot",
     title: "Tiny Moments",
     year: "2024",
@@ -26,7 +26,7 @@ const portfolio_data = [
   },
   {
     id: 3,
-    img: "/assets/img/inner-project/portfolio-col-2/port-3.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-3.webp",
     category: "Baby Shoot",
     title: "First Smiles",
     year: "2024",
@@ -35,7 +35,7 @@ const portfolio_data = [
   // Wedding Shoot (cat2)
   {
     id: 4,
-    img: "/assets/img/inner-project/portfolio-col-2/port-4.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-4.webp",
     category: "Wedding Shoot",
     title: "Forever Begins",
     year: "2024",
@@ -43,7 +43,7 @@ const portfolio_data = [
   },
   {
     id: 5,
-    img: "/assets/img/inner-project/portfolio-col-2/port-5.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-5.webp",
     category: "Wedding Shoot",
     title: "The Vows",
     year: "2024",
@@ -51,7 +51,7 @@ const portfolio_data = [
   },
   {
     id: 6,
-    img: "/assets/img/inner-project/portfolio-col-2/port-6.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-6.webp",
     category: "Wedding Shoot",
     title: "Celebration",
     year: "2024",
@@ -60,7 +60,7 @@ const portfolio_data = [
   // Call to Bar (cat3)
   {
     id: 7,
-    img: "/assets/img/inner-project/portfolio-col-2/port-7.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-7.webp",
     category: "Call to Bar",
     title: "Milestone",
     year: "2024",
@@ -68,7 +68,7 @@ const portfolio_data = [
   },
   {
     id: 8,
-    img: "/assets/img/inner-project/portfolio-col-2/port-8.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-8.webp",
     category: "Call to Bar",
     title: "Achievement",
     year: "2024",
@@ -76,7 +76,7 @@ const portfolio_data = [
   },
   {
     id: 9,
-    img: "/assets/img/inner-project/portfolio-col-2/port-9.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-9.webp",
     category: "Call to Bar",
     title: "Proud Moment",
     year: "2024",
@@ -85,7 +85,7 @@ const portfolio_data = [
   // Convocation (cat4)
   {
     id: 10,
-    img: "/assets/img/inner-project/portfolio-col-2/port-10.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-10.webp",
     category: "Convocation",
     title: "Graduation Day",
     year: "2024",
@@ -93,7 +93,7 @@ const portfolio_data = [
   },
   {
     id: 11,
-    img: "/assets/img/inner-project/portfolio-col-2/port-11.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-11.webp",
     category: "Convocation",
     title: "New Beginnings",
     year: "2024",
@@ -101,7 +101,7 @@ const portfolio_data = [
   },
   {
     id: 12,
-    img: "/assets/img/inner-project/portfolio-col-2/port-12.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-12.webp",
     category: "Convocation",
     title: "Academic Triumph",
     year: "2024",
@@ -110,7 +110,7 @@ const portfolio_data = [
   // Family Portraits (cat5)
   {
     id: 13,
-    img: "/assets/img/inner-project/portfolio-col-2/port-13.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-13.webp",
     category: "Family Portraits",
     title: "Family Bonds",
     year: "2024",
@@ -118,7 +118,7 @@ const portfolio_data = [
   },
   {
     id: 14,
-    img: "/assets/img/inner-project/portfolio-col-2/port-14.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-14.webp",
     category: "Family Portraits",
     title: "Generations",
     year: "2024",
@@ -126,7 +126,7 @@ const portfolio_data = [
   },
   {
     id: 15,
-    img: "/assets/img/inner-project/portfolio-col-2/port-15.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-15.webp",
     category: "Family Portraits",
     title: "Togetherness",
     year: "2024",
@@ -135,7 +135,7 @@ const portfolio_data = [
   // Maternity Portraits (cat6)
   {
     id: 16,
-    img: "/assets/img/inner-project/portfolio-col-2/port-16.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-16.webp",
     category: "Maternity Portrait",
     title: "Motherhood Journey",
     year: "2024",
@@ -143,7 +143,7 @@ const portfolio_data = [
   },
   {
     id: 17,
-    img: "/assets/img/inner-project/portfolio-col-2/port-17.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-17.webp",
     category: "Maternity Portrait",
     title: "Expecting Joy",
     year: "2024",
@@ -151,7 +151,7 @@ const portfolio_data = [
   },
   {
     id: 18,
-    img: "/assets/img/inner-project/portfolio-col-2/port-18.jpg",
+    img: "/assets/img/inner-project/portfolio-col-2/port-18.webp",
     category: "Maternity Portrait",
     title: "New Life",
     year: "2024",

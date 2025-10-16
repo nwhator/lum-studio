@@ -8,13 +8,13 @@ import Image from 'next/image';
 import { Leaf, ScrollDownTwo,UpArrowFour} from '@/components/svg';
 
 // images
-import full_image from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-1.jpg';
-import full_image_2 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-2.jpg';
-import port_img_1 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-3.jpg';
-import port_img_2 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-4.jpg';
-import port_img_3 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-5.jpg';
-import port_img_4 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-6.jpg';
-import port_img_5 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-7.jpg';
+import full_image from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-1.webp';
+import full_image_2 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-2.webp';
+import port_img_1 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-3.webp';
+import port_img_2 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-4.webp';
+import port_img_3 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-5.webp';
+import port_img_4 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-6.webp';
+import port_img_5 from '@/assets/img/inner-project/portfolio-details-3/portfolio-img-7.webp';
 
 // slider images
 const slider_images = [port_img_3,port_img_4,port_img_5,port_img_4];

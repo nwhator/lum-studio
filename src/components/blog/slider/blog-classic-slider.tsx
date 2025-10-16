@@ -60,7 +60,7 @@ export default function BlogClassicSlider() {
             <SwiperSlide key={item.id}>
               <div
                 className="blog-sidebar-slider-bg blog-sidebar-slider-height d-flex align-items-center pt-170 pb-120"
-                style={{ backgroundImage: `url(/assets/img/inner-blog/blog-sidebar/blog-sidebar-bg.jpg)` }}
+                style={{ backgroundImage: `url(/assets/img/inner-blog/blog-sidebar/blog-sidebar-bg.webp)` }}
               >
                 <div className="container">
                   <div className="row">

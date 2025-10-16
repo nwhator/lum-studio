@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import logo from '@/assets/img/logo/logo.png';
+import logo from '@/assets/img/logo/logo.webp';
 
 export default function AdminLogin() {
   const router = useRouter();

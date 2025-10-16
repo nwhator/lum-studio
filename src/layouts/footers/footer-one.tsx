@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from '@/assets/img/logo/logo-white.png';
+import logo from '@/assets/img/logo/logo-white.webp';
 import { footerOneAnimation, footerTwoAnimation } from "@/utils/footer-anim";
 
 const footer_links = [

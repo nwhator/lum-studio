@@ -2,13 +2,13 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 // images
-import port_1 from "@/assets/img/home-10/porfolio/port-1.jpg";
-import port_2 from "@/assets/img/home-10/porfolio/port-2.jpg";
-import port_3 from "@/assets/img/home-10/porfolio/port-3.jpg";
-import port_4 from "@/assets/img/home-10/porfolio/port-4.jpg";
-import port_5 from "@/assets/img/home-10/porfolio/port-5.jpg";
-import port_6 from "@/assets/img/home-10/porfolio/port-6.jpg";
-import port_7 from "@/assets/img/home-10/porfolio/port-7.jpg";
+import port_1 from "@/assets/img/home-10/porfolio/port-1.webp";
+import port_2 from "@/assets/img/home-10/porfolio/port-2.webp";
+import port_3 from "@/assets/img/home-10/porfolio/port-3.webp";
+import port_4 from "@/assets/img/home-10/porfolio/port-4.webp";
+import port_5 from "@/assets/img/home-10/porfolio/port-5.webp";
+import port_6 from "@/assets/img/home-10/porfolio/port-6.webp";
+import port_7 from "@/assets/img/home-10/porfolio/port-7.webp";
 
 // portfolio titles
 const portfolio_titles = [

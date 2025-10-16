@@ -6,46 +6,46 @@ import "slick-carousel/slick/slick.css";
 import { DownArrow } from "../../svg";
 
 // images
-import port_sm_1 from "@/assets/img/home-11/port-sm-1.jpg";
-import port_sm_2 from "@/assets/img/home-11/port-sm-2.jpg";
-import port_sm_3 from "@/assets/img/home-11/port-sm-3.jpg";
-import port_sm_4 from "@/assets/img/home-11/port-sm-4.jpg";
-import port_sm_5 from "@/assets/img/home-11/port-sm-5.jpg";
+import port_sm_1 from "@/assets/img/home-11/port-sm-1.webp";
+import port_sm_2 from "@/assets/img/home-11/port-sm-2.webp";
+import port_sm_3 from "@/assets/img/home-11/port-sm-3.webp";
+import port_sm_4 from "@/assets/img/home-11/port-sm-4.webp";
+import port_sm_5 from "@/assets/img/home-11/port-sm-5.webp";
 import { SlickNextArrow, SlickPrevArrow } from "../../slick-arrow";
 
 // slider data
 const slider_data = [
   {
     id: 1,
-    bg: "/assets/img/home-11/port-1.jpg",
+    bg: "/assets/img/home-11/port-1.webp",
     subtitle: "Digital Design",
     year: "2024",
     title: "Fashion <br> Sentence",
   },
   {
     id: 2,
-    bg: "/assets/img/home-11/port-2.jpg",
+    bg: "/assets/img/home-11/port-2.webp",
     subtitle: "Digital Design",
     year: "2022",
     title: "Chania <br> Tourism",
   },
   {
     id: 3,
-    bg: "/assets/img/home-11/port-3.jpg",
+    bg: "/assets/img/home-11/port-3.webp",
     subtitle: "Digital Design",
     year: "2021",
     title: "Kiteboard <br> action",
   },
   {
     id: 4,
-    bg: "/assets/img/home-11/port-4.jpg",
+    bg: "/assets/img/home-11/port-4.webp",
     subtitle: "Digital Design",
     year: "2021",
     title: "Headphones <br> Cheap",
   },
   {
     id: 5,
-    bg: "/assets/img/home-11/port-5.jpg",
+    bg: "/assets/img/home-11/port-5.webp",
     subtitle: "Digital Design",
     year: "2021",
     title: "Zon <br> Robinson",

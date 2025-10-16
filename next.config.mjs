@@ -50,15 +50,25 @@ const nextConfig = {
         ...config.resolve.fallback,
         fs: false,
       };
+      
+      // Add chunk loading retry logic for production
+      if (!dev) {
+        config.output = {
+          ...config.output,
+          crossOriginLoading: 'anonymous',
+          chunkLoadTimeout: 30000, // Increase timeout to 30s for slow connections
+        };
+      }
     }
     
-    // Optimize bundle splitting
+    // Optimize bundle splitting with better error handling
     config.optimization = {
       ...config.optimization,
       moduleIds: 'deterministic',
       runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
+        maxSize: 244000, // Split chunks larger than 244KB for better loading
         cacheGroups: {
           default: false,
           vendors: false,

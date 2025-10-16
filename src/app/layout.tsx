@@ -7,6 +7,8 @@ import { Syne, Marcellus } from "next/font/google";
 import localFont from "next/font/local";
 import { ToastProvider } from "@/components/ui/toast";
 import GlobalErrorHandler from "@/components/global-error-handler";
+import PageLoader from "@/components/loaders/page-loader";
+import ChunkLoadErrorHandler from "@/components/chunk-load-error-handler";
 import "./globals.scss";
 
 // Optimized font loading with display swap and preload
@@ -44,7 +46,7 @@ const siteConfig = {
   title: "LUM Studios - Professional Photography & Videography",
   description: "Founded in 2020, LUM Studio is a creative photography and videography brand in Ile-Ife, Nigeria. We specialize in weddings, portraits, maternity, baby shoots, convocation, call to bar, and special events. Capturing moments, creating stories.",
   url: "https://www.thelumstudios.com",
-  ogImage: "https://www.thelumstudios.com/assets/img/logo/logo-bg.jpg",
+  ogImage: "https://www.thelumstudios.com/assets/img/logo/logo-bg.webp",
   keywords: Array.from(new Set([
     "photography studio Nigeria",
     "wedding photography Ile-Ife",
@@ -140,11 +142,11 @@ export default function RootLayout({
     "url": siteConfig.url,
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+      "url": "https://www.thelumstudios.com/assets/img/logo/logo.webp",
       "width": "600",
       "height": "600"
     },
-    "image": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+    "image": "https://www.thelumstudios.com/assets/img/logo/logo.webp",
     "sameAs": [
       "https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr",
       "https://www.instagram.com/lumphotographystudios/",
@@ -161,7 +163,7 @@ export default function RootLayout({
     "alternateName": "LUM Photography Studios",
     "description": siteConfig.description,
     "url": siteConfig.url,
-    "logo": "https://www.thelumstudios.com/assets/img/logo/logo.png",
+    "logo": "https://www.thelumstudios.com/assets/img/logo/logo.webp",
     "image": siteConfig.ogImage,
     "telephone": ["+2348145538164", "+2349022292514"],
     "email": "contact@thelumstudios.com",
@@ -245,6 +247,8 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gellery.variable} ${syne.variable} ${marcellus.variable}`}
       >
+        <ChunkLoadErrorHandler />
+        <PageLoader />
         <GlobalErrorHandler />
         <ToastProvider>
           {children}

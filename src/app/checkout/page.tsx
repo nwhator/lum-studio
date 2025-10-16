@@ -46,7 +46,7 @@ function CheckoutContent() {
     const name = searchParams.get('name') || '';
     const category = searchParams.get('category') || '';
     const price = searchParams.get('price') || '';
-    const image = searchParams.get('image') || '/assets/img/inner-project/portfolio-col-2/port-1.jpg';
+    const image = searchParams.get('image') || '/assets/img/inner-project/portfolio-col-2/port-1.webp';
     const description = searchParams.get('description') || '';
 
     if (name && category && price) {

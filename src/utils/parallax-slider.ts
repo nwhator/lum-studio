@@ -10,7 +10,7 @@ export function parallaxSlider() {
   window.addEventListener('resize', init);
 
   images.forEach((img, idx) => {
-    img.style.backgroundImage = `url(/assets/img/home-12/portfolio/port-${idx + 1}.jpg)`;
+    img.style.backgroundImage = `url(/assets/img/home-12/portfolio/port-${idx + 1}.webp)`;
   });
 
   function lerp(start: number, end: number, t: number): number {
