@@ -221,7 +221,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
-        <div className="row grid gx-3 gy-3" ref={isotopContainer}>
+  <div className="row grid gx-2 gy-2 gallery-viewport-grid" ref={isotopContainer}>
           {displayedPortfolio.map((item) => (
             <div
               key={item.id}
@@ -250,37 +250,40 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
         </div>
 
         <style jsx>{`
+          .gallery-viewport-grid {
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0.5rem;
+          }
           .portfolio-item-wrapper {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 30px;
+            margin-bottom: 0;
             display: flex;
             flex-direction: column;
-            height: auto;
+            height: calc(100vh / 2.2);
+            min-height: 320px;
+            max-height: 400px;
           }
-
-          .portfolio-item-wrapper:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-          }
-
           .portfolio-image-container {
             position: relative;
             flex: 1;
             width: 100%;
             overflow: hidden;
             cursor: pointer;
+            min-height: 220px;
           }
-
           .portfolio-image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
           }
-
           .portfolio-hover-overlay {
             position: absolute;
             top: 0;
@@ -292,25 +295,21 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             pointer-events: none;
             z-index: 1;
           }
-
           .portfolio-image-container:hover .portfolio-hover-overlay {
             background-color: rgba(0, 0, 0, 0.2);
           }
-
           .portfolio-image-container:hover img {
             transform: scale(1.05);
           }
-
           .portfolio-package-section {
-            padding: 20px;
+            padding: 14px;
             background: #f8f9fa;
             text-align: center;
             margin-top: auto;
           }
-
           .view-package-btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 10px 18px;
             background: #2c3e50;
             color: white;
             text-decoration: none;
@@ -323,64 +322,41 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             width: 100%;
             box-sizing: border-box;
           }
-
           .view-package-btn:hover {
             background: transparent;
             color: #2c3e50;
             text-decoration: none;
           }
-
-          @media (max-width: 768px) {
+          @media (max-width: 1200px) {
             .portfolio-item-wrapper {
-              margin-bottom: 0;
-              height: auto;
-              min-height: auto;
+              height: calc(100vh / 2.1);
+              min-height: 220px;
+              max-height: 320px;
             }
-
+          }
+          @media (max-width: 768px) {
+            .gallery-viewport-grid {
+              min-height: 100vh;
+              gap: 0.3rem;
+            }
+            .portfolio-item-wrapper {
+              height: calc(100vh / 2.1);
+              min-height: 180px;
+              max-height: 220px;
+            }
             .portfolio-image-container {
-              min-height: 250px;
+              min-height: 120px;
             }
-
             .portfolio-package-section {
-              padding: 12px 15px;
+              padding: 10px 10px;
               flex-shrink: 0;
             }
-
             .view-package-btn {
-              padding: 10px 16px;
+              padding: 8px 10px;
               font-size: 12px;
               letter-spacing: 0.5px;
               width: 100%;
               display: block;
-            }
-
-            .tp-project-5-2-category,
-            .tp-project-5-2-content {
-              font-size: 14px;
-            }
-
-            .tp-project-5-2-title-sm {
-              font-size: 16px !important;
-            }
-          }
-
-          @media (max-width: 576px) {
-            .portfolio-item-wrapper {
-              margin-bottom: 0;
-              min-height: auto;
-            }
-
-            .portfolio-image-container {
-              min-height: 200px;
-            }
-
-            .portfolio-package-section {
-              padding: 10px 12px;
-            }
-
-            .view-package-btn {
-              padding: 8px 12px;
-              font-size: 11px;
             }
           }
         `}</style>

@@ -23,13 +23,31 @@ const service_data = [
   },
 ];
 
+// Map card id to ServiceSix slug (string keys for safety)
+const serviceSlugMap: Record<string, string> = {
+  '1': 'wedding-photography', // Wedding Photography
+  '2': 'professional-portraits', // Portrait Sessions (goes to 4th)
+  '3': 'event-photography', // Event Coverage
+};
+
 function scrollToServiceSix(id: number) {
-  scroller.scrollTo(`service-six-${id}`, {
-    duration: 700,
-    delay: 0,
-    smooth: 'easeInOutQuart',
-    offset: -80, // adjust for header height
-  });
+  const slug = serviceSlugMap[String(id)];
+  if (slug) {
+    scroller.scrollTo(slug, {
+      duration: 700,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+      offset: -80, // adjust for header height
+    });
+  } else {
+    // fallback: scroll to ServiceSix top
+    scroller.scrollTo('sv-service-area', {
+      duration: 700,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+      offset: -80,
+    });
+  }
 }
 
 // service items
@@ -43,8 +61,8 @@ export function ServiceItems() {
               {item.number}
             </div>
             <div className="tp-service-4-content">
-              <h4 className="tp-service-4-title-sm tp-text-black">
-                <Link href="/service">{item.title}</Link>
+              <h4 className="tp-service-4-title-sm tp-text-black" style={{ cursor: 'pointer', textDecoration: 'underline', color: '#B7C435' }}>
+                {item.title}
               </h4>
               <p>{item.desc}</p>
             </div>

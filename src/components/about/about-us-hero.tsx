@@ -86,23 +86,23 @@ export default function AboutUsHero() {
               : "ab-inner-hero-title-box tp-char-animation text-center"}
             data-lag={isMobile ? undefined : "0.2"}
             data-stagger={isMobile ? undefined : "0.08"}
-            style={{ maxWidth: 800, margin: '0 auto' }}
+            style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '340px', paddingTop: '5.5rem' }}
           >
-            <span className="ab-inner-hero-subtitle" style={{ display: 'block', marginBottom: '1.2rem', fontWeight: 500, fontSize: '1.2rem' }}>
-              Photography &amp; Videography
-            </span>
-            <h1 className="ab-inner-hero-title" style={{ marginTop: '2.5rem', marginBottom: '1.5rem', fontWeight: 700, fontSize: '3rem', lineHeight: 1.1 }}>
+            <h1 className="ab-inner-hero-title" style={{ marginTop: '3.5rem', fontWeight: 700, fontSize: '3rem', lineHeight: 1.1, marginBottom: '2.5rem' }}>
               Capturing Moments
             </h1>
-            <p style={{ fontSize: '1.15rem', marginBottom: '1.5rem' }}>
-              Founded in 2020, LUM Studio is a creative photography and videography studio built on passion, precision, and artistry. We craft visuals that inspire — weddings, portraits, events, product shoots, and aerial coverage.
-            </p>
-            <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
-              Lum Studios develops, designs & delivers visual stories with precision and heart.
-            </p>
-            <a className="tp-btn-black-2" href="/booking" style={{ marginTop: '0.5rem', padding: '0.75rem 2.5rem', fontSize: '1.1rem' }}>
-              Book Now
+            <a className="tp-btn-black-2" href="/booking" style={{ marginTop: '0.5rem', padding: '0.85rem 2.5rem', fontSize: '1.15rem', fontWeight: 600, background: '#222', color: '#fff', borderRadius: '8px', transition: 'background 0.3s, color 0.3s', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              See Packages
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </a>
+            <style jsx>{`
+              .tp-btn-black-2:hover {
+                background: #B7C435;
+                color: #222;
+              }
+            `}</style>
           </div>
         </div>
       </div>
