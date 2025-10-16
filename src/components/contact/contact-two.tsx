@@ -68,9 +68,6 @@ export default function ContactTwo() {
                     <p>
                       <a href="mailto:contact@thelumstudios.com">contact@thelumstudios.com</a>
                     </p>
-                    <p>
-                      <a href="mailto:nwhator@gmail.com">nwhator@gmail.com</a>
-                    </p>
                   </div>
                 </div>
 
