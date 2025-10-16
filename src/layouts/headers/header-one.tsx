@@ -76,9 +76,9 @@ const HeaderOne = () => {
           display: flex !important;
           flex-direction: column !important;
           justify-content: space-between !important;
-          gap: 5px !important;
-          width: 32px !important;
-          height: 26px !important;
+          gap: 4px !important;
+          width: 30px !important;
+          height: 20px !important;
           position: relative !important;
           z-index: 2000 !important;
         }

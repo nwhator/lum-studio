@@ -1,10 +1,17 @@
 // ...existing code...
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { scroller } from "react-scroll";
 import { ScrollDown } from "../svg";
 import Image from "next/image";
+import { isMobileDevice } from "@/utils/ios-safe-gsap";
 
 export default function AboutUsHero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(isMobileDevice());
+  }, []);
+
   const scrollTo = () => {
     scroller.scrollTo('about-info', {
       duration: 800,
@@ -44,14 +51,18 @@ export default function AboutUsHero() {
         <div className="row">
           <div className="col-xl-8">
             <div
-              className="ab-inner-hero-title-box"
-              data-lag="0.2"
-              data-stagger="0.08"
+              className={
+                isMobile
+                  ? "ab-inner-hero-title-box"
+                  : "ab-inner-hero-title-box tp-char-animation"
+              }
+              data-lag={isMobile ? undefined : "0.2"}
+              data-stagger={isMobile ? undefined : "0.08"}
             >
               <span className="ab-inner-hero-subtitle">
                 Photography &amp; Videography
               </span>
-              <h1 className="ab-inner-hero-title tp-char-animation">
+              <h1 className="ab-inner-hero-title">
                 Capturing Moments
               </h1>
               <p>
@@ -70,7 +81,7 @@ export default function AboutUsHero() {
               <p>
                 Lum Studios develops, designs & delivers visual stories with precision and heart.
               </p>
-              <a className="tp-btn-white-sm border-style" href="/booking">
+              <a className="tp-btn-black-2" href="/booking">
                 Book Now
               </a>
             </div>

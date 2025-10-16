@@ -61,8 +61,8 @@ export default function GalleryOne() {
                           <Image
                             src={g}
                             alt="gallery-img"
-                            width={300}
-                            height={380}
+                            width={400}
+                            height={480}
                             className="gallery-responsive-img"
                             draggable={false}
                             onContextMenu={(e) => e.preventDefault()}
