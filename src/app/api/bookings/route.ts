@@ -25,14 +25,13 @@ export async function GET(request: NextRequest) {
     const collection = await getBookingsCollection();
 
     if (date) {
-      const bookings = await collection
+      const bookings = (await collection
         .find({ date, status: "confirmed" })
-        .toArray();
+        .toArray()) as import("@/lib/mongodb").BookingDocument[];
 
       const bookedSlots = bookings
         .flatMap((booking) => booking.timeSlots)
         .filter((slot, index, self) => self.indexOf(slot) === index);
-
       return NextResponse.json({
         success: true,
         bookedSlots,

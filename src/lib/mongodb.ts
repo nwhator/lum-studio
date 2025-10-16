@@ -1,37 +1,4 @@
-import { MongoClient, Db, Collection } from 'mongodb';
-
-const uri = process.env.MONGODB_URI!;
-const options = {};
-
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
-
-// Check if MongoDB URI is configure
-// if (!process.env.MONGODB_URI) {
-//   throw new Error("MONGODB_URI is not set");
-// }
-
-if (process.env.NODE_ENV === 'development') {
-  // In development mode, use a global variable to preserve the connection
-  // across hot reloads (Next.js fast refresh)
-  if (!(global as any)._mongoClientPromise) {
-    client = new MongoClient(uri, options);
-    (global as any)._mongoClientPromise = client.connect();
-  }
-  clientPromise = (global as any)._mongoClientPromise;
-} else {
-  // In production mode, create a new client for each request
-  client = new MongoClient(uri, options);
-  clientPromise = client.connect();
-}
-
-export default clientPromise;
-
-// Database and collection names
-export const DB_NAME = 'lum-studios';
-export const BOOKINGS_COLLECTION = 'bookings';
-
-// Booking document interface
+// Booking document interface (keep for type safety)
 export interface BookingDocument {
   id: string;
   date: string;
@@ -46,30 +13,52 @@ export interface BookingDocument {
   updatedAt: string;
 }
 
-// Helper function to get bookings collection
-export async function getBookingsCollection(): Promise<Collection<BookingDocument>> {
-  const client = await clientPromise;
-  const db: Db = client.db(DB_NAME);
-  return db.collection<BookingDocument>(BOOKINGS_COLLECTION);
+// Always export these for type safety
+export const DB_NAME = process.env.MONGODB_URI ? 'lum-studios' : '';
+export const BOOKINGS_COLLECTION = process.env.MONGODB_URI ? 'bookings' : '';
+
+// Only require mongodb if URI is set
+let clientPromise: Promise<any> | undefined = undefined;
+
+if (process.env.MONGODB_URI) {
+  // Only import and create client if enabled
+  const { MongoClient } = require('mongodb');
+  const uri = process.env.MONGODB_URI;
+  const options = {};
+  let client: any;
+  if (process.env.NODE_ENV === 'development') {
+    if (!(global as any)._mongoClientPromise) {
+      client = new MongoClient(uri, options);
+      (global as any)._mongoClientPromise = client.connect();
+    }
+    clientPromise = (global as any)._mongoClientPromise;
+  } else {
+    client = new MongoClient(uri, options);
+    clientPromise = client.connect();
+  }
 }
 
-// Create indexes for better performance (run once on first connection)
+export default clientPromise;
+
+// Safe dummy for getBookingsCollection
+export async function getBookingsCollection(): Promise<any> {
+  if (!process.env.MONGODB_URI || !clientPromise) {
+    throw new Error('MongoDB is disabled');
+  }
+  const client = await clientPromise;
+  const db = client.db(DB_NAME);
+  return db.collection(BOOKINGS_COLLECTION) as import('mongodb').Collection<BookingDocument>;
+}
+
+// Safe dummy for createIndexes
 export async function createIndexes() {
+  if (!process.env.MONGODB_URI) return;
   try {
     const collection = await getBookingsCollection();
-    
-    // Index on date for faster date queries
     await collection.createIndex({ date: 1 });
-    
-    // Index on status for filtering
     await collection.createIndex({ status: 1 });
-    
-    // Index on createdAt for sorting (descending)
     await collection.createIndex({ createdAt: -1 });
-    
-    // Compound index for date + status queries
     await collection.createIndex({ date: 1, status: 1 });
-    
     console.log('✅ MongoDB indexes created successfully');
   } catch (error) {
     console.error('Error creating indexes:', error);
