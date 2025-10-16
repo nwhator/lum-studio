@@ -37,7 +37,7 @@ export default function ChunkLoadErrorHandler() {
           
           // Wait a bit before reloading to avoid race conditions
           setTimeout(() => {
-            window.location.reload();
+            (window as Window).location.reload();
           }, 1000);
         } else {
           // Max attempts reached, clear the cache and reset counter
@@ -52,11 +52,11 @@ export default function ChunkLoadErrorHandler() {
               });
             }).then(() => {
               console.log('[ChunkLoadError] Cache cleared. Reloading one final time...');
-              window.location.reload();
+              (window as Window).location.reload();
             });
           } else {
             // Fallback: just reload
-            window.location.reload();
+            (window as Window).location.reload();
           }
         }
         
@@ -79,7 +79,7 @@ export default function ChunkLoadErrorHandler() {
           console.warn(`[ResourceError] Reloading page (${reloadCount + 1}/${MAX_RELOAD_ATTEMPTS})...`);
           
           setTimeout(() => {
-            window.location.reload();
+            (window as Window).location.reload();
           }, 1000);
         }
       }
@@ -101,7 +101,7 @@ export default function ChunkLoadErrorHandler() {
           console.warn(`[UnhandledRejection] Reloading (${reloadCount + 1}/${MAX_RELOAD_ATTEMPTS})...`);
           
           setTimeout(() => {
-            window.location.reload();
+            (window as Window).location.reload();
           }, 1000);
           
           event.preventDefault();
