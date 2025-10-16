@@ -221,74 +221,23 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
-        {!style_2 && (
-          <div className="row justify-content-center">
-            <div className="col-xl-10">
-              <div className="portfolio-filter-wrapper mb-60">
-                <div className="portfolio-filter-title text-center mb-35">
-                  <span className="filter-label">Browse Our Work</span>
-                  <h3 className="filter-heading">Portfolio Categories</h3>
-                </div>
-                <div className="portfolio-filter-scroll-container">
-                  <div className="portfolio-filter masonary-menu">
-                    <button data-filter="*" className="active filter-btn">
-                      <span className="filter-text">All Projects</span>
-                      <span className="filter-count">{displayedPortfolio.length}</span>
-                    </button>
-                    <button data-filter=".cat1" className="filter-btn">
-                      <span className="filter-text">Baby</span>
-                      <span className="filter-count">{getCategoryCount('cat1')}</span>
-                    </button>
-                    <button data-filter=".cat2" className="filter-btn">
-                      <span className="filter-text">Wedding</span>
-                      <span className="filter-count">{getCategoryCount('cat2')}</span>
-                    </button>
-                    <button data-filter=".cat3" className="filter-btn">
-                      <span className="filter-text">Call to Bar</span>
-                      <span className="filter-count">{getCategoryCount('cat3')}</span>
-                    </button>
-                    <button data-filter=".cat4" className="filter-btn">
-                      <span className="filter-text">Convocation</span>
-                      <span className="filter-count">{getCategoryCount('cat4')}</span>
-                    </button>
-                    <button data-filter=".cat5" className="filter-btn">
-                      <span className="filter-text">Family</span>
-                      <span className="filter-count">{getCategoryCount('cat5')}</span>
-                    </button>
-                    <button data-filter=".cat6" className="filter-btn">
-                      <span className="filter-text">Maternity</span>
-                      <span className="filter-count">{getCategoryCount('cat6')}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
         <div className="row grid gx-3 gy-3" ref={isotopContainer}>
           {displayedPortfolio.map((item) => (
             <div
               key={item.id}
-              className={`col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item ${item.show}`}
+              className="col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item"
             >
               <div className="tp-project-5-2-thumb mb-30 p-relative portfolio-item-wrapper">
                 <div className="portfolio-image-container">
                   <Image
                     className="anim-zoomin"
                     src={item.img}
-                    alt={`${item.title} - ${item.category}`}
+                    alt={item.title}
                     width={style_2 ? 573 : 486}
                     height={style_2 ? 683 : 576}
                     style={{ height: "100%", objectFit: "cover" }}
                   />
                   <div className="portfolio-hover-overlay"></div>
-                  <div className="tp-project-5-2-category tp-fade-anim">
-                    <span>{item.category}</span>
-                  </div>
-                  <div className="tp-project-5-2-content tp-fade-anim">
-                    <span className="tp-project-5-2-meta">{item.year}</span>
-                    <h4 className="tp-project-5-2-title-sm">{item.title}</h4>
-                  </div>
                 </div>
                 <div className="portfolio-package-section">
                   <Link href={getPackageRoute(item.category)} className="view-package-btn">

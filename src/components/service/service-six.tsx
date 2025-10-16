@@ -10,25 +10,25 @@ import { RightArrow, ShapeTwo } from "../svg";
 import Link from "next/link";
 
 const service_data = [
-  {
-    id: 1,
-    img: ser_img_1,
-    title: "Wedding Photography",
-    slug: "wedding-photography",
-    text: "We capture every precious moment of your special day with artistic excellence and professional precision.",
-    lists: [
-      "Full-Day Coverage",
-      "Pre-Wedding Shoots",
-      "Drone Photography",
-      "Professional Editing",
-    ],
-  },
-  {
-    id: 2,
-    img: ser_img_2,
-    title: "Maternity & Baby Shoots",
-    slug: "maternity-baby-shoots",
-    text: "Celebrate the beauty of motherhood and capture your baby's precious early moments with our gentle approach.",
+	{
+		id: 1,
+		img: ser_img_1,
+		title: "Wedding Photography",
+		slug: "wedding-photography",
+		text: "We capture every precious moment of your special day with artistic excellence and professional precision.",
+		lists: [
+			"Full-Day Coverage",
+			"Pre-Wedding Shoots",
+			"Drone Photography",
+			"Professional Editing",
+		],
+	},
+	{
+		id: 2,
+		img: ser_img_2,
+		title: "Maternity & Baby Shoots",
+		slug: "maternity-baby-shoots",
+    text: "Celebrate the beauty of motherhood and capture your baby&apos;s precious early moments with our gentle approach.",
     lists: [
       "Maternity Sessions",
       "Newborn Photography",
@@ -69,7 +69,7 @@ export default function ServiceSix() {
     <div className="sv-service-area project-panel-area-2">
       <div className="container-fluid p-0">
         {service_data.map((item, index) => (
-          <div key={item.id} className="sv-service-item project-panel-2">
+          <div key={item.id} className="sv-service-item project-panel-2" id={item.slug}>
             <div className="row g-0">
               <div className="col-xl-6 col-lg-6">
                 <div className="sv-service-thumb" style={{ position: 'relative', minHeight: '500px' }}>

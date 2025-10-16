@@ -82,7 +82,7 @@ const ServiceMain = () => {
           </main>
 
           {/* footer area */}
-          <FooterTwo topCls="" />
+          {/** <FooterTwo topCls="" /> **/}
           {/* footer area */}
         </div>
       </div>

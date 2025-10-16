@@ -98,7 +98,7 @@ const PortfolioGridColThreeMain = () => {
           </main>
 
           {/* footer area */}
-          <FooterTwo topCls="" />
+          {/** <FooterTwo topCls="" /> **/}
           {/* footer area */}
         </div>
       </div>

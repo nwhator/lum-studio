@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { scroller } from "react-scroll";
 
 const service_data = [
   {
@@ -22,13 +23,22 @@ const service_data = [
   },
 ];
 
+function scrollToServiceSix(id: number) {
+  scroller.scrollTo(`service-six-${id}`, {
+    duration: 700,
+    delay: 0,
+    smooth: 'easeInOutQuart',
+    offset: -80, // adjust for header height
+  });
+}
+
 // service items
 export function ServiceItems() {
   return (
     <div className="row justify-content-center">
       {service_data.map((item) => (
         <div key={item.id} className="col-xl-4 col-lg-4 col-md-6">
-          <div className="tp-service-5-item tp_fade_bottom space-1">
+          <div className="tp-service-5-item tp_fade_bottom space-1" onClick={() => scrollToServiceSix(item.id)} style={{ cursor: 'pointer' }}>
             <div className="tp-service-professional-number">
               {item.number}
             </div>
