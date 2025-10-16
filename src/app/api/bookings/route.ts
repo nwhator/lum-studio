@@ -5,12 +5,6 @@ import {
   sendAdminNotification,
 } from "@/utils/email";
 
-if (!process.env.MONGODB_URI) {
-  // For API routes:
-  return Response.json({ error: "Database disabled" }, { status: 503 });
-  // For utility files, just return early or throw an error.
-}
-
 let indexesCreated = false;
 async function ensureIndexes() {
   if (!indexesCreated) {
