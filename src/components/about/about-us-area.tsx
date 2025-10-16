@@ -30,8 +30,6 @@ export default function AboutUsArea() {
                     <Image
                       src={src}
                       alt={`About Gallery ${idx + 1}`}
-                      width={400}
-                      height={400}
                       style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block' }}
                       placeholder="blur"
                       blurDataURL="/assets/img/inner-about/about/about-1.webp"
