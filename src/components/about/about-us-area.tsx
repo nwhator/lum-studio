@@ -20,60 +20,28 @@ export default function AboutUsArea() {
   return (
     <div className="ab-about-area-redesign ab-about-mt pb-90 z-index-5">
       <div className="container container-1480">
-        {/* Image Gallery Grid */}
-        <div className="ab-about-thumb-wrap mb-100">
-          <div className="row align-items-center g-4">
-            <div className="col-xl-6 col-lg-6 col-md-6">
-              <div className="ab-about-image-box">
-                <div style={{ position: 'relative', height: 500, width: '100%' }}>
-                 <Image
-                    src={ab_1}
-                    alt="Lum Studio Photography"
-                    fill
-                    priority
-                    style={{ objectFit: 'cover', borderRadius: '12px' }}
-                  />
+        {/* Image Gallery Grid (moved from AboutHeroGallery, using ab_1-ab_4) */}
+        <section className="about-hero-gallery" style={{ margin: '2.5rem 0' }}>
+          <div className="container">
+            <div className="row g-4 justify-content-center">
+              {[ab_1, ab_2, ab_3, ab_4].map((src, idx) => (
+                <div key={idx} className="col-6 col-md-3">
+                  <div style={{ borderRadius: '1.2rem', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
+                    <Image
+                      src={src}
+                      alt={`About Gallery ${idx + 1}`}
+                      width={400}
+                      height={400}
+                      style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block' }}
+                      placeholder="blur"
+                      blurDataURL="/assets/img/inner-about/about/about-1.webp"
+                    />
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 col-md-6">
-              <div className="ab-about-image-box">
-                <div style={{ position: 'relative', height: 500, width: '100%' }}>
-                  <Image
-                    src={ab_2}
-                    alt="Professional Photography Services"
-                    fill
-                    style={{ objectFit: 'cover', borderRadius: '12px' }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 col-md-6">
-              <div className="ab-about-image-box">
-                <div style={{ position: 'relative', height: 500, width: '100%' }}>
-                  <Image
-                    src={ab_3}
-                    alt="Wedding Photography Nigeria"
-                    fill
-                    style={{ objectFit: 'cover', borderRadius: '12px' }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 col-md-6">
-              <div className="ab-about-image-box">
-                <div style={{ position: 'relative', height: 500, width: '100%' }}>
-                  <Image
-                    src={ab_4}
-                    alt="Event Photography Services"
-                    fill
-                    style={{ objectFit: 'cover', borderRadius: '12px' }}
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* About Content Section */}
         <div id="about-info" className="row justify-content-center mb-80">
