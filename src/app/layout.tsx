@@ -6,9 +6,9 @@ import Script from "next/script";
 import { Syne, Marcellus } from "next/font/google";
 import localFont from "next/font/local";
 import { ToastProvider } from "@/components/ui/toast";
-import GlobalErrorHandler from "@/components/global-error-handler";
+// import GlobalErrorHandler from "@/components/global-error-handler";
 import PageLoader from "@/components/loaders/page-loader";
-import ChunkLoadErrorHandler from "@/components/chunk-load-error-handler";
+// import ChunkLoadErrorHandler from "@/components/chunk-load-error-handler";
 import "./globals.scss";
 
 // Optimized font loading with display swap and preload
@@ -247,9 +247,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gellery.variable} ${syne.variable} ${marcellus.variable}`}
       >
-        <ChunkLoadErrorHandler />
+        {/* <ChunkLoadErrorHandler /> */}
         <PageLoader />
-        <GlobalErrorHandler />
+        {/* <GlobalErrorHandler /> */}
         <ToastProvider>
           {children}
         </ToastProvider>
