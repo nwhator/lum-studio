@@ -14,6 +14,9 @@ async function ensureIndexes() {
 }
 
 export async function GET(request: NextRequest) {
+  if (!process.env.MONGODB_URI) {
+    return Response.json({ error: "Database disabled" }, { status: 503 });
+  }
   try {
     await ensureIndexes();
 
@@ -55,6 +58,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  if (!process.env.MONGODB_URI) {
+    return Response.json({ error: "Database disabled" }, { status: 503 });
+  }
   try {
     await ensureIndexes();
 

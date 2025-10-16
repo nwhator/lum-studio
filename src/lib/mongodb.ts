@@ -7,9 +7,9 @@ let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
 // Check if MongoDB URI is configure
-if (!process.env.MONGODB_URI) {
-  throw new Error("MONGODB_URI is not set");
-}
+// if (!process.env.MONGODB_URI) {
+//   throw new Error("MONGODB_URI is not set");
+// }
 
 if (process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable to preserve the connection
