@@ -138,7 +138,7 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                 </a>
                 <a 
                   className="social-icon-link mb-10" 
-                  href="https://www.instagram.com/lum_studios/" 
+                  href="https://instagram.com/lum_studios/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   title="Follow us on Instagram"

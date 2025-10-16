@@ -87,7 +87,7 @@ export default function MobileOffcanvas({openOffcanvas,setOpenOffcanvas}: IProps
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/lumphotographystudios/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <a href="https://instagram.com/lum_studios/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <InstagramTwo />
                   </a>
                 </li>
