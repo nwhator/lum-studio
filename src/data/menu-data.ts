@@ -4,27 +4,27 @@ import { IMenuDT } from "@/types/menu-d-t";
 const galleryCategories = [
   {
     title: "Baby Shoot",
-    link: "/gallery#cat1",
+    link: "/packages/baby-shoot",
   },
   {
     title: "Wedding Shoot",
-    link: "/gallery#cat2",
+    link: "/packages/wedding",
   },
   {
     title: "Call to Bar",
-    link: "/gallery#cat3",
+    link: "/packages/call-to-bar",
   },
   {
     title: "Convocation",
-    link: "/gallery#cat4",
+    link: "/packages/convocation",
   },
   {
     title: "Family Portraits",
-    link: "/gallery#cat5",
+    link: "/packages/family-portraits",
   },
   {
     title: "Maternity Portrait",
-    link: "/gallery#cat6",
+    link: "/packages/maternity",
   },
 ];
 

@@ -4,7 +4,6 @@ import { scroller } from "react-scroll";
 import { ScrollDown } from "../svg";
 import Image from "next/image";
 import { isMobileDevice } from "@/utils/ios-safe-gsap";
-import AboutHeroGallery from "./about-hero-gallery";
 
 export default function AboutUsHero() {
   const [isMobile, setIsMobile] = useState(false);
@@ -91,22 +90,35 @@ export default function AboutUsHero() {
             <h1 className="ab-inner-hero-title" style={{ marginTop: '3.5rem', fontWeight: 700, fontSize: '3rem', lineHeight: 1.1, marginBottom: '2.5rem' }}>
               Capturing Moments
             </h1>
-            <a className="tp-btn-black-2" href="/booking" style={{ marginTop: '0.5rem', padding: '0.85rem 2.5rem', fontSize: '1.15rem', fontWeight: 600, background: '#222', color: '#fff', borderRadius: '8px', transition: 'background 0.3s, color 0.3s', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              See Packages
+            <a className="tp-btn-black-2" href="/booking">
+              Book Now
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
             <style jsx>{`
+              .tp-btn-black-2 {
+                margin-top: 0.5rem;
+                padding: 0.85rem 2.5rem;
+                font-size: 1.15rem;
+                font-weight: 600;
+                background: #222;
+                color: #fff;
+                border-radius: 8px;
+                transition: background 0.3s, color 0.3s;
+                border: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+              }
               .tp-btn-black-2:hover {
-                background: #B7C435;
-                color: #222;
+                background: #B7C435 !important;
+                color: #222 !important;
               }
             `}</style>
           </div>
         </div>
       </div>
-      <AboutHeroGallery />
     </>
   );
 }
