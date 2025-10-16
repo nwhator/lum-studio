@@ -12,7 +12,6 @@ registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 // internal imports
 import Wrapper from "@/layouts/wrapper";
 import HeaderTransparent from "@/layouts/headers/header-transparent";
-import FooterTwo from "@/layouts/footers/footer-two";
 import AboutUsHero from "@/components/about/about-us-hero";
 import AboutUsArea from "@/components/about/about-us-area";
 import FunFactOne from "@/components/fun-fact/fun-fact-one";
@@ -62,10 +61,6 @@ const AboutUsMain = () => {
             <FunFactOne />
             {/* fun fact area */}
           </main>
-
-          {/* footer area */}
-          <FooterTwo topCls="" />
-          {/* footer area */}
         </div>
       </div>
     </Wrapper>
