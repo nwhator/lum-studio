@@ -302,13 +302,28 @@ export default function PackageTemplate({
                   <div className="col-xl-8 col-lg-10">
                     <div className="faq-accordion">
                       {faqs.map((faq, index) => (
-                        <div key={index} className={`faq-item ${openFAQ === index ? 'active' : ''}`}>
-                          <div className="faq-question" onClick={() => toggleFAQ(index)}>
-                            <h4>{faq.question}</h4>
+                        <div key={index} className={`faq-item${openFAQ === index ? ' active' : ''}`}> 
+                          <button
+                            className="faq-question-btn"
+                            aria-expanded={openFAQ === index}
+                            aria-controls={`faq-answer-${index}`}
+                            onClick={() => toggleFAQ(index)}
+                          >
+                            <span className="faq-question-text">{faq.question}</span>
                             <span className="faq-toggle">{openFAQ === index ? '−' : '+'}</span>
-                          </div>
-                          <div className="faq-answer">
-                            <p>{faq.answer}</p>
+                          </button>
+                          <div
+                            id={`faq-answer-${index}`}
+                            className="faq-answer"
+                            style={{
+                              maxHeight: openFAQ === index ? '800px' : '0',
+                              opacity: openFAQ === index ? 1 : 0,
+                              overflow: 'hidden',
+                              transition: 'max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s',
+                              padding: openFAQ === index ? '0 28px 24px 28px' : '0 28px',
+                            }}
+                          >
+                            <p style={{ margin: 0, color: '#555', lineHeight: '1.8', fontSize: '15px' }}>{faq.answer}</p>
                           </div>
                         </div>
                       ))}
@@ -527,41 +542,40 @@ export default function PackageTemplate({
           background: #f8fdf8;
         }
 
-        .faq-question {
-          background: #ffffff;
+        .faq-question-btn {
+          width: 100%;
+          background: #fff;
+          border: none;
+          outline: none;
           padding: 24px 28px;
           cursor: pointer;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          transition: all 0.3s ease;
+          transition: background 0.3s, padding-left 0.3s;
           user-select: none;
+          font-size: 17px;
         }
-
-        .faq-question:hover {
+        .faq-question-btn:hover {
           background: #f0f7f0;
           padding-left: 32px;
         }
-
-        .faq-item.active .faq-question {
+        .faq-item.active .faq-question-btn {
           background: #e8f5e8;
           border-bottom: 1px solid #B7C435;
         }
-
-        .faq-question h4 {
+        .faq-question-text {
           margin: 0;
           font-size: 17px;
           font-weight: 600;
           color: #1a1a1a;
-          transition: color 0.3s ease;
+          transition: color 0.3s;
           flex: 1;
           padding-right: 20px;
         }
-
-        .faq-item.active .faq-question h4 {
+        .faq-item.active .faq-question-text {
           color: #B7C435;
         }
-
         .faq-toggle {
           font-size: 28px;
           font-weight: 300;
@@ -573,16 +587,14 @@ export default function PackageTemplate({
           justify-content: center;
           border-radius: 50%;
           background: #f0f0f0;
-          transition: all 0.3s ease;
+          transition: background 0.3s, color 0.3s, transform 0.3s;
           flex-shrink: 0;
         }
-
-        .faq-question:hover .faq-toggle {
+        .faq-question-btn:hover .faq-toggle {
           background: #B7C435;
           color: white;
           transform: rotate(90deg);
         }
-
         .faq-item.active .faq-toggle {
           background: #B7C435;
           color: white;
