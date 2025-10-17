@@ -28,17 +28,12 @@ export default function MobileMenus() {
               } ${menu.home_menus ? "dropdown-opened" : ""}`}
             >
               {menu.home_menus || menu.portfolio_mega_menus ? (
-                <div className="mobile-menu-top">
-                  {/* If menu has a link, make the title tappable - keep a separate toggle for submenu */}
-                  {menu.link ? (
-                    <Link href={menu.link}>{menu.title}</Link>
-                  ) : (
-                    <span className="pointer">{menu.title}</span>
-                  )}
-                  <button className="dropdown-toggle-btn" onClick={() => openMobileMenu(menu.title)} aria-expanded={navTitle === menu.title} aria-controls={`submenu-${menu.id}`}>
+                 <a className="pointer" onClick={() => openMobileMenu(menu.title)}>
+                  {menu.title}
+                  <button className="dropdown-toggle-btn">
                     <i className="fa-light fa-plus"></i>
                   </button>
-                </div>
+                    </a>
               ) : (
                 <Link href={menu.link}>
                   {menu.title}
