@@ -184,6 +184,7 @@ const getPackageRoute = (category: string) => {
 export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   const { initIsotop, isotopContainer } = useIsotop();
   const [isMobile, setIsMobile] = useState(false);
+  const [jsReady, setJsReady] = useState(false);
 
   // Build a data structure: categories with their images (3 each)
   const categories = useMemo(() => {
@@ -219,6 +220,18 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
     }
   }, [initIsotop]);
 
+  // Prevent image flash: only reveal stacked frames after window load (or immediately if already loaded)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (document.readyState === 'complete') {
+      setJsReady(true);
+      return;
+    }
+    const onLoad = () => setJsReady(true);
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onLoad);
+  }, []);
+
   useEffect(() => {
     // Cycle each category's index every 5s
     const interval = setInterval(() => {
@@ -236,7 +249,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
-  <div className="row grid gx-3 gy-3 gallery-viewport-grid" ref={isotopContainer}>
+  <div className={`row grid gx-3 gy-3 gallery-viewport-grid ${jsReady ? 'js-ready' : 'no-js'}`} ref={isotopContainer}>
           {categories.map((cat, i) => {
             const images = cat.images;
             const idx = indicesRef.current[i] % images.length;
@@ -298,6 +311,9 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           /* Enforce square aspect ratio (1:1) for images */
           .stacked { position:relative; width:100%; display:block; padding-top:100%; /* 1:1 */ flex: 0 0 auto; }
           .stack-frame { position:absolute; left:8px; right:8px; top:8px; bottom:8px; border-radius:8px; overflow:hidden; transition: transform .45s cubic-bezier(.2,.9,.25,1), opacity .45s ease, box-shadow .45s ease; transform: translateY(var(--ty,0)) scale(var(--s,1)); }
+          /* Hide stack frames until JS has signalled ready to avoid flashes before the page loader */
+          .gallery-viewport-grid.no-js .stack-frame { visibility: hidden; opacity: 0; }
+          .gallery-viewport-grid.js-ready .stack-frame { visibility: visible; opacity: 1; }
           .stack-frame :global(img) { width:100%; height:100%; object-fit:cover; }
           /* Hover/focus: slightly scale the top frame to indicate interactivity */
           .portfolio-card:hover .stack-frame[data-top="true"], .portfolio-card:focus-visible .stack-frame[data-top="true"] {
