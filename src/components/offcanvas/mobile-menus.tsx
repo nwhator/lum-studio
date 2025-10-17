@@ -28,7 +28,7 @@ export default function MobileMenus() {
               } ${menu.home_menus ? "dropdown-opened" : ""}`}
             >
               {menu.home_menus || menu.portfolio_mega_menus ? (
-                 <a className="pointer" onClick={() => openMobileMenu(menu.title)}>
+                 <a className="pointer"onClick={() => openMobileMenu(menu.title)}>
                   {menu.title}
                   <button className="dropdown-toggle-btn">
                     <i className="fa-light fa-plus"></i>

@@ -312,11 +312,13 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           .view-package-btn { background:#111; color:#fff; padding:8px 12px; border-radius:6px; text-decoration:none; font-size:13px; }
 
           @media (max-width: 1024px) {
-            .portfolio-card { height:320px; }
+            /* Let the stacked 1:1 container determine height on smaller screens */
+            .portfolio-card { height: auto; }
           }
           @media (max-width: 768px) {
             .gallery-viewport-grid { gap:12px; }
-            .portfolio-card { height:260px; }
+            /* Let the stacked 1:1 container determine height on mobile */
+            .portfolio-card { height: auto; }
             /* mobile: enable horizontal scrolling for cards */
             .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; justify-content:center; padding-left:12px; padding-right:12px; }
             .col-xl-4, .col-lg-6, .col-md-6, .col-sm-12 { flex:0 0 84%; scroll-snap-align:center; max-width:84%; display:flex; justify-content:center; }
