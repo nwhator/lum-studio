@@ -76,11 +76,11 @@ const PortfolioGridColThreeMain = () => {
                 <div className="row justify-content-center">
                   <div className="col-xxl-8 col-xl-10 col-lg-10 text-center">
                     <div className="tm-hero-content new-hero">
-                      <h1 className="tm-hero-title fs-320 tp-char-animation">
+                      <h1 className="tm-hero-title fs-320">
                         Gallery
                       </h1>
                     </div>
-                    <div className="tm-hero-text tp_title_anim" style={{ marginTop: 18 }}>
+                    <div className="tm-hero-text" style={{ marginTop: 18 }}>
                       <p className="lead">
                         Explore curated portrait work and memorable moments — a gallery of stories captured with care.
                       </p>

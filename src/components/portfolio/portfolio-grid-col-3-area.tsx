@@ -292,11 +292,11 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
 
         <style jsx>{`
           .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:28px; align-items:stretch; }
-          .portfolio-card { position:relative; border-radius:10px; overflow:hidden; height:auto; min-height:420px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; display:flex; flex-direction:column; }
-          .portfolio-card { cursor: pointer; }
+          /* Make the card layout driven by the stacked image container so the label sits below and the link covers both areas */
+          .portfolio-card { border-radius:10px; overflow:hidden; height:auto; min-height:0; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; display:flex; flex-direction:column; cursor: pointer; }
           .portfolio-card:hover, .portfolio-card:focus-visible { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(12,12,12,0.25); }
           /* Enforce square aspect ratio (1:1) for images */
-          .stacked { position:relative; width:100%; display:block; padding-top:100%; /* 1:1 */ }
+          .stacked { position:relative; width:100%; display:block; padding-top:100%; /* 1:1 */ flex: 0 0 auto; }
           .stack-frame { position:absolute; left:8px; right:8px; top:8px; bottom:8px; border-radius:8px; overflow:hidden; transition: transform .45s cubic-bezier(.2,.9,.25,1), opacity .45s ease, box-shadow .45s ease; transform: translateY(var(--ty,0)) scale(var(--s,1)); }
           .stack-frame :global(img) { width:100%; height:100%; object-fit:cover; }
           /* Hover/focus: slightly scale the top frame to indicate interactivity */
@@ -305,7 +305,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             filter: none;
           }
           @keyframes stack-arrive { from { opacity:0; transform: translateY(calc(var(--ty,0) + 8px)) scale(calc(var(--s,1) - 0.02)); } to { opacity:1; transform: translateY(var(--ty,0)) scale(var(--s,1)); } }
-          .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:30%; }
+          .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:auto; flex: 0 0 auto; }
           .meta-top { display:flex; flex-direction:column; }
           .cat-title { margin:0; font-size:18px; font-weight:700; }
           .count { font-size:13px; color:#666; }
