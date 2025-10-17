@@ -99,12 +99,12 @@ const HeaderMenus = () => {
                                       <div key={i} className="col-lg-6">
                                         <ul>
                                           {portSm.menu_lists.map((psm) => (
-                                            <li key={psm.title}>
-                                              <Link href={psm.link}>
-                                                {psm.title}
-                                              </Link>
-                                            </li>
-                                          ))}
+                                                <li key={psm.title}>
+                                                  <Link href={psm.link} style={{ fontSize: '16px' }}>
+                                                    {psm.title}
+                                                  </Link>
+                                                </li>
+                                              ))}
                                         </ul>
                                       </div>
                                     )
@@ -123,13 +123,13 @@ const HeaderMenus = () => {
                                   </h4>
                                   <div className="tp-megamenu-list-wrap">
                                     <ul>
-                                      {portSm2.menu_lists.map((psm) => (
-                                        <li key={psm.title}>
-                                          <Link href={psm.link}>
-                                            {psm.title}
-                                          </Link>
-                                        </li>
-                                      ))}
+                                          {portSm2.menu_lists.map((psm) => (
+                                            <li key={psm.title}>
+                                              <Link href={psm.link} style={{ fontSize: '16px' }}>
+                                                {psm.title}
+                                              </Link>
+                                            </li>
+                                          ))}
                                     </ul>
                                   </div>
                                 </div>

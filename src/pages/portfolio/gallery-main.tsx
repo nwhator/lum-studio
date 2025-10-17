@@ -85,9 +85,7 @@ const PortfolioGridColThreeMain = () => {
                         Explore curated portrait work and memorable moments — a gallery of stories captured with care.
                       </p>
                     </div>
-                    <div style={{ marginTop: 22 }}>
-                      <a href="#portfolio" className="btn btn-primary btn-lg tp-cta">View Gallery</a>
-                    </div>
+                    {/* Primary CTA removed to keep hero clean and bold per UX request */}
                   </div>
                 </div>
               </div>

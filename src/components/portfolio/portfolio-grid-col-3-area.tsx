@@ -248,12 +248,12 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                     {images.map((src, k) => {
                       const n = images.length;
                       const offset = (k - idx + n) % n; // 0 = top, 1 = next (peeking), 2 = next-next
-                      // Visual: top image slightly lifted and has stronger shadow; deeper images peek below
-                      const translateY = offset === 0 ? -6 : offset * 14; // lift top by -6px, others drop down
+                      // Visual: top image slightly lifted and has stronger shadow; deeper images peek upwards (negative translate)
+                      const translateY = offset === 0 ? -8 : -offset * 12; // top lifts -8px; deeper images move up by -12px per layer
                       const scale = offset === 0 ? 1 : 1 - offset * 0.02;
                       const zIndex = 100 - offset; // ensure top has highest z-index
                       const opacity = 1 - offset * 0.06;
-                      const boxShadow = offset === 0 ? '0 18px 48px rgba(12,12,12,0.22)' : '0 8px 22px rgba(8,8,8,0.08)';
+                      const boxShadow = offset === 0 ? '0 20px 56px rgba(12,12,12,0.24)' : '0 6px 18px rgba(8,8,8,0.06)';
                       return (
                         <div
                           key={k}
@@ -281,10 +281,10 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
         </div>
 
         <style jsx>{`
-          .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:18px; align-items:stretch; }
+          .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:28px; align-items:stretch; }
           .portfolio-card { position:relative; border-radius:10px; overflow:hidden; height:auto; min-height:420px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; display:flex; flex-direction:column; }
-          /* Enforce portrait aspect ratio (3:4) for images so they read as portraits */
-          .stacked { position:relative; width:100%; display:block; padding-top:133.333%; /* 4/3 -> 133.333% */ }
+          /* Enforce square aspect ratio (1:1) for images */
+          .stacked { position:relative; width:100%; display:block; padding-top:100%; /* 1:1 */ }
           .stack-frame { position:absolute; left:8px; right:8px; top:8px; bottom:8px; border-radius:8px; overflow:hidden; transition: transform .6s cubic-bezier(.2,.9,.25,1), opacity .6s ease, box-shadow .6s ease; }
           .stack-frame :global(img) { width:100%; height:100%; object-fit:cover; }
           .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:30%; }
