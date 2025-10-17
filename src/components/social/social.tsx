@@ -12,7 +12,7 @@ const social_data = [
   {
     id: 2,
     icon: <Instagram />,
-    link: "https://www.instagram.com/lumphotographystudios/",
+    link: "https://www.instagram.com/lum_studios/",
     label: "Instagram"
   },
   {
