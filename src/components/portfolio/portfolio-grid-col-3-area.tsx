@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { UpArrow } from "../svg";
 import { useIsotop } from "@/hooks/use-isotop";
 
 
@@ -160,204 +159,185 @@ const portfolio_data = [
 ];
 
 // prop type
-type IProps = {
-  style_2?: boolean;
+type IProps = { style_2?: boolean };
+
+// Helper: map category to package route
+const getPackageRoute = (category: string) => {
+  switch (category.toLowerCase()) {
+    case 'baby shoot':
+      return '/packages/baby-shoot';
+    case 'wedding shoot':
+      return '/packages/wedding';
+    case 'call to bar':
+      return '/packages/call-to-bar';
+    case 'convocation':
+      return '/packages/convocation';
+    case 'family portraits':
+      return '/packages/family-portraits';
+    case 'maternity portrait':
+      return '/packages/maternity';
+    default:
+      return '/packages/general';
+  }
 };
+
 export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   const { initIsotop, isotopContainer } = useIsotop();
   const [isMobile, setIsMobile] = useState(false);
+  const [centeredCard, setCenteredCard] = useState<number | null>(null);
 
-  // Function to get package route based on category
-  const getPackageRoute = (category: string) => {
-    switch (category.toLowerCase()) {
-      case 'baby shoot':
-        return '/packages/baby-shoot';
-      case 'wedding shoot':
-        return '/packages/wedding';
-      case 'call to bar':
-        return '/packages/call-to-bar';
-      case 'convocation':
-        return '/packages/convocation';
-      case 'family portraits':
-        return '/packages/family-portraits';
-      case 'maternity portrait':
-        return '/packages/maternity';
-      default:
-        return '/packages/general';
+  // Build a data structure: categories with their images (3 each)
+  const categories = useMemo(() => {
+    // group by show (cat1..cat6) and sort by id
+    const map = new Map<string, { category: string; images: string[]; ids: number[] }>();
+    for (const p of portfolio_data) {
+      if (!map.has(p.show)) map.set(p.show, { category: p.category, images: [], ids: [] });
+      const entry = map.get(p.show)!;
+      if (entry.images.length < 3) {
+        entry.images.push(p.img);
+        entry.ids.push(p.id);
+      }
     }
-  };
+    return Array.from(map.entries()).map(([show, v]) => ({ show, ...v }));
+  }, []);
 
-  // Check if mobile viewport
+  // Flipbook state: index per category
+  const indicesRef = useRef<number[]>(categories.map(() => 0));
+  const [, tick] = useState(0); // used to force re-render each tick
+
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
-    // Only initialize on client side
+    // init isotop on mount (client-side)
     if (typeof window !== 'undefined') {
-      const timer = setTimeout(() => {
-        initIsotop();
-      }, 100);
-      return () => clearTimeout(timer);
+      const t = setTimeout(() => initIsotop(), 120);
+      return () => clearTimeout(t);
     }
   }, [initIsotop]);
 
-  // Always show only the first image per category
-  const displayedPortfolio = portfolio_data.filter((item, index, self) => 
-    index === self.findIndex((t) => t.show === item.show)
-  );
+  useEffect(() => {
+    // Cycle each category's index every 4s
+    const interval = setInterval(() => {
+      for (let i = 0; i < indicesRef.current.length; i++) {
+        indicesRef.current[i] = (indicesRef.current[i] + 1) % Math.max(1, (categories[i]?.images.length ?? 1));
+      }
+      // trigger update
+      tick((n) => n + 1);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [categories]);
 
-  // Get unique category counts (1 per category since we filter duplicates)
-  const getCategoryCount = (category: string) => {
-    return displayedPortfolio.filter(item => item.show === category).length;
-  };
+  // Center animation: on hover show the focused card in a fixed overlay that recenters it
+  const openCenter = (index: number) => setCenteredCard(index);
+  const closeCenter = () => setCenteredCard(null);
 
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
-  <div className="row grid gx-2 gy-2 gallery-viewport-grid" ref={isotopContainer}>
-          {displayedPortfolio.map((item) => (
-            <div
-              key={item.id}
-              className="col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item"
-            >
-              <div className="tp-project-5-2-thumb mb-30 p-relative portfolio-item-wrapper">
-                <div className="portfolio-image-container">
-                  <Image
-                    className="anim-zoomin"
-                    src={item.img}
-                    alt={item.title}
-                    width={style_2 ? 573 : 486}
-                    height={style_2 ? 683 : 576}
-                    style={{ height: "100%", objectFit: "cover" }}
-                  />
-                  <div className="portfolio-hover-overlay"></div>
-                </div>
-                <div className="portfolio-package-section">
-                  <Link href={getPackageRoute(item.category)} className="view-package-btn">
-                    View Package
-                  </Link>
+        <div className="row grid gx-3 gy-3 gallery-viewport-grid" ref={isotopContainer}>
+          {categories.map((cat, i) => {
+            const images = cat.images;
+            const idx = indicesRef.current[i] % images.length;
+            const packageRoute = getPackageRoute(cat.category);
+            return (
+              <div key={cat.show} className="col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item">
+                <div
+                  className={`portfolio-card ${centeredCard === i ? 'is-centered' : ''}`}
+                  onMouseEnter={() => !isMobile && openCenter(i)}
+                  onMouseLeave={() => !isMobile && closeCenter()}
+                  onFocus={() => !isMobile && openCenter(i)}
+                  onBlur={() => !isMobile && closeCenter()}
+                >
+                  <div className="flipbook" aria-hidden={false}>
+                    {images.map((src, k) => (
+                      <div
+                        key={k}
+                        className={`flip-frame ${k === idx ? 'visible' : ''}`}
+                        style={{ zIndex: k === idx ? 3 : 1 }}
+                      >
+                        <Image src={src} alt={`${cat.category} ${k + 1}`} fill sizes="(max-width:600px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="card-meta">
+                    <div className="meta-top">
+                      <h4 className="cat-title">{cat.category}</h4>
+                      <span className="count">{images.length} images</span>
+                    </div>
+                    <div className="meta-actions">
+                      <Link href={packageRoute} className="view-package-btn">View Package</Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
+        {/* Center overlay when a card is hovered */}
+        {centeredCard !== null && (
+          <div className="center-overlay" onClick={closeCenter} role="dialog" aria-modal="true">
+            <div className="center-inner" onClick={(e) => e.stopPropagation()}>
+              <div className="center-flipbook">
+                {categories[centeredCard].images.map((src, k) => (
+                  <div key={k} className={`center-frame`}>
+                    <Image src={src} alt={`${categories[centeredCard].category} ${k + 1}`} fill sizes="100vw" style={{ objectFit: 'cover' }} />
+                  </div>
+                ))}
+              </div>
+              <div className="center-meta">
+                <h3>{categories[centeredCard].category}</h3>
+                <Link href={getPackageRoute(categories[centeredCard].category)} className="view-package-btn large">View Package</Link>
+                <button className="close-btn" onClick={closeCenter} aria-label="Close">Close</button>
+              </div>
+            </div>
+          </div>
+        )}
+
         <style jsx>{`
-          .gallery-viewport-grid {
-            min-height: 100vh;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            justify-content: center;
-            gap: 0.5rem;
-          }
-          .portfolio-item-wrapper {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 0;
-            display: flex;
-            flex-direction: column;
-            height: calc(100vh / 2.2);
-            min-height: 320px;
-            max-height: 400px;
-          }
-          .portfolio-image-container {
-            position: relative;
-            flex: 1;
-            width: 100%;
-            overflow: hidden;
-            cursor: pointer;
-            min-height: 220px;
-          }
-          .portfolio-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-          }
-          .portfolio-hover-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0);
-            transition: background-color 0.3s ease;
-            pointer-events: none;
-            z-index: 1;
-          }
-          .portfolio-image-container:hover .portfolio-hover-overlay {
-            background-color: rgba(0, 0, 0, 0.2);
-          }
-          .portfolio-image-container:hover img {
-            transform: scale(1.05);
-          }
-          .portfolio-package-section {
-            padding: 14px;
-            background: #f8f9fa;
-            text-align: center;
-            margin-top: auto;
-          }
-          .view-package-btn {
-            display: inline-block;
-            padding: 10px 18px;
-            background: #2c3e50;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: 2px solid #2c3e50;
-            width: 100%;
-            box-sizing: border-box;
-          }
-          .view-package-btn:hover {
-            background: transparent;
-            color: #2c3e50;
-            text-decoration: none;
-          }
-          @media (max-width: 1200px) {
-            .portfolio-item-wrapper {
-              height: calc(100vh / 2.1);
-              min-height: 220px;
-              max-height: 320px;
-            }
+          .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:18px; align-items:stretch; }
+          .portfolio-card { position:relative; border-radius:10px; overflow:hidden; height:360px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: transform .35s ease, box-shadow .35s ease; background:#f6f6f6; }
+          .portfolio-card.is-centered { transform: scale(1.02); box-shadow: 0 18px 48px rgba(12,12,12,0.18); }
+          .flipbook { position:relative; width:100%; height:70%; background:#ddd; }
+          .flip-frame { position:absolute; inset:0; opacity:0; transform-origin:center; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.25,1); }
+          .flip-frame.visible { opacity:1; transform: translateY(0) scale(1); }
+          .flip-frame:not(.visible) { transform: translateY(6px) scale(.98); }
+          .flip-frame img, .flip-frame :global(img) { width:100%; height:100%; object-fit:cover; }
+          .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:30%; }
+          .meta-top { display:flex; flex-direction:column; }
+          .cat-title { margin:0; font-size:18px; font-weight:700; }
+          .count { font-size:13px; color:#666; }
+          .view-package-btn { background:#111; color:#fff; padding:8px 12px; border-radius:6px; text-decoration:none; font-size:13px; }
+          .view-package-btn.large { padding:10px 14px; font-size:15px; }
+
+          /* Center overlay */
+          .center-overlay { position:fixed; inset:0; z-index:1200; background: rgba(0,0,0,0.55); display:flex; align-items:center; justify-content:center; padding:24px; }
+          .center-inner { width:min(1100px, 96%); max-height:90vh; overflow:auto; background:#fff; border-radius:10px; padding:18px; display:flex; gap:18px; }
+          .center-flipbook { flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+          .center-frame { position:relative; width:100%; height:60vh; border-radius:8px; overflow:hidden; }
+          .center-meta { width:320px; display:flex; flex-direction:column; gap:12px; justify-content:flex-start; }
+          .close-btn { background:transparent; border:none; color:#777; cursor:pointer; padding:6px; }
+
+          @media (max-width: 1024px) {
+            .portfolio-card { height:320px; }
+            .center-inner { flex-direction:column; }
+            .center-flipbook { grid-template-columns:1fr; }
+            .center-meta { width:100%; }
           }
           @media (max-width: 768px) {
-            .gallery-viewport-grid {
-              min-height: 100vh;
-              gap: 0.3rem;
-            }
-            .portfolio-item-wrapper {
-              height: calc(100vh / 2.1);
-              min-height: 180px;
-              max-height: 220px;
-            }
-            .portfolio-image-container {
-              min-height: 120px;
-            }
-            .portfolio-package-section {
-              padding: 10px 10px;
-              flex-shrink: 0;
-            }
-            .view-package-btn {
-              padding: 8px 10px;
-              font-size: 12px;
-              letter-spacing: 0.5px;
-              width: 100%;
-              display: block;
-            }
+            .gallery-viewport-grid { gap:12px; }
+            .portfolio-card { height:260px; }
+            .flipbook { height:62%; }
+            .flip-frame { transition: opacity .45s ease; }
+            /* mobile: enable horizontal scrolling for cards */
+            .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; }
+            .col-xl-4, .col-lg-6, .col-md-6, .col-sm-12 { flex:0 0 80%; scroll-snap-align:center; max-width:80%; }
           }
         `}</style>
       </div>
