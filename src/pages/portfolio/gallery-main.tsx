@@ -82,7 +82,7 @@ const PortfolioGridColThreeMain = () => {
                     </div>
                     <div className="tm-hero-text tp_title_anim" style={{ marginTop: 18 }}>
                       <p className="lead">
-                        Explore curated portrait work and memorable moments — a gallery of stories captured with care.
+                        Explore curated portrait work and memorabl  e moments — a gallery of stories captured with care.
                       </p>
                     </div>
                     {/* Primary CTA removed to keep hero clean and bold per UX request */}

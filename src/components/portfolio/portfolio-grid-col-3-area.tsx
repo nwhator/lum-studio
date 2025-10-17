@@ -243,38 +243,48 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             const packageRoute = getPackageRoute(cat.category);
             return (
               <div key={cat.show} className="col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item">
-                <div className={`portfolio-card`}>
-                  <div className="stacked" aria-hidden={false}>
-                    {images.map((src, k) => {
-                      const n = images.length;
-                      const offset = (k - idx + n) % n; // 0 = top, 1 = next (peeking), 2 = next-next
-                      // Visual: top image slightly lifted and has stronger shadow; deeper images peek upwards (negative translate)
-                      const translateY = offset === 0 ? -8 : -offset * 12; // top lifts -8px; deeper images move up by -12px per layer
-                      const scale = offset === 0 ? 1 : 1 - offset * 0.02;
-                      const zIndex = 100 - offset; // ensure top has highest z-index
-                      const opacity = 1 - offset * 0.06;
-                      const boxShadow = offset === 0 ? '0 20px 56px rgba(12,12,12,0.24)' : '0 6px 18px rgba(8,8,8,0.06)';
-                      return (
-                        <div
-                          key={k}
-                          className={`stack-frame`}
-                          style={{ transform: `translateY(${translateY}px) scale(${scale})`, zIndex, opacity, boxShadow }}
-                        >
-                          <Image src={src} alt={`${cat.category} ${k + 1}`} fill sizes="(max-width:600px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <Link href={packageRoute} className={`portfolio-card`} aria-label={`Open package ${cat.category}`}>
+                    <div className="stacked" aria-hidden={false}>
+                      {images.map((src, k) => {
+                        const n = images.length;
+                        const offset = (k - idx + n) % n; // 0 = top, 1 = next (peeking), 2 = next-next
+                        // Use CSS variables so hover/focus can adjust the top frame scale
+                        const translateY = offset === 0 ? -8 : offset * 12; // positive means move down for deeper layers
+                        const scale = offset === 0 ? 1 : 1 - offset * 0.02;
+                        const zIndex = 100 - offset; // ensure top has highest z-index
+                        const opacity = 1 - offset * 0.06;
+                        const boxShadow = offset === 0 ? '0 20px 56px rgba(12,12,12,0.24)' : '0 6px 18px rgba(8,8,8,0.06)';
+                        const isTop = offset === 0;
+                        return (
+                          <div
+                            key={k}
+                            className={`stack-frame`}
+                            data-top={isTop}
+                            style={{
+                              zIndex,
+                              opacity,
+                              boxShadow,
+                              // export vars for CSS to consume
+                              ['--ty' as any]: `${translateY}px`,
+                              ['--s' as any]: `${scale}`,
+                              animation: isTop ? 'stack-arrive .45s ease' : undefined,
+                            }}
+                          >
+                            <Image src={src} alt={`${cat.category} ${k + 1}`} fill sizes="(max-width:600px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                          </div>
+                        );
+                      })}
+                    </div>
 
                   <div className="card-meta">
                     <div className="meta-top">
                       <h4 className="cat-title">{cat.category}</h4>
                     </div>
                     <div className="meta-actions">
-                      <Link href={packageRoute} className="view-package-btn">View Package</Link>
+                        {/* Removed inner View Package link */}
                     </div>
                   </div>
-                </div>
+                    </Link>
               </div>
             );
           })}
@@ -283,10 +293,18 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
         <style jsx>{`
           .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:28px; align-items:stretch; }
           .portfolio-card { position:relative; border-radius:10px; overflow:hidden; height:auto; min-height:420px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; display:flex; flex-direction:column; }
+          .portfolio-card { cursor: pointer; }
+          .portfolio-card:hover, .portfolio-card:focus-visible { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(12,12,12,0.25); }
           /* Enforce square aspect ratio (1:1) for images */
           .stacked { position:relative; width:100%; display:block; padding-top:100%; /* 1:1 */ }
-          .stack-frame { position:absolute; left:8px; right:8px; top:8px; bottom:8px; border-radius:8px; overflow:hidden; transition: transform .6s cubic-bezier(.2,.9,.25,1), opacity .6s ease, box-shadow .6s ease; }
+          .stack-frame { position:absolute; left:8px; right:8px; top:8px; bottom:8px; border-radius:8px; overflow:hidden; transition: transform .45s cubic-bezier(.2,.9,.25,1), opacity .45s ease, box-shadow .45s ease; transform: translateY(var(--ty,0)) scale(var(--s,1)); }
           .stack-frame :global(img) { width:100%; height:100%; object-fit:cover; }
+          /* Hover/focus: slightly scale the top frame to indicate interactivity */
+          .portfolio-card:hover .stack-frame[data-top="true"], .portfolio-card:focus-visible .stack-frame[data-top="true"] {
+            --s: 1.03;
+            filter: none;
+          }
+          @keyframes stack-arrive { from { opacity:0; transform: translateY(calc(var(--ty,0) + 8px)) scale(calc(var(--s,1) - 0.02)); } to { opacity:1; transform: translateY(var(--ty,0)) scale(var(--s,1)); } }
           .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:30%; }
           .meta-top { display:flex; flex-direction:column; }
           .cat-title { margin:0; font-size:18px; font-weight:700; }
