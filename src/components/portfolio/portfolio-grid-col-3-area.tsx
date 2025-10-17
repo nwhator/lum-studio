@@ -236,7 +236,7 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
       <div className={`container container-${style_2 ? "1800" : "1530"}`}>
-        <div className="row grid gx-3 gy-3 gallery-viewport-grid" ref={isotopContainer}>
+  <div className="row grid gx-3 gy-3 gallery-viewport-grid" ref={isotopContainer}>
           {categories.map((cat, i) => {
             const images = cat.images;
             const idx = indicesRef.current[i] % images.length;
@@ -321,7 +321,9 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             .portfolio-card { height: auto; }
             /* mobile: enable horizontal scrolling for cards */
             .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; justify-content:center; padding-left:12px; padding-right:12px; }
-            .col-xl-4, .col-lg-6, .col-md-6, .col-sm-12 { flex:0 0 84%; scroll-snap-align:center; max-width:84%; display:flex; justify-content:center; }
+            /* Make each grid item a consistent width and ensure the card fills it */
+            .grid-item { box-sizing: border-box; padding: 0 6px; flex: 0 0 84%; scroll-snap-align: center; max-width: 84%; display:flex; justify-content:center; }
+            .grid-item .portfolio-card { width: 100%; }
           }
         `}</style>
       </div>
