@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import menu_data from "@/data/menu-data";
-import shop_banner from '@/assets/img/menu/shop-menu/banner-1.webp';
-import port_img from '@/assets/img/menu/portfolio-menu/portfolio.webp';
 
 export default function MobileMenus() {
   const [navTitle, setNavTitle] = React.useState<string>("");
@@ -30,12 +28,17 @@ export default function MobileMenus() {
               } ${menu.home_menus ? "dropdown-opened" : ""}`}
             >
               {menu.home_menus || menu.portfolio_mega_menus ? (
-                <a className="pointer" onClick={() => openMobileMenu(menu.title)}>
-                  {menu.title}
-                  <button className="dropdown-toggle-btn">
+                <div className="mobile-menu-top">
+                  {/* If menu has a link, make the title tappable - keep a separate toggle for submenu */}
+                  {menu.link ? (
+                    <Link href={menu.link} className="mobile-menu-link">{menu.title}</Link>
+                  ) : (
+                    <span className="mobile-menu-link pointer">{menu.title}</span>
+                  )}
+                  <button className="dropdown-toggle-btn" onClick={() => openMobileMenu(menu.title)} aria-expanded={navTitle === menu.title} aria-controls={`submenu-${menu.id}`}>
                     <i className="fa-light fa-plus"></i>
                   </button>
-                </a>
+                </div>
               ) : (
                 <Link href={menu.link}>
                   {menu.title}

@@ -184,7 +184,6 @@ const getPackageRoute = (category: string) => {
 export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   const { initIsotop, isotopContainer } = useIsotop();
   const [isMobile, setIsMobile] = useState(false);
-  const [centeredCard, setCenteredCard] = useState<number | null>(null);
 
   // Build a data structure: categories with their images (3 each)
   const categories = useMemo(() => {
@@ -221,20 +220,18 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
   }, [initIsotop]);
 
   useEffect(() => {
-    // Cycle each category's index every 4s
+    // Cycle each category's index every 5s
     const interval = setInterval(() => {
       for (let i = 0; i < indicesRef.current.length; i++) {
         indicesRef.current[i] = (indicesRef.current[i] + 1) % Math.max(1, (categories[i]?.images.length ?? 1));
       }
       // trigger update
       tick((n) => n + 1);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [categories]);
 
-  // Center animation: on hover show the focused card in a fixed overlay that recenters it
-  const openCenter = (index: number) => setCenteredCard(index);
-  const closeCenter = () => setCenteredCard(null);
+  // no center overlay; cards show stacked images and cycle automatically
 
   return (
     <div className="tp-project-5-2-area tp-project-5-2-pt pb-130">
@@ -246,23 +243,25 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             const packageRoute = getPackageRoute(cat.category);
             return (
               <div key={cat.show} className="col-xl-4 col-lg-6 col-md-6 col-sm-12 grid-item">
-                <div
-                  className={`portfolio-card ${centeredCard === i ? 'is-centered' : ''}`}
-                  onMouseEnter={() => !isMobile && openCenter(i)}
-                  onMouseLeave={() => !isMobile && closeCenter()}
-                  onFocus={() => !isMobile && openCenter(i)}
-                  onBlur={() => !isMobile && closeCenter()}
-                >
-                  <div className="flipbook" aria-hidden={false}>
-                    {images.map((src, k) => (
-                      <div
-                        key={k}
-                        className={`flip-frame ${k === idx ? 'visible' : ''}`}
-                        style={{ zIndex: k === idx ? 3 : 1 }}
-                      >
-                        <Image src={src} alt={`${cat.category} ${k + 1}`} fill sizes="(max-width:600px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
-                      </div>
-                    ))}
+                <div className={`portfolio-card`}>
+                  <div className="stacked" aria-hidden={false}>
+                    {images.map((src, k) => {
+                      const n = images.length;
+                      const offset = (k - idx + n) % n; // 0 = top, 1 = next (peeking), 2 = next-next
+                      const translateY = offset * 12; // px downwards for deeper layers
+                      const scale = 1 - offset * 0.02;
+                      const zIndex = n - offset;
+                      const opacity = 1 - offset * 0.06;
+                      return (
+                        <div
+                          key={k}
+                          className={`stack-frame`}
+                          style={{ transform: `translateY(${translateY}px) scale(${scale})`, zIndex, opacity }}
+                        >
+                          <Image src={src} alt={`${cat.category} ${k + 1}`} fill sizes="(max-width:600px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <div className="card-meta">
@@ -280,61 +279,24 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
           })}
         </div>
 
-        {/* Center overlay when a card is hovered */}
-        {centeredCard !== null && (
-          <div className="center-overlay" onClick={closeCenter} role="dialog" aria-modal="true">
-            <div className="center-inner" onClick={(e) => e.stopPropagation()}>
-              <div className="center-flipbook">
-                {categories[centeredCard].images.map((src, k) => (
-                  <div key={k} className={`center-frame`}>
-                    <Image src={src} alt={`${categories[centeredCard].category} ${k + 1}`} fill sizes="100vw" style={{ objectFit: 'cover' }} />
-                  </div>
-                ))}
-              </div>
-              <div className="center-meta">
-                <h3>{categories[centeredCard].category}</h3>
-                <Link href={getPackageRoute(categories[centeredCard].category)} className="view-package-btn large">View Package</Link>
-                <button className="close-btn" onClick={closeCenter} aria-label="Close">Close</button>
-              </div>
-            </div>
-          </div>
-        )}
-
         <style jsx>{`
           .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:18px; align-items:stretch; }
-          .portfolio-card { position:relative; border-radius:10px; overflow:hidden; height:360px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: transform .35s ease, box-shadow .35s ease; background:#f6f6f6; }
-          .portfolio-card.is-centered { transform: scale(1.02); box-shadow: 0 18px 48px rgba(12,12,12,0.18); }
-          .flipbook { position:relative; width:100%; height:70%; background:#ddd; }
-          .flip-frame { position:absolute; inset:0; opacity:0; transform-origin:center; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.25,1); }
-          .flip-frame.visible { opacity:1; transform: translateY(0) scale(1); }
-          .flip-frame:not(.visible) { transform: translateY(6px) scale(.98); }
-          .flip-frame img, .flip-frame :global(img) { width:100%; height:100%; object-fit:cover; }
+          .portfolio-card { position:relative; border-radius:10px; overflow:visible; height:360px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; }
+          .stacked { position:relative; width:100%; height:70%; display:block; }
+          .stack-frame { position:absolute; left:0; right:0; top:0; bottom:0; border-radius:10px; overflow:hidden; box-shadow: 0 10px 30px rgba(8,8,8,0.08); transition: transform .6s cubic-bezier(.2,.9,.25,1), opacity .6s ease; }
+          .stack-frame :global(img) { width:100%; height:100%; object-fit:cover; }
           .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:30%; }
           .meta-top { display:flex; flex-direction:column; }
           .cat-title { margin:0; font-size:18px; font-weight:700; }
           .count { font-size:13px; color:#666; }
           .view-package-btn { background:#111; color:#fff; padding:8px 12px; border-radius:6px; text-decoration:none; font-size:13px; }
-          .view-package-btn.large { padding:10px 14px; font-size:15px; }
-
-          /* Center overlay */
-          .center-overlay { position:fixed; inset:0; z-index:1200; background: rgba(0,0,0,0.55); display:flex; align-items:center; justify-content:center; padding:24px; }
-          .center-inner { width:min(1100px, 96%); max-height:90vh; overflow:auto; background:#fff; border-radius:10px; padding:18px; display:flex; gap:18px; }
-          .center-flipbook { flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
-          .center-frame { position:relative; width:100%; height:60vh; border-radius:8px; overflow:hidden; }
-          .center-meta { width:320px; display:flex; flex-direction:column; gap:12px; justify-content:flex-start; }
-          .close-btn { background:transparent; border:none; color:#777; cursor:pointer; padding:6px; }
 
           @media (max-width: 1024px) {
             .portfolio-card { height:320px; }
-            .center-inner { flex-direction:column; }
-            .center-flipbook { grid-template-columns:1fr; }
-            .center-meta { width:100%; }
           }
           @media (max-width: 768px) {
             .gallery-viewport-grid { gap:12px; }
             .portfolio-card { height:260px; }
-            .flipbook { height:62%; }
-            .flip-frame { transition: opacity .45s ease; }
             /* mobile: enable horizontal scrolling for cards */
             .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; }
             .col-xl-4, .col-lg-6, .col-md-6, .col-sm-12 { flex:0 0 80%; scroll-snap-align:center; max-width:80%; }
