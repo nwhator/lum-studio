@@ -220,16 +220,29 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
     }
   }, [initIsotop]);
 
-  // Prevent image flash: only reveal stacked frames after window load (or immediately if already loaded)
+  // Prevent image flash: reveal stacked frames 2s after window load (or after readyState complete)
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    const revealDelay = 2000; // ms
+    let t: number | undefined;
+    const reveal = () => {
+      // small delay to ensure global loader animation finishes
+      t = window.setTimeout(() => setJsReady(true), revealDelay);
+    };
+
     if (document.readyState === 'complete') {
-      setJsReady(true);
-      return;
+      reveal();
+      return () => {
+        if (t) clearTimeout(t);
+      };
     }
-    const onLoad = () => setJsReady(true);
+
+    const onLoad = () => reveal();
     window.addEventListener('load', onLoad);
-    return () => window.removeEventListener('load', onLoad);
+    return () => {
+      window.removeEventListener('load', onLoad);
+      if (t) clearTimeout(t);
+    };
   }, []);
 
   useEffect(() => {
@@ -304,7 +317,10 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
         </div>
 
         <style jsx>{`
-          .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:28px; align-items:stretch; }
+          /* Hide the entire gallery until JS has finished initializing to avoid flashes */
+          .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:28px; align-items:stretch; transition: opacity .25s ease, visibility .25s ease; }
+          .gallery-viewport-grid.no-js { visibility: hidden !important; opacity: 0 !important; height: 0 !important; overflow: hidden !important; pointer-events: none !important; }
+          .gallery-viewport-grid.js-ready { visibility: visible !important; opacity: 1 !important; height: auto !important; overflow: visible !important; pointer-events: auto !important; }
           /* Make the card layout driven by the stacked image container so the label sits below and the link covers both areas */
           .portfolio-card { border-radius:10px; overflow:hidden; height:auto; min-height:0; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; display:flex; flex-direction:column; cursor: pointer; }
           .portfolio-card:hover, .portfolio-card:focus-visible { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(12,12,12,0.25); }
