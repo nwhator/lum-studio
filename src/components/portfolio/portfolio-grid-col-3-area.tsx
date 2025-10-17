@@ -338,8 +338,12 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             /* mobile: enable horizontal scrolling for cards */
             .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; justify-content:center; padding-left:12px; padding-right:12px; }
             /* Make each grid item a consistent width and ensure the card fills it */
-            .grid-item { box-sizing: border-box; padding: 0 6px; flex: 0 0 84%; scroll-snap-align: center; max-width: 84%; display:flex; justify-content:center; }
-            .grid-item .portfolio-card { width: 100%; }
+            /* Use a more specific selector to override bootstrap column widths */
+            .gallery-viewport-grid .grid-item { box-sizing: border-box; padding: 0 6px !important; flex: 0 0 84% !important; scroll-snap-align: center; max-width: 84% !important; display:flex; justify-content:center; }
+            .gallery-viewport-grid .grid-item .portfolio-card { width: 100%; }
+            /* Ensure stacked container and images are fully hidden until JS is ready to avoid flashes */
+            .gallery-viewport-grid.no-js .stacked, .gallery-viewport-grid.no-js .stack-frame, .gallery-viewport-grid.no-js img { visibility: hidden !important; opacity: 0 !important; }
+            .gallery-viewport-grid.no-js { background: #fff; pointer-events: none; }
           }
         `}</style>
       </div>

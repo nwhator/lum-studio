@@ -94,7 +94,7 @@ const PortfolioGridColThreeMain = () => {
             <style jsx>{`
               @media (max-width: 768px) {
                 /* ensure header doesn't overlap the hero on small screens */
-                .tm-hero-area.tm-hero-ptb.pt-120 { padding-top: 95px; }
+                .tm-hero-area.tm-hero-ptb.pt-120 { padding-top: 120px; }
                 .tm-hero-title { font-size: 48px !important; line-height: 1.02; }
               }
             `}</style>
