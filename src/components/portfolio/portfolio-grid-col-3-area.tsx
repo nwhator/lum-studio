@@ -248,15 +248,17 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                     {images.map((src, k) => {
                       const n = images.length;
                       const offset = (k - idx + n) % n; // 0 = top, 1 = next (peeking), 2 = next-next
-                      const translateY = offset * 12; // px downwards for deeper layers
-                      const scale = 1 - offset * 0.02;
-                      const zIndex = n - offset;
+                      // Visual: top image slightly lifted and has stronger shadow; deeper images peek below
+                      const translateY = offset === 0 ? -6 : offset * 14; // lift top by -6px, others drop down
+                      const scale = offset === 0 ? 1 : 1 - offset * 0.02;
+                      const zIndex = 100 - offset; // ensure top has highest z-index
                       const opacity = 1 - offset * 0.06;
+                      const boxShadow = offset === 0 ? '0 18px 48px rgba(12,12,12,0.22)' : '0 8px 22px rgba(8,8,8,0.08)';
                       return (
                         <div
                           key={k}
                           className={`stack-frame`}
-                          style={{ transform: `translateY(${translateY}px) scale(${scale})`, zIndex, opacity }}
+                          style={{ transform: `translateY(${translateY}px) scale(${scale})`, zIndex, opacity, boxShadow }}
                         >
                           <Image src={src} alt={`${cat.category} ${k + 1}`} fill sizes="(max-width:600px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
                         </div>
@@ -267,7 +269,6 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
                   <div className="card-meta">
                     <div className="meta-top">
                       <h4 className="cat-title">{cat.category}</h4>
-                      <span className="count">{images.length} images</span>
                     </div>
                     <div className="meta-actions">
                       <Link href={packageRoute} className="view-package-btn">View Package</Link>
@@ -281,9 +282,10 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
 
         <style jsx>{`
           .gallery-viewport-grid { display:flex; flex-wrap:wrap; gap:18px; align-items:stretch; }
-          .portfolio-card { position:relative; border-radius:10px; overflow:visible; height:360px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; }
-          .stacked { position:relative; width:100%; height:70%; display:block; }
-          .stack-frame { position:absolute; left:0; right:0; top:0; bottom:0; border-radius:10px; overflow:hidden; box-shadow: 0 10px 30px rgba(8,8,8,0.08); transition: transform .6s cubic-bezier(.2,.9,.25,1), opacity .6s ease; }
+          .portfolio-card { position:relative; border-radius:10px; overflow:hidden; height:auto; min-height:420px; box-shadow: 0 8px 24px rgba(12,12,12,0.08); transition: box-shadow .35s ease; background:transparent; display:flex; flex-direction:column; }
+          /* Enforce portrait aspect ratio (3:4) for images so they read as portraits */
+          .stacked { position:relative; width:100%; display:block; padding-top:133.333%; /* 4/3 -> 133.333% */ }
+          .stack-frame { position:absolute; left:8px; right:8px; top:8px; bottom:8px; border-radius:8px; overflow:hidden; transition: transform .6s cubic-bezier(.2,.9,.25,1), opacity .6s ease, box-shadow .6s ease; }
           .stack-frame :global(img) { width:100%; height:100%; object-fit:cover; }
           .card-meta { padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; height:30%; }
           .meta-top { display:flex; flex-direction:column; }
@@ -298,8 +300,8 @@ export default function PortfolioGridColThreeArea({ style_2 = false }: IProps) {
             .gallery-viewport-grid { gap:12px; }
             .portfolio-card { height:260px; }
             /* mobile: enable horizontal scrolling for cards */
-            .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; }
-            .col-xl-4, .col-lg-6, .col-md-6, .col-sm-12 { flex:0 0 80%; scroll-snap-align:center; max-width:80%; }
+            .row.grid { display:flex; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding-bottom:12px; justify-content:center; padding-left:12px; padding-right:12px; }
+            .col-xl-4, .col-lg-6, .col-md-6, .col-sm-12 { flex:0 0 84%; scroll-snap-align:center; max-width:84%; display:flex; justify-content:center; }
           }
         `}</style>
       </div>

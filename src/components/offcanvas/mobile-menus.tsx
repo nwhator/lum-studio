@@ -31,9 +31,9 @@ export default function MobileMenus() {
                 <div className="mobile-menu-top">
                   {/* If menu has a link, make the title tappable - keep a separate toggle for submenu */}
                   {menu.link ? (
-                    <Link href={menu.link} className="mobile-menu-link">{menu.title}</Link>
+                    <Link href={menu.link}>{menu.title}</Link>
                   ) : (
-                    <span className="mobile-menu-link pointer">{menu.title}</span>
+                    <span className="pointer">{menu.title}</span>
                   )}
                   <button className="dropdown-toggle-btn" onClick={() => openMobileMenu(menu.title)} aria-expanded={navTitle === menu.title} aria-controls={`submenu-${menu.id}`}>
                     <i className="fa-light fa-plus"></i>

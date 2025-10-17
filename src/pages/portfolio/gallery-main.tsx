@@ -71,20 +71,22 @@ const PortfolioGridColThreeMain = () => {
         <div id="smooth-content">
           <main>
             {/* portfolio hero */}
-            <div className="tm-hero-area tm-hero-ptb pt-190">
+            <div className="tm-hero-area tm-hero-ptb pt-120">
               <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div className="tm-hero-content">
-                      <span className="tm-hero-subtitle">LUM Studio</span>
-                      <h4 className="tm-hero-title fs-220 tp-char-animation">
+                <div className="row justify-content-center">
+                  <div className="col-xxl-8 col-xl-10 col-lg-10 text-center">
+                    <div className="tm-hero-content new-hero">
+                      <h1 className="tm-hero-title fs-320 tp-char-animation">
                         Gallery
-                      </h4>
+                      </h1>
                     </div>
-                    <div className="tm-hero-text tp_title_anim">
-                      <p>
-                        Explore our favorite moments—weddings, portraits, events, and creative shoots. Each image tells a story, captured with passion and artistry by the LUM Studio team.
+                    <div className="tm-hero-text tp_title_anim" style={{ marginTop: 18 }}>
+                      <p className="lead">
+                        Explore curated portrait work and memorable moments — a gallery of stories captured with care.
                       </p>
+                    </div>
+                    <div style={{ marginTop: 22 }}>
+                      <a href="#portfolio" className="btn btn-primary btn-lg tp-cta">View Gallery</a>
                     </div>
                   </div>
                 </div>
