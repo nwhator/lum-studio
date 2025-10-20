@@ -33,6 +33,7 @@ export default function ContactTwo() {
         </div>
         
         {/* Contact Information Cards */}
+        <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="contact-info-grid">
@@ -89,6 +90,7 @@ export default function ContactTwo() {
                   </div>
                 </div>
 
+              </div>
               </div>
             </div>
 
