@@ -20,7 +20,7 @@ export default function TrainingPage() {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-6">
-                <h3>What you'll learn</h3>
+                <h3>What you&#39;ll learn</h3>
                 <ul className="training-list">
                   <li>Camera fundamentals and exposure (manual mode mastery)</li>
                   <li>Portrait, lifestyle, and event photography techniques</li>
