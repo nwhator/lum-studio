@@ -4,7 +4,6 @@ import HeaderOne from "@/layouts/headers/header-one";
 import FooterTwo from "@/layouts/footers/footer-two";
 import Link from "next/link";
 import Image from 'next/image';
-import trainingHero from '@/public/assets/img/backup-original/inner-about/about/about-3.jpg';
 
 export default function TrainingPage() {
   return (
@@ -19,7 +18,7 @@ export default function TrainingPage() {
               <Link href="https://wa.me/2348145538164" className="tp-btn-black-2" aria-label="Enroll via WhatsApp">Enroll / Ask a Question</Link>
             </div>
             <div style={{ marginTop: 28, display: 'flex', justifyContent: 'center' }}>
-              <Image src={trainingHero} alt="Training hero" width={1200} height={480} priority sizes="(max-width: 768px) 100vw, 1200px" />
+              <Image src="/assets/img/inner-about/about/about-3.webp" alt="Training hero" width={1200} height={480} priority sizes="(max-width: 768px) 100vw, 1200px" />
             </div>
           </div>
         </section>
