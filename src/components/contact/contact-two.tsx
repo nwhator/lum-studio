@@ -35,7 +35,7 @@ export default function ContactTwo() {
         {/* Contact Information Cards */}
         <div className="container">
         <div className="row justify-content-center">
-          <div className="col-xl-10">
+          <div className="col-12">
             <div className="contact-info-grid">
               <div className="row g-4">
                 
