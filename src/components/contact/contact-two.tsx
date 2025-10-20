@@ -40,7 +40,7 @@ export default function ContactTwo() {
               <div className="row g-4">
                 
                 {/* Phone */}
-                <div className="col-12 col-lg-12 col-md-6">
+                <div className="col-lg-4 col-md-6">
                   <div className="contact-info-card">
                     <div className="contact-icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +55,7 @@ export default function ContactTwo() {
                 </div>
 
                 {/* Email */}
-                <div className="col-12 col-lg-12 col-md-6">
+                <div className="col-lg-4 col-md-6">
                   <div className="contact-info-card">
                     <div className="contact-icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +70,7 @@ export default function ContactTwo() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="col-12 col-lg-12 col-md-6">
+                <div className="col-lg-4 col-md-6">
                   <div className="contact-info-card">
                     <div className="contact-icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

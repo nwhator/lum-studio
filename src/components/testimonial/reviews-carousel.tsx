@@ -60,23 +60,6 @@ const ReviewsCarousel: React.FC = () => {
               <p className="tp-section-subtitle">What our clients say about our work</p>
             </div>
             <div className="tp-reviews-slider-wrapper p-relative">
-              <div className="tp-reviews-arrow-box d-none d-lg-block">
-                <button
-                  className="tp-reviews-prev"
-                  aria-label="Previous reviews"
-                  onClick={() => swiperRef.current?.slidePrev()}
-                >
-                  ‹
-                </button>
-                <button
-                  className="tp-reviews-next"
-                  aria-label="Next reviews"
-                  onClick={() => swiperRef.current?.slideNext()}
-                >
-                  ›
-                </button>
-              </div>
-
               <Swiper
                 {...sliderSetting}
                 modules={[Autoplay, Navigation, Pagination, Keyboard]}
@@ -119,7 +102,7 @@ const ReviewsCarousel: React.FC = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              {/* component-scoped styles to equalize slide heights and style arrows */}
+              {/* component-scoped styles to equalize slide heights; arrows moved under slider */}
               <style jsx>{`
                 .tp-reviews-slider :global(.swiper-slide) {
                   display: flex;
@@ -133,48 +116,57 @@ const ReviewsCarousel: React.FC = () => {
                   justify-content: flex-start;
                   height: 100%;
                 }
-
+                /* arrow box placed under the slider */
                 .tp-reviews-arrow-box {
-                  position: absolute;
-                  top: 50%;
-                  left: 0;
-                  right: 0;
-                  transform: translateY(-50%);
                   display: flex;
-                  justify-content: space-between;
-                  pointer-events: none;
-                  z-index: 30;
-                  padding: 0 8px;
+                  justify-content: center;
+                  gap: 12px;
+                  margin-top: 18px;
                 }
 
                 .tp-reviews-arrow-box button {
-                  pointer-events: auto;
                   background: #fff;
-                  border-radius: 50%;
-                  width: 48px;
-                  height: 48px;
+                  border-radius: 8px;
+                  min-width: 44px;
+                  height: 42px;
                   display: inline-flex;
                   align-items: center;
                   justify-content: center;
-                  font-size: 26px;
-                  line-height: 1;
-                  border: 0;
-                  box-shadow: 0 8px 30px rgba(12,20,40,0.12);
+                  font-size: 20px;
+                  border: 1px solid rgba(0,0,0,0.06);
+                  box-shadow: 0 6px 18px rgba(12,20,40,0.08);
                   color: #1a1a1a;
                   transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
                 }
 
                 .tp-reviews-arrow-box button:hover {
-                  transform: scale(1.04);
+                  transform: translateY(-2px);
                   background: #B7C435;
                   color: #fff;
                 }
 
-                /* Make sure slides stretch equally on smaller viewports too */
                 @media (max-width: 767px) {
                   .tp-reviews-slider :global(.swiper-slide) { height: auto; }
                 }
               `}</style>
+
+              {/* Controls: placed visually under the slider for better UX */}
+              <div className="tp-reviews-arrow-box d-flex d-lg-flex">
+                <button
+                  className="tp-reviews-prev"
+                  aria-label="Previous reviews"
+                  onClick={() => swiperRef.current?.slidePrev()}
+                >
+                  ‹
+                </button>
+                <button
+                  className="tp-reviews-next"
+                  aria-label="Next reviews"
+                  onClick={() => swiperRef.current?.slideNext()}
+                >
+                  ›
+                </button>
+              </div>
             </div>
           </div>
         </div>
