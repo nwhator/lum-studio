@@ -33,7 +33,7 @@ export default function ContactTwo() {
         </div>
         
         {/* Contact Information Cards */}
-        <div className="container">
+        <div className="container-fluid px-3 px-lg-5">
         <div className="row justify-content-center">
           <div className="col-12">
             <div className="contact-info-grid">
@@ -234,6 +234,24 @@ export default function ContactTwo() {
           .contact-cta-text {
             font-size: 18px;
           }
+        }
+        /* Prevent text overflow and improve responsiveness */
+        .contact-info-grid .contact-info-card {
+          min-width: 0; /* allow flex items to shrink */
+          word-break: break-word;
+          overflow-wrap: anywhere;
+        }
+
+        .contact-info-grid .row.g-4 {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        /* Ensure SVG icons don't push layout */
+        .contact-icon svg { display:block; width:100%; height:100%; }
+
+        @media (min-width: 1200px) {
+          .contact-info-grid { max-width: 1400px; margin: 0 auto; }
         }
       `}</style>
     </div>

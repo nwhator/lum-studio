@@ -20,11 +20,7 @@ import Link from "next/link";
 import { charAnimation, titleAnimation } from "@/utils/title-animation";
 
 // images
-import img1 from "@/assets/img/inner-project/portfolio-col-2/port-13.webp";
-import img2 from "@/assets/img/inner-project/portfolio-col-2/port-15.webp";
-import img3 from "@/assets/img/inner-project/portfolio-col-2/port-16.webp";
-import img4 from "@/assets/img/inner-project/portfolio-col-2/port-17.webp";
-import img5 from "@/assets/img/home-03/gallery/gal-5.webp";
+import img1 from '@/assets/img/backup-original/home-03/gallery/gal-1.jpg';
 
 const ProfessionalPortraitsPage = () => {
   useScrollSmooth();
@@ -66,38 +62,11 @@ const ProfessionalPortraitsPage = () => {
               </div>
             </div>
 
-            {/* Gallery Grid */}
+            {/* Gallery — single landscape image */}
             <div className="service-detail-gallery pb-120">
               <div className="container">
-                <div className="row g-4 mb-60">
-                  <div className="col-lg-5">
-                    <div style={{position: 'relative', height: '600px', borderRadius: '12px', overflow: 'hidden'}}>
-                      <Image src={img1} alt="Professional Portrait" fill style={{objectFit: 'cover'}} />
-                    </div>
-                  </div>
-                  <div className="col-lg-7">
-                    <div style={{position: 'relative', height: '600px', borderRadius: '12px', overflow: 'hidden'}}>
-                      <Image src={img2} alt="Individual Portrait" fill style={{objectFit: 'cover'}} />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row g-4 mb-60">
-                  <div className="col-lg-4">
-                    <div style={{position: 'relative', height: '400px', borderRadius: '12px', overflow: 'hidden'}}>
-                      <Image src={img3} alt="Family Session" fill style={{objectFit: 'cover'}} />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div style={{position: 'relative', height: '400px', borderRadius: '12px', overflow: 'hidden'}}>
-                      <Image src={img4} alt="Professional Headshot" fill style={{objectFit: 'cover'}} />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div style={{position: 'relative', height: '400px', borderRadius: '12px', overflow: 'hidden'}}>
-                      <Image src={img5} alt="Lifestyle Photography" fill style={{objectFit: 'cover'}} />
-                    </div>
-                  </div>
+                <div style={{ position: 'relative', width: '100%', borderRadius: 12, overflow: 'hidden', height: 'clamp(280px, 40vw, 600px)' }}>
+                  <Image src={img1} alt="Professional Portraits" fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
             </div>

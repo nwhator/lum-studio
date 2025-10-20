@@ -21,6 +21,13 @@ const service_data = [
     desc: "Comprehensive photography for corporate events and celebrations.",
     number: "03",
   },
+  {
+    id: 4,
+    title: "Rent Studio 04",
+    desc: "Book our fully-equipped studio space for shoots, rehearsals and small productions.",
+    number: "04",
+    phone: "+2348145538164",
+  },
 ];
 
 // Map card id to ServiceSix slug (string keys for safety)
@@ -56,14 +63,22 @@ export function ServiceItems() {
     <div className="row justify-content-center">
       {service_data.map((item) => (
         <div key={item.id} className="col-xl-4 col-lg-4 col-md-6">
-          <div className="tp-service-5-item tp_fade_bottom space-1" onClick={() => scrollToServiceSix(item.id)} style={{ cursor: 'pointer' }}>
+          <div className={['tp-service-5-item', 'tp_fade_bottom', 'space-1'].join(' ')} style={{ cursor: item.phone ? 'default' : 'pointer' }} onClick={() => { if (!item.phone) scrollToServiceSix(item.id); }}>
             <div className="tp-service-professional-number">
               {item.number}
             </div>
             <div className="tp-service-4-content">
-              <h4 className="tp-service-4-title-sm tp-text-black" style={{ cursor: 'pointer', textDecoration: 'underline', color: '#B7C435' }}>
-                {item.title}
-              </h4>
+              {item.phone ? (
+                <h4 className="tp-service-4-title-sm tp-text-black">
+                  <a href={`tel:${item.phone}`} style={{ textDecoration: 'underline', color: '#B7C435' }}>
+                    {item.title}
+                  </a>
+                </h4>
+              ) : (
+                <h4 className="tp-service-4-title-sm tp-text-black" style={{ cursor: 'pointer', textDecoration: 'underline', color: '#B7C435' }}>
+                  {item.title}
+                </h4>
+              )}
               <p>{item.desc}</p>
             </div>
           </div>

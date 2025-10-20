@@ -1,0 +1,28 @@
+const reviews: string[] = [
+  "Love is truly beautiful! We should start calling you the Mastershot of Love — capturing love stories through your lens is clearly one of your passions, and it shows in every frame. Well done, sir!",
+  "Wow — I sincerely love these pictures. Thank you so much for the detailed work, sir.",
+  "Thank you so much. I love the pictures!",
+  "Thank you very much for your reliability. The pictures are excellent.",
+  "Woo — you great bro, this is marvelous. I'm truly grateful.",
+  "This is beautiful.",
+  "If it’s not clean and classy, it’s not LUM.",
+  "Thanks for always proving your quality to everyone I referred to you.",
+  "You never disappoint me nor them.",
+  "Yes — correct photographer.",
+  "People love your work; that's why I have not changed my photographer (YOU) in years. Thanks for always bringing out the statement in my fashion style.",
+  "Lum Studio, thanks so much for the prompt and perfect job — welcome!",
+  "Omg, I love this!",
+  "I just want to say the pictures are beautiful.",
+  "Happy anniversary, bro. Sustaining a business for five years anywhere in the world — not to mention Najja — is no mean feat. Cheers to your vision and resilience.",
+  "Lum, you are a good photographer.",
+  "These pictures are clean — well done, sir.",
+  "Good evening sir, thanks for delivering the pictures. I appreciate them and I love those pictures.",
+  "Lum Photography is the best plug in town...",
+  "The pictures came out beautifully. Thank you.",
+  "They also said you were very timely and professional. Well done.",
+  "I'm a proud fan of your work. Greater you!",
+  "Thanks for the great job, sir... you're making a positive difference.",
+  "The best. I'm coming for mine soon.",
+];
+
+export default reviews;

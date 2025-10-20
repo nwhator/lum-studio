@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import ServiceDetailsMain from "@/pages/service/service-details";
 
 export const metadata: Metadata = {
-  title: "Lum Studios - Service Details page",
+  title: "Lum Studios - Service Details",
 };
 
 const ServiceDetailsPage = () => {

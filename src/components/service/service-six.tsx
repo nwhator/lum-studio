@@ -12,7 +12,7 @@ import Link from "next/link";
 const service_data = [
 	{
 		id: 1,
-		img: ser_img_1,
+		img: ser_img_2,
 		title: "Wedding Photography",
 		slug: "wedding-photography",
 		text: "We capture every precious moment of your special day with artistic excellence and professional precision.",
@@ -25,10 +25,10 @@ const service_data = [
 	},
 	{
 		id: 2,
-		img: ser_img_2,
+		img: ser_img_1,
 		title: "Maternity & Baby Shoots",
 		slug: "maternity-baby-shoots",
-    text: "Celebrate the beauty of motherhood and capture your baby&apos;s precious early moments with our gentle approach.",
+    text: "Celebrate the beauty of motherhood and capture your baby precious early moments with our gentle approach.",
     lists: [
       "Maternity Sessions",
       "Newborn Photography",
@@ -51,7 +51,7 @@ const service_data = [
   },
   {
     id: 4,
-    img: ser_img_4,
+    img: ser_img_3,
     title: "Professional Portraits",
     slug: "professional-portraits",
     text: "High-quality portrait photography that captures personality, style, and authentic moments for individuals, families, and professionals.",

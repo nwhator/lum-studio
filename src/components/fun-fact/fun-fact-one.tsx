@@ -40,8 +40,8 @@ export default function FunFactOne() {
                 Fun Facts
               </span>
               <h4 className="ab-inner-funfact-title tp_title_anim">
-                Agency <br /> Snapshots
-              LUM Studio <br /> Snapshot
+                Projects <br /> Experience
+                Creatives <br /> Clients
               </h4>
             </div>
           </div>

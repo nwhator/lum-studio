@@ -1,17 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 
 // Lazy load heavy components
-const Wrapper = dynamic(() => import("@/layouts/wrapper"), { ssr: true });
-const HeaderOne = dynamic(() => import("@/layouts/headers/header-one"), { ssr: true });
-const FooterTwo = dynamic(() => import("@/layouts/footers/footer-two"), { ssr: true });
+const Wrapper = nextDynamic(() => import("@/layouts/wrapper"), { ssr: true });
+const HeaderOne = nextDynamic(() => import("@/layouts/headers/header-one"), { ssr: true });
+const FooterTwo = nextDynamic(() => import("@/layouts/footers/footer-two"), { ssr: true });
 
 // Critical components loaded immediately
 import HeroBannerFour from "@/components/hero-banner/hero-banner-four";
 import GalleryOne from "@/components/gallery/gallery-one";
 import AboutThree from "@/components/about/about-three";
 import ProjectFour from "@/components/project/project-four";
+const ReviewsCarousel = nextDynamic(() => import("@/components/testimonial/reviews-carousel"), { ssr: false });
 
 const HomeLum = () => {
   const [animationsLoaded, setAnimationsLoaded] = useState(false);
@@ -129,6 +130,10 @@ const HomeLum = () => {
             {/* project area start */}
             <ProjectFour />
             {/* project area end */}
+
+            {/* reviews area start */}
+            <ReviewsCarousel />
+            {/* reviews area end */}
 
           </main>
 
