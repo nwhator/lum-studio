@@ -4,7 +4,7 @@ import HeaderOne from "@/layouts/headers/header-one";
 import FooterTwo from "@/layouts/footers/footer-two";
 import Link from "next/link";
 import Image from 'next/image';
-import trainingHero from '@/public/assets/img/home-01/hero/hero-1-1.webp';
+import trainingHero from '@/public/assets/img/backup-original/inner-about/about/about-3.jpg';
 
 export default function TrainingPage() {
   return (
