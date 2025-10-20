@@ -91,8 +91,8 @@ export function ServiceItems() {
 // service five area
 export default function ServiceFive() {
   return (
-    <div className="tp-service-5-area pt-120 pb-70">
-      <div className="container container-1775">
+    <div className="tp-service-5-area pt-80 pb-40">
+      <div className="container-fluid" style={{ maxWidth: 1360 }}>
         <div className="row">
           <div className="col-xl-12">
             <div className="tp-service-5-title-box mb-90">
@@ -110,6 +110,14 @@ export default function ServiceFive() {
         <div className="tp-service-5-wrap">
           <ServiceItems/>
         </div>
+        <style jsx>{`
+          /* tighten gaps so 3 cards comfortably fit on desktop */
+          .tp-service-5-area { padding-top: 80px; padding-bottom: 40px; }
+          .tp-service-5-wrap .row { gap: 18px; }
+          @media (min-width: 1200px) {
+            .tp-service-5-wrap .col-xl-4 { padding-left: 12px; padding-right: 12px; }
+          }
+        `}</style>
       </div>
     </div>
   );

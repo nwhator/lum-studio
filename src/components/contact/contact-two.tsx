@@ -40,7 +40,7 @@ export default function ContactTwo() {
               <div className="row g-4">
                 
                 {/* Phone */}
-                <div className="col-lg-4 col-md-6">
+                <div className="col-12 col-lg-12 col-md-6">
                   <div className="contact-info-card">
                     <div className="contact-icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,14 +51,11 @@ export default function ContactTwo() {
                     <p>
                       <a href="tel:+2348145538164">+234 814 553 8164</a>
                     </p>
-                    <p>
-                      <a href="tel:+2349022292514">+234 902 229 2514</a>
-                    </p>
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="col-lg-4 col-md-6">
+                <div className="col-12 col-lg-12 col-md-6">
                   <div className="contact-info-card">
                     <div className="contact-icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +70,7 @@ export default function ContactTwo() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="col-lg-4 col-md-6">
+                <div className="col-12 col-lg-12 col-md-6">
                   <div className="contact-info-card">
                     <div className="contact-icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +84,7 @@ export default function ContactTwo() {
                       </a>
                     </p>
                     <p className="text-muted small">Available 24/7</p>
-                  </div>
+              </div>
                 </div>
 
               </div>
@@ -250,8 +247,10 @@ export default function ContactTwo() {
         /* Ensure SVG icons don't push layout */
         .contact-icon svg { display:block; width:100%; height:100%; }
 
-        @media (min-width: 1200px) {
-          .contact-info-grid { max-width: 1400px; margin: 0 auto; }
+        @media (min-width: 992px) {
+          /* On desktop, make cards full width and center the group */
+          .contact-info-grid { max-width: 900px; margin: 0 auto; }
+          .contact-info-grid .row.g-4 { display: flex; flex-direction: column; gap: 24px; }
         }
       `}</style>
     </div>

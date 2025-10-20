@@ -119,6 +119,62 @@ const ReviewsCarousel: React.FC = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
+              {/* component-scoped styles to equalize slide heights and style arrows */}
+              <style jsx>{`
+                .tp-reviews-slider :global(.swiper-slide) {
+                  display: flex;
+                  align-items: stretch;
+                  height: 100%;
+                }
+
+                .tp-review-card {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-start;
+                  height: 100%;
+                }
+
+                .tp-reviews-arrow-box {
+                  position: absolute;
+                  top: 50%;
+                  left: 0;
+                  right: 0;
+                  transform: translateY(-50%);
+                  display: flex;
+                  justify-content: space-between;
+                  pointer-events: none;
+                  z-index: 30;
+                  padding: 0 8px;
+                }
+
+                .tp-reviews-arrow-box button {
+                  pointer-events: auto;
+                  background: #fff;
+                  border-radius: 50%;
+                  width: 48px;
+                  height: 48px;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 26px;
+                  line-height: 1;
+                  border: 0;
+                  box-shadow: 0 8px 30px rgba(12,20,40,0.12);
+                  color: #1a1a1a;
+                  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+                }
+
+                .tp-reviews-arrow-box button:hover {
+                  transform: scale(1.04);
+                  background: #B7C435;
+                  color: #fff;
+                }
+
+                /* Make sure slides stretch equally on smaller viewports too */
+                @media (max-width: 767px) {
+                  .tp-reviews-slider :global(.swiper-slide) { height: auto; }
+                }
+              `}</style>
             </div>
           </div>
         </div>
