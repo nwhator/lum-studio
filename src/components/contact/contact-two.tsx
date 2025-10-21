@@ -33,7 +33,7 @@ export default function ContactTwo() {
         </div>
         
         {/* Contact Information Cards */}
-        <div className="container-fluid px-3 px-lg-5">
+        <div className="container-1530">
           <div className="row g-4 justify-content-center">
             {/* Phone */}
             <div className="col-lg-4 col-md-6">
@@ -204,6 +204,27 @@ export default function ContactTwo() {
 
           .contact-cta-text {
             font-size: 18px;
+          }
+        }
+
+        .container-1530 {
+          overflow-x: hidden;
+          overflow-y: hidden;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        @media (min-width: 576px) {
+          .container-1530 {
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+        }
+
+        @media (min-width: 992px) {
+          .container-1530 {
+            padding-left: 45px;
+            padding-right: 45px;
           }
         }
       `}</style>
