@@ -33,7 +33,7 @@ export default function ContactTwo() {
         </div>
         
         {/* Contact Information Cards */}
-        <div className="container-1530">
+        <div className="container-fluid px-3 px-lg-5">
           <div className="row g-4 justify-content-center">
             {/* Phone */}
             <div className="col-lg-4 col-md-6">
