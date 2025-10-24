@@ -5,7 +5,7 @@ import Image from "next/image";
 import ser_img_1 from "@/assets/img/inner-project/portfolio-col-2/port-1.webp";
 import ser_img_2 from "@/assets/img/inner-project/portfolio-col-2/port-5.webp";
 import ser_img_3 from "@/assets/img/inner-project/portfolio-col-2/port-9.webp";
-import ser_img_4 from "@/assets/img/inner-project/portfolio-col-2/port-13.webp";
+import ser_img_4 from "@/assets/img/inner-project/portfolio-col-2/event.jpg";
 import { RightArrow, ShapeTwo } from "../svg";
 import Link from "next/link";
 
@@ -38,7 +38,7 @@ const service_data = [
 	},
   {
     id: 3,
-    img: ser_img_3,
+    img: ser_img_4,
     title: "Event Photography",
     slug: "event-photography",
     text: "Professional coverage for all your special events, documenting every important moment with creative flair.",

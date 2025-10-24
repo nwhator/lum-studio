@@ -35,7 +35,7 @@ export default function AboutUsHero() {
         {/* Background Image for all devices */}
         <div className="ab-hero-bg-wrapper" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
           <Image
-            src="/assets/img/backup-original/inner-about/hero/hero-1.jpg"
+            src="/assets/img/backup-original/inner-about/hero/team.jpg"
             alt="LUM Studios About Hero"
             fill
             priority

@@ -20,7 +20,7 @@ import Link from "next/link";
 import { charAnimation, titleAnimation } from "@/utils/title-animation";
 
 // images
-import img1 from "@/assets/img/inner-project/portfolio-col-2/port-9.webp";
+import img1 from "@/assets/img/inner-project/portfolio-col-2/event.jpg";
 
 const EventPhotographyPage = () => {
   useScrollSmooth();
