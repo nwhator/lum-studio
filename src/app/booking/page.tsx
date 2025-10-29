@@ -369,21 +369,45 @@ function BookingContent() {
     setLoadingSlots(true);
     setMessage(null);
     try {
-      const payload = {
+      const basePayload = {
         date: selectedDate,
         timeSlots: selectedTimeSlots,
         name: formData.name,
         phone: formData.phone,
         package: currentPackage?.slug || selectedPackageSlug || null,
-        finalize: true,
-        paid: true,
         payment: paymentData,
       } as any;
 
+      // Ensure WhatsApp link is opened on click. If we already have waLink (from earlier initiate), open it.
+      // Otherwise request an initiation from the server to get a waLink, open it, then continue to finalize.
+      try {
+        if (waLink) {
+          // Open existing waLink in a new tab (user click -> allowed)
+          window.open(waLink, '_blank');
+        } else {
+          const initRes = await fetch('/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...basePayload, finalize: false }),
+          });
+          const initJson = await initRes.json();
+          if (initJson?.success && initJson.waLink) {
+            setWaLink(initJson.waLink);
+            setWaInitiated(true);
+            window.open(initJson.waLink, '_blank');
+          }
+        }
+      } catch (openErr) {
+        // Opening WhatsApp failed - continue to finalize anyway and show a message
+        console.warn('Failed to open WhatsApp link before finalize:', openErr);
+      }
+
+      // Now finalize (write to DB). Mark paid=true since user confirmed payment.
+      const finalizePayload = { ...basePayload, finalize: true, paid: true } as any;
       const res = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(finalizePayload),
       });
       const json = await res.json();
       if (res.status === 201 && json.success) {
@@ -965,11 +989,18 @@ function BookingContent() {
                             Open WhatsApp
                           </a>
                           <button type="button" className="btn-continue" onClick={confirmAndFinalize} disabled={loadingSlots}>
-                            I have sent the message — Confirm payment & finalize
+                            {loadingSlots ? 'Finalizing...' : 'I have sent the message — Confirm payment & finalize'}
                           </button>
                         </div>
                       )}
                     </div>
+
+                    {/* Visible message area for errors/success from server */}
+                    {message && (
+                      <div className={`booking-message ${message.toLowerCase().includes('fail') || message.toLowerCase().includes('error') ? 'error' : 'success'}`} style={{ marginTop: 16 }}>
+                        {message}
+                      </div>
+                    )}
 
                     <div className="security-note">
                       <span className="security-icon">🔒</span>
