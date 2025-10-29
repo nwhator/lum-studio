@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
     }
 
     // If not finalizing, return a WhatsApp link for the client to open. Do not insert.
-    const waPhone = process.env.WA_PHONE ? String(process.env.WA_PHONE).replace(/^\+/, "") : "2349022292514";
+  const waPhone = process.env.WA_PHONE ? String(process.env.WA_PHONE).replace(/^\+/, "") : "2348145538164";
     const messageParts = [
       `Booking request for ${date}`,
       requestedSlots.length ? `Time(s): ${requestedSlots.join(", ")}` : null,
