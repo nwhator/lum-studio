@@ -45,6 +45,9 @@ function BookingContent() {
   });
   
   const [copySuccess, setCopySuccess] = useState(false);
+  const [waInitiated, setWaInitiated] = useState(false);
+  const [waLink, setWaLink] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   // Initialize from URL params
   useEffect(() => {
@@ -153,7 +156,7 @@ function BookingContent() {
         nextHour = 1;
         nextPeriod = 'PM';
       } else if (nextHour > 12) {
-        nextHour = nextHour - 12;
+        nextHour = nextHour - 12
       }
       
       return `${String(nextHour).padStart(2, '0')}:00 ${nextPeriod}`;
@@ -315,67 +318,92 @@ function BookingContent() {
 
   // WhatsApp submission
   const sendToWhatsApp = () => {
+    // Use server to initiate booking (finalize=false). The server will check for slot conflicts
+    // and return a wa.me link. Only after the user sends the WhatsApp message and confirms
+    // will we call finalize to write to the DB.
     if (!validateStep3()) return;
 
-    const whatsappNumber = "2349022292514";
-    const formattedDate = selectedDate ? new Date(selectedDate).toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }) : '';
+    const payload = {
+      date: selectedDate,
+      timeSlots: selectedTimeSlots,
+      name: formData.name,
+      phone: formData.phone,
+      package: currentPackage?.slug || selectedPackageSlug || null,
+      finalize: false,
+      // include payment info so the server can include it in the wa message (not stored yet)
+      payment: paymentData,
+    } as any;
 
-    const timeRange = selectedTimeSlots.length > 0 
-      ? `${selectedTimeSlots[0]} - ${getEndTime(selectedTimeSlots[0])}`
-      : 'N/A';
-    const duration = selectedTimeSlots.length > 0 
-      ? `1 hour (1 slot)`
-      : 'N/A';
+    setLoadingSlots(true);
+    fetch('/api/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then((r) => r.json())
+        .then((json) => {
+          if (json?.success && json.waLink) {
+            // open WhatsApp and allow user to send message
+            window.open(json.waLink, '_blank');
+            setWaLink(json.waLink);
+            setWaInitiated(true);
+            setCopySuccess(false);
+            setMessage('WhatsApp message opened. After sending the message, click "Confirm payment & finalize booking".');
+          } else {
+            setMessage(json?.error || 'Failed to initiate booking');
+          }
+        })
+      .catch((err) => {
+        console.error('Failed to initiate booking', err);
+        setMessage('Failed to initiate booking');
+      })
+      .finally(() => setLoadingSlots(false));
+  };
 
-    const message = `
-✨ *NEW BOOKING REQUEST* ✨
+  // Finalize booking after user confirms they sent WhatsApp / paid
+  const confirmAndFinalize = async () => {
+    if (!selectedDate || selectedTimeSlots.length === 0) {
+      alert('Missing date or time slot');
+      return;
+    }
+    setLoadingSlots(true);
+    setMessage(null);
+    try {
+      const payload = {
+        date: selectedDate,
+        timeSlots: selectedTimeSlots,
+        name: formData.name,
+        phone: formData.phone,
+        package: currentPackage?.slug || selectedPackageSlug || null,
+        finalize: true,
+        paid: true,
+        payment: paymentData,
+      } as any;
 
-━━━━━━━━━━━━━━━━━━━━
-
-📦 *PACKAGE DETAILS*
-━━━━━━━━━━━━━━━━━━━━
-• Category: ${currentPackage?.name || 'N/A'}
-• Package: ${selectedPackageType === 'classic' ? 'Classic Package' : 'Walk-in Package'}
-• Option: ${currentOption?.description || 'N/A'}${currentOption?.type === 'single' ? ` × ${numEditedPictures}` : ''}
-• Images: ${currentOption?.type === 'single' ? `${numEditedPictures} edited` : `${currentOption ? `${currentOption.images.edited} edited${currentOption.images.unedited > 0 ? `, ${currentOption.images.unedited} unedited` : ''}` : 'N/A'}`}
-• Price: ${formatPrice(totalPrice)}
-
-👤 *CUSTOMER INFORMATION*
-━━━━━━━━━━━━━━━━━━━━
-• Name: ${formData.name}
-• Email: ${formData.email}
-• Phone: ${formData.phone}
-
-📅 *SCHEDULE*
-━━━━━━━━━━━━━━━━━━━━
-• Date: ${formattedDate}
-• Time: ${timeRange}
-• Duration: ${duration}
-
-💳 *PAYMENT CONFIRMATION*
-━━━━━━━━━━━━━━━━━━━━
-• Transfer From: ${paymentData.accountName}
-• Customer Bank: ${paymentData.bankName}
-• Transaction ID: ${paymentData.transactionId || 'Not provided'}
-• Amount: ${formatPrice(totalPrice)}
-• Bank Account: ${PAYMENT_INFO.accountNumber} (${PAYMENT_INFO.bankName})
-
-📝 *ADDITIONAL NOTES*
-━━━━━━━━━━━━━━━━━━━━
-${formData.notes || 'No additional message'}
-
-━━━━━━━━━━━━━━━━━━━━
-✉️ *Sent from LUM Studios Booking*
-www.thelumstudios.com
-    `.trim();
-
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+      const res = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (res.status === 201 && json.success) {
+        setMessage('Booking finalized successfully. We will contact you on WhatsApp to confirm.');
+        // update UI bookedSlots to block the selected slot immediately
+        setBookedSlots((prev) => [...prev, ...selectedTimeSlots]);
+        // reset to initial state or show a success screen
+        setSelectedTimeSlots([]);
+        setCurrentStep(1);
+        setFormData({ name: '', email: '', phone: '', notes: '' });
+        setPaymentData({ accountName: '', bankName: '', transactionId: '' });
+      } else {
+        setMessage(json?.error || 'Failed to finalize booking');
+      }
+    } catch (e) {
+      console.error(e);
+      setMessage('Failed to finalize booking');
+    } finally {
+      setLoadingSlots(false);
+    }
   };
 
   return (
@@ -919,17 +947,28 @@ www.thelumstudios.com
                       <button type="button" className="btn-secondary" onClick={goBackToStep2}>
                         ← Back to Review
                       </button>
-                      <button 
-                        type="button"
-                        className="btn-whatsapp" 
-                        onClick={sendToWhatsApp}
-                        disabled={!paymentData.accountName.trim()}
-                      >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
-                        </svg>
-                        Send Booking to WhatsApp
-                      </button>
+                      {!waInitiated ? (
+                        <button
+                          type="button"
+                          className="btn-whatsapp"
+                          onClick={sendToWhatsApp}
+                          disabled={!paymentData.accountName.trim() || loadingSlots}
+                        >
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+                          </svg>
+                          Send Booking to WhatsApp
+                        </button>
+                      ) : (
+                        <div>
+                          <a className="btn btn-success me-2" href={waLink || '#'} target="_blank" rel="noopener noreferrer">
+                            Open WhatsApp
+                          </a>
+                          <button type="button" className="btn-continue" onClick={confirmAndFinalize} disabled={loadingSlots}>
+                            I have sent the message — Confirm payment & finalize
+                          </button>
+                        </div>
+                      )}
                     </div>
 
                     <div className="security-note">
