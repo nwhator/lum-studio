@@ -74,15 +74,94 @@ export async function POST(request: NextRequest) {
     }
 
     // If not finalizing, return a WhatsApp link for the client to open. Do not insert.
-  const waPhone = process.env.WA_PHONE ? String(process.env.WA_PHONE).replace(/^\+/, "") : "2348145538164";
-    const messageParts = [
-      `Booking request for ${date}`,
-      requestedSlots.length ? `Time(s): ${requestedSlots.join(", ")}` : null,
-      name ? `Name: ${name}` : null,
-      phone ? `Phone: ${phone}` : null,
-      pkg ? `Package: ${pkg}` : null,
-    ].filter(Boolean);
-    const waText = encodeURIComponent(messageParts.join("\n"));
+    const waPhone = process.env.WA_PHONE ? String(process.env.WA_PHONE).replace(/^\+/, "") : "2348145538164";
+
+    // Build a rich receipt-style WhatsApp message when packageInfo is provided
+    const packageInfo = (body && (body.packageInfo || {})) as any;
+    const paymentObj = (body && (body.payment || {})) as any;
+    const sellerPayment = (body && (body.sellerPayment || {})) as any;
+
+    const formatDate = (dStr: string) => {
+      try {
+        const d = new Date(dStr + "T00:00:00");
+        return d.toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      } catch (e) {
+        return dStr;
+      }
+    };
+
+    const computeEndTime = (start: string) => {
+      // start expected like "05:00 PM"
+      const m = start && start.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      if (!m) return "";
+      let hh = parseInt(m[1], 10);
+      const mm = parseInt(m[2], 10);
+      const ap = m[3].toUpperCase();
+      if (ap === "PM" && hh !== 12) hh += 12;
+      if (ap === "AM" && hh === 12) hh = 0;
+      const date = new Date();
+      date.setHours(hh, mm, 0, 0);
+      date.setHours(date.getHours() + 1);
+      return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true });
+    };
+
+    const slotStart = requestedSlots && requestedSlots.length ? requestedSlots[0] : "";
+    const slotEnd = slotStart ? computeEndTime(slotStart) : "";
+
+    const pkgCategory = packageInfo?.category || pkg || "";
+    const pkgLabel = packageInfo?.packageLabel || "";
+    const pkgOption = packageInfo?.option || (packageInfo?.looks ? `${packageInfo.looks} Looks` : "");
+    const imagesEdited = packageInfo?.imagesEdited ?? "";
+    const imagesUnedited = packageInfo?.imagesUnedited ?? 0;
+    const priceFormatted = packageInfo?.priceFormatted || "";
+
+    const lines = [] as string[];
+    lines.push("✨ NEW BOOKING REQUEST ✨");
+    lines.push("");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push("");
+    lines.push("📦 PACKAGE DETAILS");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push(`• Category: ${pkgCategory}`);
+    lines.push(`• Package: ${pkgLabel}`);
+    if (pkgOption) lines.push(`• Option: ${pkgOption}`);
+    lines.push(`• Images: ${imagesEdited} edited${imagesUnedited ? `, ${imagesUnedited} unedited` : ""}`);
+    if (priceFormatted) lines.push(`• Price: ${priceFormatted}`);
+    lines.push("");
+    lines.push("👤 CUSTOMER INFORMATION");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push(`• Name: ${name || ""}`);
+    if (email) lines.push(`• Email: ${email}`);
+    lines.push(`• Phone: ${phone || ""}`);
+    lines.push("");
+    lines.push("📅 SCHEDULE");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push(`• Date: ${formatDate(date)}`);
+    if (slotStart) lines.push(`• Time: ${slotStart}${slotEnd ? ` - ${slotEnd}` : ""}`);
+    lines.push(`• Duration: ${requestedSlots && requestedSlots.length ? `${requestedSlots.length} hour(s)` : "1 hour (1 slot)"}`);
+    lines.push("");
+    lines.push("💳 PAYMENT CONFIRMATION");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push(`• Transfer From: ${paymentObj?.accountName || "Not provided"}`);
+    lines.push(`• Customer Bank: ${paymentObj?.bankName || "Not provided"}`);
+    lines.push(`• Transaction ID: ${paymentObj?.transactionId || "Not provided"}`);
+    if (priceFormatted) lines.push(`• Amount: ${priceFormatted}`);
+    if (sellerPayment?.accountNumber) lines.push(`• Bank Account: ${sellerPayment.accountNumber} (${sellerPayment.bankName || ""})`);
+    lines.push("");
+    lines.push("📝 ADDITIONAL NOTES");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push(notes || "No additional message");
+    lines.push("");
+    lines.push("━━━━━━━━━━━━━━━━━━━━");
+    lines.push("✉ Sent from LUM Studios");
+    lines.push("www.thelumstudios.com");
+
+    const waText = encodeURIComponent(lines.join("\n"));
     const waLink = `https://wa.me/${waPhone}?text=${waText}`;
 
     if (!finalize) {
@@ -143,7 +222,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, booking: bookingRow }, { status: 201 });
     } catch (e: any) {
       console.error("Error inserting booking:", e);
-      return NextResponse.json({ success: false, error: "Failed to create booking" }, { status: 500 });
+      const msg = e && e.message ? String(e.message) : "Failed to create booking";
+      return NextResponse.json({ success: false, error: msg }, { status: 500 });
     }
   } catch (error) {
     console.error("Error in booking POST handler:", error);

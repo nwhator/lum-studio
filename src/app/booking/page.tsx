@@ -327,11 +327,29 @@ function BookingContent() {
       date: selectedDate,
       timeSlots: selectedTimeSlots,
       name: formData.name,
+      email: formData.email,
       phone: formData.phone,
       package: currentPackage?.slug || selectedPackageSlug || null,
+      // include package and seller payment info so server can format WhatsApp receipt
+      packageInfo: {
+        category: currentPackage?.name || selectedPackageSlug || null,
+        packageLabel: selectedPackageType === 'classic' ? 'Classic Package' : selectedPackageType === 'walkin' ? 'Walk-in Package' : '',
+        option: currentOption?.description || '',
+        looks: (currentOption as any)?.looks || null,
+        imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? numEditedPictures : 0),
+        imagesUnedited: currentOption?.images?.unedited || 0,
+        price: totalPrice,
+        priceFormatted: formatPrice(totalPrice),
+      },
+      sellerPayment: {
+        accountNumber: PAYMENT_INFO.accountNumber,
+        bankName: PAYMENT_INFO.bankName,
+        accountName: PAYMENT_INFO.accountName,
+      },
       finalize: false,
       // include payment info so the server can include it in the wa message (not stored yet)
       payment: paymentData,
+      notes: formData.notes,
     } as any;
 
     setLoadingSlots(true);
@@ -373,8 +391,25 @@ function BookingContent() {
         date: selectedDate,
         timeSlots: selectedTimeSlots,
         name: formData.name,
+        email: formData.email,
         phone: formData.phone,
         package: currentPackage?.slug || selectedPackageSlug || null,
+  notes: formData.notes,
+        packageInfo: {
+          category: currentPackage?.name || selectedPackageSlug || null,
+          packageLabel: selectedPackageType === 'classic' ? 'Classic Package' : selectedPackageType === 'walkin' ? 'Walk-in Package' : '',
+          option: currentOption?.description || '',
+          looks: (currentOption as any)?.looks || null,
+          imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? numEditedPictures : 0),
+          imagesUnedited: currentOption?.images?.unedited || 0,
+          price: totalPrice,
+          priceFormatted: formatPrice(totalPrice),
+        },
+        sellerPayment: {
+          accountNumber: PAYMENT_INFO.accountNumber,
+          bankName: PAYMENT_INFO.bankName,
+          accountName: PAYMENT_INFO.accountName,
+        },
         payment: paymentData,
       } as any;
 
