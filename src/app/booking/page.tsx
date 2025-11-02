@@ -25,7 +25,8 @@ function BookingContent() {
   const [selectedPackageSlug, setSelectedPackageSlug] = useState("");
   const [selectedPackageType, setSelectedPackageType] = useState<"classic" | "walkin" | "">("");
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  const [numEditedPictures, setNumEditedPictures] = useState(1); // For "per picture" pricing
+  // For "per picture" pricing we keep a string so the field can be empty while the user types
+  const [numEditedPicturesStr, setNumEditedPicturesStr] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTimeSlots, setSelectedTimeSlots] = useState<string[]>([]); // Multiple time slots
   const [bookedSlots, setBookedSlots] = useState<string[]>([]); // Booked time slots for selected date
@@ -129,9 +130,10 @@ function BookingContent() {
     fetchBookedSlots();
   }, [selectedDate]);
 
-  // Calculate total price
-  const totalPrice = currentOption 
-    ? (currentOption.type === 'single' ? currentOption.price * numEditedPictures : currentOption.price)
+  // Calculate total price. For 'single' option (per-picture) parse the user's input (may be empty while typing)
+  const parsedNumEdited = currentOption?.type === 'single' ? Math.max(0, parseInt(numEditedPicturesStr || '0', 10) || 0) : 0;
+  const totalPrice = currentOption
+    ? (currentOption.type === 'single' ? currentOption.price * parsedNumEdited : currentOption.price)
     : 0;
 
   // Time slots (1-hour intervals from 9:00 AM to 5:00 PM)
@@ -256,7 +258,7 @@ function BookingContent() {
       alert('Please select a package type (Classic or Walk-in)');
       return false;
     }
-    if (currentOption?.type === 'single' && numEditedPictures < 1) {
+    if (currentOption?.type === 'single' && parsedNumEdited < 1) {
       alert('Please enter at least 1 edited picture');
       return false;
     }
@@ -336,7 +338,7 @@ function BookingContent() {
         packageLabel: selectedPackageType === 'classic' ? 'Classic Package' : selectedPackageType === 'walkin' ? 'Walk-in Package' : '',
         option: currentOption?.description || '',
         looks: (currentOption as any)?.looks || null,
-        imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? numEditedPictures : 0),
+  imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? parsedNumEdited : 0),
         imagesUnedited: currentOption?.images?.unedited || 0,
         price: totalPrice,
         priceFormatted: formatPrice(totalPrice),
@@ -400,7 +402,7 @@ function BookingContent() {
           packageLabel: selectedPackageType === 'classic' ? 'Classic Package' : selectedPackageType === 'walkin' ? 'Walk-in Package' : '',
           option: currentOption?.description || '',
           looks: (currentOption as any)?.looks || null,
-          imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? numEditedPictures : 0),
+          imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? parsedNumEdited : 0),
           imagesUnedited: currentOption?.images?.unedited || 0,
           price: totalPrice,
           priceFormatted: formatPrice(totalPrice),
@@ -583,8 +585,9 @@ function BookingContent() {
                               className={`pricing-option ${selectedOptionIndex === idx ? 'selected' : ''}`}
                               onClick={() => {
                                 setSelectedOptionIndex(idx);
+                                // For per-picture (single) options we don't pre-fill a number — allow the user to type any value
                                 if (option.type === 'single') {
-                                  setNumEditedPictures(1);
+                                  setNumEditedPicturesStr("");
                                 }
                               }}
                             >
@@ -609,17 +612,38 @@ function BookingContent() {
 
                     {/* Number of Pictures Input (for "per picture" pricing) */}
                     {currentOption?.type === 'single' && (
-                      <div className="form-group">
+                      <div className="form-group per-picture-input">
                         <label className="form-label">Number of Edited Pictures *</label>
-                        <input
-                          type="number"
-                          className="form-control"
-                          value={numEditedPictures}
-                          onChange={(e) => setNumEditedPictures(Math.max(1, parseInt(e.target.value) || 1))}
-                          min="1"
-                          placeholder="Enter number of pictures"
-                        />
-                        <small className="form-text">Price per picture: {formatPrice(currentOption.price)} × {numEditedPictures} = {formatPrice(totalPrice)}</small>
+                        <div className="number-input-with-buttons" style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                          <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {
+                            const cur = parseInt(numEditedPicturesStr || '0', 10) || 0;
+                            const next = Math.max(0, cur - 1);
+                            setNumEditedPicturesStr(next > 0 ? String(next) : '');
+                          }}>-</button>
+                          <input
+                            inputMode="numeric"
+                            pattern="[0-9]*"
+                            type="number"
+                            className="form-control"
+                            value={numEditedPicturesStr}
+                            onChange={(e) => {
+                              // allow empty or digits only
+                              const cleaned = e.target.value.replace(/[^0-9]/g, '');
+                              setNumEditedPicturesStr(cleaned);
+                            }}
+                            min="1"
+                            placeholder="Enter number of pictures"
+                            style={{ width: 140, textAlign: 'center' }}
+                          />
+                          <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {
+                            const cur = parseInt(numEditedPicturesStr || '0', 10) || 0;
+                            const next = cur + 1;
+                            setNumEditedPicturesStr(String(next));
+                          }}>+</button>
+                        </div>
+                        <small className="form-text">
+                          Price per picture: {formatPrice(currentOption.price)} × {numEditedPicturesStr ? numEditedPicturesStr : '—'} = {formatPrice(totalPrice)}
+                        </small>
                       </div>
                     )}
 
@@ -807,14 +831,14 @@ function BookingContent() {
                           <span className="review-label">Selected Option:</span>
                           <span className="review-value">
                             {currentOption?.description}
-                            {currentOption?.type === 'single' && ` × ${numEditedPictures}`}
+                            {currentOption?.type === 'single' && ` × ${parsedNumEdited}`}
                           </span>
                         </div>
                         <div className="review-item">
                           <span className="review-label">Image Delivery:</span>
                           <span className="review-value">
                             {currentOption?.type === 'single' 
-                              ? `${numEditedPictures} edited` 
+                              ? `${parsedNumEdited} edited` 
                               : `${currentOption?.images.edited} edited${currentOption && currentOption.images.unedited > 0 ? `, ${currentOption.images.unedited} unedited` : ''}`
                             }
                           </span>

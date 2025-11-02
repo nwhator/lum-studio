@@ -49,7 +49,7 @@ export default function AboutUsArea() {
                 Capturing Authentic Moments with <span className="brand-green-text">Creativity & Precision</span>
               </h2>
               <p className="ab-about-description">
-                Founded in 2020, LUM Studio is a full-service photography and videography studio 
+                Founded in 2018, LUM Studio is a full-service photography and videography studio 
                 focused on capturing authentic moments with creativity and technical precision. 
                 Our growing team of photographers, videographers, editors, and content specialists 
                 collaborate to deliver memorable visuals for weddings, portraits, events, products, 
@@ -78,7 +78,7 @@ export default function AboutUsArea() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-6">
                   <div className="ab-stat-card">
-                    <h3 className="stat-number brand-green-text">5+</h3>
+                    <h3 className="stat-number brand-green-text">7+</h3>
                     <p className="stat-label">Years Experience</p>
                   </div>
                 </div>

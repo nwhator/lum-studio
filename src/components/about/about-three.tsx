@@ -6,7 +6,7 @@ import shape from '@/assets/img/home-03/about/ab-shape-img.webp';
 import { ArrowBg, RightArrowTwo } from "../svg";
 
 const stats = [
-  { number: "5+", label: "Years Experience" },
+  { number: "7+", label: "Years Experience" },
   { number: "4000+", label: "Happy Clients" },
   { number: "6500+", label: "Projects Completed" }
 ];
@@ -71,7 +71,7 @@ export default function AboutThree() {
           <div className="col-lg-7">
             <div className="about-content-section">
               <p className="about-text-lead mb-25">
-                Founded in 2020, LUM Studio is a creative photography and videography brand built 
+                Founded in 2018, LUM Studio is a creative photography and videography brand built 
                 on passion, precision, and artistry.
               </p>
               <p className="about-text mb-35">

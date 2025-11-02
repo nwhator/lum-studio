@@ -30,6 +30,8 @@ export default function AboutUsHero() {
           justifyContent: 'center',
           alignItems: 'center',
           position: 'relative',
+          /* ensure the hero sits below the site header; header height can be customized via --header-height */
+          paddingTop: 'var(--header-height, 80px)'
         }}
       >
         {/* Background Image for all devices */}
@@ -52,7 +54,8 @@ export default function AboutUsHero() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(0,0,0,0.35)',
+            /* 40% black overlay as requested */
+            background: 'rgba(0,0,0,0.7)',
             zIndex: 2,
             pointerEvents: 'none',
           }} />

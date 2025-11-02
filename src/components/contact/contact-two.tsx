@@ -47,9 +47,6 @@ export default function ContactTwo() {
                 <p>
                   <a href="tel:+2348145538164">+234 814 553 8164</a>
                 </p>
-                <p>
-                  <a href="tel:+2349022292514">+234 902 229 2514</a>
-                </p>
               </div>
             </div>
 
@@ -63,7 +60,7 @@ export default function ContactTwo() {
                 </div>
                 <h5>Email</h5>
                 <p>
-                  <a href="mailto:contact@thelumstudios.com">contact@thelumstudios.com</a>
+                  <a href="mailto:lummedia01@gmail.com">lummedia01@gmail.com</a>
                 </p>
               </div>
             </div>
@@ -78,7 +75,7 @@ export default function ContactTwo() {
                 </div>
                 <h5>WhatsApp</h5>
                 <p>
-                  <a href="https://wa.me/2349022292514" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/2348145538164" target="_blank" rel="noopener noreferrer">
                     Chat with us
                   </a>
                 </p>

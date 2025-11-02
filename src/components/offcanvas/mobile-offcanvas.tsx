@@ -68,10 +68,7 @@ export default function MobileOffcanvas({openOffcanvas,setOpenOffcanvas}: IProps
                   <a href="tel:+2348145538164">+234 814 553 8164</a>
                 </li>
                 <li>
-                  <a href="tel:+2349022292514">+234 902 229 2514</a>
-                </li>
-                <li>
-                  <a href="mailto:contact@thelumstudios.com">contact@thelumstudios.com</a>
+                  <a href="mailto:lummedia01@gmail.com">lummedia01@gmail.com</a>
                 </li>
                 <li>
                   <a href="https://maps.app.goo.gl/58XNcbtgwe9uyXiNA" target="_blank">Opp. Hammedal Filling Station, Ilesha-Garage, Ile-ife, Osun State</a>

@@ -11,7 +11,7 @@ registerGSAPPlugins(gsap, { ScrollTrigger, ScrollSmoother, SplitText });
 
 // internal imports
 import Wrapper from "@/layouts/wrapper";
-import HeaderTransparent from "@/layouts/headers/header-transparent";
+import HeaderOne from "@/layouts/headers/header-one";
 import AboutUsHero from "@/components/about/about-us-hero";
 import AboutUsArea from "@/components/about/about-us-area";
 import FunFactOne from "@/components/fun-fact/fun-fact-one";
@@ -39,7 +39,7 @@ const AboutUsMain = () => {
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderTransparent />
+      <HeaderOne />
       {/* header area end */}
 
       <div id="smooth-wrapper">

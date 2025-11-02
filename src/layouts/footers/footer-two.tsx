@@ -51,11 +51,12 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
             <div className="col-xl-2 col-lg-3 col-md-6 mb-50">
               <div className="tp-footer-2-widget footer-col-2-2">
                 <div className="tp-footer-2-widget-menu">
-                  <h4 className="tp-footer-2-widget-title">Sitemap</h4>
+                  <h4 className="tp-footer-2-widget-title">Site Links</h4>
                   <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/about-us">About Us</a></li>
                     <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/training">Training</a></li>
                     <li><a href="/contact">Contact</a></li>
                   </ul>
                 </div>
@@ -78,13 +79,10 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                   <span>
                     <a href="tel:+2348145538164">P: +234 814 553 8164</a>
                   </span>
-                  <span>
-                    <a href="tel:+2349022292514">P: +234 902 229 2514</a>
-                  </span>
                 </div>
                 <div className="tp-footer-2-contact-item">
                   <span>
-                    <a href="mailto:contact@thelumstudios.com">E: contact@thelumstudios.com</a>
+                    <a href="mailto:lummedia01@gmail.com">E: lummedia01@gmail.com</a>
                   </span>
                 </div>
               </div>
@@ -158,7 +156,7 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                 </a>
                 <a 
                   className="social-icon-link mb-10" 
-                  href="https://wa.me/2349022292514" 
+                  href="https://wa.me/2348145538164" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   title="Contact us on WhatsApp"
