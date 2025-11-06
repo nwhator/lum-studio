@@ -1,0 +1,25 @@
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/_next/image"
+  query = {q = ":quality", url = ":url", w = ":width"}
+  to = "/.netlify/images?url=:url&w=:width&q=:quality"
+  status = 200
+
+[[redirects]]
+  from = "/_ipx/*"
+  query = {q = ":quality", url = ":url", w = ":width"}
+  to = "/.netlify/images?url=:url&w=:width&q=:quality"
+  status = 200
+
+# Secrets scanning configuration
+[build.environment]
+  # These public variables are safe to be in the build output
+  # They are meant to be public and used in client-side code
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_STUDIO_NAME,WA_PHONE"
+  
+  # Ignore build output directories where these variables will naturally appear
+  SECRETS_SCAN_OMIT_PATHS = ".next/**,.netlify/**"

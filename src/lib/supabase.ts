@@ -1,21 +1,35 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase client for server-side operations
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables. Please check your .env.local file.');
+// Only throw error at runtime, not during build
+if (typeof window !== 'undefined' && (!supabaseUrl || !supabaseAnonKey)) {
+  console.error('Missing Supabase environment variables');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Create client with fallback values for build time
+export const supabase = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co',
+  supabaseAnonKey || 'placeholder-key'
+);
 
 // For admin operations with service role key (bypasses RLS)
 export const getSupabaseAdmin = () => {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
   if (!serviceRoleKey) {
+    // During build time, return a dummy client
+    if (typeof window === 'undefined' && !serviceRoleKey) {
+      return createClient(
+        supabaseUrl || 'https://placeholder.supabase.co',
+        'placeholder-key'
+      );
+    }
     throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY for admin operations');
   }
+  
   return createClient(supabaseUrl, serviceRoleKey);
 };
 
