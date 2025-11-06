@@ -90,7 +90,6 @@ export default function TrainingPage() {
                       <h4>1 Year Program</h4>
                       <p className="price">N150,000</p>
                       <p>Comprehensive program covering photography, editing and videography.</p>
-                      <Link href="https://wa.me/2348145538164" className="tp-btn-black-2">Enroll</Link>
                     </div>
                   </div>
                   <div className="col-md-4">
@@ -98,7 +97,6 @@ export default function TrainingPage() {
                       <h4>6 Months Program</h4>
                       <p className="price">N100,000</p>
                       <p>Intensive course focused on practical skills and portfolio work.</p>
-                      <Link href="https://wa.me/2348145538164" className="tp-btn-black-2">Enroll</Link>
                     </div>
                   </div>
                   <div className="col-md-4">
@@ -106,9 +104,11 @@ export default function TrainingPage() {
                       <h4>3 Months Program</h4>
                       <p className="price">N70,000</p>
                       <p>Fast-track fundamentals and editing essentials.</p>
-                      <Link href="https://wa.me/2348145538164" className="tp-btn-black-2">Enroll</Link>
                     </div>
                   </div>
+                </div>
+                <div className="text-center" style={{ marginTop: 32 }}>
+                  <Link href="tel:+2348145538164" className="tp-btn-black-2" aria-label="Call to find out more">Call to find out</Link>
                 </div>
               </div>
             </div>

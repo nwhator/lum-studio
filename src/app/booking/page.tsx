@@ -41,8 +41,7 @@ function BookingContent() {
   // Payment data
   const [paymentData, setPaymentData] = useState({
     accountName: "",
-    bankName: "",
-    transactionId: ""
+    bankName: ""
   });
   
   const [copySuccess, setCopySuccess] = useState(false);
@@ -455,7 +454,7 @@ function BookingContent() {
         setSelectedTimeSlots([]);
         setCurrentStep(1);
         setFormData({ name: '', email: '', phone: '', notes: '' });
-        setPaymentData({ accountName: '', bankName: '', transactionId: '' });
+        setPaymentData({ accountName: '', bankName: '' });
       } else {
         setMessage(json?.error || 'Failed to finalize booking');
       }
@@ -1005,19 +1004,6 @@ function BookingContent() {
                           placeholder="e.g., First Bank, GTBank, Access Bank"
                         />
                         <small className="form-hint">Your bank name helps us track the payment</small>
-                      </div>
-
-                      <div className="form-group">
-                        <label className="form-label">Transaction ID / Reference (Optional)</label>
-                        <input
-                          type="text"
-                          name="transactionId"
-                          className="form-control"
-                          value={paymentData.transactionId}
-                          onChange={handlePaymentInputChange}
-                          placeholder="e.g., TRX123456789"
-                        />
-                        <small className="form-hint">If available from your bank receipt</small>
                       </div>
                     </div>
 

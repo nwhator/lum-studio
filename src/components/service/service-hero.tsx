@@ -7,9 +7,9 @@ export default function ServiceHero() {
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="sv-hero-title-box text-center">
-              <h4 className="sv-hero-title" style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '50px' }}>
-                Capturing Moments, <br /> Creating Memories.
-              </h4>
+              <h1 className="sv-hero-title" style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: '700', marginTop: '50px' }}>
+                Our Services
+              </h1>
             </div>
           </div>
         </div>

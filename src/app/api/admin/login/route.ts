@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import crypto from 'crypto';
 
 /**
  * POST /api/admin/login
- * Authenticates admin user with Supabase
+ * Authenticates admin user with hardcoded credentials
  */
 export async function POST(request: NextRequest) {
   try {
@@ -11,39 +11,41 @@ export async function POST(request: NextRequest) {
 
     if (!email || !password) {
       return NextResponse.json(
-        { success: false, error: 'Email and password are required' },
+        { success: false, error: 'Username and password are required' },
         { status: 400 }
       );
     }
 
-    // Authenticate with Supabase
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    // Hardcoded admin credentials
+    const ADMIN_USERNAME = 'lumstudios';
+    const ADMIN_PASSWORD = 'Lum@Studios01';
+    const ADMIN_EMAIL = 'admin@lumstudios.com';
 
-    if (error) {
-      console.error('Login error:', error);
+    // Accept either username or email
+    const isValidUsername = email.toLowerCase() === ADMIN_USERNAME.toLowerCase();
+    const isValidEmail = email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+    const isValidPassword = password === ADMIN_PASSWORD;
+
+    if (!(isValidUsername || isValidEmail) || !isValidPassword) {
       return NextResponse.json(
         { success: false, error: 'Invalid credentials' },
         { status: 401 }
       );
     }
 
-    if (!data.user || !data.session) {
-      return NextResponse.json(
-        { success: false, error: 'Authentication failed' },
-        { status: 401 }
-      );
-    }
+    // Generate a simple session token
+    const token = crypto.randomBytes(32).toString('hex');
+    const sessionExpiry = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
 
     return NextResponse.json({
       success: true,
       user: {
-        id: data.user.id,
-        email: data.user.email,
+        id: 'admin',
+        username: ADMIN_USERNAME,
+        email: ADMIN_EMAIL,
       },
-      token: data.session.access_token,
+      token: token,
+      expiresAt: sessionExpiry,
     });
 
   } catch (error) {
