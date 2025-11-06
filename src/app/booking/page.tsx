@@ -45,8 +45,6 @@ function BookingContent() {
   });
   
   const [copySuccess, setCopySuccess] = useState(false);
-  const [waInitiated, setWaInitiated] = useState(false);
-  const [waLink, setWaLink] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
   // Initialize from URL params
@@ -356,85 +354,22 @@ function BookingContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // WhatsApp submission
-  const sendToWhatsApp = () => {
-    // Use server to initiate booking (finalize=false). The server will check for slot conflicts
-    // and return a wa.me link. Only after the user sends the WhatsApp message and confirms
-    // will we call finalize to write to the DB.
+  // Single-step booking submission
+  const submitBooking = async () => {
     if (!validateStep3()) return;
 
-    const payload = {
-      date: selectedDate,
-      timeSlots: selectedTimeSlots,
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      package: currentPackage?.slug || selectedPackageSlug || null,
-      // include package and seller payment info so server can format WhatsApp receipt
-      packageInfo: {
-        category: currentPackage?.name || selectedPackageSlug || null,
-        packageLabel: selectedPackageType === 'classic' ? 'Classic Package' : selectedPackageType === 'walkin' ? 'Walk-in Package' : '',
-        option: currentOption?.description || '',
-        looks: (currentOption as any)?.looks || null,
-  imagesEdited: currentOption?.images?.edited || (currentOption?.type === 'single' ? parsedNumEdited : 0),
-        imagesUnedited: currentOption?.images?.unedited || 0,
-        price: totalPrice,
-        priceFormatted: formatPrice(totalPrice),
-      },
-      sellerPayment: {
-        accountNumber: PAYMENT_INFO.accountNumber,
-        bankName: PAYMENT_INFO.bankName,
-        accountName: PAYMENT_INFO.accountName,
-      },
-      finalize: false,
-      // include payment info so the server can include it in the wa message (not stored yet)
-      payment: paymentData,
-      notes: formData.notes,
-    } as any;
-
-    setLoadingSlots(true);
-    fetch('/api/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-      .then((r) => r.json())
-        .then((json) => {
-          if (json?.success && json.waLink) {
-            // open WhatsApp and allow user to send message
-            window.open(json.waLink, '_blank');
-            setWaLink(json.waLink);
-            setWaInitiated(true);
-            setCopySuccess(false);
-            setMessage('WhatsApp message opened. After sending the message, click "Confirm payment & finalize booking".');
-          } else {
-            setMessage(json?.error || 'Failed to initiate booking');
-          }
-        })
-      .catch((err) => {
-        console.error('Failed to initiate booking', err);
-        setMessage('Failed to initiate booking');
-      })
-      .finally(() => setLoadingSlots(false));
-  };
-
-  // Finalize booking after user confirms they sent WhatsApp / paid
-  const confirmAndFinalize = async () => {
-    if (!selectedDate || selectedTimeSlots.length === 0) {
-      alert('Missing date or time slot');
-      return;
-    }
     setLoadingSlots(true);
     setMessage(null);
+
     try {
-      const basePayload = {
+      const payload = {
         date: selectedDate,
         timeSlots: selectedTimeSlots,
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         package: currentPackage?.slug || selectedPackageSlug || null,
-  notes: formData.notes,
+        notes: formData.notes,
         packageInfo: {
           category: currentPackage?.name || selectedPackageSlug || null,
           packageLabel: selectedPackageType === 'classic' ? 'Classic Package' : selectedPackageType === 'walkin' ? 'Walk-in Package' : '',
@@ -451,55 +386,46 @@ function BookingContent() {
           accountName: PAYMENT_INFO.accountName,
         },
         payment: paymentData,
+        finalize: true,  // Create booking immediately
+        paid: true,      // Mark as paid since user confirmed payment details
       } as any;
 
-      // Ensure WhatsApp link is opened on click. If we already have waLink (from earlier initiate), open it.
-      // Otherwise request an initiation from the server to get a waLink, open it, then continue to finalize.
-      try {
-        if (waLink) {
-          // Open existing waLink in a new tab (user click -> allowed)
-          window.open(waLink, '_blank');
-        } else {
-          const initRes = await fetch('/api/bookings', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...basePayload, finalize: false }),
-          });
-          const initJson = await initRes.json();
-          if (initJson?.success && initJson.waLink) {
-            setWaLink(initJson.waLink);
-            setWaInitiated(true);
-            window.open(initJson.waLink, '_blank');
-          }
-        }
-      } catch (openErr) {
-        // Opening WhatsApp failed - continue to finalize anyway and show a message
-        console.warn('Failed to open WhatsApp link before finalize:', openErr);
-      }
-
-      // Now finalize (write to DB). Mark paid=true since user confirmed payment.
-      const finalizePayload = { ...basePayload, finalize: true, paid: true } as any;
-      const res = await fetch('/api/bookings', {
+      const response = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(finalizePayload),
+        body: JSON.stringify(payload),
       });
-      const json = await res.json();
-      if (res.status === 201 && json.success) {
-        setMessage('Booking finalized successfully. We will contact you on WhatsApp to confirm.');
-        // update UI bookedSlots to block the selected slot immediately
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Open WhatsApp to send confirmation (non-blocking)
+        if (data.waLink) {
+          window.open(data.waLink, '_blank');
+        }
+
+        // Show success message
+        setMessage('✅ Booking confirmed! We\'ll contact you shortly on WhatsApp to finalize details.');
+        
+        // Update UI to block the selected slot immediately
         setBookedSlots((prev) => [...prev, ...selectedTimeSlots]);
-        // reset to initial state or show a success screen
-        setSelectedTimeSlots([]);
-        setCurrentStep(1);
-        setFormData({ name: '', email: '', phone: '', notes: '' });
-        setPaymentData({ accountName: '', bankName: '' });
+        
+        // Reset form after 2 seconds
+        setTimeout(() => {
+          setCurrentStep(1);
+          setSelectedTimeSlots([]);
+          setSelectedPackageSlug('');
+          setSelectedPackageType('');
+          setFormData({ name: '', email: '', phone: '', notes: '' });
+          setPaymentData({ accountName: '', bankName: '' });
+          setMessage(null);
+        }, 3000);
       } else {
-        setMessage(json?.error || 'Failed to finalize booking');
+        setMessage(data?.error || 'Failed to create booking. Please try again.');
       }
-    } catch (e) {
-      console.error(e);
-      setMessage('Failed to finalize booking');
+    } catch (error) {
+      console.error('Error creating booking:', error);
+      setMessage('Failed to create booking. Please check your connection and try again.');
     } finally {
       setLoadingSlots(false);
     }
@@ -1062,28 +988,26 @@ function BookingContent() {
                       <button type="button" className="btn-secondary" onClick={goBackToStep2}>
                         ← Back to Review
                       </button>
-                      {!waInitiated ? (
-                        <button
-                          type="button"
-                          className="btn-whatsapp"
-                          onClick={sendToWhatsApp}
-                          disabled={!paymentData.accountName.trim() || loadingSlots}
-                        >
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
-                          </svg>
-                          Send Booking to WhatsApp
-                        </button>
-                      ) : (
-                        <div>
-                          <a className="btn btn-success me-2" href={waLink || '#'} target="_blank" rel="noopener noreferrer">
-                            Open WhatsApp
-                          </a>
-                          <button type="button" className="btn-continue" onClick={confirmAndFinalize} disabled={loadingSlots}>
-                            {loadingSlots ? 'Finalizing...' : 'I have sent the message — Confirm payment & finalize'}
-                          </button>
-                        </div>
-                      )}
+                      <button
+                        type="button"
+                        className="btn-whatsapp"
+                        onClick={submitBooking}
+                        disabled={!paymentData.accountName.trim() || !paymentData.bankName.trim() || loadingSlots}
+                      >
+                        {loadingSlots ? (
+                          <>
+                            <span className="spinner"></span>
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+                            </svg>
+                            Confirm Booking & Notify via WhatsApp
+                          </>
+                        )}
+                      </button>
                     </div>
 
                     {/* Visible message area for errors/success from server */}

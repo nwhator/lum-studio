@@ -16,6 +16,11 @@ interface Booking {
   payment_confirmed: boolean;
   notes?: string;
   package_info?: any;
+  package_type?: string;
+  num_looks?: number;
+  images_edited?: number;
+  images_unedited?: number;
+  total_cost?: number;
   created_at: string;
   updated_at?: string;
 }
@@ -281,6 +286,7 @@ export default function AdminDashboardPage() {
                     <tr>
                       <th>Customer</th>
                       <th>Service</th>
+                      <th>Package Details</th>
                       <th>Date & Time</th>
                       <th>Status</th>
                       <th>Payment</th>
@@ -301,6 +307,24 @@ export default function AdminDashboardPage() {
                           </div>
                         </td>
                         <td>{booking.service}</td>
+                        <td>
+                          <div className="package-cell">
+                            {booking.package_type && <div className="package-type">{booking.package_type}</div>}
+                            {booking.num_looks && <div className="package-detail">👗 {booking.num_looks} looks</div>}
+                            {booking.images_edited !== undefined && booking.images_edited > 0 && (
+                              <div className="package-detail">✨ {booking.images_edited} edited</div>
+                            )}
+                            {booking.images_unedited !== undefined && booking.images_unedited > 0 && (
+                              <div className="package-detail">📷 {booking.images_unedited} unedited</div>
+                            )}
+                            {booking.total_cost && (
+                              <div className="package-cost">₦{booking.total_cost.toLocaleString()}</div>
+                            )}
+                            {!booking.package_type && !booking.total_cost && (
+                              <span className="text-muted">-</span>
+                            )}
+                          </div>
+                        </td>
                         <td>
                           <div className="date-cell">
                             <div className="date-value">
@@ -714,6 +738,34 @@ export default function AdminDashboardPage() {
 
           .customer-contact a:hover {
             text-decoration: underline;
+          }
+
+          .package-cell {
+            min-width: 180px;
+            font-size: 13px;
+          }
+
+          .package-type {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 4px;
+          }
+
+          .package-detail {
+            color: #666;
+            margin: 2px 0;
+            font-size: 12px;
+          }
+
+          .package-cost {
+            font-weight: 700;
+            color: #2ed573;
+            margin-top: 4px;
+            font-size: 14px;
+          }
+
+          .text-muted {
+            color: #999;
           }
 
           .date-cell {

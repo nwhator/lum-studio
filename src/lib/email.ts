@@ -39,9 +39,50 @@ export async function sendBookingNotification(booking: {
     return { success: false, error: 'Email not configured' };
   }
 
-  // Use ADMIN_EMAIL if set, otherwise fall back to SMTP_EMAIL
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL;
+  // Send to nwhator@gmail.com
+  const adminEmail = 'nwhator@gmail.com';
   const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
+
+  // Build package details section
+  let packageDetailsHtml = '';
+  if (booking.packageInfo) {
+    const pkg = booking.packageInfo;
+    packageDetailsHtml = `
+      <div class="booking-details" style="background: #f0f8ff; border-left: 4px solid #B7C435;">
+        <h3 style="margin-top: 0; color: #8FA62E;">📦 Package Details</h3>
+        ${pkg.packageLabel ? `
+        <div class="detail-row">
+          <span class="label">Package:</span>
+          <span class="value">${pkg.packageLabel}</span>
+        </div>` : ''}
+        ${pkg.option ? `
+        <div class="detail-row">
+          <span class="label">Option:</span>
+          <span class="value">${pkg.option}</span>
+        </div>` : ''}
+        ${pkg.looks ? `
+        <div class="detail-row">
+          <span class="label">Number of Looks:</span>
+          <span class="value">${pkg.looks}</span>
+        </div>` : ''}
+        ${pkg.imagesEdited ? `
+        <div class="detail-row">
+          <span class="label">Edited Images:</span>
+          <span class="value">${pkg.imagesEdited}</span>
+        </div>` : ''}
+        ${pkg.imagesUnedited ? `
+        <div class="detail-row">
+          <span class="label">Unedited Images:</span>
+          <span class="value">${pkg.imagesUnedited}</span>
+        </div>` : ''}
+        ${pkg.priceFormatted ? `
+        <div class="detail-row">
+          <span class="label">Total Cost:</span>
+          <span class="value" style="font-size: 18px; font-weight: bold; color: #B7C435;">${pkg.priceFormatted}</span>
+        </div>` : ''}
+      </div>
+    `;
+  }
 
   const htmlContent = `
     <!DOCTYPE html>
@@ -55,7 +96,7 @@ export async function sendBookingNotification(booking: {
         .booking-details { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
         .detail-row { padding: 10px 0; border-bottom: 1px solid #eee; }
         .detail-row:last-child { border-bottom: none; }
-        .label { font-weight: bold; color: #555; display: inline-block; width: 120px; }
+        .label { font-weight: bold; color: #555; display: inline-block; width: 150px; }
         .value { color: #222; }
         .footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
       </style>
@@ -69,6 +110,7 @@ export async function sendBookingNotification(booking: {
           <p>You have received a new booking request from <strong>${booking.name}</strong>.</p>
           
           <div class="booking-details">
+            <h3 style="margin-top: 0; color: #8FA62E;">👤 Customer Information</h3>
             <div class="detail-row">
               <span class="label">Name:</span>
               <span class="value">${booking.name}</span>
@@ -81,6 +123,10 @@ export async function sendBookingNotification(booking: {
               <span class="label">Phone:</span>
               <span class="value"><a href="tel:${booking.phone}">${booking.phone}</a></span>
             </div>
+          </div>
+
+          <div class="booking-details">
+            <h3 style="margin-top: 0; color: #8FA62E;">📅 Schedule</h3>
             <div class="detail-row">
               <span class="label">Service:</span>
               <span class="value">${booking.service}</span>
@@ -98,13 +144,16 @@ export async function sendBookingNotification(booking: {
               <span class="label">Time:</span>
               <span class="value">${booking.time}</span>
             </div>
-            ${booking.notes ? `
-            <div class="detail-row">
-              <span class="label">Notes:</span>
-              <span class="value">${booking.notes}</span>
-            </div>
-            ` : ''}
           </div>
+
+          ${packageDetailsHtml}
+
+          ${booking.notes ? `
+          <div class="booking-details">
+            <h3 style="margin-top: 0; color: #8FA62E;">📝 Notes</h3>
+            <p style="margin: 0;">${booking.notes}</p>
+          </div>
+          ` : ''}
 
           <p style="margin-top: 20px;">
             <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/admin/dashboard" 

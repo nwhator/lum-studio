@@ -152,6 +152,12 @@ export async function POST(request: NextRequest) {
         payment_confirmed: paymentConfirmed,
         notes: notes || null,
         package_info: packageInfo || null,
+        // Add denormalized fields for quick access in admin dashboard
+        package_type: packageInfo?.packageLabel || null,
+        num_looks: packageInfo?.looks || null,
+        images_edited: packageInfo?.imagesEdited || null,
+        images_unedited: packageInfo?.imagesUnedited || null,
+        total_cost: packageInfo?.price || null,
       })
       .select()
       .single();
