@@ -68,8 +68,7 @@ export default function Footer() {
                   </div>
                   <div className="tp-footer-2-contact-item">
                     <span>P: <a href="tel:+2348145538164">0814 553 8164</a></span>
-                    <span>P: <a href="tel:+2349022292514">0902 229 2514</a></span>
-                    <span>E: <a href="mailto:contact@thelumstudios.com">contact@thelumstudios.com</a></span>
+                    <span>E: <a href="mailto:lummedia01@gmail.com">lummedia01@gmail.com</a></span>
                   </div>
                 </div>
                 <div className="tp-footer-3-widget">
@@ -78,7 +77,7 @@ export default function Footer() {
                     <a href="https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr" target="_blank"><i className="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/lumphotographystudios/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
                     <a href="https://www.tiktok.com/@lumphotographystudios?_t=ZS-90R6iHGoSt0&_r=1" target="_blank"><i className="fa-brands fa-tiktok"></i></a>
-                    <a href="https://wa.me/2349022292514" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://wa.me/2348145538164" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
                   </div>
                 </div>
               </div>

@@ -65,7 +65,6 @@ const ContactLocation = () => {
                     </div>
                     <div className="cn-contact-right-info text-center">
                       <a href={`tel:${item.phone}`}>{item.phone}</a> <br />
-                      <a href={`tel:${item.phone2}`}>{item.phone2}</a> <br />
                       <a href={`mailto:${item.email}`}>{item.email}</a>
                     </div>
                   </div>
