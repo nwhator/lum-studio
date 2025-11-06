@@ -87,13 +87,25 @@ export default function AdminDashboardPage() {
 
   const updateBookingStatus = async (bookingId: string, status: string) => {
     try {
+      console.log('Updating booking:', bookingId, 'to status:', status);
+      
       const response = await fetch('/api/bookings/update', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: bookingId, status }),
       });
 
+      console.log('Response status:', response.status);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Response error:', errorText);
+        alert(`Failed to update booking: ${response.status} ${response.statusText}`);
+        return;
+      }
+
       const data = await response.json();
+      console.log('Response data:', data);
       
       if (data.success) {
         alert('Booking status updated successfully');
@@ -104,7 +116,7 @@ export default function AdminDashboardPage() {
       }
     } catch (error) {
       console.error('Error updating booking:', error);
-      alert(`Failed to update booking: ${error}`);
+      alert(`Failed to update booking: ${error instanceof Error ? error.message : String(error)}`);
     }
   };
 
