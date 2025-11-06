@@ -636,7 +636,30 @@
     }
   }
 
-  &:active:not(.disabled):not(.booked) {
+  &.past {
+    background: #fafafa;
+    border-color: #d0d0d0;
+    color: #999;
+    cursor: not-allowed;
+    position: relative;
+    opacity: 0.6;
+    
+    &:hover {
+      transform: none;
+      border-color: #d0d0d0;
+      background: #fafafa;
+    }
+
+    .past-indicator {
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+
+  &:active:not(.disabled):not(.booked):not(.past) {
     transform: translateY(0);
   }
 }

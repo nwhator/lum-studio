@@ -165,10 +165,49 @@ function BookingContent() {
     return timeSlots[index + 1];
   };
 
+  // Check if a time slot is in the past
+  const isSlotInPast = (slot: string): boolean => {
+    if (!selectedDate) return false;
+    
+    const today = new Date();
+    const selectedDateObj = new Date(selectedDate);
+    
+    // If selected date is not today, no slots are in the past
+    if (selectedDateObj.toDateString() !== today.toDateString()) {
+      return false;
+    }
+    
+    // Parse the time slot (e.g., "09:00 AM" or "02:00 PM")
+    const match = slot.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if (!match) return false;
+    
+    let hours = parseInt(match[1], 10);
+    const minutes = parseInt(match[2], 10);
+    const period = match[3].toUpperCase();
+    
+    // Convert to 24-hour format
+    if (period === 'PM' && hours !== 12) {
+      hours += 12;
+    } else if (period === 'AM' && hours === 12) {
+      hours = 0;
+    }
+    
+    const slotTime = new Date(selectedDateObj);
+    slotTime.setHours(hours, minutes, 0, 0);
+    
+    // Slot is in the past if it's before current time
+    return slotTime < today;
+  };
+
   // Check if a time slot can be selected (is it valid/clickable?)
   const isSlotSelectable = (slot: string): boolean => {
     // If slot is already booked, it cannot be selected
     if (bookedSlots.includes(slot)) {
+      return false;
+    }
+    
+    // If slot is in the past, it cannot be selected
+    if (isSlotInPast(slot)) {
       return false;
     }
     
@@ -720,19 +759,26 @@ function BookingContent() {
                         {timeSlots.map((slot) => {
                           const isSelected = selectedTimeSlots.includes(slot);
                           const isBooked = bookedSlots.includes(slot);
+                          const isPast = isSlotInPast(slot);
                           const isSelectable = isSlotSelectable(slot);
                           
                           return (
                             <button
                               key={slot}
                               type="button"
-                              className={`time-slot-btn ${isSelected ? 'selected' : ''} ${isBooked ? 'booked' : ''} ${!isSelectable && !isBooked ? 'disabled' : ''}`}
+                              className={`time-slot-btn ${isSelected ? 'selected' : ''} ${isBooked ? 'booked' : ''} ${isPast ? 'past' : ''} ${!isSelectable && !isBooked && !isPast ? 'disabled' : ''}`}
                               onClick={() => toggleTimeSlot(slot)}
                               disabled={!isSelectable}
-                              title={isBooked ? 'This time slot is already booked' : isSelected ? 'Click to deselect' : 'Click to select'}
+                              title={
+                                isPast ? 'This time has already passed' :
+                                isBooked ? 'This time slot is already booked' : 
+                                isSelected ? 'Click to deselect' : 
+                                'Click to select'
+                              }
                             >
                               {slot}
                               {isBooked && <span className="booked-indicator">⊗</span>}
+                              {isPast && !isBooked && <span className="past-indicator">⏱</span>}
                             </button>
                           );
                         })}

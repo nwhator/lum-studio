@@ -39,7 +39,8 @@ export async function sendBookingNotification(booking: {
     return { success: false, error: 'Email not configured' };
   }
 
-  const adminEmail = process.env.SMTP_EMAIL;
+  // Use ADMIN_EMAIL if set, otherwise fall back to SMTP_EMAIL
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL;
   const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
 
   const htmlContent = `

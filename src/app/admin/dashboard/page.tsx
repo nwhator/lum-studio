@@ -26,6 +26,17 @@ export default function AdminDashboardPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'cancelled'>('all');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showManualBooking, setShowManualBooking] = useState(false);
+  const [manualBookingData, setManualBookingData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    date: '',
+    time: '',
+    notes: '',
+    payment_confirmed: false
+  });
 
   useEffect(() => {
     // Check authentication
@@ -36,6 +47,7 @@ export default function AdminDashboardPage() {
     }
     setIsAuthenticated(true);
     fetchBookings();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   const fetchBookings = async () => {
@@ -59,6 +71,7 @@ export default function AdminDashboardPage() {
     if (isAuthenticated) {
       fetchBookings();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, isAuthenticated]);
 
   const handleLogout = () => {
@@ -107,6 +120,63 @@ export default function AdminDashboardPage() {
     }
   };
 
+  const handleManualBookingSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!manualBookingData.name || !manualBookingData.phone || !manualBookingData.service || 
+        !manualBookingData.date || !manualBookingData.time) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: manualBookingData.name,
+          email: manualBookingData.email || 'walk-in@lumstudios.com',
+          phone: manualBookingData.phone,
+          package: manualBookingData.service,
+          date: manualBookingData.date,
+          timeSlots: [manualBookingData.time],
+          notes: manualBookingData.notes || 'Manual booking by admin',
+          finalize: true,
+          paid: manualBookingData.payment_confirmed,
+          packageInfo: {
+            category: manualBookingData.service,
+            packageLabel: 'Manual Booking',
+            option: 'Admin Created',
+          }
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        alert('Booking created successfully!');
+        setShowManualBooking(false);
+        setManualBookingData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          date: '',
+          time: '',
+          notes: '',
+          payment_confirmed: false
+        });
+        fetchBookings();
+      } else {
+        alert(data.error || 'Failed to create booking');
+      }
+    } catch (error) {
+      console.error('Error creating manual booking:', error);
+      alert('Failed to create booking');
+    }
+  };
+
   const filteredBookings = bookings.filter(booking => 
     filter === 'all' ? true : booking.status === filter
   );
@@ -125,9 +195,14 @@ export default function AdminDashboardPage() {
                 <h1>📊 Admin Dashboard</h1>
                 <p>Manage bookings and appointments</p>
               </div>
-              <button onClick={handleLogout} className="logout-btn">
-                Logout
-              </button>
+              <div className="header-right">
+                <button onClick={() => setShowManualBooking(true)} className="create-booking-btn">
+                  + Create Booking
+                </button>
+                <button onClick={handleLogout} className="logout-btn">
+                  Logout
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -288,6 +363,134 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
+        {/* Manual Booking Modal */}
+        {showManualBooking && (
+          <div className="modal-overlay" onClick={() => setShowManualBooking(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <h2>Create Manual Booking</h2>
+                <button className="modal-close" onClick={() => setShowManualBooking(false)}>×</button>
+              </div>
+              
+              <form onSubmit={handleManualBookingSubmit} className="manual-booking-form">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Customer Name *</label>
+                    <input
+                      type="text"
+                      value={manualBookingData.name}
+                      onChange={(e) => setManualBookingData({...manualBookingData, name: e.target.value})}
+                      placeholder="John Doe"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label>Phone Number *</label>
+                    <input
+                      type="tel"
+                      value={manualBookingData.phone}
+                      onChange={(e) => setManualBookingData({...manualBookingData, phone: e.target.value})}
+                      placeholder="+234 XXX XXX XXXX"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>Email (Optional)</label>
+                  <input
+                    type="email"
+                    value={manualBookingData.email}
+                    onChange={(e) => setManualBookingData({...manualBookingData, email: e.target.value})}
+                    placeholder="customer@email.com"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Service Type *</label>
+                  <select
+                    value={manualBookingData.service}
+                    onChange={(e) => setManualBookingData({...manualBookingData, service: e.target.value})}
+                    required
+                  >
+                    <option value="">Select a service...</option>
+                    <option value="Portraits">Portraits</option>
+                    <option value="Headshots">Headshots</option>
+                    <option value="Events">Events</option>
+                    <option value="Products">Products</option>
+                    <option value="Weddings">Weddings</option>
+                    <option value="Studio">Studio Session</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Date *</label>
+                    <input
+                      type="date"
+                      value={manualBookingData.date}
+                      onChange={(e) => setManualBookingData({...manualBookingData, date: e.target.value})}
+                      required
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label>Time Slot *</label>
+                    <select
+                      value={manualBookingData.time}
+                      onChange={(e) => setManualBookingData({...manualBookingData, time: e.target.value})}
+                      required
+                    >
+                      <option value="">Select time...</option>
+                      <option value="09:00 AM">09:00 AM</option>
+                      <option value="10:00 AM">10:00 AM</option>
+                      <option value="11:00 AM">11:00 AM</option>
+                      <option value="12:00 PM">12:00 PM</option>
+                      <option value="01:00 PM">01:00 PM</option>
+                      <option value="02:00 PM">02:00 PM</option>
+                      <option value="03:00 PM">03:00 PM</option>
+                      <option value="04:00 PM">04:00 PM</option>
+                      <option value="05:00 PM">05:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>Notes</label>
+                  <textarea
+                    value={manualBookingData.notes}
+                    onChange={(e) => setManualBookingData({...manualBookingData, notes: e.target.value})}
+                    placeholder="Walk-in customer, phone booking, etc..."
+                    rows={3}
+                  />
+                </div>
+
+                <div className="form-group checkbox-group">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={manualBookingData.payment_confirmed}
+                      onChange={(e) => setManualBookingData({...manualBookingData, payment_confirmed: e.target.checked})}
+                    />
+                    <span>Payment Confirmed</span>
+                  </label>
+                </div>
+
+                <div className="modal-actions">
+                  <button type="button" className="btn-cancel" onClick={() => setShowManualBooking(false)}>
+                    Cancel
+                  </button>
+                  <button type="submit" className="btn-submit">
+                    Create Booking
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+
         <style jsx>{`
           .admin-dashboard-container {
             min-height: 100vh;
@@ -312,6 +515,12 @@ export default function AdminDashboardPage() {
             align-items: center;
           }
 
+          .header-right {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+          }
+
           .header-left h1 {
             font-size: 32px;
             font-weight: 700;
@@ -323,6 +532,26 @@ export default function AdminDashboardPage() {
             font-size: 16px;
             color: #666;
             margin: 0;
+          }
+
+          .create-booking-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+
+          .create-booking-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
           }
 
           .logout-btn {
@@ -588,6 +817,206 @@ export default function AdminDashboardPage() {
 
           .action-btn.restore:hover {
             background: #5568d3;
+          }
+
+          /* Manual Booking Modal */
+          .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+          }
+
+          .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          }
+
+          .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 28px;
+            border-bottom: 2px solid #f0f0f0;
+          }
+
+          .modal-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+          }
+
+          .modal-close {
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #999;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+          }
+
+          .modal-close:hover {
+            background: #f5f5f5;
+            color: #333;
+          }
+
+          .manual-booking-form {
+            padding: 28px;
+          }
+
+          .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+          }
+
+          .form-group {
+            margin-bottom: 20px;
+          }
+
+          .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+          }
+
+          .form-group input,
+          .form-group select,
+          .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+          }
+
+          .form-group input:focus,
+          .form-group select:focus,
+          .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          }
+
+          .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+          }
+
+          .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+          }
+
+          .checkbox-group input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+          }
+
+          .checkbox-group span {
+            font-weight: 500;
+            color: #333;
+          }
+
+          .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+          }
+
+          .btn-cancel {
+            padding: 12px 24px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+
+          .btn-cancel:hover {
+            background: #5a6268;
+          }
+
+          .btn-submit {
+            padding: 12px 32px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+
+          .btn-submit:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+          }
+
+          @media (max-width: 768px) {
+            .header-content {
+              flex-direction: column;
+              gap: 16px;
+              text-align: center;
+            }
+
+            .header-right {
+              width: 100%;
+              justify-content: center;
+            }
+
+            .stats-grid {
+              grid-template-columns: 1fr;
+            }
+
+            .bookings-table-container {
+              overflow-x: auto;
+            }
+
+            .bookings-table {
+              min-width: 900px;
+            }
+
+            .form-row {
+              grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+              margin: 20px;
+            }
           }
 
           @media (max-width: 768px) {
