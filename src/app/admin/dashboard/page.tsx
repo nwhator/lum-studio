@@ -99,11 +99,12 @@ export default function AdminDashboardPage() {
         alert('Booking status updated successfully');
         fetchBookings();
       } else {
-        alert('Failed to update booking');
+        console.error('Update failed:', data);
+        alert(`Failed to update booking: ${data.details || data.error || 'Unknown error'}`);
       }
     } catch (error) {
       console.error('Error updating booking:', error);
-      alert('Failed to update booking');
+      alert(`Failed to update booking: ${error}`);
     }
   };
 
@@ -141,7 +142,7 @@ export default function AdminDashboardPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: manualBookingData.name,
-          email: manualBookingData.email || 'walk-in@lumstudios.com',
+          email: manualBookingData.email || 'lummedia01@gmail.com',
           phone: manualBookingData.phone,
           package: manualBookingData.service,
           date: manualBookingData.date,

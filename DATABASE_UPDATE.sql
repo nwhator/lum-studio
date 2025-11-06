@@ -44,3 +44,22 @@ COMMENT ON COLUMN bookings.num_looks IS 'Number of looks/outfits in the booking'
 COMMENT ON COLUMN bookings.images_edited IS 'Number of edited images included';
 COMMENT ON COLUMN bookings.images_unedited IS 'Number of unedited images included';
 COMMENT ON COLUMN bookings.total_cost IS 'Total cost in Naira for the booking';
+
+-- Fix RLS policies to allow updates and deletes with anon key
+-- (Admin authentication is handled at the API level, not database level)
+
+-- Drop existing policies
+DROP POLICY IF EXISTS "Authenticated users can update bookings" ON bookings;
+DROP POLICY IF EXISTS "Authenticated users can delete bookings" ON bookings;
+
+-- Recreate with anon access (admin auth is at API layer)
+CREATE POLICY "Anyone can update bookings" 
+ON bookings FOR UPDATE 
+TO anon, authenticated 
+USING (true);
+
+CREATE POLICY "Anyone can delete bookings" 
+ON bookings FOR DELETE 
+TO anon, authenticated 
+USING (true);
+

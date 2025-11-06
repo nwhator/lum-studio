@@ -31,8 +31,14 @@ export async function PATCH(request: NextRequest) {
 
     if (error) {
       console.error('Error updating booking:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
       return NextResponse.json(
-        { success: false, error: 'Failed to update booking' },
+        { 
+          success: false, 
+          error: 'Failed to update booking', 
+          details: error.message || 'Unknown error',
+          code: error.code 
+        },
         { status: 500 }
       );
     }
