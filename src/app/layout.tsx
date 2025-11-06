@@ -151,7 +151,7 @@ export default function RootLayout({
       "https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr",
       "https://www.instagram.com/lumphotographystudios/",
       "https://www.tiktok.com/@lumphotographystudios",
-      "https://wa.me/2349022292514"
+      "https://wa.me/2348145538164"
     ]
   };
 
@@ -165,8 +165,8 @@ export default function RootLayout({
     "url": siteConfig.url,
     "logo": "https://www.thelumstudios.com/assets/img/logo/logo.webp",
     "image": siteConfig.ogImage,
-    "telephone": ["+2348145538164", "+2349022292514"],
-    "email": "contact@thelumstudios.com",
+    "telephone": ["+2348145538164"],
+    "email": "lummedia01@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Opp. Hammedal Filling Station, Ilesha-Garage",
@@ -185,7 +185,7 @@ export default function RootLayout({
       "https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr",
       "https://www.instagram.com/lumphotographystudios/",
       "https://www.tiktok.com/@lumphotographystudios",
-      "https://wa.me/2349022292514"
+      "https://wa.me/2348145538164"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

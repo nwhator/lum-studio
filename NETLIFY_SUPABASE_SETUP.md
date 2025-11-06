@@ -393,7 +393,7 @@ Value: your-email@gmail.com
 **What to enter:**
 
 - Your Gmail address
-- Example: `nwhator@gmail.com`
+- Example: `your-email@gmail.com`
 
 ---
 

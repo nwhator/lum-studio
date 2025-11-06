@@ -15,8 +15,7 @@ const location_data = [
     location_title: "LUM Studios",
     address: "Opp. Hammedal Filling Station, Ilesha-Garage, Ile-ife, Osun State",
     phone: "+2348145538164",
-    phone2: "+2349022292514",
-    email: "contact@thelumstudios.com",
+    email: "lummedia01@gmail.com",
     map_link: "https://maps.app.goo.gl/58XNcbtgwe9uyXiNA",
   },
 ];

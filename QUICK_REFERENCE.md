@@ -31,7 +31,7 @@ WA_PHONE=2348145538164 ✅
 
 ✅ **Already Configured:**
 
-- SMTP_EMAIL (<nwhator@gmail.com>)
+- SMTP_EMAIL (your-gmail@gmail.com)
 - SMTP_PASS (app password set)
 - WA_PHONE (2348145538164)
 - NEXT_PUBLIC_SITE_URL (thelumstudios.com)
