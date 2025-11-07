@@ -203,7 +203,7 @@ function CheckoutContent() {
                               </div>
                               <div className="contact-item">
                                 <span className="contact-label">✉️ Email:</span>
-                                <a href="mailto:bookings@lumstudios.com" className="contact-value">bookings@lumstudios.com</a>
+                                <a href="mailto:lummedia01@gmail.com" className="contact-value">lummedia01@gmail.com</a>
                               </div>
                             </div>
                           </div>

@@ -80,7 +80,7 @@ export async function sendBookingConfirmation(data: BookingEmailData) {
               
               <p style="margin-top: 30px;">
                 We're excited to capture your special moments! If you need to make any changes, 
-                please contact us at ${process.env.ADMIN_EMAIL || 'admin@thelumstudios.com'}.
+                please contact us at ${process.env.ADMIN_EMAIL || 'lummedia01@gmail.com'}.
               </p>
             </div>
             <div class="footer">

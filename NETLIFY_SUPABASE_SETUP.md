@@ -145,7 +145,7 @@ USING (true);
 2. Click **"Users"** tab
 3. Click **"Add user"** → **"Create new user"**
 4. Fill in:
-   - **Email**: Your admin email (e.g., `admin@thelumstudios.com`)
+   - **Email**: Your admin email (e.g., `lummedia01@gmail.com`)
    - **Password**: Create a strong password
    - **Auto Confirm User**: ✅ Check this box
 5. Click **"Create user"**

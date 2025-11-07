@@ -4,7 +4,7 @@
 
 ### 1. **Email Notifications Now Show Full Details**
 
-The email sent to **nwhator@gmail.com** now includes:
+The email sent to **lummedia01@gmail.com** now includes:
 - ✨ **Package Information**
   - Package type (Classic/Walk-in)
   - Option details
@@ -38,9 +38,9 @@ These columns are automatically populated when a booking is created.
 
 ### 4. **Email Now Sends to Your Original Address**
 
-Changed email recipient back to: **nwhator@gmail.com**
+Changed email recipient back to: **lummedia01@gmail.com**
 - Removed dependency on `ADMIN_EMAIL` environment variable
-- Emails now always go to nwhator@gmail.com
+- Emails now always go to lummedia01@gmail.com
 
 ---
 
@@ -105,7 +105,7 @@ Commit and push your changes:
 
 ```bash
 git add .
-git commit -m "feat: add full booking details to emails and admin dashboard, update email to nwhator@gmail.com"
+git commit -m "feat: add full booking details to emails and admin dashboard, update email to lummedia01@gmail.com"
 git push
 ```
 
@@ -175,7 +175,7 @@ The admin dashboard table now shows:
 
 After deploying:
 - [ ] Create a test booking with package details
-- [ ] Verify email arrives at nwhator@gmail.com with all details
+- [ ] Verify email arrives at lummedia01@gmail.com with all details
 - [ ] Check admin dashboard shows package details column
 - [ ] Confirm total cost displays correctly with ₦ symbol
 - [ ] Verify existing bookings updated (if any existed before)

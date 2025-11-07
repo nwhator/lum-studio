@@ -39,8 +39,8 @@ export async function sendBookingNotification(booking: {
     return { success: false, error: 'Email not configured' };
   }
 
-  // Send to nwhator@gmail.com
-  const adminEmail = 'nwhator@gmail.com';
+  // Send to lummedia01@gmail.com
+  const adminEmail = 'lummedia01@gmail.com';
   const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
 
   // Build package details section
