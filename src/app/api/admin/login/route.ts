@@ -16,10 +16,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Hardcoded admin credentials
-    const ADMIN_USERNAME = 'lumstudios';
-    const ADMIN_PASSWORD = 'Lum@Studios01';
-    const ADMIN_EMAIL = 'admin@lumstudios.com';
+    // Read admin credentials from environment variables (must be set in production)
+    const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+
+    if (!ADMIN_USERNAME || !ADMIN_PASSWORD || !ADMIN_EMAIL) {
+      console.error('Admin credentials are not configured in environment variables.');
+      return NextResponse.json(
+        { success: false, error: 'Admin authentication is not configured' },
+        { status: 500 }
+      );
+    }
 
     // Accept either username or email
     const isValidUsername = email.toLowerCase() === ADMIN_USERNAME.toLowerCase();
