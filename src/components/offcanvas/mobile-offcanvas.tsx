@@ -94,7 +94,7 @@ export default function MobileOffcanvas({openOffcanvas,setOpenOffcanvas}: IProps
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/2349022292514" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <a href="https://wa.me/2348145538164" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                     <WhatsApp />
                   </a>
                 </li>
