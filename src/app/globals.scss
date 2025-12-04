@@ -54,7 +54,6 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"] {
   pointer-events: none !important;
-  opacity: 0.05; /* optional: to show disabled look */
   cursor: not-allowed;
 }
 
