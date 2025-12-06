@@ -48,15 +48,6 @@ html {
   font-display: swap;
 }
 
-button,
-a,
-input[type="submit"],
-input[type="button"],
-input[type="reset"] {
-  pointer-events: none !important;
-  cursor: not-allowed;
-}
-
 /* Mobile Safety - Disable heavy animations to prevent crashes on fast scrolling */
 .is-mobile-device {
   // Disable parallax effects
