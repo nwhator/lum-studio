@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import HeaderMenus from "./header-menus";
 import useSticky from "@/hooks/use-sticky";
 import MobileOffcanvas from "@/components/offcanvas/mobile-offcanvas";
@@ -9,6 +10,7 @@ import MobileOffcanvas from "@/components/offcanvas/mobile-offcanvas";
 const HeaderOne = () => {
   const { sticky, headerRef, headerFullWidth } = useSticky();
   const [openOffCanvas, setOpenOffCanvas] = React.useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     headerFullWidth();
@@ -52,6 +54,18 @@ const HeaderOne = () => {
               </div>
               <div className="col-xl-2 col-lg col-6">
                 <div className="tp-header-bar text-end">
+                  <button
+                    className="tp-theme-toggle-btn"
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                    title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                  >
+                    {theme === "dark" ? (
+                      <i className="fa-light fa-sun"></i>
+                    ) : (
+                      <i className="fa-light fa-moon"></i>
+                    )}
+                  </button>
                   <button
                     className="tp-offcanvas-open-btn d-xl-none"
                     onClick={() => setOpenOffCanvas(true)}
@@ -110,6 +124,40 @@ const HeaderOne = () => {
           display: flex !important;
           align-items: center !important;
           justify-content: flex-end !important;
+          gap: 14px !important;
+        }
+
+        .tp-theme-toggle-btn {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 40px !important;
+          height: 40px !important;
+          border-radius: 50% !important;
+          border: 1px solid rgba(0,0,0,0.12) !important;
+          background: transparent !important;
+          color: #1a1a1a !important;
+          font-size: 18px !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          flex-shrink: 0 !important;
+        }
+
+        .tp-theme-toggle-btn:hover {
+          background: #B7C435 !important;
+          border-color: #B7C435 !important;
+          color: #fff !important;
+        }
+
+        html[data-theme='dark'] .tp-theme-toggle-btn {
+          color: #f0f0f0 !important;
+          border-color: rgba(255,255,255,0.25) !important;
+        }
+
+        html[data-theme='dark'] .tp-theme-toggle-btn:hover {
+          background: #B7C435 !important;
+          border-color: #B7C435 !important;
+          color: #fff !important;
         }
       `}</style>
       {/* off canvas */}

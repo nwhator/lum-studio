@@ -6,6 +6,7 @@ import Script from "next/script";
 import { Syne, Marcellus } from "next/font/google";
 import localFont from "next/font/local";
 import { ToastProvider } from "@/components/ui/toast";
+import LumThemeProvider from "@/components/theme-provider";
 // import GlobalErrorHandler from "@/components/global-error-handler";
 import PageLoader from "@/components/loaders/page-loader";
 // import ChunkLoadErrorHandler from "@/components/chunk-load-error-handler";
@@ -250,9 +251,11 @@ export default function RootLayout({
         {/* <ChunkLoadErrorHandler /> */}
         <PageLoader />
         {/* <GlobalErrorHandler /> */}
-        <ToastProvider>
-          {children}
-        </ToastProvider>
+        <LumThemeProvider>
+          <ToastProvider>
+            {children}
+          </ToastProvider>
+        </LumThemeProvider>
       {/* Organization Schema for Google Logo */}
       <Script
         id="organization-schema"

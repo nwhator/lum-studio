@@ -120,6 +120,17 @@ export default function FooterTwo({ whiteFooter = false,topCls='footer-top' }: I
                 <p>
                   All rights reserved — {new Date().getFullYear()} © LUM Studios
                 </p>
+                <p className="tp-copyright-credit">
+                  Designed and Developed by{" "}
+                  <a
+                    href="https://wa.me/2347048812719"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GoBrand.Now on WhatsApp"
+                  >
+                    GoBrand.Now
+                  </a>
+                </p>
               </div>
             </div>
             <div className="col-xl-8 col-lg-7">
