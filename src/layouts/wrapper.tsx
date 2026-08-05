@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import BackToTop from "@/components/back-to-top";
-import ThemeSetting from "@/components/theme-setting";
+// PageLoader removed - Already in layout.tsx (root level)
+// ThemeSetting removed to disable theme toggle
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap.bundle.min");
 }
@@ -16,7 +17,7 @@ const Wrapper = ({ children, showBackToTop=true }: WrapperProps) => {
     <React.Fragment>
       {children}
       {showBackToTop && <BackToTop />}
-      <ThemeSetting />
+      {/* <ThemeSetting /> - Theme toggle removed */}
     </React.Fragment>
   );
 };
