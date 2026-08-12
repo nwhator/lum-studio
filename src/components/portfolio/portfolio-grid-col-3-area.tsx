@@ -134,25 +134,9 @@ const portfolio_data = [
   // Maternity Portraits (cat6)
   {
     id: 16,
-    img: "/assets/img/inner-project/portfolio-col-2/port-16.webp",
-    category: "Maternity Portrait",
-    title: "Motherhood Journey",
-    year: "2024",
-    show: "cat6",
-  },
-  {
-    id: 17,
     img: "/assets/img/inner-project/portfolio-col-2/port-17.webp",
     category: "Maternity Portrait",
     title: "Expecting Joy",
-    year: "2024",
-    show: "cat6",
-  },
-  {
-    id: 18,
-    img: "/assets/img/inner-project/portfolio-col-2/port-18.webp",
-    category: "Maternity Portrait",
-    title: "New Life",
     year: "2024",
     show: "cat6",
   },
