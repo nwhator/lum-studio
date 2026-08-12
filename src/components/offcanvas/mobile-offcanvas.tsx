@@ -8,10 +8,9 @@ import logo from "@/assets/img/logo/logo.webp";
 import gallery_1 from "@/assets/img/home-03/gallery/gal-1.webp";
 import gallery_2 from "@/assets/img/home-03/gallery/gal-2.webp";
 import gallery_3 from "@/assets/img/home-03/gallery/gal-3.webp";
-import gallery_4 from "@/assets/img/home-03/gallery/gal-4.webp";
 import MobileMenus from "./mobile-menus";
 
-const gallery_images = [gallery_1, gallery_2, gallery_3, gallery_4];
+const gallery_images = [gallery_1, gallery_2, gallery_3];
 
 // prop type
 type IProps = {
