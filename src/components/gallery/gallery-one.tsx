@@ -9,12 +9,11 @@ import shape_d_2 from '@/assets/img/backup-original/home-03/gallery/gal-shape-da
 import g_1 from '@/assets/img/backup-original/home-03/gallery/gal-1.jpg';
 import g_2 from '@/assets/img/backup-original/home-03/gallery/gal-2.jpg';
 import g_3 from '@/assets/img/backup-original/home-03/gallery/gal-3.jpg';
-import g_4 from '@/assets/img/backup-original/home-03/gallery/gal-4.jpg';
 import g_5 from '@/assets/img/backup-original/home-03/gallery/gal-5.jpg';
 
 
 const gallery_images = [
-  g_1, g_2, g_3, g_4, g_5, g_3, g_1, g_2, g_3, g_4, g_5, g_3
+  g_1, g_2, g_3, g_5, g_3, g_1, g_2, g_3, g_5, g_3
 ]
 
 const imgStyle:CSSProperties = {height: "auto"};
@@ -35,7 +34,7 @@ export default function GalleryOne() {
 
   // Show only first image repeated on mobile for animation, all images on desktop/tablet
   const imagesToShow = isMobile ? 
-    [g_1, g_2, g_3, g_4, g_5, g_1, g_2, g_3, g_4, g_5] : // Show all images cycling on mobile too
+    [g_1, g_2, g_3, g_5, g_1, g_2, g_3, g_5] : // Show all images cycling on mobile too
     gallery_images;
 
   return (

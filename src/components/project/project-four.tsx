@@ -60,7 +60,7 @@ const project_data = [
   },
   {
     id: 6,
-    img_classic: "/assets/img/inner-project/portfolio-col-2/port-16.webp",
+    img_classic: "/assets/img/inner-project/portfolio-col-2/port-17.webp",
     img_walkin: "/assets/img/inner-project/portfolio-col-2/port-17.webp",
     meta: "Maternity Photography", 
     title: "Maternity Portraits",
