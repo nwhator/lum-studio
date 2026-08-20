@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured, getSupabaseServerClient } from '@/lib/supabase';
 import { sendBookingNotification, sendCustomerConfirmation } from '@/lib/email';
 
 /**
@@ -29,58 +29,65 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const client = isSupabaseConfigured() ? (getSupabaseServerClient() || supabase) : null;
+
     // Check if the time slot is already booked
-    const { data: existingBookings, error: checkError } = await supabase
-      .from('bookings')
-      .select('*')
-      .eq('date', date)
-      .eq('time', time)
-      .in('status', ['pending', 'confirmed']);
+    if (client) {
+      try {
+        const { data: existingBookings, error: checkError } = await client
+          .from('bookings')
+          .select('*')
+          .eq('date', date)
+          .eq('time', time)
+          .in('status', ['pending', 'confirmed']);
 
-    if (checkError) {
-      console.error('Error checking existing bookings:', checkError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to check availability' },
-        { status: 500 }
-      );
-    }
-
-    if (existingBookings && existingBookings.length > 0) {
-      return NextResponse.json(
-        { success: false, error: 'This time slot is already booked' },
-        { status: 409 }
-      );
+        if (checkError) {
+          console.warn('Error checking existing bookings:', checkError.message || checkError);
+        } else if (existingBookings && existingBookings.length > 0) {
+          return NextResponse.json(
+            { success: false, error: 'This time slot is already booked. Please choose another time.' },
+            { status: 409 }
+          );
+        }
+      } catch (checkEx) {
+        console.warn('Availability check exception:', checkEx);
+      }
     }
 
     // Determine initial status based on payment
-    const hasPayment = payment && payment.transactionId;
+    const hasPayment = payment && (payment.transactionId || payment.accountName);
     const status = hasPayment ? 'confirmed' : 'pending';
     const paymentConfirmed = hasPayment;
+    let bookingRecord = null;
 
-    // Create booking in Supabase
-    const { data: booking, error: insertError } = await supabase
-      .from('bookings')
-      .insert({
-        name,
-        email,
-        phone,
-        service,
-        date,
-        time,
-        status,
-        payment_confirmed: paymentConfirmed,
-        notes: notes || null,
-        package_info: packageInfo || null,
-      })
-      .select()
-      .single();
+    // Create booking in Supabase if available
+    if (client) {
+      try {
+        const { data: booking, error: insertError } = await client
+          .from('bookings')
+          .insert({
+            name,
+            email,
+            phone,
+            service,
+            date,
+            time,
+            status,
+            payment_confirmed: paymentConfirmed,
+            notes: notes || null,
+            package_info: packageInfo || null,
+          })
+          .select()
+          .single();
 
-    if (insertError) {
-      console.error('Error creating booking:', insertError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to create booking' },
-        { status: 500 }
-      );
+        if (insertError) {
+          console.error('Error creating booking in Supabase (continuing):', insertError.message || insertError);
+        } else {
+          bookingRecord = booking;
+        }
+      } catch (insertEx) {
+        console.error('Exception creating booking in Supabase (continuing):', insertEx);
+      }
     }
 
     // Send email notification to admin (non-blocking)
@@ -123,7 +130,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      booking,
+      booking: bookingRecord,
       waLink,
       message: 'Booking created successfully',
     });

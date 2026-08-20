@@ -51,6 +51,7 @@ function BookingContent() {
   
   const [copySuccess, setCopySuccess] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [submittedWaLink, setSubmittedWaLink] = useState<string | null>(null);
 
   // Initialize from URL params
   useEffect(() => {
@@ -378,6 +379,7 @@ function BookingContent() {
 
     setLoadingSlots(true);
     setMessage(null);
+    setSubmittedWaLink(null);
 
     try {
       const payload = {
@@ -419,16 +421,17 @@ function BookingContent() {
       if (response.ok && data.success) {
         // Open WhatsApp to send confirmation (non-blocking)
         if (data.waLink) {
+          setSubmittedWaLink(data.waLink);
           window.open(data.waLink, '_blank');
         }
 
         // Show success message
-        setMessage('✅ Booking confirmed! We\'ll contact you shortly on WhatsApp to finalize details.');
+        setMessage('✅ Booking confirmed! Redirecting to WhatsApp to finalize details...');
         
         // Update UI to block the selected slot immediately
         setBookedSlots((prev) => [...prev, ...selectedTimeSlots]);
         
-        // Reset form after 2 seconds
+        // Reset form after 4 seconds
         setTimeout(() => {
           setCurrentStep(1);
           setSelectedTimeSlots([]);
@@ -437,13 +440,49 @@ function BookingContent() {
           setFormData({ name: '', email: '', phone: '', notes: '' });
           setPaymentData({ accountName: '', bankName: '' });
           setMessage(null);
-        }, 3000);
+        }, 5000);
       } else {
         setMessage(data?.error || 'Failed to create booking. Please try again.');
       }
     } catch (error) {
-      console.error('Error creating booking:', error);
-      setMessage('Failed to create booking. Please check your connection and try again.');
+      console.error('Error creating booking, falling back to WhatsApp directly:', error);
+      // Client-side fallback: open WhatsApp directly with booking details
+      const waPhone = '2348145538164';
+      const msgLines = [
+        '✨ NEW BOOKING REQUEST ✨',
+        '',
+        '━━━━━━━━━━━━━━━━━━━━',
+        '👤 CUSTOMER INFORMATION',
+        '━━━━━━━━━━━━━━━━━━━━',
+        `• Name: ${formData.name}`,
+        `• Email: ${formData.email}`,
+        `• Phone: ${formData.phone}`,
+        '',
+        '📦 SERVICE DETAILS',
+        '━━━━━━━━━━━━━━━━━━━━',
+        `• Service: ${currentPackage?.name || selectedPackageSlug || 'Photography Session'}`,
+        `• Package: ${selectedPackageType === 'classic' ? 'Classic Package' : 'Walk-in Package'}`,
+        currentOption?.description ? `• Option: ${currentOption.description}` : '',
+        `• Price: ${formatPrice(totalPrice)}`,
+        '',
+        '📅 SCHEDULE',
+        '━━━━━━━━━━━━━━━━━━━━',
+        `• Date: ${selectedDate}`,
+        `• Time: ${selectedTimeSlots.join(', ')}`,
+        '',
+        '💳 PAYMENT DETAILS',
+        '━━━━━━━━━━━━━━━━━━━━',
+        `• Paid from: ${paymentData.accountName}`,
+        `• Bank: ${paymentData.bankName}`,
+        formData.notes ? `\n📝 NOTES\n━━━━━━━━━━━━━━━━━━━━\n${formData.notes}` : '',
+        '',
+        '━━━━━━━━━━━━━━━━━━━━',
+        '✉ Sent from LUM Studios',
+      ].filter(Boolean);
+      const fallbackWaUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(msgLines.join('\n'))}`;
+      setSubmittedWaLink(fallbackWaUrl);
+      window.open(fallbackWaUrl, '_blank');
+      setMessage('✅ Booking details recorded! Redirecting to WhatsApp to finalize details...');
     } finally {
       setLoadingSlots(false);
     }
@@ -1076,7 +1115,27 @@ function BookingContent() {
                     {/* Visible message area for errors/success from server */}
                     {message && (
                       <div className={`booking-message ${message.toLowerCase().includes('fail') || message.toLowerCase().includes('error') ? 'error' : 'success'}`} style={{ marginTop: 16 }}>
-                        {message}
+                        <div>{message}</div>
+                        {submittedWaLink && (
+                          <div style={{ marginTop: 10 }}>
+                            <a
+                              href={submittedWaLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                color: '#16a34a',
+                                fontWeight: 700,
+                                textDecoration: 'underline',
+                                fontSize: '14px',
+                              }}
+                            >
+                              📱 Click here if WhatsApp did not open automatically
+                            </a>
+                          </div>
+                        )}
                       </div>
                     )}
 

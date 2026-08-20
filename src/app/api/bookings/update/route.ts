@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured, getSupabaseServerClient } from '@/lib/supabase';
 
 /**
  * PATCH /api/bookings/update
@@ -17,12 +17,20 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
+    if (!isSupabaseConfigured()) {
+      return NextResponse.json(
+        { success: false, error: 'Database is not configured' },
+        { status: 500 }
+      );
+    }
+
     const updates: any = {};
     if (status) updates.status = status;
     if (typeof payment_confirmed === 'boolean') updates.payment_confirmed = payment_confirmed;
     updates.updated_at = new Date().toISOString();
 
-    const { data, error } = await supabase
+    const client = getSupabaseServerClient() || supabase;
+    const { data, error } = await client
       .from('bookings')
       .update(updates)
       .eq('id', id)
