@@ -175,38 +175,7 @@ export default function EnhancedBookingForm({}: EnhancedBookingFormProps) {
     window.open(url, "_blank");
   };
 
-  const handleCopy = async (text: string, field: string) => {
-    const success = await copyToClipboard(text);
-    if (success) {
-      setCopiedField(field);
-      setTimeout(() => setCopiedField(""), 2000);
-    }
-  };
 
-  return (
-    <div className="enhanced-booking-container">
-      {/* Progress Indicator */}
-      <div className="booking-progress">
-        <div className={`progress-step ${step === "eventType" ? "active" : step !== "eventType" && step !== "booking" ? "completed" : ""}`}>
-          <div className="step-number">1</div>
-          <div className="step-label">Event Type</div>
-        </div>
-        <div className="progress-line" />
-        <div className={`progress-step ${step === "booking" ? "active" : step === "checkout" || step === "payment" ? "completed" : ""}`}>
-          <div className="step-number">2</div>
-          <div className="step-label">Details</div>
-        </div>
-        <div className="progress-line" />
-        <div className={`progress-step ${step === "checkout" ? "active" : step === "payment" ? "completed" : ""}`}>
-          <div className="step-number">3</div>
-          <div className="step-label">Review &amp; Checkout</div>
-        </div>
-        <div className="progress-line" />
-        <div className={`progress-step ${step === "payment" ? "active" : ""}`}>
-          <div className="step-number">4</div>
-          <div className="step-label">Payment</div>
-        </div>
-      </div>
 
       {/* STEP 1 – Event Type */}
       {step === "eventType" && (
