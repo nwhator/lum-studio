@@ -90,7 +90,7 @@ export default function EnhancedBookingForm({}: EnhancedBookingFormProps) {
       // default to first package if none selected yet
       const pkg = EVENT_TYPES.find((e) => e.id === "wedding")?.packages?.[0];
       if (pkg) {
-        setSelectedPackage(pkg as any);
+        setSelectedPackage(pkg as Package);
         setFormData((prev) => ({ ...prev, packageId: pkg.id }));
         setTotalPrice(pkg.price);
         setDeposit(Math.round(pkg.price * 0.7));
@@ -175,7 +175,46 @@ export default function EnhancedBookingForm({}: EnhancedBookingFormProps) {
     window.open(url, "_blank");
   };
 
+  const handleCopy = async (text: string, field: string) => {
+    const success = await copyToClipboard(text);
+    if (success) {
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(""), 2000);
+    }
+  };
 
+  // Step order helper for progress indicator
+  const STEP_ORDER = { eventType: 0, booking: 1, checkout: 2, payment: 3 } as const;
+  const getStepClass = (stepName: keyof typeof STEP_ORDER) => {
+    if (step === stepName) return "active";
+    if (STEP_ORDER[step] > STEP_ORDER[stepName]) return "completed";
+    return "";
+  };
+
+  return (
+    <div className="enhanced-booking-container">
+      {/* Progress Bar */}
+      <div className="booking-progress">
+        <div className={`progress-step ${getStepClass("eventType")}`}>
+          <div className="step-number">1</div>
+          <div className="step-label">Event Type</div>
+        </div>
+        <div className="progress-line" />
+        <div className={`progress-step ${getStepClass("booking")}`}>
+          <div className="step-number">2</div>
+          <div className="step-label">Details</div>
+        </div>
+        <div className="progress-line" />
+        <div className={`progress-step ${getStepClass("checkout")}`}>
+          <div className="step-number">3</div>
+          <div className="step-label">Review</div>
+        </div>
+        <div className="progress-line" />
+        <div className={`progress-step ${getStepClass("payment")}`}>
+          <div className="step-number">4</div>
+          <div className="step-label">Payment</div>
+        </div>
+      </div>
 
       {/* STEP 1 – Event Type */}
       {step === "eventType" && (
