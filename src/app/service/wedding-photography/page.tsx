@@ -109,7 +109,7 @@ const WeddingPhotographyPage = () => {
                       </div>
 
                       <div className="text-center mt-60">
-                        <Link href="/booking" className="service-cta-btn" style={{
+                        <Link href="/booking?type=event&event=wedding" className="service-cta-btn" style={{
                           background: '#B7C435',
                           color: 'white',
                           padding: '18px 50px',

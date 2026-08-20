@@ -5,6 +5,7 @@ import Wrapper from "@/layouts/wrapper";
 import HeaderOne from "@/layouts/headers/header-one";
 import FooterTwo from "@/layouts/footers/footer-two";
 import { PACKAGE_DATA, formatPrice, getPackageBySlug } from "@/data/package-pricing";
+import EnhancedBookingForm from "@/components/booking/enhanced-booking-form";
 import "./booking.scss";
 
 // Payment information
@@ -18,6 +19,10 @@ function BookingContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
+  // Booking Mode: Studio Sessions vs Events & Weddings
+  const [bookingMode, setBookingMode] = useState<"studio" | "event">("studio");
+  const [initialEventType, setInitialEventType] = useState<string>("");
+
   // Step management
   const [currentStep, setCurrentStep] = useState(1);
   
@@ -52,18 +57,31 @@ function BookingContent() {
     const packageParam = searchParams?.get('package');
     const typeParam = searchParams?.get('type');
     const looksParam = searchParams?.get('looks');
-    
-    if (packageParam) {
-      setSelectedPackageSlug(packageParam);
-    }
-    if (typeParam === 'classic' || typeParam === 'walkin') {
-      setSelectedPackageType(typeParam);
-    }
-    if (looksParam) {
-      const looksNum = parseInt(looksParam, 10);
-      if (!Number.isNaN(looksNum)) {
-        // We'll set selectedOptionIndex after we know options (in another effect)
-        // Temporarily store in state via URLSearchParams by keeping it here; selection happens below
+    const eventParam = searchParams?.get('event');
+    const categoryParam = searchParams?.get('category');
+    const modeParam = searchParams?.get('mode') || searchParams?.get('bookingType');
+
+    // Automatically select Events & Weddings if linked with event/wedding queries
+    if (
+      modeParam === 'event' ||
+      typeParam === 'event' ||
+      eventParam ||
+      categoryParam?.toLowerCase().includes('wedding') ||
+      packageParam?.toLowerCase().includes('wedding') ||
+      packageParam?.toLowerCase().includes('event')
+    ) {
+      setBookingMode('event');
+      if (eventParam) {
+        setInitialEventType(eventParam);
+      } else if (categoryParam?.toLowerCase().includes('wedding') || packageParam?.toLowerCase().includes('wedding')) {
+        setInitialEventType('wedding');
+      }
+    } else {
+      if (packageParam) {
+        setSelectedPackageSlug(packageParam);
+      }
+      if (typeParam === 'classic' || typeParam === 'walkin') {
+        setSelectedPackageType(typeParam);
       }
     }
   }, [searchParams]);
@@ -442,36 +460,81 @@ function BookingContent() {
             <div className="row justify-content-center">
               <div className="col-xl-8">
                 <div className="booking-hero-content text-center">
-                  <h1 className="booking-title">Book Your Photography Session</h1>
+                  <h1 className="booking-title">Book Your Session with Lum Studios</h1>
                   <p className="booking-subtitle">
-                    Complete your booking in 3 simple steps
+                    Choose between a Studio Photoshoot or full Event &amp; Wedding coverage
                   </p>
-                  
-                  {/* Progress Indicator */}
-                  <div className="booking-progress">
-                    <div className={`progress-step ${currentStep >= 1 ? 'active' : ''} ${currentStep > 1 ? 'completed' : ''}`}>
-                      <div className="step-circle">1</div>
-                      <span className="step-label">Details</span>
-                    </div>
-                    <div className={`progress-line ${currentStep > 1 ? 'active' : ''}`}></div>
-                    <div className={`progress-step ${currentStep >= 2 ? 'active' : ''} ${currentStep > 2 ? 'completed' : ''}`}>
-                      <div className="step-circle">2</div>
-                      <span className="step-label">Review</span>
-                    </div>
-                    <div className={`progress-line ${currentStep > 2 ? 'active' : ''}`}></div>
-                    <div className={`progress-step ${currentStep >= 3 ? 'active' : ''}`}>
-                      <div className="step-circle">3</div>
-                      <span className="step-label">Payment</span>
-                    </div>
+
+                  {/* Mode Switcher */}
+                  <div className="booking-mode-tabs">
+                    <button
+                      type="button"
+                      className={`mode-tab-btn ${bookingMode === 'studio' ? 'active' : ''}`}
+                      onClick={() => setBookingMode('studio')}
+                    >
+                      <span className="tab-icon">📸</span>
+                      <div className="tab-text">
+                        <span className="tab-title">Studio Photoshoots</span>
+                        <span className="tab-sub">Individual, Maternity, Baby, Couple &amp; Family</span>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      className={`mode-tab-btn ${bookingMode === 'event' ? 'active' : ''}`}
+                      onClick={() => setBookingMode('event')}
+                    >
+                      <span className="tab-icon">💍</span>
+                      <div className="tab-text">
+                        <span className="tab-title">Events &amp; Weddings</span>
+                        <span className="tab-sub">Weddings, Inaugurations, Convocations &amp; Ceremonies</span>
+                      </div>
+                    </button>
                   </div>
+                  
+                  {/* Progress Indicator for Studio Sessions */}
+                  {bookingMode === 'studio' && (
+                    <div className="booking-progress">
+                      <div className={`progress-step ${currentStep >= 1 ? 'active' : ''} ${currentStep > 1 ? 'completed' : ''}`}>
+                        <div className="step-circle">1</div>
+                        <span className="step-label">Details</span>
+                      </div>
+                      <div className={`progress-line ${currentStep > 1 ? 'active' : ''}`}></div>
+                      <div className={`progress-step ${currentStep >= 2 ? 'active' : ''} ${currentStep > 2 ? 'completed' : ''}`}>
+                        <div className="step-circle">2</div>
+                        <span className="step-label">Review</span>
+                      </div>
+                      <div className={`progress-line ${currentStep > 2 ? 'active' : ''}`}></div>
+                      <div className={`progress-step ${currentStep >= 3 ? 'active' : ''}`}>
+                        <div className="step-circle">3</div>
+                        <span className="step-label">Payment</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Step 1: Booking Details */}
-        {currentStep === 1 && (
+        {/* Event Booking Flow */}
+        {bookingMode === 'event' && (
+          <section className="booking-step pb-120">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-xl-10">
+                  <EnhancedBookingForm
+                    initialEventType={initialEventType}
+                    onSwitchToStudio={() => setBookingMode('studio')}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Studio Booking Flow */}
+        {bookingMode === 'studio' && currentStep === 1 && (
           <section className="booking-step pb-120">
             <div className="container">
               <div className="row justify-content-center">
@@ -777,7 +840,7 @@ function BookingContent() {
         )}
 
         {/* Step 2: Review & Confirm */}
-        {currentStep === 2 && (
+        {bookingMode === 'studio' && currentStep === 2 && (
           <section className="booking-step pb-120">
             <div className="container">
               <div className="row justify-content-center">
@@ -898,7 +961,7 @@ function BookingContent() {
         )}
 
         {/* Step 3: Payment Details */}
-        {currentStep === 3 && (
+        {bookingMode === 'studio' && currentStep === 3 && (
           <section className="booking-step pb-120">
             <div className="container">
               <div className="row justify-content-center">
