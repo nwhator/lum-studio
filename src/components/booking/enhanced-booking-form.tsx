@@ -9,6 +9,7 @@ import {
   type PackageType,
   type PricingOption,
 } from "@/data/package-pricing";
+import { type Package } from "@/data/event-pricing";
 import { EVENT_TYPES } from "@/data/event-pricing";
 import { EventTypeSelector } from "./EventTypeSelector";
 
@@ -65,7 +66,7 @@ export default function EnhancedBookingForm({}: EnhancedBookingFormProps) {
     transactionId: "",
   });
 
-  const [selectedPackage, setSelectedPackage] = useState<PackageType | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [deposit, setDeposit] = useState<number>(0);
   const [copiedField, setCopiedField] = useState<string>("");
@@ -271,7 +272,7 @@ export default function EnhancedBookingForm({}: EnhancedBookingFormProps) {
                 value={formData.packageId}
                 onChange={(e) => {
                   const pkg = EVENT_TYPES.find((e) => e.id === "wedding")?.packages?.find((p) => p.id === e.target.value);
-                  setSelectedPackage(pkg as any);
+                  setSelectedPackage(pkg as Package);
                   setFormData((prev) => ({ ...prev, packageId: e.target.value }));
                 }}
                 required
