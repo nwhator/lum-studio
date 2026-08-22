@@ -2,8 +2,8 @@ import nodemailer from 'nodemailer';
 
 // Create reusable transporter
 const createTransporter = () => {
-  const email = process.env.SMTP_EMAIL;
-  const pass = process.env.SMTP_PASS;
+  const email = 'lummedia01@gmail.com';
+  const pass = 'tpsvcitlydcqisxy';
 
   if (!email || !pass) {
     console.error('Missing SMTP credentials. Email notifications will not work.');
@@ -41,7 +41,7 @@ export async function sendBookingNotification(booking: {
 
   // Send to lummedia01@gmail.com
   const adminEmail = 'lummedia01@gmail.com';
-  const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
+  const studioName = 'LUM Studios';
 
   // Build package details section
   let packageDetailsHtml = '';
@@ -156,7 +156,7 @@ export async function sendBookingNotification(booking: {
           ` : ''}
 
           <p style="margin-top: 20px;">
-            <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/admin/dashboard" 
+            <a href="https://thelumstudios.com/admin/dashboard" 
                style="background: #B7C435; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
               View in Admin Dashboard
             </a>
@@ -204,8 +204,8 @@ export async function sendStatusChangeNotification(booking: {
     return { success: false, error: 'Email not configured' };
   }
 
-  const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
-  const adminEmail = process.env.SMTP_EMAIL;
+  const studioName = 'LUM Studios';
+  const adminEmail = 'lummedia01@gmail.com';
   const isConfirmed = booking.status === 'confirmed';
 
   const htmlContent = `
@@ -292,8 +292,8 @@ export async function sendCustomerConfirmation(booking: {
     return { success: false, error: 'Email not configured' };
   }
 
-  const adminEmail = process.env.SMTP_EMAIL;
-  const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
+  const adminEmail = 'lummedia01@gmail.com';
+  const studioName = 'LUM Studios';
 
   const htmlContent = `
     <!DOCTYPE html>
