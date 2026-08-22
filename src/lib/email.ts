@@ -187,6 +187,96 @@ export async function sendBookingNotification(booking: {
 }
 
 /**
+ * Send email notification when booking status changes (confirmed or cancelled)
+ */
+export async function sendStatusChangeNotification(booking: {
+  name: string;
+  email: string;
+  service: string;
+  date: string;
+  time: string;
+  status: 'confirmed' | 'cancelled';
+}) {
+  const transporter = createTransporter();
+
+  if (!transporter) {
+    console.warn('Email transporter not configured. Skipping status change notification.');
+    return { success: false, error: 'Email not configured' };
+  }
+
+  const studioName = process.env.NEXT_PUBLIC_STUDIO_NAME || 'LUM Studios';
+  const adminEmail = process.env.SMTP_EMAIL;
+  const isConfirmed = booking.status === 'confirmed';
+
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, ${isConfirmed ? '#B7C435, #8FA62E' : '#d9534f, #c9302c'}); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+        .booking-summary { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>${isConfirmed ? '🎉 Booking Confirmed!' : '❌ Booking Cancelled'}</h1>
+        </div>
+        <div class="content">
+          <p>Hi <strong>${booking.name}</strong>,</p>
+          <p>${isConfirmed
+            ? `Great news! Your booking with ${studioName} has been confirmed.`
+            : `We regret to inform you that your booking with ${studioName} has been cancelled.`
+          }</p>
+
+          <div class="booking-summary">
+            <h3>Booking Details</h3>
+            <p><strong>Service:</strong> ${booking.service}</p>
+            <p><strong>Date:</strong> ${new Date(booking.date).toLocaleDateString('en-US', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}</p>
+            <p><strong>Time:</strong> ${booking.time}</p>
+          </div>
+
+          ${isConfirmed
+            ? `<p>We look forward to seeing you! If you have any questions, feel free to reach out.</p>`
+            : `<p>If you have any questions or would like to rebook, please don't hesitate to contact us.</p>`
+          }
+        </div>
+        <div class="footer">
+          <p>${studioName}</p>
+          <p>Email: ${adminEmail}</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: `"${studioName}" <${adminEmail}>`,
+      to: booking.email,
+      subject: isConfirmed
+        ? `Booking Confirmed - ${studioName}`
+        : `Booking Cancelled - ${studioName}`,
+      html: htmlContent,
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error sending status change email:', error);
+    return { success: false, error: String(error) };
+  }
+}
+
+/**
  * Send booking confirmation email to customer
  */
 export async function sendCustomerConfirmation(booking: {

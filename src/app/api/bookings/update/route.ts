@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase, isSupabaseConfigured, getSupabaseServerClient } from '@/lib/supabase';
+import { sendStatusChangeNotification } from '@/lib/email';
 
 /**
  * PATCH /api/bookings/update
  * Updates booking status or payment confirmation
+ * Sends email notification when status changes to confirmed or cancelled
  */
 export async function PATCH(request: NextRequest) {
   try {
@@ -24,12 +26,28 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
+    const client = getSupabaseServerClient() || supabase;
+
+    // Fetch current booking data before update (to get email for notification)
+    const { data: currentBooking, error: fetchError } = await client
+      .from('bookings')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (fetchError || !currentBooking) {
+      console.error('Error fetching booking:', fetchError);
+      return NextResponse.json(
+        { success: false, error: 'Booking not found' },
+        { status: 404 }
+      );
+    }
+
     const updates: any = {};
     if (status) updates.status = status;
     if (typeof payment_confirmed === 'boolean') updates.payment_confirmed = payment_confirmed;
     updates.updated_at = new Date().toISOString();
 
-    const client = getSupabaseServerClient() || supabase;
     const { data, error } = await client
       .from('bookings')
       .update(updates)
@@ -49,6 +67,22 @@ export async function PATCH(request: NextRequest) {
         },
         { status: 500 }
       );
+    }
+
+    // Send email notification when status changes to confirmed or cancelled
+    if (status && (status === 'confirmed' || status === 'cancelled') && currentBooking.email) {
+      const dateStr = currentBooking.date || data.date;
+      const timeStr = currentBooking.time || data.time;
+      const serviceStr = currentBooking.service || data.service || 'Photography Session';
+
+      sendStatusChangeNotification({
+        name: currentBooking.name || 'Valued Customer',
+        email: currentBooking.email,
+        service: serviceStr,
+        date: dateStr,
+        time: timeStr,
+        status: status as 'confirmed' | 'cancelled',
+      }).catch((err) => console.error('Status change email failed:', err));
     }
 
     return NextResponse.json({

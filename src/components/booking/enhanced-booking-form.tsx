@@ -231,7 +231,7 @@ export default function EnhancedBookingForm({
     setFeedbackMessage("Processing your booking...");
 
     const message = generateWhatsAppMessage();
-    const whatsappNumber = "2348065407503";
+    const whatsappNumber = process.env.NEXT_PUBLIC_WA_PHONE || "2348145538164";
     const waUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
     try {
