@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import keywords from "@/data/seo-keywords.json";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -21,7 +21,7 @@ const gellery = localFont({
   preload: true,
 });
 
-// Consolidated Syne font (was imported 5 times!)
+// Consolidated Syne font
 const syne = Syne({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
@@ -43,8 +43,8 @@ const marcellus = Marcellus({
 // Site Configuration
 const siteConfig = {
   name: "LUM Studios",
-  title: "LUM Studios - Professional Photography & Videography",
-  description: "Founded in 2020, LUM Studio is a creative photography and videography brand in Ile-Ife, Nigeria. We specialize in weddings, portraits, maternity, baby shoots, convocation, call to bar, and special events. Capturing moments, creating stories.",
+  title: "LUM Studios - Professional Photography & Videography in Nigeria",
+  description: "Founded in 2020, LUM Studios is a premier creative photography and videography studio in Ile-Ife, Nigeria. We specialize in luxury weddings, maternity, baby shoots, professional portraits, convocation, call to bar, and special events. Capturing moments, creating timeless stories.",
   url: "https://www.thelumstudios.com",
   ogImage: "https://www.thelumstudios.com/assets/img/logo/logo-bg.webp",
   keywords: Array.from(new Set([
@@ -61,6 +61,13 @@ const siteConfig = {
   ]))
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#B7C435",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -72,6 +79,9 @@ export const metadata: Metadata = {
   authors: [{ name: "LUM Studios", url: siteConfig.url }],
   creator: "LUM Studios",
   publisher: "LUM Studios",
+  alternates: {
+    canonical: siteConfig.url,
+  },
   
   // Open Graph
   openGraph: {
@@ -113,11 +123,6 @@ export const metadata: Metadata = {
     },
   },
   
-  // Verification
-  verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
-  },
-  
   // Icons
   icons: {
     icon: "/icon.png",
@@ -125,7 +130,15 @@ export const metadata: Metadata = {
   },
   
   // Manifest
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
+
+  // Localized Geotargeting for Search Engines
+  other: {
+    "geo.region": "NG-OS",
+    "geo.placename": "Ile-Ife",
+    "geo.position": "7.4905;4.5521",
+    "ICBM": "7.4905, 4.5521",
+  },
 };
 
 export default function RootLayout({
@@ -133,7 +146,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Schema for Organization (for Google logo)
+  // JSON-LD Schema for Organization
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -155,7 +168,20 @@ export default function RootLayout({
     ]
   };
 
-  // JSON-LD Schema for Local Business
+  // JSON-LD Schema for WebSite
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LUM Studios",
+    "url": siteConfig.url,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.thelumstudios.com/gallery?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  // JSON-LD Schema for Local Professional Service
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -165,7 +191,7 @@ export default function RootLayout({
     "url": siteConfig.url,
     "logo": "https://www.thelumstudios.com/assets/img/logo/logo.webp",
     "image": siteConfig.ogImage,
-    "telephone": ["+2348145538164"],
+    "telephone": ["+2348065407503", "+2348145538164"],
     "email": "lummedia01@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -181,6 +207,13 @@ export default function RootLayout({
     },
     "priceRange": "₦₦-₦₦₦",
     "openingHours": "Mo-Sa 09:00-18:00",
+    "areaServed": [
+      { "@type": "State", "name": "Osun State" },
+      { "@type": "City", "name": "Ile-Ife" },
+      { "@type": "City", "name": "Lagos" },
+      { "@type": "City", "name": "Ibadan" },
+      { "@type": "Country", "name": "Nigeria" }
+    ],
     "sameAs": [
       "https://www.facebook.com/share/1VahucgBSv/?mibextid=wwXIfr",
       "https://www.instagram.com/lumphotographystudios/",
@@ -189,14 +222,14 @@ export default function RootLayout({
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Photography Services",
+      "name": "Photography & Videography Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Wedding Photography",
-            "description": "Professional wedding photography and videography services"
+            "name": "Wedding Photography & Videography",
+            "description": "Luxury full-day wedding photography, pre-wedding shoots, photobooks, and drone coverage."
           }
         },
         {
@@ -204,31 +237,39 @@ export default function RootLayout({
           "itemOffered": {
             "@type": "Service",
             "name": "Maternity Photography",
-            "description": "Beautiful maternity and pregnancy photography"
+            "description": "Artistic, elegant maternity and pregnancy photoshoot sessions in studio or outdoors."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Baby Photography",
-            "description": "Newborn and baby photography sessions"
+            "name": "Baby & Newborn Photography",
+            "description": "Delicate and creative newborn, 6-month, and 1st birthday milestone baby shoots."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Portrait Photography",
-            "description": "Professional portrait and family photography"
+            "name": "Professional Portraits & Headshots",
+            "description": "Executive corporate headshots, fashion portraits, birthday shoots, and creative studio portraits."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Event Photography",
-            "description": "Convocation, call to bar, and event photography"
+            "name": "Convocation & Call to Bar Photography",
+            "description": "Commemorative graduation and Call to Bar studio and outdoor photography sessions."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Event Photography & Cinematography",
+            "description": "Corporate events, inaugurations, naming ceremonies, anniversaries, and concerts."
           }
         }
       ]
@@ -240,7 +281,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
       </head>
       <body
         id="body"
@@ -259,6 +299,13 @@ export default function RootLayout({
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      {/* WebSite Schema for Search Box */}
+      <Script
+        id="website-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       {/* Local Business Schema */}
       <Script
