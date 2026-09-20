@@ -1,26 +1,83 @@
 import nodemailer from 'nodemailer';
 
-// Create reusable transporter
-const createTransporter = () => {
-  const email = 'lummedia01@gmail.com';
-  const pass = 'tpsvcitlydcqisxy';
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+const RESEND_API_URL = 'https://api.resend.com/emails';
 
-  if (!email || !pass) {
-    console.error('Missing SMTP credentials. Email notifications will not work.');
-    return null;
-  }
+const STUDIO_NAME = 'LUM Studios';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'lummedia01@gmail.com';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || process.env.EMAIL_FROM || `LUM Studios <bookings@thelumstudios.com>`;
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.thelumstudios.com';
+const LOGO_URL = `${SITE_URL}/assets/img/logo/logo.webp`;
 
+// Transporter for SMTP fallback (e.g. Gmail SMTP)
+const createSmtpTransporter = () => {
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) return null;
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT || '587', 10),
+    secure: process.env.SMTP_SECURE === 'true' || process.env.SMTP_PORT === '465',
     auth: {
-      user: email,
-      pass: pass, // Use App Password for Gmail
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
     },
   });
 };
 
+async function sendEmail(to: string, subject: string, html: string) {
+  // 1. Try SMTP first if SMTP credentials are provided in environment
+  const smtpTransporter = createSmtpTransporter();
+  if (smtpTransporter) {
+    try {
+      const info = await smtpTransporter.sendMail({
+        from: process.env.SMTP_FROM || `"${STUDIO_NAME}" <${process.env.SMTP_USER}>`,
+        to,
+        subject,
+        html,
+      });
+      console.log('Email sent via SMTP successfully:', info.messageId);
+      return { success: true, id: info.messageId };
+    } catch (smtpError) {
+      console.error('SMTP send failed, falling back to Resend API:', smtpError);
+    }
+  }
+
+  // 2. Try Resend API
+  try {
+    const res = await fetch(RESEND_API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: FROM_EMAIL,
+        to: [to],
+        subject,
+        html,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error('Resend API error:', data);
+      return {
+        success: false,
+        error: data.message || 'Email send failed',
+        details: data,
+      };
+    }
+
+    console.log('Email sent via Resend successfully:', data.id);
+    return { success: true, id: data.id };
+  } catch (error) {
+    console.error('Email send error:', error);
+    return { success: false, error: String(error) };
+  }
+}
+
 /**
- * Send booking confirmation email to admin
+ * Send booking notification email to admin
  */
 export async function sendBookingNotification(booking: {
   name: string;
@@ -32,138 +89,69 @@ export async function sendBookingNotification(booking: {
   notes?: string;
   packageInfo?: any;
 }) {
-  const transporter = createTransporter();
-  
-  if (!transporter) {
-    console.warn('Email transporter not configured. Skipping email notification.');
-    return { success: false, error: 'Email not configured' };
-  }
-
-  // Send to lummedia01@gmail.com
-  const adminEmail = 'lummedia01@gmail.com';
-  const studioName = 'LUM Studios';
-
-  // Build package details section
   let packageDetailsHtml = '';
   if (booking.packageInfo) {
     const pkg = booking.packageInfo;
     packageDetailsHtml = `
-      <div class="booking-details" style="background: #f0f8ff; border-left: 4px solid #B7C435;">
+      <div style="background: #f0f8ff; border-left: 4px solid #B7C435; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h3 style="margin-top: 0; color: #8FA62E;">📦 Package Details</h3>
-        ${pkg.packageLabel ? `
-        <div class="detail-row">
-          <span class="label">Package:</span>
-          <span class="value">${pkg.packageLabel}</span>
-        </div>` : ''}
-        ${pkg.option ? `
-        <div class="detail-row">
-          <span class="label">Option:</span>
-          <span class="value">${pkg.option}</span>
-        </div>` : ''}
-        ${pkg.looks ? `
-        <div class="detail-row">
-          <span class="label">Number of Looks:</span>
-          <span class="value">${pkg.looks}</span>
-        </div>` : ''}
-        ${pkg.imagesEdited ? `
-        <div class="detail-row">
-          <span class="label">Edited Images:</span>
-          <span class="value">${pkg.imagesEdited}</span>
-        </div>` : ''}
-        ${pkg.imagesUnedited ? `
-        <div class="detail-row">
-          <span class="label">Unedited Images:</span>
-          <span class="value">${pkg.imagesUnedited}</span>
-        </div>` : ''}
-        ${pkg.priceFormatted ? `
-        <div class="detail-row">
-          <span class="label">Total Cost:</span>
-          <span class="value" style="font-size: 18px; font-weight: bold; color: #B7C435;">${pkg.priceFormatted}</span>
-        </div>` : ''}
+        ${pkg.packageLabel ? `<p style="margin: 8px 0;"><strong>Package:</strong> ${pkg.packageLabel}</p>` : ''}
+        ${pkg.option ? `<p style="margin: 8px 0;"><strong>Option:</strong> ${pkg.option}</p>` : ''}
+        ${pkg.looks ? `<p style="margin: 8px 0;"><strong>Number of Looks:</strong> ${pkg.looks}</p>` : ''}
+        ${pkg.imagesEdited ? `<p style="margin: 8px 0;"><strong>Edited Images:</strong> ${pkg.imagesEdited}</p>` : ''}
+        ${pkg.imagesUnedited ? `<p style="margin: 8px 0;"><strong>Unedited Images:</strong> ${pkg.imagesUnedited}</p>` : ''}
+        ${pkg.priceFormatted ? `<p style="margin: 8px 0; font-size: 18px; font-weight: bold; color: #B7C435;"><strong>Total Cost:</strong> ${pkg.priceFormatted}</p>` : ''}
       </div>
     `;
   }
 
-  const htmlContent = `
+  const dateStr = new Date(booking.date).toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  });
+
+  const html = `
     <!DOCTYPE html>
     <html>
-    <head>
-      <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #B7C435, #8FA62E); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
-        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
-        .booking-details { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .detail-row { padding: 10px 0; border-bottom: 1px solid #eee; }
-        .detail-row:last-child { border-bottom: none; }
-        .label { font-weight: bold; color: #555; display: inline-block; width: 150px; }
-        .value { color: #222; }
-        .footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <h1>✨ New Booking Request</h1>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
+      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #B7C435, #8FA62E); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+          <h1 style="margin: 0;">✨ New Booking Request</h1>
         </div>
-        <div class="content">
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px;">
           <p>You have received a new booking request from <strong>${booking.name}</strong>.</p>
           
-          <div class="booking-details">
+          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0; color: #8FA62E;">👤 Customer Information</h3>
-            <div class="detail-row">
-              <span class="label">Name:</span>
-              <span class="value">${booking.name}</span>
-            </div>
-            <div class="detail-row">
-              <span class="label">Email:</span>
-              <span class="value"><a href="mailto:${booking.email}">${booking.email}</a></span>
-            </div>
-            <div class="detail-row">
-              <span class="label">Phone:</span>
-              <span class="value"><a href="tel:${booking.phone}">${booking.phone}</a></span>
-            </div>
+            <p><strong>Name:</strong> ${booking.name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${booking.email}">${booking.email}</a></p>
+            <p><strong>Phone:</strong> <a href="tel:${booking.phone}">${booking.phone}</a></p>
           </div>
 
-          <div class="booking-details">
+          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0; color: #8FA62E;">📅 Schedule</h3>
-            <div class="detail-row">
-              <span class="label">Service:</span>
-              <span class="value">${booking.service}</span>
-            </div>
-            <div class="detail-row">
-              <span class="label">Date:</span>
-              <span class="value">${new Date(booking.date).toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}</span>
-            </div>
-            <div class="detail-row">
-              <span class="label">Time:</span>
-              <span class="value">${booking.time}</span>
-            </div>
+            <p><strong>Service:</strong> ${booking.service}</p>
+            <p><strong>Date:</strong> ${dateStr}</p>
+            <p><strong>Time:</strong> ${booking.time}</p>
           </div>
 
           ${packageDetailsHtml}
 
           ${booking.notes ? `
-          <div class="booking-details">
+          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0; color: #8FA62E;">📝 Notes</h3>
             <p style="margin: 0;">${booking.notes}</p>
-          </div>
-          ` : ''}
+          </div>` : ''}
 
           <p style="margin-top: 20px;">
-            <a href="https://thelumstudios.com/admin/dashboard" 
+            <a href="${SITE_URL}/admin/dashboard" 
                style="background: #B7C435; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
               View in Admin Dashboard
             </a>
           </p>
         </div>
-        <div class="footer">
-          <p>${studioName} Booking System</p>
+        <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
+          <img src="${LOGO_URL}" alt="${STUDIO_NAME}" style="width: 80px; height: auto; margin-bottom: 10px;" />
+          <p>${STUDIO_NAME} Booking System</p>
           <p>This is an automated notification. Please do not reply to this email.</p>
         </div>
       </div>
@@ -171,19 +159,7 @@ export async function sendBookingNotification(booking: {
     </html>
   `;
 
-  try {
-    await transporter.sendMail({
-      from: `"${studioName}" <${adminEmail}>`,
-      to: adminEmail,
-      subject: `New Booking Request from ${booking.name}`,
-      html: htmlContent,
-    });
-
-    return { success: true };
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return { success: false, error: String(error) };
-  }
+  return sendEmail(ADMIN_EMAIL, `New Booking Request from ${booking.name}`, html);
 }
 
 /**
@@ -197,51 +173,31 @@ export async function sendStatusChangeNotification(booking: {
   time: string;
   status: 'confirmed' | 'cancelled';
 }) {
-  const transporter = createTransporter();
-
-  if (!transporter) {
-    console.warn('Email transporter not configured. Skipping status change notification.');
-    return { success: false, error: 'Email not configured' };
-  }
-
-  const studioName = 'LUM Studios';
-  const adminEmail = 'lummedia01@gmail.com';
   const isConfirmed = booking.status === 'confirmed';
 
-  const htmlContent = `
+  const dateStr = new Date(booking.date).toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  });
+
+  const html = `
     <!DOCTYPE html>
     <html>
-    <head>
-      <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, ${isConfirmed ? '#B7C435, #8FA62E' : '#d9534f, #c9302c'}); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
-        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
-        .booking-summary { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <h1>${isConfirmed ? '🎉 Booking Confirmed!' : '❌ Booking Cancelled'}</h1>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
+      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, ${isConfirmed ? '#B7C435, #8FA62E' : '#d9534f, #c9302c'}); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+          <h1 style="margin: 0;">${isConfirmed ? '🎉 Booking Confirmed!' : '❌ Booking Cancelled'}</h1>
         </div>
-        <div class="content">
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px;">
           <p>Hi <strong>${booking.name}</strong>,</p>
           <p>${isConfirmed
-            ? `Great news! Your booking with ${studioName} has been confirmed.`
-            : `We regret to inform you that your booking with ${studioName} has been cancelled.`
+            ? `Great news! Your booking with ${STUDIO_NAME} has been confirmed.`
+            : `We regret to inform you that your booking with ${STUDIO_NAME} has been cancelled.`
           }</p>
 
-          <div class="booking-summary">
-            <h3>Booking Details</h3>
+          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin-top: 0;">Booking Details</h3>
             <p><strong>Service:</strong> ${booking.service}</p>
-            <p><strong>Date:</strong> ${new Date(booking.date).toLocaleDateString('en-US', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}</p>
+            <p><strong>Date:</strong> ${dateStr}</p>
             <p><strong>Time:</strong> ${booking.time}</p>
           </div>
 
@@ -250,30 +206,21 @@ export async function sendStatusChangeNotification(booking: {
             : `<p>If you have any questions or would like to rebook, please don't hesitate to contact us.</p>`
           }
         </div>
-        <div class="footer">
-          <p>${studioName}</p>
-          <p>Email: ${adminEmail}</p>
+        <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
+          <img src="${LOGO_URL}" alt="${STUDIO_NAME}" style="width: 80px; height: auto; margin-bottom: 10px;" />
+          <p>${STUDIO_NAME}</p>
+          <p>Email: ${ADMIN_EMAIL}</p>
         </div>
       </div>
     </body>
     </html>
   `;
 
-  try {
-    await transporter.sendMail({
-      from: `"${studioName}" <${adminEmail}>`,
-      to: booking.email,
-      subject: isConfirmed
-        ? `Booking Confirmed - ${studioName}`
-        : `Booking Cancelled - ${studioName}`,
-      html: htmlContent,
-    });
-
-    return { success: true };
-  } catch (error) {
-    console.error('Error sending status change email:', error);
-    return { success: false, error: String(error) };
-  }
+  return sendEmail(booking.email, isConfirmed
+    ? `Booking Confirmed - ${STUDIO_NAME}`
+    : `Booking Cancelled - ${STUDIO_NAME}`,
+    html
+  );
 }
 
 /**
@@ -286,71 +233,40 @@ export async function sendCustomerConfirmation(booking: {
   date: string;
   time: string;
 }) {
-  const transporter = createTransporter();
-  
-  if (!transporter) {
-    return { success: false, error: 'Email not configured' };
-  }
+  const dateStr = new Date(booking.date).toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  });
 
-  const adminEmail = 'lummedia01@gmail.com';
-  const studioName = 'LUM Studios';
-
-  const htmlContent = `
+  const html = `
     <!DOCTYPE html>
     <html>
-    <head>
-      <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #B7C435, #8FA62E); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
-        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
-        .booking-summary { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <h1>🎉 Booking Confirmed!</h1>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
+      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #B7C435, #8FA62E); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+          <h1 style="margin: 0;">🎉 Booking Confirmed!</h1>
         </div>
-        <div class="content">
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px;">
           <p>Hi <strong>${booking.name}</strong>,</p>
-          <p>Thank you for booking with ${studioName}! Your booking request has been received.</p>
+          <p>Thank you for booking with ${STUDIO_NAME}! Your booking request has been received.</p>
           
-          <div class="booking-summary">
-            <h3>Booking Details</h3>
+          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin-top: 0;">Booking Details</h3>
             <p><strong>Service:</strong> ${booking.service}</p>
-            <p><strong>Date:</strong> ${new Date(booking.date).toLocaleDateString('en-US', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}</p>
+            <p><strong>Date:</strong> ${dateStr}</p>
             <p><strong>Time:</strong> ${booking.time}</p>
           </div>
 
           <p>We'll review your booking and confirm shortly. If you have any questions, feel free to reach out!</p>
         </div>
-        <div class="footer">
-          <p>${studioName}</p>
-          <p>Email: ${adminEmail}</p>
+        <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
+          <img src="${LOGO_URL}" alt="${STUDIO_NAME}" style="width: 80px; height: auto; margin-bottom: 10px;" />
+          <p>${STUDIO_NAME}</p>
+          <p>Email: ${ADMIN_EMAIL}</p>
         </div>
       </div>
     </body>
     </html>
   `;
 
-  try {
-    await transporter.sendMail({
-      from: `"${studioName}" <${adminEmail}>`,
-      to: booking.email,
-      subject: `Booking Confirmation - ${studioName}`,
-      html: htmlContent,
-    });
-
-    return { success: true };
-  } catch (error) {
-    console.error('Error sending customer email:', error);
-    return { success: false, error: String(error) };
-  }
+  return sendEmail(booking.email, `Booking Confirmation - ${STUDIO_NAME}`, html);
 }

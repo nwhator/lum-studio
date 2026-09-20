@@ -90,27 +90,37 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Send email notification to admin (non-blocking)
-    sendBookingNotification({
-      name,
-      email,
-      phone,
-      service,
-      date,
-      time,
-      notes,
-      packageInfo,
-    }).catch(err => console.error('Email notification failed:', err));
-
-    // Send confirmation email to customer (non-blocking)
-    if (status === 'confirmed') {
-      sendCustomerConfirmation({
+    // Send email notification to admin (blocking so errors surface)
+    try {
+      const adminEmailResult = await sendBookingNotification({
         name,
         email,
+        phone,
         service,
         date,
         time,
-      }).catch(err => console.error('Customer email failed:', err));
+        notes,
+        packageInfo,
+      });
+      console.log('Admin email result:', adminEmailResult);
+    } catch (err) {
+      console.error('Admin email notification failed:', err);
+    }
+
+    // Send confirmation email to customer (blocking so errors surface)
+    if (status === 'confirmed') {
+      try {
+        const customerEmailResult = await sendCustomerConfirmation({
+          name,
+          email,
+          service,
+          date,
+          time,
+        });
+        console.log('Customer email result:', customerEmailResult);
+      } catch (err) {
+        console.error('Customer email failed:', err);
+      }
     }
 
     // Generate WhatsApp link
