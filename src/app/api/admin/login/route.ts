@@ -16,14 +16,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Hardcoded admin credentials
-    const ADMIN_USERNAME = 'lumstudios';
-    const ADMIN_PASSWORD = 'lumstudios123';
-    const ADMIN_EMAIL = 'admin@lumstudios.com';
+    // Admin credentials
+    const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'lumstudios';
+    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'lumstudios123';
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'lummedia01@gmail.com';
 
-    // Accept either username or email
-    const isValidUsername = email.toLowerCase() === ADMIN_USERNAME.toLowerCase();
-    const isValidEmail = email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+    // Accept username or email (lummedia01@gmail.com or admin@lumstudios.com)
+    const inputLower = email.toLowerCase().trim();
+    const isValidUsername = inputLower === ADMIN_USERNAME.toLowerCase();
+    const isValidEmail = inputLower === ADMIN_EMAIL.toLowerCase() || inputLower === 'admin@lumstudios.com';
     const isValidPassword = password === ADMIN_PASSWORD;
 
     if (!(isValidUsername || isValidEmail) || !isValidPassword) {
